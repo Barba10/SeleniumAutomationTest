@@ -3,13 +3,13 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="hr.ogcs.qa.testcases.EAG_TSF_D007">
+      <class name="hr.ogcs.qa.testcases.EAG_TSF_C015">
         <methods>
-          <include name="VaultGeneralInformations"/>
           <include name="setUp"/>
           <include name="tearDown"/>
+          <include name="VaultGeneralInformations"/>
         </methods>
-      </class> <!-- hr.ogcs.qa.testcases.EAG_TSF_D007 -->
+      </class> <!-- hr.ogcs.qa.testcases.EAG_TSF_C015 -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

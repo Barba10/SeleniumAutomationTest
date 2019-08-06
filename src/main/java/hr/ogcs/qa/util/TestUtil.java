@@ -1,12 +1,17 @@
 package hr.ogcs.qa.util;
 
 
+import static org.testng.Assert.assertEquals;
+
 import java.io.File;
 import java.io.IOException;
+import java.util.Random;
+
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebElement;
 
 import hr.ogcs.qa.base.TestBase;
 
@@ -16,6 +21,8 @@ public class TestUtil extends TestBase {
 	public static long IMPLICIT_WAIT = 20;
 
 	static JavascriptExecutor js;
+	
+	static String chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 	public void switchToFrame() {
 		driver.switchTo().frame("mainpanel");
@@ -61,6 +68,44 @@ public class TestUtil extends TestBase {
 //		js.executeScript("$.growl.notice({ title: 'Notice', message: 'your notice message goes here' });");
 //		js.executeScript("$.growl.warning({ title: 'Warning!', message: 'your warning message goes here' });");
 		Thread.sleep(5000);
+		}
+	
+	
+	public void verifyEquals(WebElement element, String text) throws IOException, InterruptedException {
+		Thread.sleep(1000);
+		if(element.getText().isEmpty())
+		{
+		    System.out.println(text + " is blank");	
+		}
+		else
+		{
+			try {
+			    assertEquals(element.getText().replaceAll("\n", " "), text);
+			    
+			    System.out.println(text + " is visible");
+				//logger.log(Status.PASS, text + " is visible");
+	
+			} catch (Throwable t) {
+				//logger.log(Status.FAIL, "Error with verifying " + text);
+				//logger.log(Status.FAIL, t.getMessage());
+			    System.out.println("Error with verifying " + text);
+			    System.out.println(t.getMessage());
+			}
+		}
 	}
+	
+	public static String RandomName(int length) {
+		char[] chars2 = chars.toCharArray();
+		StringBuilder sb = new StringBuilder();
+		Random random = new Random();
+		for (int i = 0; i < length; i++) {
+			char c = chars2[random.nextInt(chars2.length)];
+			sb.append(c);
+		}
+		String randomString = sb.toString();
+		return randomString;
+	}
+	
+	
 
 }
