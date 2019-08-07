@@ -71,7 +71,7 @@ public class TestUtil extends TestBase {
 		}
 	
 	
-	public void verifyEquals(WebElement element, String text) throws IOException, InterruptedException {
+	public static void verifyEquals(WebElement element, String text) throws IOException, InterruptedException {
 		Thread.sleep(1000);
 		if(element.getText().isEmpty())
 		{
