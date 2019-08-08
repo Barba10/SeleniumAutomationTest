@@ -71,7 +71,7 @@ public class TestUtil extends TestBase {
 		}
 	
 	
-	public void verifyEquals(WebElement element, String text) throws IOException, InterruptedException {
+	public static void verifyEquals(WebElement element, String text) throws IOException, InterruptedException {
 		Thread.sleep(1000);
 		if(element.getText().isEmpty())
 		{
@@ -106,6 +106,24 @@ public class TestUtil extends TestBase {
 		return randomString;
 	}
 	
+	public static void editableField(WebElement element, String text) {
+		if(element.isEnabled()) {
+			System.out.println("Field : " + text + " is editable");
+		}
+		else{
+			System.out.println("Field : " + text + " is not editable");
+		}	
+	}
+	
+	public static void containText(WebElement element, String text) throws IOException {
+		if(element.getText().contains(text)) {
+		    System.out.println(element.getText() + " is displayed." +" "+ text + " is visible");
+		}
+		else
+		{
+		    System.out.println(element.getText() + " is displayed.");
+		}
+	}
 	
 
 }

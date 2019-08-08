@@ -22,7 +22,12 @@ public class HomePage extends TestBase {
 	@FindBy(linkText="Test/Control/Reference Items")
 	WebElement testControlReferance;
 	
+	//D1
+	@FindBy(linkText="Archive & Regulatory")
+	WebElement archive_regulatory;
 	
+	@FindBy(linkText="Applications")
+	WebElement applications;
 	
 	// Initializing the Page Objects:
 	public HomePage() {
@@ -32,6 +37,11 @@ public class HomePage extends TestBase {
 	public void  SearchDocument(){
 		search_box.sendKeys("2018/2001297" + Keys.ENTER);
 		//search_box.sendKeys(Keys.ENTER);
+	}
+	
+	public void GoToApplications() {
+		archive_regulatory.click();
+		applications.click();
 	}
 	
 	//C15

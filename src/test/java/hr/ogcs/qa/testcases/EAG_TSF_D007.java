@@ -12,7 +12,6 @@ import hr.ogcs.qa.pages.HomePage;
 import hr.ogcs.qa.pages.LibraryPage;
 import hr.ogcs.qa.pages.LoginPage;
 import hr.ogcs.qa.pages.WhereUsedPage;
-import hr.ogcs.qa.util.TestUtil;
 
 public class EAG_TSF_D007 extends TestBase {
 	
