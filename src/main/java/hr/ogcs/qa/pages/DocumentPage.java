@@ -4,10 +4,14 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 
 import hr.ogcs.qa.base.TestBase;
 import hr.ogcs.qa.util.TestUtil;
@@ -112,7 +116,67 @@ public class DocumentPage extends TestBase{
 	
 	@FindBy(xpath="//*[contains(text(), 'Remarks')]")
 	WebElement waitForRemarksVerification;
+	
+	@FindBy(linkText="Classify")
+	WebElement classify_link;
+	
+	@FindBy(linkText="Advanced")
+	WebElement advanced_link;
+	
+	@FindBy(id="uploadTypeSelect")
+	WebElement type;
+	
+	@FindBy(id="uploadSubTypeSelect")
+	WebElement subtype;
+	
+	@FindBy(id="uploadClassificationSelect")
+	WebElement classification;
+	
+	@FindBy(linkText="OK")
+	WebElement ok_btn;
+	
+	@FindBy(xpath="//form[@id='di3Form']/div[2]/div[2]/div/div/div/div/div[2]/div/div[2]/button/span")
+	WebElement form_application_binocular;
 
+	@FindBy(className="veevaSearch_searchInput")
+	WebElement form_search_label;
+	
+	@FindBy(xpath="//div[2]/span/a")
+	WebElement form_binocular_value;
+	
+	@FindBy(xpath="//form[@id='di3Form']/div[2]/div[2]/div/div/div[2]/div/div[2]/div/div[2]/button/span")
+	WebElement form_submission_binocular;
+	
+	@FindBy(linkText="Close")
+	WebElement close_btn;
+	
+	@FindBy(className="pageimage")
+	WebElement page_image;
+	
+	@FindBy(linkText="Cancel")
+	WebElement cancel_btn;
+	
+	@FindBy(css="div[attrkey='name']")
+	WebElement name_value;
+
+	@FindBy(css="div[attrkey='documentType']")
+	WebElement type_value;
+	
+	@FindBy(css="div[attrkey='documentSubType']")
+	WebElement subtype_value;
+	
+	@FindBy(css="div[attrkey='documentClassification']")
+	WebElement classification_value;
+	
+	@FindBy(css="a[data-doc-attr-public-key='application__c']")
+	WebElement application_value;
+	
+	@FindBy(css="a[data-doc-attr-public-key='submission__c']")
+	WebElement submission_value;
+	
+	@FindBy(xpath="//*[contains(text(), 'Regulatory Information')]")
+	WebElement regulatory_information_tab;
+	
 	
 	// Initializing the Page Objects:
 	public DocumentPage() {
@@ -166,49 +230,111 @@ public class DocumentPage extends TestBase{
 	}
 	
 
-		public void ActionWheel() {
-			wait.until(ExpectedConditions.elementToBeClickable(actionWheel));
-			actionWheel.click();
+	public void ActionWheel() {
+		wait.until(ExpectedConditions.elementToBeClickable(actionWheel));
+		actionWheel.click();
+	}
+		
+	public void Archive() {
+		wait.until(ExpectedConditions.elementToBeClickable(archiveDocument));
+		archiveDocument.click();
+		archiveDocumentNo.click();
+		actionWheel.click();
+		wait.until(ExpectedConditions.elementToBeClickable(actionWheel));
+		archiveDocument.click();
+		archiveDocumentYes.click();
+	}
+		
+	public void Verifycation() throws InterruptedException, IOException {
+		Thread.sleep(2000);
+		generalTab.click();
+		Thread.sleep(2000);
+		//wait.until(ExpectedConditions.elementToBeClickable(waitForArchiveInformationTabVerifycation));
+		jse.executeScript("window.scrollBy(0,250)", "");
+		archiveInformationTab.click();
+		/* TestUtil.verifyEquals(verifyArchivedDate ); */
+		TestUtil.verifyEquals(verifyElectorinallyArchivedYes, "Yes");
+		TestUtil.verifyEquals(verifyInternalStorage, "Li445");
+		TestUtil.verifyEquals(verifyBoxNumber, "7A");
+		TestUtil.verifyEquals(verifyExternalStorage, "NA");		
+		TestUtil.verifyEquals(verifyDivestedDocumentsReceipt, "Divested Documents Receipt");
+		TestUtil.verifyEquals(verifyDivestedto, "Divested to");
+		TestUtil.verifyEquals(verifyDivestedon, "Divested on");			
+	}
+	
+	public void VeryficationRemarks() throws IOException, InterruptedException {
+		commentsTab.click();
+		wait.until(ExpectedConditions.elementToBeClickable(waitForRemarksVerification));
+		TestUtil.verifyEquals(verifyremarks, "EAGLES Validation of: Document archiving of internal GLP study documents");
+		jse.executeScript("window.scrollBy(0,-250)", "");
+		editButton.click();
+		name.sendKeys("Test Script Descriptions");
+	}
+	
+	public void SaveButton() {
+		saveBtn.click();
+	}
+	
+	
+	public void ClassificationOfUploadedDocument() {
+		wait.until(ExpectedConditions.elementToBeClickable(actionWheel));
+		actionWheel.click();
+		classify_link.click();
+		advanced_link.click();
+		Select TypeSelect = new Select(type);
+	    TypeSelect.selectByVisibleText("Dossier Document"); 
+	    Select SubTypeSelect = new Select(subtype);
+	    SubTypeSelect.selectByVisibleText("Section Document");
+	    Select Classification = new Select(classification);
+	    Classification.selectByVisibleText("dRR Core");
+	    ok_btn.click();
+	    ok_btn.click();
+	}
+	
+	public void FillEditableFields() {
+		wait.until(ExpectedConditions.visibilityOf(name));
+		
+		name.clear();
+		name.sendKeys("BAS 750 01 F Core S Part B Section 00");
+		form_application_binocular.click();
+		form_search_label.sendKeys("BAS 750 01 F Core S" + Keys.ENTER);
+		form_binocular_value.click();
+		
+		form_submission_binocular.click();
+		form_search_label.sendKeys("BAS 750 01 S / FR" + Keys.ENTER);
+		form_binocular_value.click();
+		
+		close_btn.click();
+		jse.executeScript("window.scrollBy(0,-500)", "");
+		saveBtn.click();
+		
+		try {
+			wait.until(ExpectedConditions.visibilityOf(page_image));
+		}
+		catch(org.openqa.selenium.StaleElementReferenceException ex)
+		{   
+			WebElement page_image1 = driver.findElement(By.className("pageimage"));
+			wait.until(ExpectedConditions.visibilityOf(page_image1));
 		}
 		
-		public void Archive() {
-			wait.until(ExpectedConditions.elementToBeClickable(archiveDocument));
-			archiveDocument.click();
-			archiveDocumentNo.click();
-			actionWheel.click();
-			wait.until(ExpectedConditions.elementToBeClickable(actionWheel));
-			archiveDocument.click();
-			archiveDocumentYes.click();
-		}
+		editButton.click();
+		cancel_btn.click();
+	}
+	
+	public void TextVerifycation() throws IOException, InterruptedException {
+	
+		TestUtil.verifyEquals(name_value, "BAS 750 01 F Core S");
+	
+		TestUtil.verifyEquals(type_value, "Dossier Document");
+		TestUtil.verifyEquals(subtype_value, "Section Document");
+		TestUtil.verifyEquals(classification_value, "dRR Core");
 		
-		public void Verifycation() throws InterruptedException, IOException {
-			Thread.sleep(2000);
-			generalTab.click();
-			Thread.sleep(2000);
-			//wait.until(ExpectedConditions.elementToBeClickable(waitForArchiveInformationTabVerifycation));
-			jse.executeScript("window.scrollBy(0,250)", "");
-			archiveInformationTab.click();
-			/* TestUtil.verifyEquals(verifyArchivedDate ); */
-			TestUtil.verifyEquals(verifyElectorinallyArchivedYes, "Yes");
-			TestUtil.verifyEquals(verifyInternalStorage, "Li445");
-			TestUtil.verifyEquals(verifyBoxNumber, "7A");
-			TestUtil.verifyEquals(verifyExternalStorage, "NA");		
-			TestUtil.verifyEquals(verifyDivestedDocumentsReceipt, "Divested Documents Receipt");
-			TestUtil.verifyEquals(verifyDivestedto, "Divested to");
-			TestUtil.verifyEquals(verifyDivestedon, "Divested on");			
-		}
+		regulatory_information_tab.click();
 		
-		public void VeryficationRemarks() throws IOException, InterruptedException {
-			commentsTab.click();
-			wait.until(ExpectedConditions.elementToBeClickable(waitForRemarksVerification));
-			TestUtil.verifyEquals(verifyremarks, "EAGLES Validation of: Document archiving of internal GLP study documents");
-			jse.executeScript("window.scrollBy(0,-250)", "");
-			editButton.click();
-			name.sendKeys("Test Script Descriptions");
-		}
+		TestUtil.verifyEquals(application_value, "BAS 750 01 F Core S");
+		TestUtil.verifyEquals(submission_value , "BAS 750 01 S / FR");
 		
-		public void SaveButton() {
-			saveBtn.click();
-		}
+		
+	}
 		
 }

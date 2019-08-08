@@ -3,8 +3,6 @@ package hr.ogcs.qa.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -31,6 +29,12 @@ public class HomePage extends TestBase {
 	@FindBy(linkText="Applications")
 	WebElement applications;
 	
+	//D4
+	@FindBy(xpath="//div[2]/div/div/div/button/span")
+	WebElement create_btn;
+	
+	@FindBy(xpath="//li[4]/a/span[2]")
+	WebElement upload_btn;
 	
 	// Initializing the Page Objects:
 	public HomePage() {
@@ -58,6 +62,12 @@ public class HomePage extends TestBase {
 	public void GoToLibrary(){
 		library.click();
 		//search_box.sendKeys(Keys.ENTER);
+	}
+	
+	//D4
+	public void GoToUpload() {
+		create_btn.click();
+		upload_btn.click();
 	}
 	
 	
