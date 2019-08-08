@@ -36,6 +36,11 @@ public class HomePage extends TestBase {
 	@FindBy(xpath="//li[4]/a/span[2]")
 	WebElement upload_btn;
 	
+	@FindBy(linkText ="Binder")
+    WebElement selectBinder;
+	
+
+	
 	// Initializing the Page Objects:
 	public HomePage() {
 		PageFactory.initElements(driver, this);
@@ -69,6 +74,11 @@ public class HomePage extends TestBase {
 		create_btn.click();
 		upload_btn.click();
 	}
+	
+	public void GoToBinder() {
+		create_btn.click();
+        selectBinder.click();
+    }
 	
 	
 }
