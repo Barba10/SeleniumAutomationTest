@@ -22,6 +22,13 @@ public class HomePage extends TestBase {
 	@FindBy(linkText="Test/Control/Reference Items")
 	WebElement testControlReferance;
 	
+	@FindBy(xpath = "//button[@class = 'vv_button vv_button_nav vv_inbox_new_button inboxNewButton']")
+	WebElement createButton;
+	
+	@FindBy(linkText ="Binder")
+	WebElement selectBinder;
+	
+	
 	
 	
 	// Initializing the Page Objects:
@@ -39,6 +46,11 @@ public class HomePage extends TestBase {
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[@name='products1__c']//span[contains(text(),'Products')]")));
 		products.click();
 		testControlReferance.click();
+	}
+	
+	public void GoToBinder() {
+		createButton.click();
+		selectBinder.click();
 	}
 	
 	
