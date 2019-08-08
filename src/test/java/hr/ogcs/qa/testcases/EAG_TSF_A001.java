@@ -11,18 +11,18 @@ import hr.ogcs.qa.pages.DocumentPage;
 import hr.ogcs.qa.pages.HomePage;
 import hr.ogcs.qa.pages.LibraryPage;
 import hr.ogcs.qa.pages.LoginPage;
-import hr.ogcs.qa.pages.WhereUsedPage;
+import hr.ogcs.qa.util.TestUtil;
 
-public class EAG_TSF_D007 extends TestBase {
+public class EAG_TSF_A001 extends TestBase {
+
 	
 	LoginPage loginPage;
 	HomePage homePage;
 	LibraryPage libraryPage;
 	DocumentPage documentPage;
-	WhereUsedPage whereUsedPage;
-
-	public EAG_TSF_D007() {
-		super();
+	
+	public EAG_TSF_A001 () {
+		super ();
 	}
 	
 	@BeforeMethod
@@ -32,26 +32,32 @@ public class EAG_TSF_D007 extends TestBase {
 		homePage = new HomePage();
 		documentPage = new DocumentPage();
 		libraryPage = new LibraryPage();
-		whereUsedPage = new WhereUsedPage();
-		homePage = loginPage.login(prop.getProperty("us_dossieradmin"), prop.getProperty("psw_dossieradmin"));
+		homePage = loginPage.login(prop.getProperty("us_globaladmin"), prop.getProperty("psw_globaladmin"));
 	}
 	
 	@Test
 	public void VaultGeneralInformations() throws InterruptedException, IOException{
-		homePage.SearchDocument();
-		libraryPage.goToDocId();
-		Thread.sleep(2000);
-		documentPage.WhereUsed();
-		whereUsedPage.TakingScreenShoot();
+		homePage.GoToLibrary();
+		libraryPage.Filter();
+		libraryPage.SetTabularView();
+		documentPage.SelectDocument();
+		documentPage.ClickEditButton();
+		documentPage.FillForm();
+		documentPage.ActionWheel();
+		documentPage.Archive();
+		documentPage.Verifycation();
+		TestUtil.takeScreenshotAtEndOfTest();
+		documentPage.VeryficationRemarks();
+		TestUtil.takeScreenshotAtEndOfTest();
+		documentPage.SaveButton();
+		
+
 	}
 	
-
 	@AfterMethod
 	public void tearDown(){
 		driver.quit();
 	}
-	
-	
 	
 	
 	

@@ -3,10 +3,15 @@ package hr.ogcs.qa.base;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
+import static org.testng.Assert.assertEquals;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -21,6 +26,7 @@ public class TestBase {
 	public  static EventFiringWebDriver e_driver;
 	public static WebEventListener eventListener;
 	public static WebDriverWait wait;
+	public static JavascriptExecutor jse;
 	
 	
 	public TestBase(){
@@ -51,7 +57,7 @@ public class TestBase {
 		e_driver.register(eventListener);
 		
 		wait = new WebDriverWait(driver, 10);
-		
+		jse = (JavascriptExecutor) driver; 
 		driver = e_driver;
 		
 		driver.manage().window().maximize();
@@ -61,15 +67,7 @@ public class TestBase {
 		driver.get("https://login.veevavault.com/");
 		
 		
-		
 	}
-	
-	
-	
-	
-	
-	
-	
 	
 
 }

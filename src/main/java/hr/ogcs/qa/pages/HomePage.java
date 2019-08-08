@@ -24,9 +24,17 @@ public class HomePage extends TestBase {
 	
 	@FindBy(xpath = "//button[@class = 'vv_button vv_button_nav vv_inbox_new_button inboxNewButton']")
 	WebElement createButton;
+	@FindBy(linkText="Library")
+	WebElement library;
+	//D1
+	@FindBy(linkText="Archive & Regulatory")
+	WebElement archive_regulatory;
 	
 	@FindBy(linkText ="Binder")
 	WebElement selectBinder;
+	@FindBy(linkText="Applications")
+	WebElement applications;
+	
 	
 	
 	
@@ -41,6 +49,11 @@ public class HomePage extends TestBase {
 		//search_box.sendKeys(Keys.ENTER);
 	}
 	
+	public void GoToApplications() {
+		archive_regulatory.click();
+		applications.click();
+	}
+	
 	//C15
 	public void GoToTestControlReferance() {
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[@name='products1__c']//span[contains(text(),'Products')]")));
@@ -51,6 +64,11 @@ public class HomePage extends TestBase {
 	public void GoToBinder() {
 		createButton.click();
 		selectBinder.click();
+	}
+	//A1	
+	public void GoToLibrary(){
+		library.click();
+		//search_box.sendKeys(Keys.ENTER);
 	}
 	
 	
