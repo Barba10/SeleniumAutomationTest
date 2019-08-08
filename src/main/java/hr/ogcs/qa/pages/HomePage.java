@@ -22,12 +22,15 @@ public class HomePage extends TestBase {
 	@FindBy(linkText="Test/Control/Reference Items")
 	WebElement testControlReferance;
 	
+	@FindBy(linkText="Library")
+	WebElement library;
 	//D1
 	@FindBy(linkText="Archive & Regulatory")
 	WebElement archive_regulatory;
 	
 	@FindBy(linkText="Applications")
 	WebElement applications;
+	
 	
 	// Initializing the Page Objects:
 	public HomePage() {
@@ -49,6 +52,12 @@ public class HomePage extends TestBase {
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[@name='products1__c']//span[contains(text(),'Products')]")));
 		products.click();
 		testControlReferance.click();
+	}
+	
+	//A1	
+	public void GoToLibrary(){
+		library.click();
+		//search_box.sendKeys(Keys.ENTER);
 	}
 	
 	
