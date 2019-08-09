@@ -15,7 +15,7 @@ public class TestControlReferenceItemsSavePage extends TestBase {
 		PageFactory.initElements(driver, this);
 	}
 	
-	TestUtil tu = new TestUtil();
+	
 	
 	@FindBy(xpath = "//span[@selenium-value-name='name__v']")
 	WebElement name;
@@ -102,47 +102,47 @@ public class TestControlReferenceItemsSavePage extends TestBase {
 	
 	
 	public void verifyTestData() throws IOException, InterruptedException {
-		tu.verifyEquals(name, "ITEM-000019");
-		tu.verifyEquals(objectType, "Test Item");
-		tu.verifyEquals(regNumber, "6059083");
+		TestUtil.verifyEquals(name, "ITEM-000019");
+		TestUtil.verifyEquals(objectType, "Test Item");
+		TestUtil.verifyEquals(regNumber, "6059083");
 		additionalDetailsTab.click();
-		tu.verifyEquals(createdBy, "Lihof GLP writer 1");
-		tu.verifyEquals(createdDate, "1/31/2019 2:36 PM CET");
-		tu.verifyEquals(lastModifiedBy, "Lihof GLP writer 1");
-		tu.verifyEquals(lastModifiedDate, "1/31/2019 2:36 PM CET");
-		tu.verifyEquals(id, "OOZ000000000F02");
-		tu.verifyEquals(status, "Active");
+		TestUtil.verifyEquals(createdBy, "Lihof GLP writer 1");
+		TestUtil.verifyEquals(createdDate, "1/31/2019 2:36 PM CET");
+		TestUtil.verifyEquals(lastModifiedBy, "Lihof GLP writer 1");
+		TestUtil.verifyEquals(lastModifiedDate, "1/31/2019 2:36 PM CET");
+		TestUtil.verifyEquals(id, "OOZ000000000F02");
+		TestUtil.verifyEquals(status, "Active");
 		products.click();
 		testControlReferance.click();
 		
 	}
 	
 	public void verifyControlData() throws IOException, InterruptedException {
-		tu.verifyEquals(name, "ITEM-ITEM-000020");
-		tu.verifyEquals(objectType, "Control Item");
-		tu.verifyEquals(regNumber, "");
+		TestUtil.verifyEquals(name, "ITEM-ITEM-000020");
+		TestUtil.verifyEquals(objectType, "Control Item");
+		TestUtil.verifyEquals(regNumber, "");
 		additionalDetailsTab.click();
-		tu.verifyEquals(createdBy, "Lihof GLP writer 1");
-		tu.verifyEquals(createdDate, "1/31/2019 2:26 PM CET");
-		tu.verifyEquals(lastModifiedBy, "Lihof GLP writer 1");
-		tu.verifyEquals(lastModifiedDate, "1/31/2019 2:26 PM CET");
-		tu.verifyEquals(id, "OOZ000000000G01");
-		tu.verifyEquals(status, "Active");
+		TestUtil.verifyEquals(createdBy, "Lihof GLP writer 1");
+		TestUtil.verifyEquals(createdDate, "1/31/2019 2:26 PM CET");
+		TestUtil.verifyEquals(lastModifiedBy, "Lihof GLP writer 1");
+		TestUtil.verifyEquals(lastModifiedDate, "1/31/2019 2:26 PM CET");
+		TestUtil.verifyEquals(id, "OOZ000000000G01");
+		TestUtil.verifyEquals(status, "Active");
 		products.click();
 		testControlReferance.click();
 	}
 	
 	public void verifyReferenceData() throws IOException, InterruptedException {
-		tu.verifyEquals(name, "ITEM-ITEM-000021");
-		tu.verifyEquals(objectType, "Reference Item");
-		tu.verifyEquals(regNumber, "");
+		TestUtil.verifyEquals(name, "ITEM-ITEM-000021");
+		TestUtil.verifyEquals(objectType, "Reference Item");
+		TestUtil.verifyEquals(regNumber, "");
 		additionalDetailsTab.click();
-		tu.verifyEquals(createdBy, "Lihof GLP writer 1");
-		tu.verifyEquals(createdDate, "1/31/2019 1:58 PM CET");
-		tu.verifyEquals(lastModifiedBy, "Lihof GLP writer 1");
-		tu.verifyEquals(lastModifiedDate, "1/31/2019 1:58 PM CET");
-		tu.verifyEquals(id, "OOZ000000000F01");
-		tu.verifyEquals(status, "Active");
+		TestUtil.verifyEquals(createdBy, "Lihof GLP writer 1");
+		TestUtil.verifyEquals(createdDate, "1/31/2019 1:58 PM CET");
+		TestUtil.verifyEquals(lastModifiedBy, "Lihof GLP writer 1");
+		TestUtil.verifyEquals(lastModifiedDate, "1/31/2019 1:58 PM CET");
+		TestUtil.verifyEquals(id, "OOZ000000000F01");
+		TestUtil.verifyEquals(status, "Active");
 		products.click();
 		testControlReferance.click();
 	}

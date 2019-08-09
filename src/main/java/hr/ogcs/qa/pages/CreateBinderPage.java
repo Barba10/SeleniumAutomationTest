@@ -18,7 +18,7 @@ public class CreateBinderPage extends TestBase {
 		PageFactory.initElements(driver, this);
 	}
 	
-	TestUtil tu = new TestUtil();
+	
 
 	@FindBy(xpath = "//div[3]/button/span")
 	WebElement chooseBinder;
@@ -296,25 +296,25 @@ public class CreateBinderPage extends TestBase {
 
 		Thread.sleep(5000);
 		
-		tu.verifyEquals(verifyName, "BAS 750 01 F FR");
-		tu.verifyEquals(verifyTitle, "Draft registration report - BAS 750 01 F - Core S - ZRMS: France");
-		tu.verifyEquals(verifySubtitle, "BAS 750 01 F - Core S");
-		tu.verifyEquals(verifyAuthor, "Thomas Maurer");
-		tu.verifyEquals(verifyProduct, "BAS 750 01 F");
-		tu.verifyEquals(verifyIngredient, "BAS 750 F");
-		tu.verifyEquals(verifyWorkPacage, "945");
-		tu.verifyEquals(verifyBinderTemplateType, "dRR 2016 new");
+		TestUtil.verifyEquals(verifyName, "BAS 750 01 F FR");
+		TestUtil.verifyEquals(verifyTitle, "Draft registration report - BAS 750 01 F - Core S - ZRMS: France");
+		TestUtil.verifyEquals(verifySubtitle, "BAS 750 01 F - Core S");
+		TestUtil.verifyEquals(verifyAuthor, "Thomas Maurer");
+		TestUtil.verifyEquals(verifyProduct, "BAS 750 01 F");
+		TestUtil.verifyEquals(verifyIngredient, "BAS 750 F");
+		TestUtil.verifyEquals(verifyWorkPacage, "945");
+		TestUtil.verifyEquals(verifyBinderTemplateType, "dRR 2016 new");
 		regulatoryInformation.click();
-		tu.verifyEquals(verifyApplication, "BAS 750 01 F Core S");
-		tu.verifyEquals(verifySubmission, "BAS 750 01 F Core S > BAS 750 01 S / FR");
-		tu.verifyEquals(verifyCountryOfOrigin, "France");
+		TestUtil.verifyEquals(verifyApplication, "BAS 750 01 F Core S");
+		TestUtil.verifyEquals(verifySubmission, "BAS 750 01 F Core S > BAS 750 01 S / FR");
+		TestUtil.verifyEquals(verifyCountryOfOrigin, "France");
 		usRegulatoryInfo.click();
-		tu.verifyEquals(verifyRootRMID, "");
+		TestUtil.verifyEquals(verifyRootRMID, "");
 		performingOrganization.click();
-		tu.verifyEquals(verifyTestFascility, "BASF SE");
-		tu.verifyEquals(verifySponsorOwner, "BASF SE");
+		TestUtil.verifyEquals(verifyTestFascility, "BASF SE");
+		TestUtil.verifyEquals(verifySponsorOwner, "BASF SE");
 		commentsRemarks.click();
-		tu.verifyEquals(verifyRemarks, "nothing");
+		TestUtil.verifyEquals(verifyRemarks, "nothing");
 		TestUtil.takeScreenshotAtEndOfTest();
 	}
 	
@@ -395,25 +395,25 @@ public class CreateBinderPage extends TestBase {
 
 		Thread.sleep(5000);
 
-		tu.verifyEquals(verifyName, "Blavity_MAPA 2");
-		tu.verifyEquals(verifyTitle, "DR713-18");
-		tu.verifyEquals(verifySubtitle, "Blavity_MAPA 2");
-		tu.verifyEquals(verifyAuthor, "Adriana Neitzel");
-		tu.verifyEquals(verifyProduct, "BAS 795 00 F");
-		tu.verifyEquals(verifyIngredient, "BAS 750 F");
-		tu.verifyEquals(verifyWorkPacage, "9");
-		tu.verifyEquals(verifyBinderTemplateType, "MAPA Formulated Product Dossier");
+		TestUtil.verifyEquals(verifyName, "Blavity_MAPA 2");
+		TestUtil.verifyEquals(verifyTitle, "DR713-18");
+		TestUtil.verifyEquals(verifySubtitle, "Blavity_MAPA 2");
+		TestUtil.verifyEquals(verifyAuthor, "Adriana Neitzel");
+		TestUtil.verifyEquals(verifyProduct, "BAS 795 00 F");
+		TestUtil.verifyEquals(verifyIngredient, "BAS 750 F");
+		TestUtil.verifyEquals(verifyWorkPacage, "9");
+		TestUtil.verifyEquals(verifyBinderTemplateType, "MAPA Formulated Product Dossier");
 		regulatoryInformation.click();
-		tu.verifyEquals(verifyApplication, "BAS 795 00 F");
-		tu.verifyEquals(verifySubmission, "BAS 795 00 F > Blavity");
-		tu.verifyEquals(verifyCountryOfOrigin, "Brazil");
+		TestUtil.verifyEquals(verifyApplication, "BAS 795 00 F");
+		TestUtil.verifyEquals(verifySubmission, "BAS 795 00 F > Blavity");
+		TestUtil.verifyEquals(verifyCountryOfOrigin, "Brazil");
 		usRegulatoryInfo.click();
-		tu.verifyEquals(verifyRootRMID, "nothing");
+		TestUtil.verifyEquals(verifyRootRMID, "nothing");
 		performingOrganization.click();
-		tu.verifyEquals(verifyTestFascility, "BASF SE");
-		tu.verifyEquals(verifySponsorOwner, "BASF SE");
+		TestUtil.verifyEquals(verifyTestFascility, "BASF SE");
+		TestUtil.verifyEquals(verifySponsorOwner, "BASF SE");
 		commentsRemarks.click();
-		tu.verifyEquals(verifyRemarks, "nothing");
+		TestUtil.verifyEquals(verifyRemarks, "nothing");
 		TestUtil.takeScreenshotAtEndOfTest();
 		
 	}
@@ -479,23 +479,23 @@ public class CreateBinderPage extends TestBase {
 		saveButton.click();
 		
 
-		tu.verifyEquals(verifyName, "A_Chlorfenapyr Tecnico BASF");
-		tu.verifyEquals(verifyTitle, "DR_131-16 ");
-		tu.verifyEquals(verifySubtitle, "Registro Inicial ");
-		tu.verifyEquals(verifyAuthor, "Adriana Neitzel");
-		tu.verifyEquals(verifyProduct, "");
-		tu.verifyEquals(verifyIngredient, "");
-		tu.verifyEquals(verifyWorkPacage, "9");
-		tu.verifyEquals(verifyBinderTemplateType, "ANVISA Active Ingredient Dossier");
+		TestUtil.verifyEquals(verifyName, "A_Chlorfenapyr Tecnico BASF");
+		TestUtil.verifyEquals(verifyTitle, "DR_131-16 ");
+		TestUtil.verifyEquals(verifySubtitle, "Registro Inicial ");
+		TestUtil.verifyEquals(verifyAuthor, "Adriana Neitzel");
+		TestUtil.verifyEquals(verifyProduct, "");
+		TestUtil.verifyEquals(verifyIngredient, "");
+		TestUtil.verifyEquals(verifyWorkPacage, "9");
+		TestUtil.verifyEquals(verifyBinderTemplateType, "ANVISA Active Ingredient Dossier");
 		regulatoryInformation.click();
-		tu.verifyEquals(verifyApplication, "BAS 306 I");
-		tu.verifyEquals(verifySubmission, "BAS 306 I > Chlorfenapyr Tecnico BASF");
-		tu.verifyEquals(verifyCountryOfOrigin, "Brazil");
+		TestUtil.verifyEquals(verifyApplication, "BAS 306 I");
+		TestUtil.verifyEquals(verifySubmission, "BAS 306 I > Chlorfenapyr Tecnico BASF");
+		TestUtil.verifyEquals(verifyCountryOfOrigin, "Brazil");
 		performingOrganization.click();
-		tu.verifyEquals(verifyTestFascility, "BASF SE");
-		tu.verifyEquals(verifySponsorOwner, "BASF SE");
+		TestUtil.verifyEquals(verifyTestFascility, "BASF SE");
+		TestUtil.verifyEquals(verifySponsorOwner, "BASF SE");
 		commentsRemarks.click();
-		tu.verifyEquals(verifyRemarks, "nothing");
+		TestUtil.verifyEquals(verifyRemarks, "nothing");
 		TestUtil.takeScreenshotAtEndOfTest();
 
 	}
@@ -574,23 +574,23 @@ public class CreateBinderPage extends TestBase {
 		
 		saveButton.click();
 		
-		tu.verifyEquals(verifyName, "BAS 595 Replacement R3V4");
-		tu.verifyEquals(verifyTitle, "Dossier for the evaluation of BAS 595 F");
-		tu.verifyEquals(verifySubtitle, "containing Triticonazole ");
-		tu.verifyEquals(verifyAuthor, "Cordula Nieslony");
-		tu.verifyEquals(verifyProduct, "BAS 595 05 F");
-		tu.verifyEquals(verifyIngredient, "BAS 595 F");
-		tu.verifyEquals(verifyWorkPacage, "942");
-		tu.verifyEquals(verifyBinderTemplateType, "EU");
+		TestUtil.verifyEquals(verifyName, "BAS 595 Replacement R3V4");
+		TestUtil.verifyEquals(verifyTitle, "Dossier for the evaluation of BAS 595 F");
+		TestUtil.verifyEquals(verifySubtitle, "containing Triticonazole ");
+		TestUtil.verifyEquals(verifyAuthor, "Cordula Nieslony");
+		TestUtil.verifyEquals(verifyProduct, "BAS 595 05 F");
+		TestUtil.verifyEquals(verifyIngredient, "BAS 595 F");
+		TestUtil.verifyEquals(verifyWorkPacage, "942");
+		TestUtil.verifyEquals(verifyBinderTemplateType, "EU");
 		regulatoryInformation.click();
-		tu.verifyEquals(verifyApplication, "BAS 595 F (Triticonazole) AIR 3");
-		tu.verifyEquals(verifySubmission, "BAS 595 F (Triticonazole) AIR 3 > BAS 595 F (Triticonazole) AIR 3 / 01 Original Submission");
-		tu.verifyEquals(verifyCountryOfOrigin, "France");
+		TestUtil.verifyEquals(verifyApplication, "BAS 595 F (Triticonazole) AIR 3");
+		TestUtil.verifyEquals(verifySubmission, "BAS 595 F (Triticonazole) AIR 3 > BAS 595 F (Triticonazole) AIR 3 / 01 Original Submission");
+		TestUtil.verifyEquals(verifyCountryOfOrigin, "France");
 		performingOrganization.click();
-		tu.verifyEquals(verifyTestFascility, "BASF SE");
-		tu.verifyEquals(verifySponsorOwner, "BASF SE");
+		TestUtil.verifyEquals(verifyTestFascility, "BASF SE");
+		TestUtil.verifyEquals(verifySponsorOwner, "BASF SE");
 		commentsRemarks.click();
-		tu.verifyEquals(verifyRemarks, "nothing");
+		TestUtil.verifyEquals(verifyRemarks, "nothing");
 		TestUtil.takeScreenshotAtEndOfTest();
 
 	}
@@ -673,25 +673,25 @@ public class CreateBinderPage extends TestBase {
 		
 		saveButton.click();
 		
-		tu.verifyEquals(verifyName, "BAS 450 04 I Multilateral Submission - Nov 2017 ");
-		tu.verifyEquals(verifyTitle, "BAS 450 04 I Multilateral Submission");
-		tu.verifyEquals(verifySubtitle, "BAS 450 04 I");
-		tu.verifyEquals(verifyAuthor, "Thomas Maurer");
-		tu.verifyEquals(verifyProduct, "BAS 450 04 I");
-		tu.verifyEquals(verifyIngredient, "BAS 450 I");
-		tu.verifyEquals(verifyWorkPacage, "941");
-		tu.verifyEquals(verifyBinderTemplateType, "IBAMA Equivalent Active Ingredient dossier");
+		TestUtil.verifyEquals(verifyName, "BAS 450 04 I Multilateral Submission - Nov 2017 ");
+		TestUtil.verifyEquals(verifyTitle, "BAS 450 04 I Multilateral Submission");
+		TestUtil.verifyEquals(verifySubtitle, "BAS 450 04 I");
+		TestUtil.verifyEquals(verifyAuthor, "Thomas Maurer");
+		TestUtil.verifyEquals(verifyProduct, "BAS 450 04 I");
+		TestUtil.verifyEquals(verifyIngredient, "BAS 450 I");
+		TestUtil.verifyEquals(verifyWorkPacage, "941");
+		TestUtil.verifyEquals(verifyBinderTemplateType, "IBAMA Equivalent Active Ingredient dossier");
 		regulatoryInformation.click();
-		tu.verifyEquals(verifyApplication, "BAS 450 I - Broflanilide (MCI-8007)");
-		tu.verifyEquals(verifySubmission, "BAS 450 I - Broflanilide (MCI-8007) > 2018-11 BAS 450 04 I Multilateral Submission");
-		tu.verifyEquals(verifyCountryOfOrigin, "France");
+		TestUtil.verifyEquals(verifyApplication, "BAS 450 I - Broflanilide (MCI-8007)");
+		TestUtil.verifyEquals(verifySubmission, "BAS 450 I - Broflanilide (MCI-8007) > 2018-11 BAS 450 04 I Multilateral Submission");
+		TestUtil.verifyEquals(verifyCountryOfOrigin, "France");
 		usRegulatoryInfo.click();
-		tu.verifyEquals(verifyRootRMID, "no data submitted");
+		TestUtil.verifyEquals(verifyRootRMID, "no data submitted");
 		performingOrganization.click();
-		tu.verifyEquals(verifyTestFascility, "BASF SE");
-		tu.verifyEquals(verifySponsorOwner, "BASF SE");
+		TestUtil.verifyEquals(verifyTestFascility, "BASF SE");
+		TestUtil.verifyEquals(verifySponsorOwner, "BASF SE");
 		commentsRemarks.click();
-		tu.verifyEquals(verifyRemarks, "nothing");
+		TestUtil.verifyEquals(verifyRemarks, "nothing");
 		TestUtil.takeScreenshotAtEndOfTest();
 		
 	}
