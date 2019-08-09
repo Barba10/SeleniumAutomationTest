@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.Random;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -123,6 +124,18 @@ public class TestUtil extends TestBase {
 		{
 		    System.out.println(element.getText() + " is displayed.");
 		}
+	}
+	
+	public static void UploadFile() {
+		
+	    if(System.getProperty("os.name").toLowerCase().contains("windows")){ 
+	    	//for local upload
+		    driver.findElement(By.id("inboxFileChooserHTML5")).sendKeys(System.getProperty("user.dir")+ ".\\upload\\pdf1.pdf");
+	    }
+	    else{
+		    //FOR LINUX RUNING FROM GIT
+	    	driver.findElement(By.id("inboxFileChooserHTML5")).sendKeys("/builds/qa/eaglesAutomation/upload/pdf1.pdf");
+	    }
 	}
 	
 

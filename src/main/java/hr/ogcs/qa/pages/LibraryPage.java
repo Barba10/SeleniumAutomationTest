@@ -48,12 +48,16 @@ public class LibraryPage extends TestBase {
 	@FindBy(xpath="//button[4]/span")
 	WebElement tabularView;
 	
+
+
+
+	@FindBy(linkText="Document Inbox")
+	WebElement doc_inbox;
 	@FindBy(linkText = "All Dossiers")
 	WebElement allDossiers;
 	
-
-	
-	
+	@FindBy(xpath="//div[2]/div/div[2]/div/a/span")
+	WebElement uploaded_document;
 	
 	
 	// Initializing the Page Objects:
@@ -87,8 +91,16 @@ public class LibraryPage extends TestBase {
 	public void SetTabularView() {
 		wait.until(ExpectedConditions.elementToBeClickable(tabularView));
 		tabularView.click();
-		
 	}
+	
+	public void OpenUploadedDocument() {
+		wait.until(ExpectedConditions.visibilityOf(doc_inbox));
+		uploaded_document.click();
+	}
+	
+	
+	
+	
 	
 	public void goToAllDossiers() throws IOException {
 		allDossiers.click();

@@ -20,22 +20,21 @@ public class HomePage extends TestBase {
 	@FindBy(linkText="Test/Control/Reference Items")
 	WebElement testControlReferance;
 	
-	@FindBy(xpath = "//button[@class = 'vv_button vv_button_nav vv_inbox_new_button inboxNewButton']")
-	WebElement createButton;
 	@FindBy(linkText="Library")
 	WebElement library;
 	//D1
 	@FindBy(linkText="Archive & Regulatory")
 	WebElement archive_regulatory;
 	
-	@FindBy(linkText ="Binder")
-	WebElement selectBinder;
 	@FindBy(linkText="Applications")
 	WebElement applications;
 	
+	//D4
+	@FindBy(xpath="//div[2]/div/div/div/button/span")
+	WebElement create_btn;
 	
-	
-	
+	@FindBy(xpath="//li[4]/a/span[2]")
+	WebElement upload_btn;
 	
 	// Initializing the Page Objects:
 	public HomePage() {
@@ -59,14 +58,16 @@ public class HomePage extends TestBase {
 		testControlReferance.click();
 	}
 	
-	public void GoToBinder() {
-		createButton.click();
-		selectBinder.click();
-	}
 	//A1	
 	public void GoToLibrary(){
 		library.click();
 		//search_box.sendKeys(Keys.ENTER);
+	}
+	
+	//D4
+	public void GoToUpload() {
+		create_btn.click();
+		upload_btn.click();
 	}
 	
 	
