@@ -1,12 +1,16 @@
 package hr.ogcs.qa.pages;
 
+import java.io.IOException;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import hr.ogcs.qa.base.TestBase;
+import hr.ogcs.qa.util.TestUtil;
 
 public class LibraryPage extends TestBase {
 	
@@ -44,8 +48,13 @@ public class LibraryPage extends TestBase {
 	@FindBy(xpath="//button[4]/span")
 	WebElement tabularView;
 	
+
+
+
 	@FindBy(linkText="Document Inbox")
 	WebElement doc_inbox;
+	@FindBy(linkText = "All Dossiers")
+	WebElement allDossiers;
 	
 	@FindBy(xpath="//div[2]/div/div[2]/div/a/span")
 	WebElement uploaded_document;
@@ -92,4 +101,13 @@ public class LibraryPage extends TestBase {
 	
 	
 	
+	
+	public void goToAllDossiers() throws IOException {
+		allDossiers.click();
+		
+		
+		
+//		
+		
+	}
 }
