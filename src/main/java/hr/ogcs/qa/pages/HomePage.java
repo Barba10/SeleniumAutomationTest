@@ -25,6 +25,13 @@ public class HomePage extends TestBase {
 	@FindBy(linkText="Library")
 	WebElement library;
 	
+	//D2
+	@FindBy(linkText="Archive & Regulatory")
+	WebElement arch_reg_tab;
+	
+	@FindBy(linkText="Submissions")
+	WebElement submissions;
+	
 	
 	
 	// Initializing the Page Objects:
@@ -48,6 +55,12 @@ public class HomePage extends TestBase {
 	public void GoToLibrary(){
 		library.click();
 		//search_box.sendKeys(Keys.ENTER);
+	}
+	
+	//D2
+	public void GoToArchive() {
+		arch_reg_tab.click();
+		submissions.click();
 	}
 	
 	
