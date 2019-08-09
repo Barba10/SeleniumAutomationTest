@@ -11,18 +11,18 @@ import hr.ogcs.qa.pages.DocumentPage;
 import hr.ogcs.qa.pages.HomePage;
 import hr.ogcs.qa.pages.LibraryPage;
 import hr.ogcs.qa.pages.LoginPage;
-import hr.ogcs.qa.pages.WhereUsedPage;
+import hr.ogcs.qa.pages.UploadPage;
 
-public class EAG_TSF_D007 extends TestBase {
-	
+public class EAG_TSF_D004 extends TestBase{
+
 	LoginPage loginPage;
 	HomePage homePage;
 	LibraryPage libraryPage;
 	DocumentPage documentPage;
-	WhereUsedPage whereUsedPage;
+	UploadPage uploadPage;
 
-	public EAG_TSF_D007() {
-		super();
+	public EAG_TSF_D004 () {
+		super ();
 	}
 	
 	@BeforeMethod
@@ -32,27 +32,37 @@ public class EAG_TSF_D007 extends TestBase {
 		homePage = new HomePage();
 		documentPage = new DocumentPage();
 		libraryPage = new LibraryPage();
-		whereUsedPage = new WhereUsedPage();
+		uploadPage = new UploadPage();
 		homePage = loginPage.login(prop.getProperty("us_dossieradmin"), prop.getProperty("psw_dossieradmin"));
 	}
 	
 	@Test
 	public void VaultGeneralInformations() throws InterruptedException, IOException{
-		homePage.SearchDocument();
-		libraryPage.goToDocId();
-		Thread.sleep(2000);
-		documentPage.WhereUsed();
-		whereUsedPage.TakingScreenShoot();
+		
+		//d004.02
+		homePage.GoToUpload();
+		uploadPage.UploadFile();
+		uploadPage.ClickUpload();
+		
+		//d004.03
+		libraryPage.OpenUploadedDocument();
+		documentPage.ClassificationOfUploadedDocument();
+		
+		//d004.04
+		documentPage.FillEditableFields();
+		
+		//d004.05
+		documentPage.TextVerifycation();
+		
+		//d004.06
+		homePage.GoToUpload();
+		uploadPage.UploadFile();
+		uploadPage.ClickCancel();;
+		
 	}
 	
-
 	@AfterMethod
 	public void tearDown(){
 		driver.quit();
 	}
-	
-	
-	
-	
-	
 }

@@ -1,3 +1,4 @@
-/target/
-/test-output/
-/screenshots/
+﻿/target/*
+/test-output
+/screenshots
+/screenshots/*.png

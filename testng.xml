@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-  <test thread-count="5" name="Test">
-    <classes>
-	 <!--  
-	  <class name="hr.ogcs.qa.testcases.EAG_TSF_D007"/>
-      <class name="hr.ogcs.qa.testcases.EAG_TSF_C015"/>
-      -->
-      
-      <class name="hr.ogcs.qa.testcases.EAG_TSF_A001"/>
-    </classes>
-  </test> <!-- Test -->
+	<test thread-count="5" name="Test">
+		<classes>
+			<!-- <class name="hr.ogcs.qa.testcases.EAG_TSF_D007"/> -->
+			<!-- <class name="hr.ogcs.qa.testcases.EAG_TSF_C015"/> -->
+			<class name="hr.ogcs.qa.testcases.EAG_TSF_D003" />
+<!-- 			<class name="hr.ogcs.qa.testcases.EAG_TSF_D005" /> -->
+		</classes>
+	</test> <!-- Test -->
 </suite> <!-- Suite -->
