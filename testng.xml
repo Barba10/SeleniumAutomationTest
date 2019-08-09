@@ -8,7 +8,7 @@
       <class name="hr.ogcs.qa.testcases.EAG_TSF_C015"/>
       -->
       
-      <class name="hr.ogcs.qa.testcases.EAG_TSF_A001"/>
+      <class name="hr.ogcs.qa.testcases.EAG_TSF_G001"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

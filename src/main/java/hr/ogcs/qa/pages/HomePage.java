@@ -29,6 +29,12 @@ public class HomePage extends TestBase {
 	@FindBy(linkText="Applications")
 	WebElement applications;
 	
+	@FindBy(linkText="Study & QAU")
+	WebElement study_qau;
+	
+	@FindBy(linkText="Inspections")
+	WebElement inspections;
+	
 	//D4
 	@FindBy(xpath="//div[2]/div/div/div/button/span")
 	WebElement create_btn;
@@ -80,5 +86,8 @@ public class HomePage extends TestBase {
         selectBinder.click();
     }
 	
-	
+	public void GoToInspections() {
+		study_qau.click();
+		inspections.click();
+    }
 }
