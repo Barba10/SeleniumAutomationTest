@@ -2,3 +2,4 @@
 /test-output
 /screenshots
 /screenshots/*.png
+/target/

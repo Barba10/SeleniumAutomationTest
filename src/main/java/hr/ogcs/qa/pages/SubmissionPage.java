@@ -248,6 +248,4 @@ public class SubmissionPage extends TestBase{
 		cancel_continue.click();
 	}
 	
-		
-	
 }
