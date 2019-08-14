@@ -42,6 +42,12 @@ public class HomePage extends TestBase {
 	@FindBy(xpath="//div[@class='header_std vv_navbar']//li[3]//a[1]")
 	WebElement binderButton;
 	
+	@FindBy(xpath="//a[@name='study_qau__c']")
+	WebElement studyQAU;
+	
+	@FindBy(xpath = "//a[contains(text(),'Studies')]")
+	WebElement studiesButton;
+	
 	// Initializing the Page Objects:
 	public HomePage() {
 		PageFactory.initElements(driver, this);
@@ -79,6 +85,12 @@ public class HomePage extends TestBase {
 	public void GoToBinder() {
 		createButton.click();
 		binderButton.click();
+		
+	}
+	
+	public void GoToStudyQUA() {
+		studyQAU.click();
+		studiesButton.click();
 		
 	}
 	
