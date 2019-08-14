@@ -19,7 +19,19 @@ public class InspectionsPage extends TestBase {
 	WebElement continue_button;
 	
 	@FindBy(linkText="Computerized System Inspection")
-	WebElement inspection_type_value_csi ;
+	WebElement inspection_type_value_csi;
+	
+	@FindBy(linkText="Document Inspection")
+	WebElement inspection_type_value_di;
+	
+	@FindBy(linkText="Facility Inspection")
+	WebElement inspection_type_value_fi;
+	
+	@FindBy(linkText="Instrument Inspection")
+	WebElement inspection_type_value_ii;
+	
+	@FindBy(linkText="Study based Inspection")
+	WebElement inspection_type_value_sbi;
 	
 	public  InspectionsPage() {
 		PageFactory.initElements(driver, this);
@@ -33,22 +45,36 @@ public class InspectionsPage extends TestBase {
 		continue_button.click();
 	}
 	
+	public void SelectDocumentInspection() {
+		wait.until(ExpectedConditions.visibilityOf(create_button));
+		create_button.click();
+		inspection_type.click();
+		inspection_type_value_di.click();
+		continue_button.click();
+	}
 	
+	public void SelectFacilityInspection() {
+		wait.until(ExpectedConditions.visibilityOf(create_button));
+		create_button.click();
+		inspection_type.click();
+		inspection_type_value_fi.click();
+		continue_button.click();
+	}
 	
+	public void SelectInstrumentInspection() {
+		wait.until(ExpectedConditions.visibilityOf(create_button));
+		create_button.click();
+		inspection_type.click();
+		inspection_type_value_ii.click();
+		continue_button.click();
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	public void SelectStudyBasedInspection() {
+		wait.until(ExpectedConditions.visibilityOf(create_button));
+		create_button.click();
+		inspection_type.click();
+		inspection_type_value_sbi.click();
+		continue_button.click();
+	}
 	
 }

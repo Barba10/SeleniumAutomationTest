@@ -11,8 +11,10 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import hr.ogcs.qa.base.TestBase;
 
@@ -135,6 +137,22 @@ public class TestUtil extends TestBase {
 	    else{
 		    //FOR LINUX RUNING FROM GIT
 	    	driver.findElement(By.id("inboxFileChooserHTML5")).sendKeys("/builds/qa/eaglesAutomation/upload/pdf1.pdf");
+	    }
+	}
+	
+	public static void ClickOnFocusedItem() throws InterruptedException{
+		Thread.sleep(500);
+		WebElement focusedItem = driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused"));
+		try
+	    {
+			wait.until(ExpectedConditions.visibilityOf(focusedItem));
+			focusedItem.click();
+
+	    }
+	    catch (StaleElementReferenceException e)
+	    {
+	    	System.out.print("CATCHING STALE ELEMENT REFERENCE EXEPTION \n");
+	    	focusedItem.click();
 	    }
 	}
 	
