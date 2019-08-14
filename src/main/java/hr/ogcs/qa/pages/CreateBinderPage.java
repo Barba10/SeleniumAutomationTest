@@ -77,7 +77,7 @@ public class CreateBinderPage extends TestBase {
 	@FindBy(xpath = "//option[contains(text(),'ANVISA Active Ingredient Dossier')]")
 	WebElement anvisaActiveIngrediantTemplate;
 	
-	@FindBy(xpath = "//div[@class='page vv_page']//option[7]")
+	@FindBy(xpath = "//div[@class='page vv_page vv-legacy-base']//option[7]")
 	WebElement drrTemplate;
 	
 	@FindBy(xpath = "//option[contains(text(),'KCA')]")

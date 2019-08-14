@@ -26,8 +26,18 @@ public class HomePage extends TestBase {
 	@FindBy(linkText="Archive & Regulatory")
 	WebElement archive_regulatory;
 	
+<<<<<<< HEAD
+	//D2
+	@FindBy(linkText="Archive & Regulatory")
+	WebElement arch_reg_tab;
+	
+	@FindBy(linkText="Submissions")
+	WebElement submissions;
+	
+=======
 	@FindBy(linkText="Applications")
 	WebElement applications;
+>>>>>>> 5c51e12a8fbf36a031c80d387e715d5efc805cfe
 	
 	@FindBy(linkText="Study & QAU")
 	WebElement study_qau;
@@ -52,6 +62,12 @@ public class HomePage extends TestBase {
 	
 	@FindBy(xpath="//div[@class='header_std vv_navbar']//li[3]//a[1]")
 	WebElement binderButton;
+	
+	@FindBy(xpath="//a[@name='study_qau__c']")
+	WebElement studyQAU;
+	
+	@FindBy(xpath = "//a[contains(text(),'Studies')]")
+	WebElement studiesButton;
 	
 	// Initializing the Page Objects:
 	public HomePage() {
@@ -81,6 +97,14 @@ public class HomePage extends TestBase {
 		//search_box.sendKeys(Keys.ENTER);
 	}
 	
+<<<<<<< HEAD
+	//D2
+	public void GoToArchive() {
+		arch_reg_tab.click();
+		submissions.click();
+	}
+	
+=======
 	//D4
 	public void GoToUpload() {
 		create_btn.click();
@@ -91,9 +115,17 @@ public class HomePage extends TestBase {
 		create_btn.click();
         selectBinder.click();
     }
+>>>>>>> 5c51e12a8fbf36a031c80d387e715d5efc805cfe
+	
+	public void GoToStudyQUA() {
+		studyQAU.click();
+		studiesButton.click();
+		
+	}
 	
 	public void GoToInspections() {
 		study_qau.click();
 		inspections.click();
     }
+	
 }

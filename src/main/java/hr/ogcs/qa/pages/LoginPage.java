@@ -20,6 +20,10 @@ public class LoginPage extends TestBase{
 	@FindBy(name="login")
 	WebElement login_button;
 	
+	@FindBy(xpath="//a[contains(text(),'Switch user')]")
+	WebElement switchUser;
+	
+	
 	//Initializing the Page Objects:
 	public LoginPage(){
 		PageFactory.initElements(driver, this);
@@ -40,5 +44,10 @@ public class LoginPage extends TestBase{
 		
 		return new HomePage();
 	}
+	
+	public void switchUser() {
+		switchUser.click();
+	}
+	
 	
 }
