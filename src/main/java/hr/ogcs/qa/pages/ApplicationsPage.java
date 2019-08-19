@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -13,7 +14,7 @@ import hr.ogcs.qa.base.TestBase;
 import hr.ogcs.qa.util.TestUtil;
 
 public class ApplicationsPage extends TestBase {
-
+	
 	@FindBy(xpath="//div[3]/div/div/div/div/button/span")
 	WebElement create_button;
 	
@@ -33,26 +34,30 @@ public class ApplicationsPage extends TestBase {
 	@FindBy(name="name__v")
 	WebElement form_name;
 	
-	@FindBy(xpath="//*[@id=\"subtype__c\"]/div[2]/button/span")
+	@FindBy(xpath = "//span[@selenium-name='subtype__c']//parent::label//parent::div//following-sibling::div[1]//span[@title='More search options']")
 	WebElement form_app_subtype_binocular;
 	
-	@FindBy(xpath="//div[@id='dossier_admin__c']/div[2]/button/span")
+	@FindBy(xpath = "//span[@selenium-name='dossier_admin__c']//parent::label//parent::div//following-sibling::div[1]//span[@title='More search options']")
 	WebElement form_dossier_admin_binocular;
 	
-	@FindBy(xpath="//div[@id='region__c']/div[2]/button/span")
+	@FindBy(xpath = "//span[@selenium-name='region__c']//parent::label//parent::div//following-sibling::div[1]//span[@title='More search options']")
 	WebElement form_region_binocular;
 	
-	@FindBy(xpath="//div[@id='rapporteur__c']/div[2]/button/span")
+	@FindBy(xpath = "//span[@selenium-name='rapporteur__c']//parent::label//parent::div//following-sibling::div[1]//span[@title='More search options']")
 	WebElement form_rapporteur_binocular;
-	
-	@FindBy(xpath="//div[@id='product__c']/div[2]/button/span")
+
+	@FindBy(xpath = "//span[@selenium-name='product__c']//parent::label//parent::div//following-sibling::div[1]//span[@title='More search options']")
 	WebElement form_product_code_binocular;
 	
-	@FindBy(xpath="//*[@id=\"ingredient_code__c\"]/div[2]/button/span")
+	@FindBy(xpath = "//span[@selenium-name='ingredient_code__c']//parent::label//parent::div//following-sibling::div[1]//span[@title='More search options']")
 	WebElement form_ingredient_code_binocular;
 	
-	@FindBy(xpath="//div/div/div/div/div[2]/div/input")
+	@FindBy(css = "input.veevaSearch_searchInput.vv_searchbar_input")
 	WebElement form_search_label;
+	
+	@FindBy(xpath="//div[2]/div/div[2]/span/a")
+	WebElement form_fungicide_value;
+	
 	
 	@FindBy(xpath="//div[2]/span/a")
 	WebElement form_binocular_value;
@@ -115,14 +120,16 @@ public class ApplicationsPage extends TestBase {
 		continue_btn.click();
 	}
 	
-	public void FillFormPPP() {
+	public void FillFormPPP() throws InterruptedException {
 		form_name.sendKeys("BAS 750 01 F Core C" + " " + TestUtil.RandomName(5));
 		
-		//Application Subtype
-		form_app_subtype_binocular.click();
-		form_search_label.sendKeys("pPPPlantProtectionProduct:newDRR:fungicide" + Keys.ENTER);
-		form_binocular_value.click();
+
+		Actions actions = new Actions(driver);
+		actions.doubleClick(form_app_subtype_binocular).perform();
 		
+		form_search_label.sendKeys("Fungicide" + Keys.ENTER);
+		form_fungicide_value.click();
+				
 		//Dossier Admin
 		form_dossier_admin_binocular.click();
 		form_search_label.sendKeys("Stephanie Walburg" + Keys.ENTER);
@@ -149,7 +156,8 @@ public class ApplicationsPage extends TestBase {
 		form_name.sendKeys("'BAS 750 F (Mefentrifluconazole) JMPR" + " " + TestUtil.RandomName(5));
 		
 		//Application Subtype
-		form_app_subtype_binocular.click();
+		Actions actions = new Actions(driver);
+		actions.doubleClick(form_app_subtype_binocular).perform();
 		form_search_label.sendKeys("JMPR" + Keys.ENTER);
 		form_binocular_value.click();
 		
@@ -193,12 +201,17 @@ public class ApplicationsPage extends TestBase {
 		TestUtil.editableField(form_ingredient_code_binocular, "Ingredient code");
 	}
 	
-	public void Save() {
+	public void Save() throws InterruptedException {
 		save_btn.click();
+		
+		Thread.sleep(4000);
+
 	}
 	
-	public void Edit() {
+	public void Edit() throws InterruptedException {
 		edit_btn.click();
+		Thread.sleep(4000);
+
 	}
 	
 	public void Cancel() {	
