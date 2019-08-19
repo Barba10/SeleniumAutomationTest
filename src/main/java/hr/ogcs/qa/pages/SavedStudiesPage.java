@@ -116,7 +116,7 @@ public class SavedStudiesPage extends TestBase {
 	@FindBy(xpath="//span[@selenium-value-name='buid__c']")
 	WebElement buid;
 	
-	@FindBy(xpath="span//[@selenium-value-name='external_test_facility__c'")
+	@FindBy(xpath="//span[@selenium-value-name='external_test_facility__c'")
 	WebElement externalTestFascility;
 	
 	

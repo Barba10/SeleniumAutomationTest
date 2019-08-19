@@ -69,6 +69,9 @@ public class HomePage extends TestBase {
 	@FindBy(xpath = "//a[contains(text(),'Studies')]")
 	WebElement studiesButton;
 	
+	@FindBy(linkText="Phases")
+	WebElement phases;
+	
 	// Initializing the Page Objects:
 	public HomePage() {
 		PageFactory.initElements(driver, this);
@@ -97,12 +100,14 @@ public class HomePage extends TestBase {
 		//search_box.sendKeys(Keys.ENTER);
 	}
 	
+
 	//D2
 	public void GoToArchive() {
 		arch_reg_tab.click();
 		submissions.click();
 	}
 	
+
 	//D4
 	public void GoToUpload() {
 		create_btn.click();
@@ -113,6 +118,7 @@ public class HomePage extends TestBase {
 		create_btn.click();
         selectBinder.click();
     }
+
 	
 	public void GoToStudyQUA() {
 		studyQAU.click();
@@ -124,5 +130,10 @@ public class HomePage extends TestBase {
 		study_qau.click();
 		inspections.click();
     }
+	
+	public void goToPhases() {
+		studyQAU.click();
+		phases.click();
+	}
 	
 }
