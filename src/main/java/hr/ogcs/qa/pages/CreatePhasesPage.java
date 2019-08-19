@@ -1,6 +1,6 @@
 package hr.ogcs.qa.pages;
 
-import org.codehaus.plexus.personality.plexus.lifecycle.phase.StartingException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
