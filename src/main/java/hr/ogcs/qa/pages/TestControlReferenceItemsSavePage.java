@@ -15,24 +15,22 @@ public class TestControlReferenceItemsSavePage extends TestBase {
 		PageFactory.initElements(driver, this);
 	}
 	
-	
-	
 	@FindBy(xpath = "//span[@selenium-value-name='name__v']")
 	WebElement name;
 	
 	@FindBy(xpath = "//span[@selenium-value-name='reg_no1__c']")
 	WebElement regNumber;
 	
-	@FindBy(xpath="//span[@class='userCell jqueryWrapped']")
+	@FindBy(xpath = "//descendant::span[contains(@class, 'userCell')][1]")
 	WebElement createdBy;
 	
-	@FindBy(xpath = "//span[@class='readonlyVofField']")
+	@FindBy(xpath = "//span[@selenium-value-name='created_date__v']")
 	WebElement createdDate;
 	
-	@FindBy(xpath="//span[@userid='1196033']")
+	@FindBy(xpath = "//descendant::span[contains(@class, 'userCell')][2]")
 	WebElement lastModifiedBy;
 	
-	@FindBy(xpath="//span[@selenium-value-name='modified_date__v']")
+	@FindBy(xpath = "//span[@selenium-value-name='modified_date__v']")
 	WebElement lastModifiedDate;
 	
 	@FindBy(xpath = "//span[@selenium-value-name='id']")
@@ -89,7 +87,7 @@ public class TestControlReferenceItemsSavePage extends TestBase {
 	@FindBy(xpath = "//div[@id='plSection_1']/div/div/h3/span/span")
 	WebElement batchTab;
 	
-	@FindBy(xpath = "//div[@id='plSection_2']/div/div/h3/span/span")
+	@FindBy(xpath = "//div[text()='Additional Details']")
 	WebElement additionalDetailsTab;
 	
 	@FindBy(xpath = "//a[@name='products1__c']//span[contains(text(),'Products')]")

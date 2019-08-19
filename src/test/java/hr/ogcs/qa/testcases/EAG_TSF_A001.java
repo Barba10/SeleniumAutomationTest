@@ -50,8 +50,6 @@ public class EAG_TSF_A001 extends TestBase {
 		documentPage.VeryficationRemarks();
 		TestUtil.takeScreenshotAtEndOfTest();
 		documentPage.SaveButton();
-		
-
 	}
 	
 	@AfterMethod
