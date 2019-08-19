@@ -276,9 +276,10 @@ public class DocumentPage extends TestBase{
 	}
 	
 	
-	public void ClassificationOfUploadedDocument() {
+	public void ClassificationOfUploadedDocument() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(actionWheel));
 		actionWheel.click();
+		Thread.sleep(4000);
 		classify_link.click();
 		advanced_link.click();
 		Select TypeSelect = new Select(type);

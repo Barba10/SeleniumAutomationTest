@@ -98,9 +98,6 @@ public class TestControlReferenceItemsSavePage extends TestBase {
 	@FindBy(linkText="Test/Control/Reference Items")
 	WebElement testControlReferance;
 	
-	
-	
-	
 	public void verifyTestData() throws IOException, InterruptedException {
 		TestUtil.verifyEquals(name, "ITEM-000019");
 		TestUtil.verifyEquals(objectType, "Test Item");
@@ -114,7 +111,6 @@ public class TestControlReferenceItemsSavePage extends TestBase {
 		TestUtil.verifyEquals(status, "Active");
 		products.click();
 		testControlReferance.click();
-		
 	}
 	
 	public void verifyControlData() throws IOException, InterruptedException {

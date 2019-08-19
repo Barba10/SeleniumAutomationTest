@@ -11,6 +11,7 @@ import hr.ogcs.qa.pages.CreateInspectionPage;
 import hr.ogcs.qa.pages.HomePage;
 import hr.ogcs.qa.pages.InspectionsPage;
 import hr.ogcs.qa.pages.LoginPage;
+import hr.ogcs.qa.util.TestUtil;
 
 public class EAG_TSF_G001 extends TestBase{
 	LoginPage loginPage;
@@ -34,15 +35,44 @@ public class EAG_TSF_G001 extends TestBase{
 	
 	@Test
 	public void VaultGeneralInformations() throws InterruptedException, IOException{
-		homePage.GoToInspections();
-		inspectionsPage.SelectComputerizedSystemInspection();
-		createInspectionPage.FillComputerizedSystemInspection();
 		
-		Thread.sleep(5000);
+		  homePage.GoToInspections();
+		  inspectionsPage.SelectComputerizedSystemInspection();
+		  createInspectionPage.FillComputerizedSystemInspection();
+		  
+		  createInspectionPage.ComputerizedSystemInspectionVerifycation();
+		  TestUtil.takeScreenshotAtEndOfTest();
+		  
+		  homePage.GoToInspections(); inspectionsPage.SelectDocumentInspection();
+		  createInspectionPage.FillDocumentInspection();
+		  createInspectionPage.DocumentInspectionVerifycation();
+		  TestUtil.takeScreenshotAtEndOfTest();
+
+		  homePage.GoToInspections(); inspectionsPage.SelectFacilityInspection();
+		  createInspectionPage.FillFacilityInspection();
+		  createInspectionPage.FacilityInspectionVerifycation();
+		  TestUtil.takeScreenshotAtEndOfTest();
+
+		  homePage.GoToInspections(); inspectionsPage.SelectInstrumentInspection();
+		  createInspectionPage.FillInstrumentInspection();
+		  createInspectionPage.InstrumentInspectionVerifycation();
+		  TestUtil.takeScreenshotAtEndOfTest();
+
+		  homePage.GoToInspections(); inspectionsPage.SelectStudyBasedInspection();
+		  createInspectionPage.FillStudyBasedInspection();
+		  createInspectionPage.StudyBasedVerifycation();
+		  TestUtil.takeScreenshotAtEndOfTest();
+
+		
+		  homePage.GoToInspections();
+		  inspectionsPage.SelectDocumentInspection();
+		  createInspectionPage.Cancel();
+		
 	}
 	
 	@AfterMethod
 	public void tearDown(){
-		driver.quit();
+		//driver.close();
+		//driver.quit();
 	}
 }
