@@ -24,7 +24,7 @@ public class LibraryPage extends TestBase {
 	@FindBy(linkText="STATUS")
 	WebElement status;
 
-	@FindBy(id="facet_Pending Archival")
+	@FindBy(id="status~en_facet_Pending Archival")
 	WebElement pending;
 
 	@FindBy(xpath="//td/div/div[2]/div[2]/a")

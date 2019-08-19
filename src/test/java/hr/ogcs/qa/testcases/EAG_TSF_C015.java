@@ -42,27 +42,50 @@ public class EAG_TSF_C015 extends TestBase {
 		driver.quit();
 	}
 
+	/**
+	 * @throws InterruptedException
+	 * @throws IOException
+	 */
 	@Test
 	public void VaultGeneralInformations() throws InterruptedException, IOException {
-		homePage.GoToTestControlReferance();
-		testControlItemsPage.ChooseTestType();
-		createNewProduct.FillOutTypeForm();
-		testControlSavePage.verifyTestData();
-		TestUtil.takeScreenshotAtEndOfTest();
-		testControlItemsPage.ChooseControlType();
-		createNewProduct.FillOutControlForm();
-		testControlSavePage.verifyControlData();
-		TestUtil.takeScreenshotAtEndOfTest();
-		testControlItemsPage.ChooseReferenceType();
-		createNewProduct.FillOutReferenceForm();
-		testControlSavePage.verifyReferenceData();
-		TestUtil.takeScreenshotAtEndOfTest();
-		testControlItemsPage.ChooseTestType();
-		createNewProduct.FillOutTypeFormClickCancle();
-		testControlItemsPage.ChooseControlType();
-		createNewProduct.FillOutControlFormClickCancel();
-		testControlItemsPage.ChooseReferenceType();
-		createNewProduct.FillOutReferenceFormClickCancel();
-
+		
+		  homePage.GoToTestControlReferance(); 
+		  testControlItemsPage.ChooseTestType();
+		  createNewProduct.FillOutTypeForm(); 
+		  createNewProduct.Save();
+		  testControlSavePage.verifyTestData(); 
+		  TestUtil.takeScreenshotAtEndOfTest();
+		  
+		  homePage.GoToTestControlReferance();
+		  testControlItemsPage.ChooseControlType();
+		  createNewProduct.FillOutControlForm(); createNewProduct.Save();
+		  testControlSavePage.verifyControlData();
+		  TestUtil.takeScreenshotAtEndOfTest();
+		 
+		
+		  homePage.GoToTestControlReferance();
+		  testControlItemsPage.ChooseReferenceType();
+		  createNewProduct.FillOutReferenceForm();
+		  createNewProduct.Save();
+	      testControlSavePage.verifyReferenceData();
+		  TestUtil.takeScreenshotAtEndOfTest();
+		  
+		  
+		  homePage.GoToTestControlReferance();
+	      testControlItemsPage.ChooseTestType();
+		  createNewProduct.FillOutTypeForm(); 
+		  createNewProduct.Cancel();
+		  
+		  homePage.GoToTestControlReferance(); 
+		  testControlItemsPage.ChooseControlType();
+		  createNewProduct.FillOutControlForm(); 
+		  createNewProduct.Cancel();
+		  
+		  homePage.GoToTestControlReferance(); 
+		  testControlItemsPage.ChooseReferenceType();
+		  createNewProduct.FillOutReferenceForm(); 
+		  createNewProduct.Cancel();
+		 
+		
 	}
 }
