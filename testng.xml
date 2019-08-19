@@ -5,9 +5,10 @@
 		<classes>
 			<!-- <class name="hr.ogcs.qa.testcases.EAG_TSF_D007"/> -->
 			<!-- <class name="hr.ogcs.qa.testcases.EAG_TSF_C015"/> -->
-			<!--<class name="hr.ogcs.qa.testcases.EAG_TSF_D002" />-->
-			<class name="hr.ogcs.qa.testcases.EAG_TSF_D003" />
-<!-- 			<class name="hr.ogcs.qa.testcases.EAG_TSF_D005" /> -->
+			<!--<class name="hr.ogcs.qa.testcases.EAG_TSF_D002" /> -->
+			<!-- <class name="hr.ogcs.qa.testcases.EAG_TSF_D003" /> -->
+			<!-- <class name="hr.ogcs.qa.testcases.EAG_TSF_D005" /> -->
+			<class name="hr.ogcs.qa.testcases.EAG_TSF_G004" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->

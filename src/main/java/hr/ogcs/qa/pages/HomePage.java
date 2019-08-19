@@ -26,7 +26,7 @@ public class HomePage extends TestBase {
 	@FindBy(linkText="Archive & Regulatory")
 	WebElement archive_regulatory;
 	
-<<<<<<< HEAD
+
 	//D2
 	@FindBy(linkText="Archive & Regulatory")
 	WebElement arch_reg_tab;
@@ -34,10 +34,10 @@ public class HomePage extends TestBase {
 	@FindBy(linkText="Submissions")
 	WebElement submissions;
 	
-=======
+
 	@FindBy(linkText="Applications")
 	WebElement applications;
->>>>>>> 5c51e12a8fbf36a031c80d387e715d5efc805cfe
+
 	
 	@FindBy(linkText="Study & QAU")
 	WebElement study_qau;
@@ -69,6 +69,9 @@ public class HomePage extends TestBase {
 	@FindBy(xpath = "//a[contains(text(),'Studies')]")
 	WebElement studiesButton;
 	
+	@FindBy(linkText="Phases")
+	WebElement phases;
+	
 	// Initializing the Page Objects:
 	public HomePage() {
 		PageFactory.initElements(driver, this);
@@ -97,14 +100,14 @@ public class HomePage extends TestBase {
 		//search_box.sendKeys(Keys.ENTER);
 	}
 	
-<<<<<<< HEAD
+
 	//D2
 	public void GoToArchive() {
 		arch_reg_tab.click();
 		submissions.click();
 	}
 	
-=======
+
 	//D4
 	public void GoToUpload() {
 		create_btn.click();
@@ -115,7 +118,7 @@ public class HomePage extends TestBase {
 		create_btn.click();
         selectBinder.click();
     }
->>>>>>> 5c51e12a8fbf36a031c80d387e715d5efc805cfe
+
 	
 	public void GoToStudyQUA() {
 		studyQAU.click();
@@ -127,5 +130,10 @@ public class HomePage extends TestBase {
 		study_qau.click();
 		inspections.click();
     }
+	
+	public void goToPhases() {
+		studyQAU.click();
+		phases.click();
+	}
 	
 }
