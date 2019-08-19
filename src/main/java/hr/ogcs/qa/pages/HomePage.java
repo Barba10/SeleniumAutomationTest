@@ -72,6 +72,9 @@ public class HomePage extends TestBase {
 	@FindBy(linkText="Phases")
 	WebElement phases;
 	
+	@FindBy(linkText="Trials")
+	WebElement trials;
+	
 	// Initializing the Page Objects:
 	public HomePage() {
 		PageFactory.initElements(driver, this);
@@ -134,6 +137,11 @@ public class HomePage extends TestBase {
 	public void goToPhases() {
 		studyQAU.click();
 		phases.click();
+	}
+	
+	public void goToTrials() {
+		study_qau.click();
+		trials.click();
 	}
 	
 }

@@ -8,7 +8,8 @@
 			<!--<class name="hr.ogcs.qa.testcases.EAG_TSF_D002" /> -->
 			<!-- <class name="hr.ogcs.qa.testcases.EAG_TSF_D003" /> -->
 			<!-- <class name="hr.ogcs.qa.testcases.EAG_TSF_D005" /> -->
-			<class name="hr.ogcs.qa.testcases.EAG_TSF_G004" />
+			<!-- <class name="hr.ogcs.qa.testcases.EAG_TSF_G004" /> -->
+			<class name="hr.ogcs.qa.testcases.EAG_TSF_G005" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->
