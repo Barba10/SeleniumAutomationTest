@@ -10,6 +10,7 @@ import java.util.Random;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TakesScreenshot;
@@ -156,5 +157,33 @@ public class TestUtil extends TestBase {
 	    }
 	}
 	
+	public static void click(WebElement element, String elementName)  {
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		wait.until(ExpectedConditions.elementToBeClickable(element));
+		element.click();
+		System.out.print(elementName + " is clicked \n");	
+		// wait doesn't work with radio button
+		
+	}
+		
+	//Type function
+	public static void type(WebElement element, String elementName, String typedText) {
+		//clearing field before entering text
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(element));
+		element.sendKeys(Keys.chord(Keys.CONTROL, "a"),typedText);
+		System.out.println("Typed in " + elementName + ": " + typedText);
+	}
 
 }
