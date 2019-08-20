@@ -21,61 +21,63 @@ import hr.ogcs.qa.base.TestBase;
 public class WebEventListener extends TestBase implements WebDriverEventListener {
 
 	public void beforeNavigateTo(String url, WebDriver driver) {
-		System.out.println("Before navigating to: '" + url + "'");
+		//System.out.println("Before navigating to: '" + url + "'");
 	}
 
 	public void afterNavigateTo(String url, WebDriver driver) {
-		System.out.println("Navigated to:'" + url + "'");
+		//System.out.println("Navigated to:'" + url + "'");
 	}
 
 	public void beforeChangeValueOf(WebElement element, WebDriver driver) {
-		System.out.println("Value of the:" + element.toString() + " before any changes made");
+		//System.out.println("Value of the:" + element.toString() + " before any changes made");
 	}
 
 	public void afterChangeValueOf(WebElement element, WebDriver driver) {
-		System.out.println("Element value changed to: " + element.toString());
+		//System.out.println("Element value changed to: " + element.toString());
 	}
 
 	public void beforeClickOn(WebElement element, WebDriver driver) {
-		System.out.println("Trying to click on: " + element.toString());
-		System.out.println("Element get text: " + element.getText());
+		//System.out.println("Trying to click on: " + element.toString());
+		//System.out.println("Element get text: " + element.getText());
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		
 	}
 
 	public void afterClickOn(WebElement element, WebDriver driver) {
+	//	System.out.print("Element get text:" + element.getText() + "\n");
+	
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("Clicked on: " + element.toString());
+		//System.out.println("Clicked on: " + element.toString());
 	}
 
 	public void beforeNavigateBack(WebDriver driver) {
-		System.out.println("Navigating back to previous page");
+		//System.out.println("Navigating back to previous page");
 	}
 
 	public void afterNavigateBack(WebDriver driver) {
-		System.out.println("Navigated back to previous page");
+		//System.out.println("Navigated back to previous page");
 	}
 
 	public void beforeNavigateForward(WebDriver driver) {
-		System.out.println("Navigating forward to next page");
+		//System.out.println("Navigating forward to next page");
 	}
 
 	public void afterNavigateForward(WebDriver driver) {
-		System.out.println("Navigated forward to next page");
+		//System.out.println("Navigated forward to next page");
 	}
 
 	public void onException(Throwable error, WebDriver driver) {
-		System.out.println("Exception occured: " + error);
+		//System.out.println("Exception occured: " + error);
 		/*
 		 * try { TestUtil.takeScreenshotAtEndOfTest(); } catch (IOException e) {
 		 * e.printStackTrace(); }
@@ -83,22 +85,22 @@ public class WebEventListener extends TestBase implements WebDriverEventListener
 	}
 
 	public void beforeFindBy(By by, WebElement element, WebDriver driver) {
-		System.out.println("Trying to find Element By : " + by.toString());
+		//System.out.println("Trying to find Element By : " + by.toString());
 	}
 
 	public void afterFindBy(By by, WebElement element, WebDriver driver) {
-		System.out.println("Found Element By : " + by.toString());
+		//System.out.println("Found Element By : " + by.toString());
 	}
 	
 	public void afterGetText(WebElement element, WebDriver arg1, String text) {
 		// TODO Auto-generated method stub
-		System.out.println("After get text" + element.toString());
-		System.out.println("Text we got " + text);
+		//System.out.println("After get text" + element.toString());
+		//System.out.println("Text we got " + text);
 	}
 	
 	public void beforeGetText(WebElement element, WebDriver arg1) {
 		// TODO Auto-generated method stub
-		System.out.println("Trying to get text:  " + element.toString());
+		//System.out.println("Trying to get text:  " + element.toString());
 	}
 	
 	
