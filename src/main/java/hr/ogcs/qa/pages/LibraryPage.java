@@ -66,36 +66,36 @@ public class LibraryPage extends TestBase {
 	}
 	
 	public void goToDocId() {
-		basf_doc_id.click();
+		TestUtil.click(basf_doc_id, "Document ID");
 	}
 	
 	//A1
 	public void Filter() {
 		if(!driver.findElements(By.linkText("STATUS")).isEmpty()){
-			status.click();
+			TestUtil.click(status, "Status - FILTER");
 			wait.until(ExpectedConditions.elementToBeClickable(pending));
-			pending.click();
+			TestUtil.click(pending, "Pending - Checkbox");
 		}
 		else
 		{
-			filter_edit_btn.click();
-			status_binocular.click();
-			restore_defaults.click();
-			applyBtn.click();
-			status.click();
+			TestUtil.click(filter_edit_btn, "Filter Edit Button");
+			TestUtil.click(status_binocular, "Status - Binocular");
+			TestUtil.click(restore_defaults, "Restore Defaults");
+			TestUtil.click(applyBtn, "Apply Button");
+			TestUtil.click(status, "Status");
 			wait.until(ExpectedConditions.elementToBeClickable(pending));
-			pending.click();
+			TestUtil.click(pending, "Pending");
 		}
 	}
 	
 	public void SetTabularView() {
 		wait.until(ExpectedConditions.elementToBeClickable(tabularView));
-		tabularView.click();
+		TestUtil.click(tabularView, "Tabular view");
 	}
 	
 	public void OpenUploadedDocument() {
 		wait.until(ExpectedConditions.visibilityOf(doc_inbox));
-		uploaded_document.click();
+		TestUtil.click(uploaded_document, "Uploaded document");
 	}
 	
 	

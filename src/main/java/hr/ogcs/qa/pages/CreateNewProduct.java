@@ -28,22 +28,16 @@ public class CreateNewProduct extends TestBase {
 	@FindBy(css = "input.veevaSearch_searchInput.vv_searchbar_input")
 	WebElement searchBar;
 
-	@FindBy(xpath = "//a[@class='addItem vv_rd_link']")
-	WebElement addBasfStudyId;
-
 	@FindBy(css = "a.addItem.vv_rd_link")
-	WebElement addBasNum;
-
-	@FindBy(css = "a.addItem.vv_rd_link")
-	WebElement addIngrediantCode;
+	WebElement addElement;
 
 	@FindBy(xpath = "//input[contains(@name,'micellaneous__c')]")
 	WebElement misc;
 
-	@FindBy(xpath = "//div[@id='plSection_0']//label[1]//input[1]")
+	@FindBy(xpath = "//input[@name = 'isotopically_labelled__c' and @value='true']")
 	WebElement isotopicallyLabelledYes;
 	
-	@FindBy(xpath = "//div[@id='plSection_0']//label[2]//input[1]")
+	@FindBy(xpath = "//input[@name = 'isotopically_labelled__c' and @value='false']")
 	WebElement isotopicallyLabelledNo;
 	
 	@FindBy(xpath = "//span[@selenium-name='label__c']//parent::label//parent::div//following-sibling::div[1]//textarea")
@@ -78,7 +72,6 @@ public class CreateNewProduct extends TestBase {
 	@FindBy(name = "source__c")
 	WebElement addSource;
 	
-	
 	@FindBy(xpath = "//button[contains(@class,'vv-btn vv-btn-primary vv-vof-detail-header-button')]")
 	WebElement saveButton;
 	
@@ -90,56 +83,56 @@ public class CreateNewProduct extends TestBase {
 	
 
 	public void Save() throws InterruptedException {
-		saveButton.click();
+		TestUtil.click(saveButton, "Save Button");
 		Thread.sleep(4000);
 	}
 	
 	public void FillOutTypeForm() throws InterruptedException {
 		String suffix_add = TestUtil.RandomName(5);
 		Thread.sleep(2000);
-		basfStudyId.click();
-		searchBar.sendKeys("134503" + Keys.ENTER);
-		addBasfStudyId.click();
-		basNumber.click();
-		searchBar.sendKeys("BAS 060 03 H" + Keys.ENTER);
-		addBasNum.click();
-		ingrediantCode.click();
-		searchBar.sendKeys("LS 6059083" + Keys.ENTER);
-		addIngrediantCode.click();
-		misc.sendKeys("Metabolite");
-		isotopicallyLabelledNo.click();
-		addLabel.sendKeys("C13" + Keys.ENTER);
-		Thread.sleep(5000);
-		metaboliteCode.sendKeys("6059083");
-		addBatchNumber.sendKeys("54845121");
-		glpNo.click();
-		expiryDate.sendKeys("12/9/2020");
-		addPurity.sendKeys("88");
-		addRadioPurity.sendKeys("88.3");
-		addBuid.sendKeys("123" + " "+suffix_add);
-		addSource.sendKeys("456");
+		TestUtil.click(basfStudyId, "BASF Study ID Binocular");
+		TestUtil.type(searchBar, "Search Bar", "134503" + Keys.ENTER);		
+		TestUtil.click(addElement, "Add button");
+		TestUtil.click(basNumber, "BAS Number Binocular");
+		TestUtil.type(searchBar, "Search Bar", "BAS 060 03 H" + Keys.ENTER);		
+		TestUtil.click(addElement, "Add button");		
+		TestUtil.click(ingrediantCode, "Ingrediant Code Binocular");		
+		TestUtil.type(searchBar, "Search Bar", "LS 6059083" + Keys.ENTER);		
+		TestUtil.click(addElement, "Add button");		
+		TestUtil.type(misc, "Miscellaneous", "Metabolite");		
+		TestUtil.click(isotopicallyLabelledNo, "Isotopically Labelled - No (Radio Button)");		
+		TestUtil.type(addLabel,"Label",  "C13");		
+		TestUtil.type(metaboliteCode,"Metabolite Code", "6059083");		
+		TestUtil.type(addBatchNumber, "Batch Number", "54845121");		
+		TestUtil.click(glpNo, "GLP No");		
+		TestUtil.type(expiryDate,"Expiry Date",  "12/9/2020");
+		TestUtil.type(addPurity,"Purity", "88");
+		TestUtil.type(addRadioPurity,"Radiochemical Purity",  "88.3");
+		TestUtil.type(addBuid, "BUID", "123" + " "+suffix_add);
+		TestUtil.type(addSource, "Source", "456");
 	}
 	
 	
 	public void Cancel() throws InterruptedException {
 		jse.executeScript("window.scrollBy(0,-500)", "");
-		cancelButton.click();
-		continueButton.click();
+		TestUtil.click(cancelButton, "Cancel Button");
+		TestUtil.click(continueButton, "Continue Button");
 		Thread.sleep(4000);
 	}
 	
 	public void FillOutControlForm() throws InterruptedException {
 		String suffix_add = TestUtil.RandomName(5);
 		Thread.sleep(2000);
-		basfStudyId.click();
-		searchBar.sendKeys("UK/FR/01/95" + Keys.ENTER);
-		addBasfStudyId.click();
+		TestUtil.click(basfStudyId, "BASF Study ID Binocular");
+		TestUtil.type(searchBar, "Search Bar", "UK/FR/01/95" + Keys.ENTER);		
+		TestUtil.click(addElement, "Add button");
+
 		basNumber.click();
 		searchBar.sendKeys("BAS 562 05 H" + Keys.ENTER);
-		addBasNum.click();
+		addElement.click();
 		ingrediantCode.click();
 		searchBar.sendKeys("BAS 562 H" + Keys.ENTER);
-		addIngrediantCode.click();
+		addElement.click();
 		misc.sendKeys("Formulation");
 		isotopicallyLabelledYes.click();
 		addLabel.sendKeys("C14" + Keys.ENTER);
@@ -159,13 +152,13 @@ public class CreateNewProduct extends TestBase {
 		Thread.sleep(2000);
 		basfStudyId.click();
 		searchBar.sendKeys("834740" + Keys.ENTER);
-		addBasfStudyId.click();
+		addElement.click();
 		basNumber.click();
 		searchBar.sendKeys("BAS 405 49 I" + Keys.ENTER);
-		addBasNum.click();
+		addElement.click();
 		ingrediantCode.click();
 		searchBar.sendKeys("BAS 310 I" + Keys.ENTER);
-		addIngrediantCode.click();
+		addElement.click();
 		misc.sendKeys("Formulation");
 		isotopicallyLabelledNo.click();
 		metaboliteCode.sendKeys("M40549B");

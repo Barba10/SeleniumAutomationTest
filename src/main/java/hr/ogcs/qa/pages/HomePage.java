@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import hr.ogcs.qa.base.TestBase;
+import hr.ogcs.qa.util.TestUtil;
 
 public class HomePage extends TestBase {
 
@@ -55,8 +56,6 @@ public class HomePage extends TestBase {
 	@FindBy(linkText ="Binder")
     WebElement selectBinder;
 	
-
-	
 	@FindBy(xpath="//button[@class='vv_button vv_button_nav vv_inbox_new_button inboxNewButton']")
 	WebElement createButton;
 	
@@ -92,14 +91,14 @@ public class HomePage extends TestBase {
 	
 	//C15
 	public void GoToTestControlReferance() {
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[@name='products1__c']//span[contains(text(),'Products')]")));
-		products.click();
-		testControlReferance.click();
+		//wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[@name='products1__c']//span[contains(text(),'Products')]")));
+		TestUtil.click(products, "Product");
+		TestUtil.click(testControlReferance, "Test Control Reference");
 	}
 	
 	//A1	
 	public void GoToLibrary(){
-		library.click();
+		TestUtil.click(library, "Library");
 		//search_box.sendKeys(Keys.ENTER);
 	}
 	

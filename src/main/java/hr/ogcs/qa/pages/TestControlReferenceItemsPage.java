@@ -5,6 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import hr.ogcs.qa.base.TestBase;
+import hr.ogcs.qa.util.TestUtil;
 
 public class TestControlReferenceItemsPage extends TestBase {
 
@@ -32,24 +33,24 @@ public class TestControlReferenceItemsPage extends TestBase {
 	WebElement continueButton;
 
 	public void ChooseTestType() {
-		create.click();
-		chooseObject.click();
-		testItem.click();
-		continueButton.click();
+		TestUtil.click(create, "Create Button");
+		TestUtil.click(chooseObject, "Choose Object");
+		TestUtil.click(testItem, "Test Item");
+		TestUtil.click(continueButton, "Continue Button");
 	}
 	
 	public void ChooseControlType() {
-		create.click();
-		chooseObject.click();
-		controlItem.click();
-		continueButton.click();
+		TestUtil.click(create, "Create Button");
+		TestUtil.click(chooseObject, "Choose Object");
+		TestUtil.click(controlItem, "Control Item");
+		TestUtil.click(continueButton, "Continue Button");
 	}
 	
 	public void ChooseReferenceType() {
-		create.click();
-		chooseObject.click();
-		referenceItem.click();
-		continueButton.click();
+		TestUtil.click(create, "Create Button");
+		TestUtil.click(chooseObject, "Choose Object");
+		TestUtil.click(referenceItem, "Reference Item");
+		TestUtil.click(continueButton, "Continue Button");
 	}
 
 }

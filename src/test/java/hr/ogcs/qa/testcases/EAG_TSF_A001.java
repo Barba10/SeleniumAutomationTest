@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import hr.ogcs.qa.base.TestBase;
@@ -13,6 +14,7 @@ import hr.ogcs.qa.pages.LibraryPage;
 import hr.ogcs.qa.pages.LoginPage;
 import hr.ogcs.qa.util.TestUtil;
 
+@Listeners(hr.ogcs.qa.util.TestListener.class)
 public class EAG_TSF_A001 extends TestBase {
 
 	
@@ -20,7 +22,7 @@ public class EAG_TSF_A001 extends TestBase {
 	HomePage homePage;
 	LibraryPage libraryPage;
 	DocumentPage documentPage;
-	
+
 	public EAG_TSF_A001 () {
 		super ();
 	}
@@ -36,7 +38,7 @@ public class EAG_TSF_A001 extends TestBase {
 	}
 	
 	@Test
-	public void VaultGeneralInformations() throws InterruptedException, IOException{
+	public void EAG_TSF_A001() throws InterruptedException, IOException{
 		homePage.GoToLibrary();
 		libraryPage.Filter();
 		libraryPage.SetTabularView();

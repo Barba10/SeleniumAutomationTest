@@ -195,64 +195,70 @@ public class DocumentPage extends TestBase{
 	}
 	
 	public void SelectDocument() {
-		wait.until(ExpectedConditions.elementToBeClickable(documentSelect));
-		documentSelect.click();
+		//wait.until(ExpectedConditions.elementToBeClickable(documentSelect));
+		TestUtil.click(documentSelect, "Document");
 	}
 
 	
 	public void ClickEditButton() {
-		wait.until(ExpectedConditions.elementToBeClickable(editButton));
-		editButton.click();
+		//wait.until(ExpectedConditions.elementToBeClickable(editButton));
+		TestUtil.click(editButton, "Edit Button");
 	}
 	
 	public void FillForm(){
-		wait.until(ExpectedConditions.elementToBeClickable(generalTab));
-		generalTab.click();
-		wait.until(ExpectedConditions.invisibilityOf(name));
+		//wait.until(ExpectedConditions.elementToBeClickable(generalTab));
+		TestUtil.click(generalTab, "General Tab (Closing tab)");
+		//wait.until(ExpectedConditions.invisibilityOf(name));
 		jse.executeScript("window.scrollBy(0,250)", "");
-		wait.until(ExpectedConditions.elementToBeClickable(archival_information_tab));
-		archival_information_tab.click();
-		wait.until(ExpectedConditions.elementToBeClickable(archival_information_tab));
-		electronicallyArchivedYes.click();
-		wait.until(ExpectedConditions.elementToBeClickable(electronicallyArchivedYes));
-		internalStorage.clear();
-		internalStorage.sendKeys("Li445");
-		boxNumber.clear();
-		boxNumber.sendKeys("7A");
-		externalStorage.clear();
-		externalStorage.sendKeys("NA");
-		commentsTab.click();
-		name_remarks.click();
-		wait.until(ExpectedConditions.elementToBeClickable(name_remarks));
-		name_remarks.clear();
-		name_remarks.sendKeys("EAGLES Validation of: Document archiving of internal GLP study documents");
+		//wait.until(ExpectedConditions.elementToBeClickable(archival_information_tab));
+		TestUtil.click(archival_information_tab, "Archival information tab");
+
+		//wait.until(ExpectedConditions.elementToBeClickable(archival_information_tab));
+		TestUtil.click(electronicallyArchivedYes, "Electronically Archived Yes");
+
+		//wait.until(ExpectedConditions.elementToBeClickable(electronicallyArchivedYes));
+		TestUtil.type(internalStorage, "Internal Storage" ,"Li445");
+		TestUtil.type(boxNumber, "Box Number", "7A");
+		TestUtil.type(externalStorage, "External Storage", "NA");
+
+		TestUtil.click(commentsTab, "Comments Tab");
+		TestUtil.click(name_remarks, "Name remarks");
+		
+		//wait.until(ExpectedConditions.elementToBeClickable(name_remarks));
+		
+		TestUtil.type(name_remarks, "Name Remarks",  "EAGLES Validation of: Document archiving of internal GLP study documents");
+
 		jse.executeScript("window.scrollBy(0,-1000)", "");
-		saveBtn.click();
+		
+		TestUtil.click(saveBtn, "Save Button");
+
 	}
 	
 
 	public void ActionWheel() {
-		wait.until(ExpectedConditions.elementToBeClickable(actionWheel));
-		actionWheel.click();
+		//wait.until(ExpectedConditions.elementToBeClickable(actionWheel));
+		TestUtil.click(actionWheel, "Action Wheel");
 	}
 		
 	public void Archive() {
-		wait.until(ExpectedConditions.elementToBeClickable(archiveDocument));
-		archiveDocument.click();
-		archiveDocumentNo.click();
-		actionWheel.click();
-		wait.until(ExpectedConditions.elementToBeClickable(actionWheel));
-		archiveDocument.click();
-		archiveDocumentYes.click();
+		//wait.until(ExpectedConditions.elementToBeClickable(archiveDocument));
+		TestUtil.click(archiveDocument, "Archive Document");
+		TestUtil.click(archiveDocumentNo, "Archive Document - No");
+		TestUtil.click(actionWheel, "Action Wheel");
+		//wait.until(ExpectedConditions.elementToBeClickable(actionWheel));
+		TestUtil.click(archiveDocument, "Archive Document");
+		TestUtil.click(archiveDocumentYes, "Archive Document - Yes");
 	}
 		
 	public void Verifycation() throws InterruptedException, IOException {
 		Thread.sleep(2000);
-		generalTab.click();
+		TestUtil.click(generalTab, "General Tab");
 		Thread.sleep(2000);
 		//wait.until(ExpectedConditions.elementToBeClickable(waitForArchiveInformationTabVerifycation));
 		jse.executeScript("window.scrollBy(0,250)", "");
-		archiveInformationTab.click();
+
+		TestUtil.click(archiveInformationTab, "Archive Information Tab");
+
 		/* TestUtil.verifyEquals(verifyArchivedDate ); */
 		TestUtil.verifyEquals(verifyElectorinallyArchivedYes, "Yes");
 		TestUtil.verifyEquals(verifyInternalStorage, "Li445");
@@ -264,16 +270,19 @@ public class DocumentPage extends TestBase{
 	}
 	
 	public void VeryficationRemarks() throws IOException, InterruptedException {
-		commentsTab.click();
-		wait.until(ExpectedConditions.elementToBeClickable(waitForRemarksVerification));
+		
+		TestUtil.click(commentsTab, "Comments Tab");
+		//wait.until(ExpectedConditions.elementToBeClickable(waitForRemarksVerification));
 		TestUtil.verifyEquals(verifyremarks, "EAGLES Validation of: Document archiving of internal GLP study documents");
 		jse.executeScript("window.scrollBy(0,-250)", "");
-		editButton.click();
-		name.sendKeys("Test Script Descriptions");
+		
+		TestUtil.click(editButton, "Edit Button");
+
+		TestUtil.type(name, "Name", "Test Script Descriptions");
 	}
 	
 	public void SaveButton() {
-		saveBtn.click();
+		TestUtil.click(saveBtn, "Save Button");
 	}
 	
 	
@@ -327,13 +336,11 @@ public class DocumentPage extends TestBase{
 	public void TextVerifycation() throws IOException, InterruptedException {
 	
 		TestUtil.verifyEquals(name_value, "BAS 750 01 F Core S");
-	
 		TestUtil.verifyEquals(type_value, "Dossier Document");
 		TestUtil.verifyEquals(subtype_value, "Section Document");
 		TestUtil.verifyEquals(classification_value, "dRR Core");
-		
+
 		regulatory_information_tab.click();
-		
 		TestUtil.verifyEquals(application_value, "BAS 750 01 F Core S");
 		TestUtil.verifyEquals(submission_value , "BAS 750 01 S / FR");
 		
