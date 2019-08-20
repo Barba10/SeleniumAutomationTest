@@ -157,19 +157,29 @@ public class TestUtil extends TestBase {
 	    }
 	}
 	
-	public static void click(WebElement element, String elementName)  {
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	public static Boolean hasElementAtributeRadio(WebElement element){	
 		
-		wait.until(ExpectedConditions.elementToBeClickable(element));
-		element.click();
-		System.out.print(elementName + " is clicked \n");	
+		if(element.getAttribute("type") != null)
+		{	
+			if(element.getAttribute("type").equals("radio")) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public static void click(WebElement element, String elementName)  {		
 		// wait doesn't work with radio button
 		
+		if(!hasElementAtributeRadio(element)) {	
+			wait.until(ExpectedConditions.elementToBeClickable(element));
+			element.click();
+			System.out.print(elementName + " is clicked \n");	
+		
+		}else {
+			element.click();
+			System.out.print(elementName + " is clicked \n");	
+		}
 	}
 		
 	//Type function
