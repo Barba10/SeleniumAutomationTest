@@ -59,7 +59,7 @@ public class EAG_TSF_D002 extends TestBase{
 		homePage.GoToArchive();
 		submissionPage.CreateButtonEU();
 		submissionPageCreate.PPP_EU_Submission_Main();
-		submissionPage.CancelAndContinue();
+		submissionPageSave.SaveBtn();
 		submissionPageCreate.VerifyEquals();
 		submissionPage.SubmissionCountriesEU();
 		submissionPageCreate.PublishingTabEU();
@@ -73,7 +73,7 @@ public class EAG_TSF_D002 extends TestBase{
 		homePage.GoToArchive();
 		submissionPage.CreateButtonNA();
 		submissionPageCreate.PPP_NA_Submission_Main();
-		submissionPage.CancelAndContinue();
+		submissionPageSave.SaveBtn();
 		submissionPageCreate.VerifyEquals();
 		submissionPage.SubmissionCountriesNA();
 		submissionPageCreate.PublishingTabNA();
@@ -87,7 +87,7 @@ public class EAG_TSF_D002 extends TestBase{
 		homePage.GoToArchive();
 		submissionPage.CreateButton();
 		submissionPageCreate.PPP_SA_Submission_Main();
-		submissionPage.CancelAndContinue();
+		submissionPageSave.SaveBtn();
 		submissionPageCreate.VerifyEquals();
 		submissionPage.SubmissionCountriesSA();
 		submissionPageCreate.PublishingTabSA();

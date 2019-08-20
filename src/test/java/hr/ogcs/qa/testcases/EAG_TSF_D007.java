@@ -39,9 +39,11 @@ public class EAG_TSF_D007 extends TestBase {
 	@Test
 	public void VaultGeneralInformations() throws InterruptedException, IOException{
 		homePage.SearchDocument();
+		Thread.sleep(8000);
 		libraryPage.goToDocId();
 		Thread.sleep(2000);
 		documentPage.WhereUsed();
+		Thread.sleep(5000);
 		whereUsedPage.TakingScreenShoot();
 	}
 	

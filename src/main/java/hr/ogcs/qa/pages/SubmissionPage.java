@@ -32,10 +32,10 @@ public class SubmissionPage extends TestBase{
 	@FindBy(xpath="//div[@id='plSection_2']/div/h3/span/span")
 	WebElement submission_countries_tab;
 	
-	@FindBy(xpath="//div[@id='plSection_2']/div[2]/div/div/div/div/div/a")
+	@FindBy(xpath="//div[contains(@class,'vv_section_toggle_link')]//button[contains(@class,'')]")
 	WebElement add_button_submission_countries;
 	
-	@FindBy(xpath="//div[12]/div[2]/div/div/div/div/div[2]/div/input")
+	@FindBy(xpath="//input[contains(@class,'veevaSearch_searchInput vv_searchbar_input')]")
 	WebElement search_label2;
 	
 	@FindBy(xpath="//div[2]/span/a")
@@ -134,6 +134,13 @@ public class SubmissionPage extends TestBase{
 	@FindBy(xpath="//span[@selenium-value-name='internal_transfer_date__c']")
 	WebElement verify_internal_transfer_date;
 	
+	@FindBy(xpath = "//a[@class='vv_ellipsis vv_crumb crumbLink'][contains(text(),'BAS 595 F (Triticonazole) AIR 3 / 01 Original Subm')]")
+	WebElement go_to_submission;
+	
+	@FindBy(xpath = "//a[@class='vv_ellipsis vv_crumb crumbLink'][contains(text(),'BAS 750 01 F Core S > BAS 750 01 S / FR')]")
+	WebElement go_to_eu_regulations;
+	
+	
 	public SubmissionPage(){
 		PageFactory.initElements(driver, this);
 	}
@@ -185,8 +192,9 @@ public class SubmissionPage extends TestBase{
 		//wait.until(ExpectedConditions.elementToBeClickable(edit_btn));
 	}
 	
+	
 	public void Verify_Details_Tab_Active_Ingredient() throws IOException, InterruptedException {
-		details_tab.click();
+		go_to_submission.click();
 		TestUtil.verifyEquals(verify_sub_name, "BAS 595 F (Triticonazole) AIR 3 / 01 Original Submission");
 		TestUtil.verifyEquals(verify_trade_name, "Triticonazole");
 		TestUtil.verifyEquals(verify_regulation, "1107/2009");
@@ -199,13 +207,13 @@ public class SubmissionPage extends TestBase{
 	}
 	
 	public void Verify_Details_Tab_Active_IngredientEU() throws IOException, InterruptedException {
-		details_tab.click();
+//		go_to_eu_regulations.click();
 		TestUtil.verifyEquals(verify_sub_name, "BAS 750 01 F Core S > BAS 750 01 S / FR");
 		TestUtil.verifyEquals(verify_trade_name, "REVYSTAR");
 		TestUtil.verifyEquals(verify_regulation, "1107/2009");
 		TestUtil.verifyEquals(verify_requirement, "284/2013");
 		TestUtil.verifyEquals(verify_planned_date, "31/01/2019");
-		TestUtil.verifyEquals(verify_business_segment, "Crop");
+		
 		TestUtil.verifyEquals(verify_lifecycle, "Submission Lifecycle");
 		TestUtil.verifyEquals(verify_lifecycle_state_sub, "In Progress");
 		TestUtil.verifyEquals(verify_status_sub, "Active");
