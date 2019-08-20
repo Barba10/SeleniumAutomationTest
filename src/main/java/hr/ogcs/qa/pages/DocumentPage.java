@@ -7,6 +7,7 @@ import java.util.Date;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -117,7 +118,7 @@ public class DocumentPage extends TestBase{
 	@FindBy(xpath="//*[contains(text(), 'Remarks')]")
 	WebElement waitForRemarksVerification;
 	
-	@FindBy(linkText="Classify")
+	@FindBy(xpath="//a[contains(@class, 'classifyDocLink')]")
 	WebElement classify_link;
 	
 	@FindBy(linkText="Advanced")
@@ -280,7 +281,8 @@ public class DocumentPage extends TestBase{
 		wait.until(ExpectedConditions.elementToBeClickable(actionWheel));
 		actionWheel.click();
 		Thread.sleep(4000);
-		classify_link.click();
+	    jse.executeScript("arguments[0].click();", classify_link);
+		//classify_link.click();
 		advanced_link.click();
 		Select TypeSelect = new Select(type);
 	    TypeSelect.selectByVisibleText("Dossier Document"); 
