@@ -296,6 +296,10 @@ public class CreateBinderPage extends TestBase {
 
 		Thread.sleep(5000);
 		
+		
+	}
+	
+	public void verifyFirstBinder() throws IOException, InterruptedException {
 		TestUtil.verifyEquals(verifyName, "BAS 750 01 F FR");
 		TestUtil.verifyEquals(verifyTitle, "Draft registration report - BAS 750 01 F - Core S - ZRMS: France");
 		TestUtil.verifyEquals(verifySubtitle, "BAS 750 01 F - Core S");
@@ -394,7 +398,10 @@ public class CreateBinderPage extends TestBase {
 		
 
 		Thread.sleep(5000);
-
+		
+	}
+	
+	public void verifySecondBinder() throws IOException, InterruptedException {
 		TestUtil.verifyEquals(verifyName, "Blavity_MAPA 2");
 		TestUtil.verifyEquals(verifyTitle, "DR713-18");
 		TestUtil.verifyEquals(verifySubtitle, "Blavity_MAPA 2");
@@ -415,7 +422,6 @@ public class CreateBinderPage extends TestBase {
 		commentsRemarks.click();
 		TestUtil.verifyEquals(verifyRemarks, "nothing");
 		TestUtil.takeScreenshotAtEndOfTest();
-		
 	}
 	
 	public void createThirdBinder() throws InterruptedException, IOException {
@@ -479,6 +485,9 @@ public class CreateBinderPage extends TestBase {
 		saveButton.click();
 		
 
+	}
+	
+	public void verifyThridBinder() throws IOException, InterruptedException {
 		TestUtil.verifyEquals(verifyName, "A_Chlorfenapyr Tecnico BASF");
 		TestUtil.verifyEquals(verifyTitle, "DR_131-16 ");
 		TestUtil.verifyEquals(verifySubtitle, "Registro Inicial ");
@@ -497,7 +506,6 @@ public class CreateBinderPage extends TestBase {
 		commentsRemarks.click();
 		TestUtil.verifyEquals(verifyRemarks, "nothing");
 		TestUtil.takeScreenshotAtEndOfTest();
-
 	}
 	
 	public void createFourthBinder() throws InterruptedException, IOException {
@@ -573,7 +581,9 @@ public class CreateBinderPage extends TestBase {
 		remarks.sendKeys("Keywords: BASDE538");
 		
 		saveButton.click();
-		
+	}
+	
+	public void verifyFourthBinder() throws IOException, InterruptedException {
 		TestUtil.verifyEquals(verifyName, "BAS 595 Replacement R3V4");
 		TestUtil.verifyEquals(verifyTitle, "Dossier for the evaluation of BAS 595 F");
 		TestUtil.verifyEquals(verifySubtitle, "containing Triticonazole ");
@@ -592,7 +602,6 @@ public class CreateBinderPage extends TestBase {
 		commentsRemarks.click();
 		TestUtil.verifyEquals(verifyRemarks, "nothing");
 		TestUtil.takeScreenshotAtEndOfTest();
-
 	}
 
 	public void createFifthBinder() throws InterruptedException, IOException {
@@ -672,7 +681,9 @@ public class CreateBinderPage extends TestBase {
 		remarks.sendKeys("nothing");
 		
 		saveButton.click();
-		
+	}
+	
+	public void verifyFifthBinder() throws IOException, InterruptedException {
 		TestUtil.verifyEquals(verifyName, "BAS 450 04 I Multilateral Submission - Nov 2017 ");
 		TestUtil.verifyEquals(verifyTitle, "BAS 450 04 I Multilateral Submission");
 		TestUtil.verifyEquals(verifySubtitle, "BAS 450 04 I");
@@ -693,7 +704,6 @@ public class CreateBinderPage extends TestBase {
 		commentsRemarks.click();
 		TestUtil.verifyEquals(verifyRemarks, "nothing");
 		TestUtil.takeScreenshotAtEndOfTest();
-		
 	}
 
 

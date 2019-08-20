@@ -56,7 +56,7 @@ public class TestBase {
 		eventListener = new WebEventListener();
 		e_driver.register(eventListener);
 		
-		wait = new WebDriverWait(driver, 10);
+		wait = new WebDriverWait(driver, 20);
 		jse = (JavascriptExecutor) driver; 
 		driver = e_driver;
 		
