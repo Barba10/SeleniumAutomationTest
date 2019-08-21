@@ -16,6 +16,7 @@ import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 
 import hr.ogcs.qa.base.TestBase;
 
@@ -157,19 +158,29 @@ public class TestUtil extends TestBase {
 	    }
 	}
 	
-	public static void click(WebElement element, String elementName)  {
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	public static Boolean hasElementAtributeRadio(WebElement element){	
 		
-		wait.until(ExpectedConditions.elementToBeClickable(element));
-		element.click();
-		System.out.print(elementName + " is clicked \n");	
+		if(element.getAttribute("type") != null)
+		{	
+			if(element.getAttribute("type").equals("radio")) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public static void click(WebElement element, String elementName)  {		
 		// wait doesn't work with radio button
 		
+		if(!hasElementAtributeRadio(element)) {	
+			wait.until(ExpectedConditions.elementToBeClickable(element));
+			element.click();
+			System.out.print(elementName + " is clicked \n");	
+		
+		}else {
+			element.click();
+			System.out.print(elementName + " is clicked \n");	
+		}
 	}
 		
 	//Type function
@@ -185,5 +196,15 @@ public class TestUtil extends TestBase {
 		element.sendKeys(Keys.chord(Keys.CONTROL, "a"),typedText);
 		System.out.println("Typed in " + elementName + ": " + typedText);
 	}
+	
+	//Type function
+		public static void select(WebElement element, String elementName, String elementToSelect) {
+			//clearing field before entering text
+		
+			wait.until(ExpectedConditions.visibilityOf(element));
+			Select Select = new Select(element);
+			Select.selectByVisibleText(elementToSelect);
+			System.out.println(elementToSelect + " is selected from " + elementName);
+		}
 
 }

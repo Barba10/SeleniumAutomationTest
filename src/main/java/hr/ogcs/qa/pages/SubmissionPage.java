@@ -23,8 +23,8 @@ public class SubmissionPage extends TestBase{
 	@FindBy(xpath="//span/div/div[2]/a")
 	WebElement app_type;
 
-	@FindBy(xpath="(.//*[normalize-space(text()) and normalize-space(.)='Cancel'])[2]/following::a[1]")
-	WebElement app_type_value_ppp;
+	@FindBy(linkText="Active Ingredient")
+	WebElement app_type_value_ai;
 	
 	@FindBy(xpath="//div[2]/div[2]/div/a/span")
 	WebElement continue_button;
@@ -140,61 +140,63 @@ public class SubmissionPage extends TestBase{
 	@FindBy(xpath = "//a[@class='vv_ellipsis vv_crumb crumbLink'][contains(text(),'BAS 750 01 F Core S > BAS 750 01 S / FR')]")
 	WebElement go_to_eu_regulations;
 	
+	@FindBy(css = "input.veevaSearch_searchInput.vv_searchbar_input")
+	WebElement searchBar;
+	
+	@FindBy(css = "a.addItem.vv_rd_link")
+	WebElement addElement;
 	
 	public SubmissionPage(){
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void CreateButton() {
-		wait.until(ExpectedConditions.elementToBeClickable(waitForCreateButton));
-		create_btn.click();
-		app_type.click();
-		app_type_value_ppp.click();
-		continue_button.click();
+	public void CreateButtonAI() {
+		TestUtil.click(create_btn, "Create Button");
+		TestUtil.click(app_type, "Select Submission Type");
+		TestUtil.click(app_type_value_ai, "Submission Active Ingredient");
+		TestUtil.click(continue_button, "Create Button");
 	}
 	
 	public void CreateButtonEU() {
-		wait.until(ExpectedConditions.elementToBeClickable(waitForCreateButton));
-		create_btn.click();
-		app_type.click();
-		sub_type_eu.click();
-		continue_button.click();
+		TestUtil.click(create_btn, "Create Button");
+		TestUtil.click(app_type, "Select Submission Type");
+		TestUtil.click(sub_type_eu, "Submission Plant Protection EU");
+		TestUtil.click(continue_button, "Create Button");
 	}
 	
 	public void CreateButtonNA() {
-		wait.until(ExpectedConditions.elementToBeClickable(waitForCreateButton));
-		create_btn.click();
-		app_type.click();
-		sub_type_na.click();
-		continue_button.click();
+		TestUtil.click(create_btn, "Create Button");
+		TestUtil.click(app_type, "Select Submission Type");
+		TestUtil.click(sub_type_na, "Submission Plant Protection NA");
+		TestUtil.click(continue_button, "Create Button");
 	}
 	
 	public void CreateButtonSA() {
-		wait.until(ExpectedConditions.elementToBeClickable(waitForCreateButton));
-		create_btn.click();
-		app_type.click();
-		sub_type_sa.click();
-		continue_button.click();
+		TestUtil.click(create_btn, "Create Button");
+		TestUtil.click(app_type, "Select Submission Type");
+		TestUtil.click(sub_type_sa, "Submission Plant Protection SA");
+		TestUtil.click(continue_button, "Create Button");
 	}
 	
 	
-	public void SubmissionCountries() throws InterruptedException {
-		submission_countries_tab.click();
-		add_button_submission_countries.click();
-		search_label2.sendKeys("AT BE DE IT UK" + Keys.ENTER);
-		sub_country_UK.click();
-		sub_country_AT.click();
-		sub_country_BE.click();
-		sub_country_DE.click();
-		sub_country_IT.click();
-		ok_btn.click();
+	public void SubmissionCountriesAI() throws InterruptedException {
+		TestUtil.click(submission_countries_tab, "Submission Countries Tab");
+		TestUtil.click(add_button_submission_countries, "Add Button");
+		TestUtil.type(searchBar, "Search Label" , "AT BE DE IT UK" + Keys.ENTER);
+		TestUtil.click(sub_country_UK, "Submission Country UK");
+		TestUtil.click(sub_country_AT, "Submission Country UK");
+		TestUtil.click(sub_country_BE, "Submission Country UK");
+		TestUtil.click(sub_country_DE, "Submission Country UK");
+		TestUtil.click(sub_country_IT, "Submission Country UK");
+		TestUtil.click(ok_btn, "OK Button");
+		
 		Thread.sleep(2000);
 		//wait.until(ExpectedConditions.elementToBeClickable(edit_btn));
 	}
 	
 	
 	public void Verify_Details_Tab_Active_Ingredient() throws IOException, InterruptedException {
-		go_to_submission.click();
+		TestUtil.click(go_to_submission, "Go To Submission");
 		TestUtil.verifyEquals(verify_sub_name, "BAS 595 F (Triticonazole) AIR 3 / 01 Original Submission");
 		TestUtil.verifyEquals(verify_trade_name, "Triticonazole");
 		TestUtil.verifyEquals(verify_regulation, "1107/2009");
@@ -221,39 +223,37 @@ public class SubmissionPage extends TestBase{
 	}
 	
 	public void SubmissionCountriesEU() throws InterruptedException {
-		submission_countries_tab.click();
-		add_button_submission_countries.click();
-		search_label2.sendKeys("FR" + Keys.ENTER);
-		sub_country_FR.click();
-		ok_btn.click();
+		TestUtil.click(submission_countries_tab, "Submission Countries Tab");
+		TestUtil.click(add_button_submission_countries, "Add Button Submission Countries");
+		TestUtil.type(searchBar, "Search Label", "FR" + Keys.ENTER);
+		TestUtil.click(sub_country_FR, "Submission Country FR");
+		TestUtil.click(ok_btn, "OK Button");
 		Thread.sleep(2000);
-		//wait.until(ExpectedConditions.elementToBeClickable(edit_btn));
 	}
 	
 	public void SubmissionCountriesNA() throws InterruptedException {
-		submission_countries_tab.click();
-		add_button_submission_countries.click();
-		search_label2.sendKeys("US" + Keys.ENTER);
-		sub_country_US.click();
-		ok_btn.click();
+		TestUtil.click(submission_countries_tab, "Submission Countries Tab");
+		TestUtil.click(add_button_submission_countries, "Add Button Submission Countries");
+		TestUtil.type(searchBar, "Search Label", "US" + Keys.ENTER);
+		TestUtil.click(sub_country_US, "Submission Country US");
+		TestUtil.click(ok_btn, "OK Button");
+		
 		Thread.sleep(2000);
-		//wait.until(ExpectedConditions.elementToBeClickable(edit_btn));
 	}
 	
 	public void SubmissionCountriesSA() throws InterruptedException {
-		submission_countries_tab.click();
-		add_button_submission_countries.click();
-		search_label2.sendKeys("BR CL" + Keys.ENTER);
-		sub_country_CL.click();
-		sub_country_BR.click();
-		ok_btn.click();
+		TestUtil.click(submission_countries_tab, "Submission Countries Tab");
+		TestUtil.click(add_button_submission_countries, "Add Button Submission Countries");
+		TestUtil.type(searchBar, "Search Label", "BR CL" + Keys.ENTER);
+		TestUtil.click(sub_country_CL, "Submission Country CL");
+		TestUtil.click(sub_country_BR, "Submission Country BR");
+		TestUtil.click(ok_btn, "OK Button");
 		//wait.until(ExpectedConditions.elementToBeClickable(edit_btn));
 	}
 	
 	public void CancelAndContinue() {
-		wait.until(ExpectedConditions.elementToBeClickable(waitForCommonTab));
-		cancel.click();
-		cancel_continue.click();
+		TestUtil.click(cancel, "Cancel");
+		TestUtil.click(cancel_continue, "Cancel Continue");
 	}
 	
 }

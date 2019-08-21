@@ -80,8 +80,7 @@ public class HomePage extends TestBase {
 	}
 	
 	public void  SearchDocument() throws InterruptedException{
-		Thread.sleep(5000);
-		search_box.sendKeys("2018/2001297" + Keys.ENTER);
+		TestUtil.type(search_box, "Search Box", "2018/2001297" + Keys.ENTER);
 		//search_box.sendKeys(Keys.ENTER);
 	}
 	
@@ -106,15 +105,15 @@ public class HomePage extends TestBase {
 
 	//D2
 	public void GoToArchive() {
-		arch_reg_tab.click();
-		submissions.click();
+		TestUtil.click(arch_reg_tab, "Archive & Regulatory");
+		TestUtil.click(submissions, "Submissions");
 	}
 	
 
 	//D4
 	public void GoToUpload() {
-		create_btn.click();
-		upload_btn.click();
+		TestUtil.click(create_btn, "Create Button");
+		TestUtil.click(upload_btn, "Upload Button");
 	}
 	
 	public void GoToBinder() {

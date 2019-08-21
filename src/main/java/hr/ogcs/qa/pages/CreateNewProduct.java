@@ -101,7 +101,7 @@ public class CreateNewProduct extends TestBase {
 		TestUtil.click(addElement, "Add button");		
 		TestUtil.type(misc, "Miscellaneous", "Metabolite");		
 		TestUtil.click(isotopicallyLabelledNo, "Isotopically Labelled - No (Radio Button)");		
-		TestUtil.type(addLabel,"Label",  "C13");		
+		TestUtil.type(addLabel,"Label",  "C13" + Keys.ENTER);		
 		TestUtil.type(metaboliteCode,"Metabolite Code", "6059083");		
 		TestUtil.type(addBatchNumber, "Batch Number", "54845121");		
 		TestUtil.click(glpNo, "GLP No");		
@@ -126,49 +126,63 @@ public class CreateNewProduct extends TestBase {
 		TestUtil.click(basfStudyId, "BASF Study ID Binocular");
 		TestUtil.type(searchBar, "Search Bar", "UK/FR/01/95" + Keys.ENTER);		
 		TestUtil.click(addElement, "Add button");
+		
+		TestUtil.click(basNumber, "BAS Number Binocular");
+		TestUtil.type(searchBar, "Search Bar", "BAS 562 05 H" + Keys.ENTER);		
+		TestUtil.click(addElement, "Add button");		
 
-		basNumber.click();
-		searchBar.sendKeys("BAS 562 05 H" + Keys.ENTER);
-		addElement.click();
-		ingrediantCode.click();
-		searchBar.sendKeys("BAS 562 H" + Keys.ENTER);
-		addElement.click();
-		misc.sendKeys("Formulation");
-		isotopicallyLabelledYes.click();
-		addLabel.sendKeys("C14" + Keys.ENTER);
-		metaboliteCode.sendKeys("B23");
-		addBatchNumber.sendKeys("8451");
-		glpYes.click();
-		expiryDate.sendKeys("2/6/2020");
-		addPurity.sendKeys("67");
-		addRadioPurity.sendKeys("90.1");
-		addBuid.sendKeys("123" + " "+suffix_add);
-		addSource.sendKeys("456");
+		TestUtil.click(ingrediantCode, "Ingrediant Code Binocular");		
+		TestUtil.type(searchBar, "Search Bar", "BAS 562 H" + Keys.ENTER);		
+		TestUtil.click(addElement, "Add button");		
+
+		TestUtil.type(misc, "Miscellaneous", "Formulation");		
+		TestUtil.click(isotopicallyLabelledYes, "Isotopically Labelled - Yes (Radio Button)");		
+
+		TestUtil.type(addLabel, "Label",  "C14" + Keys.ENTER);		
+
+		TestUtil.type(metaboliteCode,"Metabolite Code", "B23");		
+		TestUtil.type(addBatchNumber, "Batch Number", "8451");		
+
+		TestUtil.click(glpYes, "GLP Yes");		
+		
+		TestUtil.type(expiryDate,"Expiry Date",  "2/6/2020");
+		TestUtil.type(addPurity,"Purity", "67");
+		TestUtil.type(addRadioPurity,"Radiochemical Purity",  "90.1");
+		TestUtil.type(addBuid, "BUID", "123" + " "+suffix_add);
+		TestUtil.type(addSource, "Source", "456");
 	}
 	
 	
 	public void FillOutReferenceForm() throws InterruptedException {
 		String suffix_add = TestUtil.RandomName(5);
 		Thread.sleep(2000);
-		basfStudyId.click();
-		searchBar.sendKeys("834740" + Keys.ENTER);
-		addElement.click();
-		basNumber.click();
-		searchBar.sendKeys("BAS 405 49 I" + Keys.ENTER);
-		addElement.click();
-		ingrediantCode.click();
-		searchBar.sendKeys("BAS 310 I" + Keys.ENTER);
-		addElement.click();
-		misc.sendKeys("Formulation");
-		isotopicallyLabelledNo.click();
-		metaboliteCode.sendKeys("M40549B");
-		addBatchNumber.sendKeys("56484132121");
-		glpYes.click();
-		expiryDate.sendKeys("1/8/2020");
-		addPurity.sendKeys("52");
-		addRadioPurity.sendKeys("93.2");
-		addBuid.sendKeys("123" + " "+suffix_add);
-		addSource.sendKeys("456");
+		TestUtil.click(basfStudyId, "BASF Study ID Binocular");
+		TestUtil.type(searchBar, "Search Bar", "834740" + Keys.ENTER);		
+		TestUtil.click(addElement, "Add button");
+		
+		TestUtil.click(basNumber, "BAS Number Binocular");
+		TestUtil.type(searchBar, "Search Bar", "BAS 405 49 I" + Keys.ENTER);		
+		TestUtil.click(addElement, "Add button");		
+		
+		TestUtil.click(ingrediantCode, "Ingrediant Code Binocular");		
+		TestUtil.type(searchBar, "Search Bar", "BAS 310 I" + Keys.ENTER);		
+		TestUtil.click(addElement, "Add button");
+	
+		TestUtil.type(misc, "Miscellaneous", "Formulation");	
+		
+		TestUtil.click(isotopicallyLabelledNo, "Isotopically Labelled - No (Radio Button)");		
+		
+		TestUtil.type(metaboliteCode,"Metabolite Code", "M40549B");		
+		TestUtil.type(addBatchNumber, "Batch Number", "56484132121");	
+
+		TestUtil.click(glpYes, "GLP Yes");		
+		
+		TestUtil.type(expiryDate,"Expiry Date",  "1/8/2020");
+		TestUtil.type(addPurity,"Purity", "52");
+		TestUtil.type(addRadioPurity,"Radiochemical Purity",  "93.2");
+		TestUtil.type(addBuid, "BUID", "123" + " "+suffix_add);
+		TestUtil.type(addSource, "Source", "456");
+		
 		Thread.sleep(4000);
 	}
 	
