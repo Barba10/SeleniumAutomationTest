@@ -106,15 +106,15 @@ public class HomePage extends TestBase {
 
 	//D2
 	public void GoToArchive() {
-		arch_reg_tab.click();
-		submissions.click();
+		TestUtil.click(arch_reg_tab, "Archive & Regulatory");
+		TestUtil.click(submissions, "Submissions");
 	}
 	
 
 	//D4
 	public void GoToUpload() {
-		create_btn.click();
-		upload_btn.click();
+		TestUtil.click(create_btn, "Create Button");
+		TestUtil.click(upload_btn, "Upload Button");
 	}
 	
 	public void GoToBinder() {

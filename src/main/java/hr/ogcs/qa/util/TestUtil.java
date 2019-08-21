@@ -16,6 +16,7 @@ import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 
 import hr.ogcs.qa.base.TestBase;
 
@@ -195,5 +196,15 @@ public class TestUtil extends TestBase {
 		element.sendKeys(Keys.chord(Keys.CONTROL, "a"),typedText);
 		System.out.println("Typed in " + elementName + ": " + typedText);
 	}
+	
+	//Type function
+		public static void select(WebElement element, String elementName, String elementToSelect) {
+			//clearing field before entering text
+		
+			wait.until(ExpectedConditions.visibilityOf(element));
+			Select Select = new Select(element);
+			Select.selectByVisibleText(elementToSelect);
+			System.out.println(elementToSelect + " is selected from " + elementName);
+		}
 
 }

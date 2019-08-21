@@ -185,13 +185,13 @@ public class DocumentPage extends TestBase{
 	}
 
 	public void WhereUsed() {
-		wheel.click();
-		where_used.click();
+		TestUtil.click(wheel, "Action wheel");
+		TestUtil.click(where_used, "Where Used");
 	}
 	
 	//A1
 	public void VerificationTab() {
-		verification.click();
+		TestUtil.click(verification, "Verification");
 	}
 	
 	public void SelectDocument() {
@@ -287,38 +287,37 @@ public class DocumentPage extends TestBase{
 	
 	
 	public void ClassificationOfUploadedDocument() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(actionWheel));
-		actionWheel.click();
-		Thread.sleep(4000);
+		TestUtil.click(actionWheel, "Action Wheel");
 	    jse.executeScript("arguments[0].click();", classify_link);
+	    System.out.print("Classify is clicked \n");
 		//classify_link.click();
-		advanced_link.click();
-		Select TypeSelect = new Select(type);
-	    TypeSelect.selectByVisibleText("Dossier Document"); 
-	    Select SubTypeSelect = new Select(subtype);
-	    SubTypeSelect.selectByVisibleText("Section Document");
-	    Select Classification = new Select(classification);
-	    Classification.selectByVisibleText("dRR Core");
-	    ok_btn.click();
-	    ok_btn.click();
+		TestUtil.click(advanced_link, "Advanced");
+		
+		TestUtil.select(type, "Type" , "Dossier Document");
+		TestUtil.select(subtype, "Subtype" , "Section Document");
+		TestUtil.select(classification, "Classification" ,"dRR Core");
+	    
+		TestUtil.click(ok_btn, "OK Button");
+		TestUtil.click(ok_btn, "OK Button");
 	}
 	
 	public void FillEditableFields() {
 		wait.until(ExpectedConditions.visibilityOf(name));
+		TestUtil.type(name, "Name", "BAS 750 01 F Core S Part B Section 00");
+
+		TestUtil.click(form_application_binocular, "Application Binocular");
+		TestUtil.type(form_search_label, "Search Label", "BAS 750 01 F Core S" + Keys.ENTER);
+		TestUtil.click(form_binocular_value, "Add Button");
 		
-		name.clear();
-		name.sendKeys("BAS 750 01 F Core S Part B Section 00");
-		form_application_binocular.click();
-		form_search_label.sendKeys("BAS 750 01 F Core S" + Keys.ENTER);
-		form_binocular_value.click();
-		
-		form_submission_binocular.click();
-		form_search_label.sendKeys("BAS 750 01 S / FR" + Keys.ENTER);
-		form_binocular_value.click();
-		
-		close_btn.click();
+		TestUtil.click(form_submission_binocular, "Submission Binocular");
+		TestUtil.type(form_search_label, "Search Label", "BAS 750 01 S / FR" + Keys.ENTER);
+		TestUtil.click(form_binocular_value, "Add Button");
+				
+		TestUtil.click(close_btn, "Close Button");
+
 		jse.executeScript("window.scrollBy(0,-500)", "");
-		saveBtn.click();
+		
+		TestUtil.click(saveBtn, "Save Button");
 		
 		try {
 			wait.until(ExpectedConditions.visibilityOf(page_image));
@@ -329,22 +328,18 @@ public class DocumentPage extends TestBase{
 			wait.until(ExpectedConditions.visibilityOf(page_image1));
 		}
 		
-		editButton.click();
-		cancel_btn.click();
+		TestUtil.click(editButton, "Edit Button");
+		TestUtil.click(cancel_btn, "Cancel Button");
 	}
 	
 	public void TextVerifycation() throws IOException, InterruptedException {
-	
 		TestUtil.verifyEquals(name_value, "BAS 750 01 F Core S");
 		TestUtil.verifyEquals(type_value, "Dossier Document");
 		TestUtil.verifyEquals(subtype_value, "Section Document");
 		TestUtil.verifyEquals(classification_value, "dRR Core");
-
-		regulatory_information_tab.click();
+		TestUtil.click(regulatory_information_tab, "Regulatory Information Tab");
 		TestUtil.verifyEquals(application_value, "BAS 750 01 F Core S");
 		TestUtil.verifyEquals(submission_value , "BAS 750 01 S / FR");
-		
-		
 	}
 		
 }

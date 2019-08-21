@@ -24,15 +24,14 @@ public class UploadPage extends TestBase{
 	
 	public void UploadFile(){
 		TestUtil.UploadFile();
-		
 	}
 	
 	public void ClickUpload() {
-		upload_btn.click();
+		TestUtil.click(upload_btn, "Upload Button");
 	}
 	
 	public void ClickCancel() {
-		cancel_btn.click();
+		TestUtil.click(cancel_btn, "Cancel Button");
 	}
 	
 	
