@@ -59,28 +59,34 @@ public class EAG_TSF_C015 extends TestBase {
 		
 		  homePage.GoToTestControlReferance();
 		  testControlItemsPage.ChooseControlType();
-		  createNewProduct.FillOutControlForm(); createNewProduct.Save();
+		  createNewProduct.FillOutControlForm(); 
+		  createNewProduct.Save();
 		  testControlSavePage.verifyControlData();
 		  TestUtil.takeScreenshotAtEndOfTest();
 		  
 		  
 		  homePage.GoToTestControlReferance();
 		  testControlItemsPage.ChooseReferenceType();
-		  createNewProduct.FillOutReferenceForm(); createNewProduct.Save();
+		  createNewProduct.FillOutReferenceForm(); 
+		  createNewProduct.Save();
 		  testControlSavePage.verifyReferenceData();
 		  TestUtil.takeScreenshotAtEndOfTest();
 		  
 		  
-		  homePage.GoToTestControlReferance(); testControlItemsPage.ChooseTestType();
-		  createNewProduct.FillOutTypeForm(); createNewProduct.Cancel();
+		  homePage.GoToTestControlReferance(); 
+		  testControlItemsPage.ChooseTestType();
+		  createNewProduct.FillOutTypeForm(); 
+		  createNewProduct.Cancel();
 		  
 		  homePage.GoToTestControlReferance();
 		  testControlItemsPage.ChooseControlType();
-		  createNewProduct.FillOutControlForm(); createNewProduct.Cancel();
+		  createNewProduct.FillOutControlForm(); 
+		  createNewProduct.Cancel();
 		  
 		  homePage.GoToTestControlReferance();
 		  testControlItemsPage.ChooseReferenceType();
-		  createNewProduct.FillOutReferenceForm(); createNewProduct.Cancel();
+		  createNewProduct.FillOutReferenceForm();
+		  createNewProduct.Cancel();
 		 
 		 
 		

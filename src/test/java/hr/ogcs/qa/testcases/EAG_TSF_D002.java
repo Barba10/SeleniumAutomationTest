@@ -40,59 +40,43 @@ public class EAG_TSF_D002 extends TestBase{
 		homePage = loginPage.login(prop.getProperty("us_dossieradmin"), prop.getProperty("psw_dossieradmin"));
 	}
 	
+	/**
+	 * @throws InterruptedException
+	 * @throws IOException
+	 */
 	@Test
-	public void Active_Ingredient_Submission() throws InterruptedException, IOException{
-		homePage.GoToArchive();
-		submissionPage.CreateButton();
-		submissionPageCreate.Fill();
-		submissionPageSave.SaveBtn();
-		submissionPageCreate.VerifyEquals();
-		submissionPage.SubmissionCountries();
-		submissionPageCreate.Publishing_Tab_Active_Ingredient();
-		submissionPageSave.SaveBtn();
-		submissionPage.Verify_Details_Tab_Active_Ingredient();
-		TestUtil.takeScreenshotAtEndOfTest();
-	}
-	
-	@Test
-	public void PPP_EU_Submission() throws InterruptedException, IOException {
-		homePage.GoToArchive();
-		submissionPage.CreateButtonEU();
-		submissionPageCreate.PPP_EU_Submission_Main();
-		submissionPageSave.SaveBtn();
-		submissionPageCreate.VerifyEquals();
-		submissionPage.SubmissionCountriesEU();
-		submissionPageCreate.PublishingTabEU();
-		submissionPage.CancelAndContinue();
-		submissionPage.Verify_Details_Tab_Active_IngredientEU();
-		TestUtil.takeScreenshotAtEndOfTest();
-	}
-	
-	@Test
-	public void PPP_NA_Submission() throws IOException, InterruptedException {
-		homePage.GoToArchive();
-		submissionPage.CreateButtonNA();
-		submissionPageCreate.PPP_NA_Submission_Main();
-		submissionPageSave.SaveBtn();
-		submissionPageCreate.VerifyEquals();
-		submissionPage.SubmissionCountriesNA();
-		submissionPageCreate.PublishingTabNA();
-		submissionPage.CancelAndContinue();
-		TestUtil.takeScreenshotAtEndOfTest();
+	public void EAG_TSF_D002() throws InterruptedException, IOException{
 		
-	}
-	
-	@Test
-	public void PPP_SA_Submission() throws IOException, InterruptedException {
-		homePage.GoToArchive();
-		submissionPage.CreateButton();
-		submissionPageCreate.PPP_SA_Submission_Main();
-		submissionPageSave.SaveBtn();
-		submissionPageCreate.VerifyEquals();
-		submissionPage.SubmissionCountriesSA();
-		submissionPageCreate.PublishingTabSA();
-		submissionPage.CancelAndContinue();
-		TestUtil.takeScreenshotAtEndOfTest();
+		  homePage.GoToArchive(); submissionPage.CreateButtonAI();
+		  submissionPageCreate.Fill(); submissionPageSave.SaveBtn();
+		  submissionPageCreate.VerifyEquals(); submissionPage.SubmissionCountriesAI();
+		  submissionPageCreate.PublishingAI(); submissionPageSave.SaveBtn();
+		  submissionPage.Verify_Details_Tab_Active_Ingredient();
+		  TestUtil.takeScreenshotAtEndOfTest();
+		  
+		
+		  homePage.GoToArchive(); submissionPage.CreateButtonEU();
+		  submissionPageCreate.PPP_EU_Submission_Main(); submissionPageSave.SaveBtn();
+		  submissionPageCreate.VerifyEquals(); submissionPage.SubmissionCountriesEU();
+		  submissionPageCreate.PublishingEU(); submissionPage.CancelAndContinue();
+		  submissionPage.Verify_Details_Tab_Active_IngredientEU();
+		  TestUtil.takeScreenshotAtEndOfTest();
+		 
+		  homePage.GoToArchive(); submissionPage.CreateButtonNA();
+		  submissionPageCreate.PPP_NA_Submission_Main(); submissionPageSave.SaveBtn();
+		  submissionPageCreate.VerifyEquals(); submissionPage.SubmissionCountriesNA();
+		  submissionPageCreate.PublishingTabNA(); submissionPage.CancelAndContinue();
+		  TestUtil.takeScreenshotAtEndOfTest();
+
+		  homePage.GoToArchive(); 
+		  submissionPage.CreateButtonAI();
+		  submissionPageCreate.PPP_SA_Submission_Main(); 
+		  submissionPageSave.SaveBtn();
+		  submissionPageCreate.VerifyEquals(); 
+		  submissionPage.SubmissionCountriesSA();
+		  submissionPageCreate.PublishingTabSA(); 
+		  submissionPage.CancelAndContinue();
+		  TestUtil.takeScreenshotAtEndOfTest(); 
 	}
 	
 	
