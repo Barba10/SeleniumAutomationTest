@@ -105,81 +105,81 @@ public class ApplicationsPage extends TestBase {
 	
 	public void ClickOnCreateButton() {
 		wait.until(ExpectedConditions.elementToBeClickable(create_button));
-		create_button.click();
-	}
+		TestUtil.click(create_button, "Create Button");	}
 	
 	public void SelectPlanProtectionProduct(){
-		app_type_select.click();
-		select_ppp.click();
-		continue_btn.click();
+		TestUtil.click(app_type_select, "Application Type Select");
+		TestUtil.click(select_ppp, "Select Plan Protection Product");
+		TestUtil.click(continue_btn, "Continue Button");
 	}
 	
 	public void SelectActiveIngredientProduct(){
-		app_type_select.click();
-		select_active_ingredient.click();
-		continue_btn.click();
+		TestUtil.click(app_type_select, "Application Type Select");	
+		TestUtil.click(select_active_ingredient, "Select Active Ingredient");	
+		TestUtil.click(continue_btn, "Continue Button");
 	}
 	
 	public void FillFormPPP() throws InterruptedException {
-		form_name.sendKeys("BAS 750 01 F Core C" + " " + TestUtil.RandomName(5));
+		TestUtil.type(form_name, "Name", "BAS 750 01 F Core C" + " " + TestUtil.RandomName(5));
 		
-
 		Actions actions = new Actions(driver);
 		actions.doubleClick(form_app_subtype_binocular).perform();
-		
-		form_search_label.sendKeys("Fungicide" + Keys.ENTER);
-		form_fungicide_value.click();
+		System.out.print("APP Subtype Binocular clicked");
+		TestUtil.type(form_search_label, "Search Label", "Fungicide" + Keys.ENTER);
+
+		TestUtil.click(form_fungicide_value, "Add Button");
 				
 		//Dossier Admin
-		form_dossier_admin_binocular.click();
-		form_search_label.sendKeys("Stephanie Walburg" + Keys.ENTER);
-		form_binocular_value.click();
+		TestUtil.click(form_dossier_admin_binocular, " Dossier Admin Binocular");
+		TestUtil.type(form_search_label, "Search Label", "Stephanie Walburg" + Keys.ENTER);
+		TestUtil.click(form_binocular_value, "Add Button");
 		
 		//Region 
-		form_region_binocular.click();
-		form_search_label.sendKeys("Europe" + Keys.ENTER);
-		form_binocular_value.click();
+		TestUtil.click(form_region_binocular, "Region Binocular");
+		TestUtil.type(form_search_label, "Search Label", "Europe" + Keys.ENTER);
+		TestUtil.click(form_binocular_value, "Add Button");
 		
 		//Rapporteur
-		form_rapporteur_binocular.click();
-		form_search_label.sendKeys("Austria Rep. of" + Keys.ENTER);
-		form_binocular_value.click();
+		TestUtil.click(form_rapporteur_binocular, "Rapporteur Binocular");
+		TestUtil.type(form_search_label, "Search Label", "Austria Rep. of" + Keys.ENTER);
+		TestUtil.click(form_binocular_value, "Add Button");
 		
 		//Product code
-		form_product_code_binocular.click();
-		form_search_label.sendKeys("BAS 750 01 F" + Keys.ENTER);
-		form_binocular_value.click();
+		TestUtil.click(form_product_code_binocular, "Product Code Binocular");
+		TestUtil.type(form_search_label, "Search Label", "BAS 750 01 F" + Keys.ENTER);
+		TestUtil.click(form_binocular_value, "Add Button");
 	}
 	
 	
 	public void FillFormActiveIngredient() {
-		form_name.sendKeys("'BAS 750 F (Mefentrifluconazole) JMPR" + " " + TestUtil.RandomName(5));
+		TestUtil.type(form_name, "Name", "BAS 750 F (Mefentrifluconazole) JMPR" + " " + TestUtil.RandomName(5));
 		
 		//Application Subtype
 		Actions actions = new Actions(driver);
 		actions.doubleClick(form_app_subtype_binocular).perform();
-		form_search_label.sendKeys("JMPR" + Keys.ENTER);
-		form_binocular_value.click();
-		
+		System.out.print("APP Subtype Binocular clicked");
+		TestUtil.type(form_search_label, "Search Label", "JMPR" + Keys.ENTER);
+		TestUtil.click(form_binocular_value, "Add Button");
+	
 		//Dossier Admin
-		form_dossier_admin_binocular.click();
-		form_search_label.sendKeys("Stephanie Walburg" + Keys.ENTER);
-		form_binocular_value.click();
+		TestUtil.click(form_dossier_admin_binocular, " Dossier Admin Binocular");
+		TestUtil.type(form_search_label, "Search Label", "Stephanie Walburg" + Keys.ENTER);
+		TestUtil.click(form_binocular_value, "Add Button");
 		
 		//Region 
-		form_region_binocular.click();
-		form_search_label.sendKeys("Europe" + Keys.ENTER);
-		form_binocular_value.click();
+		TestUtil.click(form_region_binocular, "Region Binocular");
+		TestUtil.type(form_search_label, "Search Label", "Europe" + Keys.ENTER);
+		TestUtil.click(form_binocular_value, "Add Button");
 		
 		//Rapporteur
-		form_rapporteur_binocular.click();
-		form_search_label.sendKeys("Austria Rep. of" + Keys.ENTER);
-		form_binocular_value.click();
+		TestUtil.click(form_rapporteur_binocular, "Rapporteur Binocular");
+		TestUtil.type(form_search_label, "Search Label", "Austria Rep. of" + Keys.ENTER);
+		TestUtil.click(form_binocular_value, "Add Button");
 		
-		//Product code
-		form_ingredient_code_binocular.click();
-		form_search_label.sendKeys("BAS 750 F" + Keys.ENTER);
-		form_binocular_value.click();
+		//Ingredient Code
+		TestUtil.click(form_ingredient_code_binocular, "Ingredient Code Binocular");
+		TestUtil.type(form_search_label, "Search Label", "BAS 750 F" + Keys.ENTER);
+		TestUtil.click(form_binocular_value, "Add Button");
 	}
 	
 	
@@ -202,35 +202,29 @@ public class ApplicationsPage extends TestBase {
 	}
 	
 	public void Save() throws InterruptedException {
-		save_btn.click();
-		
+		TestUtil.click(save_btn, "Save Button");
 		Thread.sleep(4000);
-
 	}
 	
 	public void Edit() throws InterruptedException {
-		edit_btn.click();
+		TestUtil.click(edit_btn, "Edit Button");
 		Thread.sleep(4000);
 
 	}
 	
 	public void Cancel() {	
 		try {
-			wait.until(ExpectedConditions.elementToBeClickable(cancel_btn));
-			cancel_btn.click();
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		catch(org.openqa.selenium.StaleElementReferenceException ex)
-		{   
-			System.out.print("Catching stale error \n");
-			WebElement cancel_btn1 = driver.findElement(By.xpath("//header/div[2]/div[2]/button"));
-			cancel_btn1.click();
-		}
+		TestUtil.click(cancel_btn, "Cancel Button");
 	}
 	
 	public void CancelAndContinue(){
-			wait.until(ExpectedConditions.elementToBeClickable(cancel_btn));
-			cancel_btn.click();
-			continue_btn.click();
+			TestUtil.click(cancel_btn, "Cancel Button");
+			TestUtil.click(continue_btn, "Continue Button");
 	}
 
 

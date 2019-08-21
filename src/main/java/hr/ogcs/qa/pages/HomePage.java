@@ -85,8 +85,8 @@ public class HomePage extends TestBase {
 	}
 	
 	public void GoToApplications() {
-		archive_regulatory.click();
-		applications.click();
+		TestUtil.click(archive_regulatory, "Archive & Regulatory");
+		TestUtil.click(applications, "Applications");
 	}
 	
 	//C15
