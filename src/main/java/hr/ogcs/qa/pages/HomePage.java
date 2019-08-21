@@ -80,8 +80,7 @@ public class HomePage extends TestBase {
 	}
 	
 	public void  SearchDocument() throws InterruptedException{
-		Thread.sleep(5000);
-		search_box.sendKeys("2018/2001297" + Keys.ENTER);
+		TestUtil.type(search_box, "Search Box", "2018/2001297" + Keys.ENTER);
 		//search_box.sendKeys(Keys.ENTER);
 	}
 	
