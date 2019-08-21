@@ -1,5 +1,7 @@
 package hr.ogcs.qa.pages;
 
+
+
 import java.io.IOException;
 
 import org.openqa.selenium.By;
@@ -103,7 +105,8 @@ public class LibraryPage extends TestBase {
 	
 	
 	public void goToAllDossiers() throws IOException {
-		allDossiers.click();
+//		allDossiers.click();
+		TestUtil.click(allDossiers, "All dossiers");
 		
 		
 		

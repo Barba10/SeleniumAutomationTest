@@ -5,6 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import hr.ogcs.qa.base.TestBase;
+import hr.ogcs.qa.util.TestUtil;
 
 public class AllDossiersPage extends TestBase {
 	
@@ -16,6 +17,7 @@ public class AllDossiersPage extends TestBase {
 	WebElement binder;
 	
 	public void goToBinder() {
-		binder.click();
+		TestUtil.click(binder, "Binder");
+//		binder.click();
 	}
 }
