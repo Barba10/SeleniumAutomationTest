@@ -234,18 +234,26 @@ public class DocumentPage extends TestBase{
 
 	}
 	
-
-	public void ActionWheel() {
-		//wait.until(ExpectedConditions.elementToBeClickable(actionWheel));
+	public void ArchiveNegative() {
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		TestUtil.click(actionWheel, "Action Wheel");
-	}
-		
-	public void Archive() {
-		//wait.until(ExpectedConditions.elementToBeClickable(archiveDocument));
 		TestUtil.click(archiveDocument, "Archive Document");
 		TestUtil.click(archiveDocumentNo, "Archive Document - No");
+	}
+	
+	public void ArchivePositive() {
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		TestUtil.click(actionWheel, "Action Wheel");
-		//wait.until(ExpectedConditions.elementToBeClickable(actionWheel));
 		TestUtil.click(archiveDocument, "Archive Document");
 		TestUtil.click(archiveDocumentYes, "Archive Document - Yes");
 	}
@@ -269,7 +277,7 @@ public class DocumentPage extends TestBase{
 		TestUtil.verifyEquals(verifyDivestedon, "Divested on");			
 	}
 	
-	public void VeryficationRemarks() throws IOException, InterruptedException {
+	public void FillAfterDocumentStatusIsChanged() throws IOException, InterruptedException {
 		
 		TestUtil.click(commentsTab, "Comments Tab");
 		//wait.until(ExpectedConditions.elementToBeClickable(waitForRemarksVerification));

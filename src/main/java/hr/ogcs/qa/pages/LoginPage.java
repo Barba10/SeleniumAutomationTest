@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import hr.ogcs.qa.base.TestBase;
+import hr.ogcs.qa.util.TestUtil;
 
 public class LoginPage extends TestBase{
 	
@@ -29,19 +30,17 @@ public class LoginPage extends TestBase{
 		PageFactory.initElements(driver, this);
 	}
 
-
 	public HomePage login(String un, String pwd){
-		
+    	childTest = parentTest.createNode("Logging In");
+    	childTest.info("Vault Login Adress: https://login.veevavault.com");
+
 		if(!password.isDisplayed()) {
-			username.clear();
-			username.sendKeys(un);
-			continue_button.click();
+			TestUtil.type(username, "User name", un);
+			TestUtil.click(continue_button, "Continue");		
 		}
 		
-		password.clear();
-		password.sendKeys(pwd);
-		login_button.click();
-		
+		TestUtil.type(password, "Password", pwd);
+		TestUtil.click(login_button, "Log In");		
 		return new HomePage();
 	}
 	

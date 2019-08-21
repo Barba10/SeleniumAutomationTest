@@ -4,7 +4,11 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-public class TestListener implements ITestListener{
+import com.aventstack.extentreports.ExtentReports;
+
+import hr.ogcs.qa.base.TestBase;
+
+public class TestListener extends TestBase implements ITestListener {
 
     @Override		
     public void onFinish(ITestContext arg0) {					
@@ -16,6 +20,7 @@ public class TestListener implements ITestListener{
     public void onStart(ITestContext arg0) {					
         // TODO Auto-generated method stub	
     	//System.out.print("On start \n" + arg0.getName());
+
     }		
 
     @Override		
@@ -27,7 +32,7 @@ public class TestListener implements ITestListener{
     @Override		
     public void onTestFailure(ITestResult arg0) {					
         // TODO Auto-generated method stub				
-        		
+    	childTest.fail(arg0.getThrowable());
     }		
 
     @Override		
@@ -40,6 +45,7 @@ public class TestListener implements ITestListener{
     public void onTestStart(ITestResult arg0) {					
         // TODO Auto-generated method stub				
     	System.out.print("On test start " + arg0.getName() + "\n");
+
     }		
 
     @Override		

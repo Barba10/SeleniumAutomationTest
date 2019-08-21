@@ -29,6 +29,7 @@ public class EAG_TSF_A001 extends TestBase {
 	
 	@BeforeMethod
 	public void setUp() {
+    	parentTest = extent.createTest("EAG_TSF_A001");
 		initialization();
 		loginPage = new LoginPage();
 		homePage = new HomePage();
@@ -39,17 +40,28 @@ public class EAG_TSF_A001 extends TestBase {
 	
 	@Test
 	public void EAG_TSF_A001() throws InterruptedException, IOException{
+    	childTest = parentTest.createNode("Choosing Document in Status Pending Archival");
 		homePage.GoToLibrary();
 		libraryPage.Filter();
 		libraryPage.SetTabularView();
 		documentPage.SelectDocument();
+		
+    	childTest = parentTest.createNode("Filling Editable Fields");
 		documentPage.ClickEditButton();
 		documentPage.FillForm();
-		documentPage.ActionWheel();
-		documentPage.Archive();
+		
+    	childTest = parentTest.createNode("Changing Status of Document - Negative Testing");
+		documentPage.ArchiveNegative();
+		
+    	childTest = parentTest.createNode("Changing Status of Document");
+		documentPage.ArchivePositive();
+
+    	childTest = parentTest.createNode("Verifying Text Present");
 		documentPage.Verifycation();
 		TestUtil.takeScreenshotAtEndOfTest();
-		documentPage.VeryficationRemarks();
+		
+    	childTest = parentTest.createNode("Filling Editable Fields After Document Status is Changed");
+		documentPage.FillAfterDocumentStatusIsChanged();
 		TestUtil.takeScreenshotAtEndOfTest();
 		documentPage.SaveButton();
 	}

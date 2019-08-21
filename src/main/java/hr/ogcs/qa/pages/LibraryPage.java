@@ -50,9 +50,6 @@ public class LibraryPage extends TestBase {
 	@FindBy(xpath="//button[4]/span")
 	WebElement tabularView;
 	
-
-
-
 	@FindBy(linkText="Document Inbox")
 	WebElement doc_inbox;
 	@FindBy(linkText = "All Dossiers")
