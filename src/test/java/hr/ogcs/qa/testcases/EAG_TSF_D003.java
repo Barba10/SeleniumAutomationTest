@@ -39,15 +39,15 @@ public class EAG_TSF_D003 extends TestBase {
 	@Test
 	public void testCaseD3() throws InterruptedException, IOException {
 		homePage.GoToBinder();
-		createBinderPage.createFirstBinder();
-		createBinderPage.verifyFirstBinder();
-		homePage.GoToBinder();
-		createBinderPage.createSecondBinder();
-		createBinderPage.verifySecondBinder();
-		homePage.GoToBinder();
-		createBinderPage.createThirdBinder();
-		createBinderPage.verifyThridBinder();
-		homePage.GoToBinder();
+//		createBinderPage.createFirstBinder();
+//		createBinderPage.verifyFirstBinder();
+//		homePage.GoToBinder();
+//		createBinderPage.createSecondBinder();
+//		createBinderPage.verifySecondBinder();
+//		homePage.GoToBinder();
+//		createBinderPage.createThirdBinder();
+//		createBinderPage.verifyThridBinder();
+//		homePage.GoToBinder();
 		createBinderPage.createFourthBinder();
 		createBinderPage.verifyFourthBinder();
 		homePage.GoToBinder();

@@ -118,8 +118,9 @@ public class HomePage extends TestBase {
 	}
 	
 	public void GoToBinder() {
-		create_btn.click();
-        selectBinder.click();
+		TestUtil.click(create_btn, "Create button");
+		TestUtil.click(selectBinder, "Binder button");
+
     }
 
 	
