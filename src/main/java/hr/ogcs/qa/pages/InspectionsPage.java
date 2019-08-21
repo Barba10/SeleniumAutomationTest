@@ -6,6 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import hr.ogcs.qa.base.TestBase;
+import hr.ogcs.qa.util.TestUtil;
 
 public class InspectionsPage extends TestBase {
 	
@@ -38,43 +39,41 @@ public class InspectionsPage extends TestBase {
 	}
 	
 	public void SelectComputerizedSystemInspection() {
-		wait.until(ExpectedConditions.visibilityOf(create_button));
-		create_button.click();
-		inspection_type.click();
-		inspection_type_value_csi.click();
-		continue_button.click();
+
+		TestUtil.click(create_button, "Create Button");
+		TestUtil.click(inspection_type, "Select Inspection Type.");
+		TestUtil.click(inspection_type_value_csi, "Computerized System Inspection");
+		TestUtil.click(continue_button, "Continue Button");
 	}
 	
 	public void SelectDocumentInspection() {
-		wait.until(ExpectedConditions.visibilityOf(create_button));
-		create_button.click();
-		inspection_type.click();
-		inspection_type_value_di.click();
-		continue_button.click();
+
+		TestUtil.click(create_button, "Create Button");
+		TestUtil.click(inspection_type, "Select Inspection Type.");
+		TestUtil.click(inspection_type_value_di, "Document Inspection");
+		TestUtil.click(continue_button, "Continue Button");
 	}
 	
 	public void SelectFacilityInspection() {
-		wait.until(ExpectedConditions.visibilityOf(create_button));
-		create_button.click();
-		inspection_type.click();
-		inspection_type_value_fi.click();
-		continue_button.click();
+	
+		TestUtil.click(create_button, "Create Button");
+		TestUtil.click(inspection_type, "Select Inspection Type.");
+		TestUtil.click(inspection_type_value_fi, "Facility Inspection");
+		TestUtil.click(continue_button, "Continue Button");
 	}
 	
 	public void SelectInstrumentInspection() {
-		wait.until(ExpectedConditions.visibilityOf(create_button));
-		create_button.click();
-		inspection_type.click();
-		inspection_type_value_ii.click();
-		continue_button.click();
+		TestUtil.click(create_button, "Create Button");
+		TestUtil.click(inspection_type, "Select Inspection Type.");
+		TestUtil.click(inspection_type_value_ii, "Instrument Inspection");
+		TestUtil.click(continue_button, "Continue Button");
 	}
 	
 	public void SelectStudyBasedInspection() {
-		wait.until(ExpectedConditions.visibilityOf(create_button));
-		create_button.click();
-		inspection_type.click();
-		inspection_type_value_sbi.click();
-		continue_button.click();
+		TestUtil.click(create_button, "Create Button");
+		TestUtil.click(inspection_type, "Select Inspection Type.");
+		TestUtil.click(inspection_type_value_sbi, "Study based Inspection");
+		TestUtil.click(continue_button, "Continue Button");
 	}
 	
 }

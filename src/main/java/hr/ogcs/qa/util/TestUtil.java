@@ -14,9 +14,12 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import hr.ogcs.qa.base.TestBase;
 
@@ -142,19 +145,22 @@ public class TestUtil extends TestBase {
 	    }
 	}
 	
-	public static void ClickOnFocusedItem() throws InterruptedException{
+	public static void ClickOnFocusedItem(String elementName) throws InterruptedException{
 		Thread.sleep(500);
 		WebElement focusedItem = driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused"));
 		try
 	    {
 			wait.until(ExpectedConditions.visibilityOf(focusedItem));
 			focusedItem.click();
+	    	System.out.print(elementName + " is clicked");
 
 	    }
 	    catch (StaleElementReferenceException e)
 	    {
 	    	System.out.print("CATCHING STALE ELEMENT REFERENCE EXEPTION \n");
 	    	focusedItem.click();
+	    	System.out.print(elementName + " is clicked");
+
 	    }
 	}
 	
@@ -173,15 +179,27 @@ public class TestUtil extends TestBase {
 		// wait doesn't work with radio button
 		
 		if(!hasElementAtributeRadio(element)) {	
-			wait.until(ExpectedConditions.elementToBeClickable(element));
-			element.click();
-			System.out.print(elementName + " is clicked \n");	
+			try
+		    {
+				wait.until(ExpectedConditions.elementToBeClickable(element));
+				element.click();
+				System.out.print(elementName + " is clicked \n");	
+		    }
+		    catch (StaleElementReferenceException e)
+		    {
+		    	System.out.print("CATCHING STALE ELEMENT REFERENCE EXEPTION \n");
+				element.click();
+				System.out.print(elementName + " is clicked \n");	
+		    }
 		
 		}else {
 			element.click();
 			System.out.print(elementName + " is clicked \n");	
 		}
 	}
+	
+	
+
 		
 	//Type function
 	public static void type(WebElement element, String elementName, String typedText) {

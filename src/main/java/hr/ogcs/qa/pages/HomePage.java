@@ -129,8 +129,14 @@ public class HomePage extends TestBase {
 	}
 	
 	public void GoToInspections() {
-		study_qau.click();
-		inspections.click();
+		TestUtil.click(study_qau, "Study & QAU");
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		TestUtil.click(inspections, "Inspections");
     }
 	
 	public void goToPhases() {
