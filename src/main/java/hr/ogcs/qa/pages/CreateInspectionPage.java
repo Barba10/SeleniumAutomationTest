@@ -221,109 +221,113 @@ public class CreateInspectionPage extends TestBase {
 	}
 	
 	public void FillComputerizedSystemInspection() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(form_computerized_system));
-		form_computerized_system.sendKeys("QUARTS");
-		TestUtil.ClickOnFocusedItem();
-		form_glp_inspector.sendKeys("QAU Writer1, Lihof");
-		TestUtil.ClickOnFocusedItem();
-		form_description.sendKeys("Validation - Description Inspection 001");
-		form_request_item.sendKeys("Others");
-		TestUtil.ClickOnFocusedItem();
-	    form_request_item_others.sendKeys("Validation - Description Inspection 001");
-	    form_planned_start_date.sendKeys("10/29/2018");
-	    form_planned_end_date.sendKeys("10/29/2018");
-	    form_actual_start_date.sendKeys("10/29/2018");
-	    form_actual_end_date.sendKeys("10/29/2018");
-	    form_closure_date.sendKeys("10/29/2018");
-	    form_confirmed_inspection_date.sendKeys("10/29/2018");
-	    save_btn.click();
+		
+		TestUtil.type(form_computerized_system, "Computerized System*", "QUARTS");
+		TestUtil.ClickOnFocusedItem("QUARTS");
+		TestUtil.type(form_glp_inspector, "GLP Inspector", "QAU Writer1, Lihof");
+		TestUtil.ClickOnFocusedItem("QAU Writer1, Lihof");
+		TestUtil.type(form_description, "Description", "Validation - Description Inspection 001");
+		TestUtil.type(form_request_item, "Request Item", "Others");
+		TestUtil.ClickOnFocusedItem("Others");
+		
+		TestUtil.type(form_request_item_others, "Request Item (Others)", "Validation - Description Inspection 001");
+		TestUtil.type(form_planned_start_date, "Planned Start Date", "10/29/2018");
+		TestUtil.type(form_planned_end_date, "Planned End Date", "10/29/2018");
+		TestUtil.type( form_actual_start_date, "Actual Start Date", "10/29/2018");
+		TestUtil.type( form_actual_end_date, "Actual End Date", "10/29/2018");
+		TestUtil.type( form_closure_date, "Closure Date", "10/29/2018");
+		TestUtil.type( form_confirmed_inspection_date, "Confirmed Inspection Date", "10/29/2018");
+
+		TestUtil.click( save_btn, "Save Button");
 	}
 	
 	public void FillDocumentInspection() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(form_glp_inspector));
+
 		form_glp_inspector.sendKeys("QAU Writer1, Lihof");
-		TestUtil.ClickOnFocusedItem();
-		form_description.sendKeys("Validation - Description Inspection 001");
-		form_basf_study_id.sendKeys("Schulung_1");
-		TestUtil.ClickOnFocusedItem();
-		form_document_type.sendKeys("Study Protocol");
-		TestUtil.ClickOnFocusedItem();
-		form_inspection_content.sendKeys("2018/2001300");		
-		TestUtil.ClickOnFocusedItem();
-	    form_planned_start_date.sendKeys("10/29/2018");
-	    form_planned_end_date.sendKeys("10/29/2018");
-	    form_actual_start_date.sendKeys("10/29/2018");
-	    form_actual_end_date.sendKeys("10/29/2018");
-	    form_closure_date.sendKeys("10/29/2018");
-	    save_btn.click();
+		TestUtil.type(form_glp_inspector, "GLP Inspector", "QAU Writer1, Lihof");
+		TestUtil.ClickOnFocusedItem("QAU Writer1, Lihof");
+		TestUtil.type(form_description, "Description", "Validation - Description Inspection 001");
+		TestUtil.type(form_basf_study_id, "BASF Study ID*", "Schulung_1");
+		TestUtil.ClickOnFocusedItem("Schulung_1");
+		TestUtil.type(form_document_type, "Document Type*", "Study Protocol");
+		TestUtil.ClickOnFocusedItem("Study Protocol");
+		TestUtil.type(form_inspection_content, "Inspection Content", "2018/2001300");
+		TestUtil.ClickOnFocusedItem("2018/2001300");
+		TestUtil.type(form_planned_start_date, "Planned start date", "10/29/2018");
+		TestUtil.type(form_planned_end_date, "Planned End Date", "10/29/2018");
+		TestUtil.type( form_actual_start_date, "Actual Start Date", "10/29/2018");
+		TestUtil.type( form_actual_end_date, "Actual End Date", "10/29/2018");
+		TestUtil.type( form_closure_date, "Closure Date", "10/29/2018");
+		
+		TestUtil.click( save_btn, "Save Button");
 	}
 	
 	public void FillFacilityInspection() throws InterruptedException {
-		//wait.until(ExpectedConditions.visibilityOf(form_internal_facility_inspection));
-		form_internal_facility_inspection.click();
-		form_facility.sendKeys("ZAAS");
-		TestUtil.ClickOnFocusedItem();
-		form_items_from_guidelines.sendKeys("Others");
-		TestUtil.ClickOnFocusedItem();
-		form_glp_inspector.sendKeys("QAU Writer1, Lihof");
-		TestUtil.ClickOnFocusedItem();		
-		form_performing_unit.sendKeys("ZPD/L");
-		TestUtil.ClickOnFocusedItem();
-		form_planned_start_date.sendKeys("10/29/2018");
-	    form_planned_end_date.sendKeys("10/29/2018");
-	    form_actual_start_date.sendKeys("10/29/2018");
-	    form_actual_end_date.sendKeys("10/29/2018");
-	    form_closure_date.sendKeys("30/10/2018");
-	    form_confirmed_inspection_date.sendKeys("10/29/2018");
-	    
-		save_btn.click();
+		TestUtil.click(form_internal_facility_inspection, "Internal Facility Inspection - YES");
+		TestUtil.type(form_facility, "Facility*", "ZAAS");
+		TestUtil.ClickOnFocusedItem("ZAAS");
+		TestUtil.type(form_items_from_guidelines, "Item (from guidelines)", "Others");
+		TestUtil.ClickOnFocusedItem("Others");
+		TestUtil.type(form_glp_inspector, "GLP Inspector", "QAU Writer1, Lihof");
+		TestUtil.ClickOnFocusedItem("QAU Writer1, Lihof");
+		TestUtil.type(form_performing_unit, "Performing Unit", "ZPD/L");
+		TestUtil.ClickOnFocusedItem("ZPD/L");		
+		TestUtil.type(form_planned_start_date, "Planned start date", "10/29/2018");
+		TestUtil.type(form_planned_end_date, "Planned End Date", "10/29/2018");
+		TestUtil.type( form_actual_start_date, "Actual Start Date", "10/29/2018");
+		TestUtil.type( form_actual_end_date, "Actual End Date", "10/29/2018");
+		TestUtil.type( form_closure_date, "Closure Date", "30/10/2018");
+		TestUtil.type( form_confirmed_inspection_date, "Confirmed Inspection Date", "10/29/2018");
+		TestUtil.click( save_btn, "Save Button");
 	}
 	
 	public void FillInstrumentInspection() throws InterruptedException {
-		form_instrument.sendKeys("MA010");
-		TestUtil.ClickOnFocusedItem();
-		form_glp_inspector.sendKeys("QAU Writer1, Lihof");
-		TestUtil.ClickOnFocusedItem();		
-		form_description.sendKeys("Validation - Description Inspection 001");
-		form_request_item.sendKeys("MS measurement");
-		TestUtil.ClickOnFocusedItem();
-	    form_request_item_others.sendKeys("Mass spec standard");
-	    form_confirmed_inspection_comment.sendKeys("Validation comments");
-	    form_reason_for_cancelling__c.sendKeys("Validation reason");
-	    form_inspection_decision.click();
-	    form_inspection_content.sendKeys("2018/2001300");
-		TestUtil.ClickOnFocusedItem();
-
-	    form_planned_start_date.sendKeys("10/29/2018");
-	    form_planned_end_date.sendKeys("10/29/2018");
-	    form_actual_start_date.sendKeys("10/29/2018");
-	    form_actual_end_date.sendKeys("10/29/2018");
-	    form_closure_date.sendKeys("10/29/2018");
-	    
-	    save_btn.click();
+		TestUtil.type(form_instrument, "Instrument*", "MA010");
+		TestUtil.ClickOnFocusedItem("MA010");
+		TestUtil.type(form_glp_inspector, "GLP Inspector", "QAU Writer1, Lihof");
+		TestUtil.ClickOnFocusedItem("QAU Writer1, Lihof");
+		TestUtil.type(form_description, "Description", "Validation - Description Inspection 001");
+		TestUtil.type(form_request_item, "Request Item", "MS measurement");
+		TestUtil.ClickOnFocusedItem("MS measurement");
+		TestUtil.type(form_request_item_others, "Request Item (Others)", "Mass spec standard");
+		TestUtil.type(form_confirmed_inspection_comment, "Confirmed Inspection Comments", "Validation comments");
+		TestUtil.type(form_reason_for_cancelling__c, "Reason for Cancelling", "Validation reason");
+		TestUtil.click(form_inspection_decision, "Inspection Decision* - YES");
+		TestUtil.type(form_inspection_content, "Inspection Content", "2018/2001300");
+		TestUtil.ClickOnFocusedItem("2018/2001300");
+		TestUtil.type(form_planned_start_date, "Planned start date", "10/29/2018");
+		TestUtil.type(form_planned_end_date, "Planned End Date", "10/29/2018");
+		TestUtil.type( form_actual_start_date, "Actual Start Date", "10/29/2018");
+		TestUtil.type( form_actual_end_date, "Actual End Date", "10/29/2018");
+		TestUtil.type( form_closure_date, "Closure Date", "10/29/2018");
+		TestUtil.click( save_btn, "Save Button");
 	}
 	
 	public void FillStudyBasedInspection() throws InterruptedException {
-		form_basf_study_id.sendKeys("Schulung_1");
-		TestUtil.ClickOnFocusedItem();
-		form_glp_inspector.sendKeys("QAU Writer1, Lihof");
-		TestUtil.ClickOnFocusedItem();		
-		form_description.sendKeys("Validation - Description Inspection 001");
-		form_request_item.sendKeys("Others");
-		TestUtil.ClickOnFocusedItem();
-	    form_request_item_others.sendKeys("Validation - Description Inspection 001");
-	    form_process_based_inspection.click();	    
-	    form_process_type.sendKeys("Physical");
-		TestUtil.ClickOnFocusedItem();
 		
-	    form_planned_start_date.sendKeys("10/29/2018");
-	    form_planned_end_date.sendKeys("10/29/2018");
-	    form_actual_start_date.sendKeys("10/29/2018");
-	    form_actual_end_date.sendKeys("10/29/2018");
-	    form_closure_date.sendKeys("10/29/2018");
-	    form_confirmed_inspection_date.sendKeys("10/29/2018");
+		TestUtil.type(form_basf_study_id, "BASF Study ID*", "Schulung_1");
+		TestUtil.ClickOnFocusedItem("Schulung_1");
+		TestUtil.type(form_glp_inspector, "GLP Inspector", "QAU Writer1, Lihof");
+		TestUtil.ClickOnFocusedItem("QAU Writer1, Lihof");
+
+		TestUtil.type(form_description, "Description", "Validation - Description Inspection 001");
+		TestUtil.type(form_request_item, "Request Item", "Others");
+		TestUtil.ClickOnFocusedItem("Others");
+		TestUtil.type(form_request_item_others, "Request Item (Others)", "Validation - Description Inspection 001");
+
+		TestUtil.click(form_process_based_inspection, "Process based Inspection? - YES");
+
+		TestUtil.type(form_process_type, "Process Type", "Physical");
+		TestUtil.ClickOnFocusedItem("Physical");
 		
-	    save_btn.click();
+		TestUtil.type(form_planned_start_date, "Planned start date", "10/29/2018");
+		TestUtil.type(form_planned_end_date, "Planned End Date", "10/29/2018");
+		TestUtil.type( form_actual_start_date, "Actual Start Date", "10/29/2018");
+		TestUtil.type( form_actual_end_date, "Actual End Date", "10/29/2018");
+		TestUtil.type( form_closure_date, "Closure Date", "30/10/2018");
+		TestUtil.type( form_confirmed_inspection_date, "Confirmed Inspection Date", "10/29/2018");
+				
+		TestUtil.click( save_btn, "Save Button");
 	}
 	
 	
@@ -338,7 +342,8 @@ public class CreateInspectionPage extends TestBase {
 		TestUtil.verifyEquals(verify_item_from_guidelines, "Others");
 		TestUtil.verifyEquals(verify_inspection_type, "Facility Inspection");
 
-		inspection_date_tab.click();
+		TestUtil.click(inspection_date_tab, "Inspection Date Tab");
+
 		
 		TestUtil.verifyEquals(verify_planned_start_date, "10/29/2018");
 		TestUtil.verifyEquals(verify_planned_end_date, "10/29/2018");
@@ -348,7 +353,7 @@ public class CreateInspectionPage extends TestBase {
 		
 		jse.executeScript("window.scrollBy(0,500)", "");
 		
-		additional_details_tab.click();
+		TestUtil.click(additional_details_tab, "Additional Details Tab");
 		
 		wait.until(ExpectedConditions.visibilityOf(verify_created_by));
 		TestUtil.verifyEquals(verify_created_by, "Lihof QAU writer2");
@@ -371,7 +376,7 @@ public class CreateInspectionPage extends TestBase {
 		TestUtil.verifyEquals(verify_request_item, "Others");
 		TestUtil.verifyEquals(verify_request_item_others, "Validation Request Other");
 		
-		inspection_date_tab.click();
+		TestUtil.click(inspection_date_tab, "Inspection Date Tab");
 	
 		TestUtil.verifyEquals(verify_planned_start_date, "10/29/2018");
 		TestUtil.verifyEquals(verify_planned_end_date, "10/29/2018");
@@ -382,7 +387,7 @@ public class CreateInspectionPage extends TestBase {
 		
 		jse.executeScript("window.scrollBy(0,500)", "");
 
-		additional_details_tab.click();
+		TestUtil.click(additional_details_tab, "Additional Details Tab");
 		wait.until(ExpectedConditions.visibilityOf(verify_created_by));
 		TestUtil.verifyEquals(verify_created_by, "Lihof QAU writer2");
 		TestUtil.containText(verify_created_date, formatter.format(date));
@@ -404,7 +409,7 @@ public class CreateInspectionPage extends TestBase {
 		TestUtil.verifyEquals(verify_basf_study_id, "999999");
 		//TestUtil.verifyEquals(verify_inspection_content, "2018/2001300");
 		
-		inspection_date_tab.click();
+		TestUtil.click(inspection_date_tab, "Inspection Date Tab");
 		
 		TestUtil.verifyEquals(verify_planned_start_date, "10/29/2018");
 		TestUtil.verifyEquals(verify_planned_end_date, "10/29/2018");
@@ -414,7 +419,7 @@ public class CreateInspectionPage extends TestBase {
 		
 		jse.executeScript("window.scrollBy(0,500)", "");
 
-		additional_details_tab.click();
+		TestUtil.click(additional_details_tab, "Additional Details Tab");
 		wait.until(ExpectedConditions.visibilityOf(verify_created_by));
 		TestUtil.verifyEquals(verify_created_by, "Lihof QAU writer1");
 		TestUtil.containText(verify_created_date, formatter.format(date));
@@ -441,7 +446,7 @@ public class CreateInspectionPage extends TestBase {
 
 		//TestUtil.verifyEquals(verify_inspection_content, "2018/2001300");
 		
-		inspection_date_tab.click();
+		TestUtil.click(inspection_date_tab, "Inspection Date Tab");
 		
 		TestUtil.verifyEquals(verify_planned_start_date, "10/29/2018");
 		TestUtil.verifyEquals(verify_planned_end_date, "10/29/2018");
@@ -451,7 +456,7 @@ public class CreateInspectionPage extends TestBase {
 		
 		jse.executeScript("window.scrollBy(0,500)", "");
 
-		additional_details_tab.click();
+		TestUtil.click(additional_details_tab, "Additional Details Tab");
 		wait.until(ExpectedConditions.visibilityOf(verify_created_by));
 		TestUtil.verifyEquals(verify_created_by, "Lihof QAU writer1");
 		TestUtil.containText(verify_created_date, formatter.format(date));
@@ -477,7 +482,7 @@ public class CreateInspectionPage extends TestBase {
 		TestUtil.verifyEquals(verify_process_based_inspection, "Yes");
 		TestUtil.verifyEquals(verify_process_type, "Physical");
 		
-		inspection_date_tab.click();
+		TestUtil.click(inspection_date_tab, "Inspection Date Tab");
 		
 		TestUtil.verifyEquals(verify_planned_start_date, "10/29/2018");
 		TestUtil.verifyEquals(verify_planned_end_date, "10/29/2018");
@@ -487,7 +492,7 @@ public class CreateInspectionPage extends TestBase {
 		
 		jse.executeScript("window.scrollBy(0,500)", "");
 
-		additional_details_tab.click();
+		TestUtil.click(additional_details_tab, "Additional Details Tab");
 		wait.until(ExpectedConditions.visibilityOf(verify_created_by));
 		TestUtil.verifyEquals(verify_created_by, "Lihof QAU writer1");
 		TestUtil.containText(verify_created_date, formatter.format(date));
@@ -501,7 +506,7 @@ public class CreateInspectionPage extends TestBase {
 	
 	
 	public void Cancel() {
-		cancel_btn.click();
+		TestUtil.click(cancel_btn, "Cancel Button");
 	}
 	
 	

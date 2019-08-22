@@ -14,9 +14,14 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.aventstack.extentreports.MediaEntityBuilder;
 
 import hr.ogcs.qa.base.TestBase;
 
@@ -37,7 +42,9 @@ public class TestUtil extends TestBase {
 	public static void takeScreenshotAtEndOfTest() throws IOException {
 		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		String currentDir = System.getProperty("user.dir");
-		FileUtils.copyFile(scrFile, new File(currentDir + "/screenshots/" + System.currentTimeMillis() + ".png"));
+		String fileLocation = currentDir + "/screenshots/" + System.currentTimeMillis() + ".png";
+		FileUtils.copyFile(scrFile, new File(fileLocation));
+		childTest.addScreenCaptureFromPath(fileLocation,"Screenshoot");
 	}
 
 	public static void runTimeInfo(String messageType, String message) throws InterruptedException {
@@ -81,6 +88,8 @@ public class TestUtil extends TestBase {
 		if(element.getText().isEmpty())
 		{
 		    System.out.println(text + " is blank");	
+	    	childTest.info(text + " is blank");
+
 		}
 		else
 		{
@@ -88,6 +97,8 @@ public class TestUtil extends TestBase {
 			    assertEquals(element.getText().replaceAll("\n", " "), text);
 			    
 			    System.out.println(text + " is visible");
+		    	childTest.info(text + " is visible");
+
 				//logger.log(Status.PASS, text + " is visible");
 	
 			} catch (Throwable t) {
@@ -95,6 +106,8 @@ public class TestUtil extends TestBase {
 				//logger.log(Status.FAIL, t.getMessage());
 			    System.out.println("Error with verifying " + text);
 			    System.out.println(t.getMessage());
+		    	childTest.info("Error with verifying " + text + t.getMessage());
+
 			}
 		}
 	}
@@ -114,19 +127,27 @@ public class TestUtil extends TestBase {
 	public static void editableField(WebElement element, String text) {
 		if(element.isEnabled()) {
 			System.out.println("Field : " + text + " is editable");
+	    	childTest.info("Field : " + text + " is editable");
+
 		}
 		else{
 			System.out.println("Field : " + text + " is not editable");
+	    	childTest.info("Field : " + text + " is not editable");
+
 		}	
 	}
 	
 	public static void containText(WebElement element, String text) throws IOException {
 		if(element.getText().contains(text)) {
 		    System.out.println(element.getText() + " is displayed." +" "+ text + " is visible");
+	    	childTest.info(element.getText() + " is displayed." +" "+ text + " is visible");
+
 		}
 		else
 		{
 		    System.out.println(element.getText() + " is displayed.");
+	    	childTest.info(element.getText() + " is displayed.");
+
 		}
 	}
 	
@@ -142,19 +163,23 @@ public class TestUtil extends TestBase {
 	    }
 	}
 	
-	public static void ClickOnFocusedItem() throws InterruptedException{
+	public static void ClickOnFocusedItem(String elementName) throws InterruptedException{
 		Thread.sleep(500);
 		WebElement focusedItem = driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused"));
 		try
 	    {
 			wait.until(ExpectedConditions.visibilityOf(focusedItem));
 			focusedItem.click();
-
+	    	System.out.print(elementName + " is clicked");
+	    	childTest.info(elementName + " is clicked");
 	    }
 	    catch (StaleElementReferenceException e)
 	    {
 	    	System.out.print("CATCHING STALE ELEMENT REFERENCE EXEPTION \n");
 	    	focusedItem.click();
+	    	System.out.print(elementName + " is clicked");
+	    	childTest.info(elementName + " is clicked");
+
 	    }
 	}
 	
@@ -173,15 +198,31 @@ public class TestUtil extends TestBase {
 		// wait doesn't work with radio button
 		
 		if(!hasElementAtributeRadio(element)) {	
-			wait.until(ExpectedConditions.elementToBeClickable(element));
-			element.click();
-			System.out.print(elementName + " is clicked \n");	
+			try
+		    {
+				wait.until(ExpectedConditions.elementToBeClickable(element));
+				element.click();
+				System.out.print(elementName + " is clicked \n");	
+		    	childTest.info(elementName + " is clicked");
+
+		    }
+		    catch (StaleElementReferenceException e)
+		    {
+		    	System.out.print("CATCHING STALE ELEMENT REFERENCE EXEPTION \n");
+				element.click();
+				System.out.print(elementName + " is clicked \n");	
+				childTest.info(elementName + " is clicked");
+		    }
 		
 		}else {
 			element.click();
 			System.out.print(elementName + " is clicked \n");	
+			childTest.info(elementName + " is clicked");
 		}
 	}
+	
+	
+
 		
 	//Type function
 	public static void type(WebElement element, String elementName, String typedText) {
@@ -195,6 +236,8 @@ public class TestUtil extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 		element.sendKeys(Keys.chord(Keys.CONTROL, "a"),typedText);
 		System.out.println("Typed in " + elementName + ": " + typedText);
+		
+		childTest.info("Typed in " + elementName + ": " + typedText);
 	}
 	
 	//Type function
@@ -205,6 +248,8 @@ public class TestUtil extends TestBase {
 			Select Select = new Select(element);
 			Select.selectByVisibleText(elementToSelect);
 			System.out.println(elementToSelect + " is selected from " + elementName);
+			childTest.info(elementToSelect + " is selected from " + elementName);
+
 		}
 
 }

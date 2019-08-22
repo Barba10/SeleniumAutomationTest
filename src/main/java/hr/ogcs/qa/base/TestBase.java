@@ -15,6 +15,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
 import hr.ogcs.qa.util.TestUtil;
 import hr.ogcs.qa.util.WebEventListener;
@@ -28,6 +34,14 @@ public class TestBase {
 	public static WebDriverWait wait;
 	public static JavascriptExecutor jse;
 	
+	public static ExtentHtmlReporter reporter;
+	public static ExtentReports extent;
+	public static ExtentTest parentTest;
+	public static ExtentTest childTest;
+	public static ExtentTest detailedReportTest;
+	public static ExtentTest fullReportTest;
+	public static ExtentTest loginReport;
+
 	
 	public TestBase(){
 		try {
@@ -42,6 +56,18 @@ public class TestBase {
 		}
 	}
 	
+	@BeforeSuite
+	public void beforeSuite() {
+		reporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "\\extents\\extent.html");
+		extent = new ExtentReports();
+		extent.attachReporter(reporter);
+	}
+	
+	@AfterSuite
+	public void afterSuite() {
+		extent.flush();
+	}
+
 	
 	public static void initialization(){
 		String browserName = prop.getProperty("browser");
