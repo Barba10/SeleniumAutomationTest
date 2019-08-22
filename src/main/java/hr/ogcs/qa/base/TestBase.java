@@ -38,9 +38,8 @@ public class TestBase {
 	public static ExtentReports extent;
 	public static ExtentTest parentTest;
 	public static ExtentTest childTest;
-	public static ExtentTest detailedReportTest;
-	public static ExtentTest fullReportTest;
-	public static ExtentTest loginReport;
+	public static ExtentTest grandChildTest;
+
 
 	
 	public TestBase(){
