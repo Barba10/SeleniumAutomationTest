@@ -21,9 +21,13 @@ public class WhereUsedPage extends TestBase {
 
 	public void TakingScreenShoot() throws IOException {
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//td/div/div/a")));
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		TestUtil.takeScreenshotAtEndOfTest();
 	}
-
-	
 	
 }

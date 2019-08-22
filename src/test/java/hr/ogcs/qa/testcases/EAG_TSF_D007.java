@@ -12,6 +12,7 @@ import hr.ogcs.qa.pages.HomePage;
 import hr.ogcs.qa.pages.LibraryPage;
 import hr.ogcs.qa.pages.LoginPage;
 import hr.ogcs.qa.pages.WhereUsedPage;
+import hr.ogcs.qa.util.TestUtil;
 
 public class EAG_TSF_D007 extends TestBase {
 	
@@ -27,6 +28,7 @@ public class EAG_TSF_D007 extends TestBase {
 	
 	@BeforeMethod
 	public void setUp() {
+    	parentTest = extent.createTest("EAG_TSF_D007");
 		initialization();
 		loginPage = new LoginPage();
 		homePage = new HomePage();
@@ -37,24 +39,18 @@ public class EAG_TSF_D007 extends TestBase {
 	}
 	
 	@Test
-	public void VaultGeneralInformations() throws InterruptedException, IOException{
+	public void EAG_TSF_D007() throws InterruptedException, IOException{
+	  	childTest = parentTest.createNode("Selection 'Where Used' ");
 		homePage.SearchDocument();
-		Thread.sleep(8000);
 		libraryPage.goToDocId();
-		Thread.sleep(2000);
 		documentPage.WhereUsed();
-		Thread.sleep(5000);
+	  	childTest = parentTest.createNode("Verifying Text Present - Making a Screenshot");
 		whereUsedPage.TakingScreenShoot();
 	}
 	
-
 	@AfterMethod
 	public void tearDown(){
 		driver.quit();
 	}
-	
-	
-	
-	
-	
+
 }

@@ -38,7 +38,7 @@ public class EAG_TSF_D004 extends TestBase{
 	}
 	
 	@Test
-	public void VaultGeneralInformations() throws InterruptedException, IOException{
+	public void EAG_TSF_D004() throws InterruptedException, IOException{
 		
 		//d004.02
 	  	childTest = parentTest.createNode("Uploading Document(s)");

@@ -25,6 +25,7 @@ public class EAG_TSF_G001 extends TestBase{
 	
 	@BeforeMethod
 	public void setUp() {
+    	parentTest = extent.createTest("EAG_TSF_G001");
 		initialization();
 		loginPage = new LoginPage();
 		homePage = new HomePage();
@@ -35,41 +36,55 @@ public class EAG_TSF_G001 extends TestBase{
 	
 	@Test
 	public void EAG_TSF_G001() throws InterruptedException, IOException{
-
+	  	  childTest = parentTest.createNode("Computerized System Inspection - Selecting Type");
 		  homePage.GoToInspections();
+	  	  childTest = parentTest.createNode("Computerized System Inspection - Filling Editable Fields");
 		  inspectionsPage.SelectComputerizedSystemInspection();
 		  createInspectionPage.FillComputerizedSystemInspection();
+	  	  childTest = parentTest.createNode("Computerized System Inspection - Verifying Text Present");
 		  createInspectionPage.ComputerizedSystemInspectionVerifycation();
 		  TestUtil.takeScreenshotAtEndOfTest();
 		
+	  	  childTest = parentTest.createNode("Document Inspection - Selecting Type");
 		  homePage.GoToInspections(); 
+	  	  childTest = parentTest.createNode("Document Inspection - Filling Editable Fields");
 		  inspectionsPage.SelectDocumentInspection();
 		  createInspectionPage.FillDocumentInspection();
+	  	  childTest = parentTest.createNode("Document Inspection - Verifying Text Present");
 		  createInspectionPage.DocumentInspectionVerifycation();
 		  TestUtil.takeScreenshotAtEndOfTest();
 		  
+	  	  childTest = parentTest.createNode("Facility Inspection - Selecting Type");
 		  homePage.GoToInspections(); 
+	  	  childTest = parentTest.createNode("Facility Inspection - Filling Editable Fields");
 		  inspectionsPage.SelectFacilityInspection();
 		  createInspectionPage.FillFacilityInspection();
+	  	  childTest = parentTest.createNode("Facility Inspection - Verifying Text Present");
 		  createInspectionPage.FacilityInspectionVerifycation();
 		  TestUtil.takeScreenshotAtEndOfTest();
 		  
+	  	  childTest = parentTest.createNode("Instrument Inspection - Selecting Type");
 		  homePage.GoToInspections(); 
+	  	  childTest = parentTest.createNode("Instrument Inspection - Filling Editable Fields");
 		  inspectionsPage.SelectInstrumentInspection();
 		  createInspectionPage.FillInstrumentInspection();
+	  	  childTest = parentTest.createNode("Instrument Inspection - Verifying Text Present");
 		  createInspectionPage.InstrumentInspectionVerifycation();
 		  TestUtil.takeScreenshotAtEndOfTest();
 		  
+	  	  childTest = parentTest.createNode("Study based Inspection - Selecting Type");
 		  homePage.GoToInspections(); 
+	  	  childTest = parentTest.createNode("Study based Inspection - Filling Editable Fields");
 		  inspectionsPage.SelectStudyBasedInspection();
 		  createInspectionPage.FillStudyBasedInspection();
+	  	  childTest = parentTest.createNode("Study based Inspection - Verifying Text Present");
 		  createInspectionPage.StudyBasedVerifycation();
 		  TestUtil.takeScreenshotAtEndOfTest();
 
+	  	  childTest = parentTest.createNode("Document Inspection - Checking Cancel Function");
 		  homePage.GoToInspections(); 
 		  inspectionsPage.SelectDocumentInspection();
 		  createInspectionPage.Cancel();
-
 	}
 	
 	@AfterMethod
