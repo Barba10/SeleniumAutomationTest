@@ -23,6 +23,7 @@ public class EAG_TSF_D001 extends TestBase{
 	
 	@BeforeMethod
 	public void setUp() {
+    	parentTest = extent.createTest("EAG_TSF_D001");
 		initialization();
 		loginPage = new LoginPage();
 		homePage = new HomePage();
@@ -34,11 +35,13 @@ public class EAG_TSF_D001 extends TestBase{
 	public void VaultGeneralInformations() throws InterruptedException, IOException{
 		
 		//D001.02
+	  	childTest = parentTest.createNode("Plan Protection Product - Application Creation");
 		homePage.GoToApplications();
 		applicationPage.ClickOnCreateButton();
 		applicationPage.SelectPlanProtectionProduct();
 		
 		//D001.03
+		childTest = parentTest.createNode("Plan Protection Product - Filling Editable Fields");
 		applicationPage.FillFormPPP();
 		applicationPage.Save();
 		applicationPage.Edit();
@@ -46,15 +49,18 @@ public class EAG_TSF_D001 extends TestBase{
 		applicationPage.Cancel();
 		
 		//D001.04
+		childTest = parentTest.createNode("Plan Protection Product - Verifying Text Present");
 		applicationPage.Text_Verification_PPP();
 		TestUtil.takeScreenshotAtEndOfTest();
 		
 		//D001.02-for another TestData
+		childTest = parentTest.createNode("Active Ingredient - Application Creation");
 		homePage.GoToApplications();
 		applicationPage.ClickOnCreateButton();
 		applicationPage.SelectActiveIngredientProduct();
 		
 		//D001.03-for another TestData
+		childTest = parentTest.createNode("Active Ingredient - Filling Editable Fields");
 		applicationPage.FillFormActiveIngredient();
 		applicationPage.Save();
 		applicationPage.Edit();
@@ -62,10 +68,12 @@ public class EAG_TSF_D001 extends TestBase{
 		applicationPage.Cancel();
 		
 		//D001.04-for another TestData
+		childTest = parentTest.createNode("Active Ingredient - Verifying Text Present");
 		applicationPage.Text_Verification_ActiveIngredient();
 		TestUtil.takeScreenshotAtEndOfTest();
 		
 		//D001.05
+		childTest = parentTest.createNode("Plan Protection Product - Checking Cancel Function");
 		homePage.GoToApplications();
 		applicationPage.ClickOnCreateButton();
 		applicationPage.SelectPlanProtectionProduct();
@@ -73,6 +81,7 @@ public class EAG_TSF_D001 extends TestBase{
 		applicationPage.CancelAndContinue();
 		
 		//D001.05
+		childTest = parentTest.createNode("Active Ingredient - Checking Cancel Function");
 		homePage.GoToApplications();
 		applicationPage.ClickOnCreateButton();
 		applicationPage.SelectActiveIngredientProduct();

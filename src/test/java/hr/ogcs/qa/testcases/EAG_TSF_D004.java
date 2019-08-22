@@ -27,6 +27,7 @@ public class EAG_TSF_D004 extends TestBase{
 	
 	@BeforeMethod
 	public void setUp() {
+    	parentTest = extent.createTest("EAG_TSF_D004");
 		initialization();
 		loginPage = new LoginPage();
 		homePage = new HomePage();
@@ -40,25 +41,29 @@ public class EAG_TSF_D004 extends TestBase{
 	public void VaultGeneralInformations() throws InterruptedException, IOException{
 		
 		//d004.02
+	  	childTest = parentTest.createNode("Uploading Document(s)");
 		homePage.GoToUpload();
 		uploadPage.UploadFile();
 		uploadPage.ClickUpload();
 		
 		//d004.03
+	  	childTest = parentTest.createNode("Classification of Uploaded Document(s)");
 		libraryPage.OpenUploadedDocument();
 		documentPage.ClassificationOfUploadedDocument();
 		
 		//d004.04
+	  	childTest = parentTest.createNode("Filling Editable Fields");
 		documentPage.FillEditableFields();
 		
 		//d004.05
+	  	childTest = parentTest.createNode("Verifying Text Present");
 		documentPage.TextVerifycation();
 		
 		//d004.06
+	  	childTest = parentTest.createNode("Checking Cancel Function");
 		homePage.GoToUpload();
 		uploadPage.UploadFile();
 		uploadPage.ClickCancel();;
-		
 	}
 	
 	@AfterMethod
