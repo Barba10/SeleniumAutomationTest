@@ -83,12 +83,10 @@ public class CreatePhasesPage extends TestBase {
 		TestUtil.type(name, "Name", "Test Name SMP");
 
 		TestUtil.type(principal_investigator, "Principal Investigator", "Andreas Altschuck");
-		Thread.sleep(700);
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("Andreas Altschuck");
 
 		TestUtil.type(study, "Study", "TestJRZ_01");
-		Thread.sleep(700);
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("TestJRZ_01");
 
 		TestUtil.click(test_site_binoculars, "Test Site Binoculars");
 		TestUtil.type(search_bar, "Search Bar", "BASF SE" + Keys.ENTER);
@@ -115,12 +113,10 @@ public class CreatePhasesPage extends TestBase {
 		TestUtil.type(name, "Name", "Test Name SMP");
 
 		TestUtil.type(principal_investigator, "Principal Investigator", "Andreas Altschuck");
-		Thread.sleep(700);
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("Andreas Altschuck");
 
 		TestUtil.type(study, "Study", "TestJRZ_01");
-		Thread.sleep(700);
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("TestJRZ_01");
 
 		TestUtil.click(test_site_binoculars, "Test Site Binoculars");
 		TestUtil.type(search_bar, "Search Bar", "BASF SE" + Keys.ENTER);
@@ -147,12 +143,10 @@ public class CreatePhasesPage extends TestBase {
 		TestUtil.type(name, "Name", "Test Name AP");
 		
 		TestUtil.type(study, "Study", "TestJRZ_01");
-		Thread.sleep(700);
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("TestJRZ_01");
 		
 		TestUtil.type(principal_investigator, "Principal Investigator", "Angelika Lehmann");
-		Thread.sleep(700);
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("Angelika Lehmann");
 		
 		TestUtil.click(test_site_binoculars, "Test Site Binoculars");
 		TestUtil.type(search_bar, "Search Bar", "BASF SE" + Keys.ENTER);
@@ -179,12 +173,10 @@ public class CreatePhasesPage extends TestBase {
 		TestUtil.type(name, "Name", "Test Name AP");
 		
 		TestUtil.type(study, "Study", "TestJRZ_01");
-		Thread.sleep(700);
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("TestJRZ_01");
 		
 		TestUtil.type(principal_investigator, "Principal Investigator", "Angelika Lehmann");
-		Thread.sleep(700);
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("Angelika Lehmann");
 		
 		TestUtil.click(test_site_binoculars, "Test Site Binoculars");
 		TestUtil.type(search_bar, "Search Bar", "BASF SE" + Keys.ENTER);
@@ -211,16 +203,14 @@ public class CreatePhasesPage extends TestBase {
 		TestUtil.type(name, "Name", "Test Name BP");
 		
 		TestUtil.type(study, "Study", "TestJRZ_01");
-		Thread.sleep(700);
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("TestJRZ_01");
 		
 		TestUtil.click(test_site_binoculars_second, "Test Site Binoculars Second");
 		TestUtil.type(search_bar, "Search Bar", "BASF SE" + Keys.ENTER);
 		TestUtil.click(add_first_value, "BASF SE");
 		
 		TestUtil.type(principal_investigator, "Principal Investigator", "Stefanie Royer");
-		Thread.sleep(700);
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("Stefanie Royer");
 		
 		TestUtil.type(external_phase_code, "External Phase Code", "TestJRZ_01BP");
 		
@@ -245,16 +235,14 @@ public class CreatePhasesPage extends TestBase {
 		TestUtil.type(name, "Name", "Test Name BP");
 		
 		TestUtil.type(study, "Study", "TestJRZ_01");
-		Thread.sleep(700);
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("TestJRZ_01");
 		
 		TestUtil.click(test_site_binoculars_second, "Test Site Binoculars Second");
 		TestUtil.type(search_bar, "Search Bar", "BASF SE" + Keys.ENTER);
 		TestUtil.click(add_first_value, "BASF SE");
 		
 		TestUtil.type(principal_investigator, "Principal Investigator", "Stefanie Royer");
-		Thread.sleep(700);
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("Stefanie Royer");
 		
 		TestUtil.type(external_phase_code, "External Phase Code", "TestJRZ_01BP");
 		
@@ -280,8 +268,7 @@ public class CreatePhasesPage extends TestBase {
 		TestUtil.type(name, "Name", "Test Name FP");
 		
 		TestUtil.type(study, "Study", "TestJRZ_01");
-		Thread.sleep(700);
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("TestJRZ_01");
 		
 		TestUtil.click(glp_yes, "GLP Yes");
 		
@@ -304,8 +291,7 @@ public class CreatePhasesPage extends TestBase {
 		TestUtil.type(name, "Name", "Test Name FP");
 		
 		TestUtil.type(study, "Study", "TestJRZ_01");
-		Thread.sleep(700);
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("TestJRZ_01");
 		
 		TestUtil.click(glp_yes, "GLP Yes");
 		
@@ -328,16 +314,14 @@ public class CreatePhasesPage extends TestBase {
 		TestUtil.type(name, "Name", "Test Name Inlife");
 		
 		TestUtil.type(study, "Study", "TestJRZ_01");
-		Thread.sleep(700);
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("TestJRZ_01");
 		
 		TestUtil.click(test_site_binoculars_second, "Test Site Binoculars Second");
 		TestUtil.type(search_bar, "Search Bar", "Urania Agrochem GmbH" + Keys.ENTER);
 		TestUtil.click(add_first_value, "BASF SE");
 		
 		TestUtil.type(principal_investigator, "Principal Investigator", "Anja Friedemann");
-		Thread.sleep(700);
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("Anja Friedemann");
 		
 		TestUtil.type(planned_experimental_start_date, "Planned Experimental Start Date", "1/1/2019");
 		TestUtil.type(planned_experimental_end_date, "Planned Experimental End Date", "1/25/2019");
@@ -361,16 +345,15 @@ public class CreatePhasesPage extends TestBase {
 		TestUtil.type(name, "Name", "Test Name Inlife");
 		
 		TestUtil.type(study, "Study", "TestJRZ_01");
-		Thread.sleep(700);
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("TestJRZ_01");
 		
 		TestUtil.click(test_site_binoculars_second, "Test Site Binoculars Second");
 		TestUtil.type(search_bar, "Search Bar", "Urania Agrochem GmbH" + Keys.ENTER);
 		TestUtil.click(add_first_value, "BASF SE");
 		
 		TestUtil.type(principal_investigator, "Principal Investigator", "Anja Friedemann");
-		Thread.sleep(700);
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("Anja Friedemann");
+
 		
 		TestUtil.type(planned_experimental_start_date, "Planned Experimental Start Date", "1/1/2019");
 		TestUtil.type(planned_experimental_end_date, "Planned Experimental End Date", "1/25/2019");
