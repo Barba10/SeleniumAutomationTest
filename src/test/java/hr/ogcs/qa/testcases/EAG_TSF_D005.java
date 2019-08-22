@@ -27,6 +27,7 @@ public class EAG_TSF_D005 extends TestBase {
 	
 	@BeforeMethod
 	public void setUp() {
+		parentTest = extent.createTest("EAG_TSF_D005");
 		initialization();
 		loginPage = new LoginPage();
 		homePage = new HomePage();
@@ -43,7 +44,8 @@ public class EAG_TSF_D005 extends TestBase {
 	}
 	
 	@Test
-	public void testCaseD5() throws IOException, InterruptedException {
+	public void EAG_TSF_D005() throws IOException, InterruptedException {
+		childTest = parentTest.createNode("Adding existing documents to binder");
 		homePage.GoToLibrary();
 		libraryPage.goToAllDossiers();
 		allDossiers.goToBinder();

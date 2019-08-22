@@ -221,6 +221,12 @@ public class CreateBinderPage extends TestBase {
 	@FindBy(xpath = "//span[contains(text(),'Regulatory Information')]")
 	WebElement regulatoryInformation;
 	
+	@FindBy(xpath = "//div[@class='propsContainer']//div[1]//div[1]//div[1]//a[2]//span[1]")
+	WebElement cancel_button;
+
+	@FindBy(xpath = "//a[@class='ok vv_button vv_primary vv_ellipsis']")
+	WebElement continue_button;
+	
 	
 	public void createFirstBinder() throws InterruptedException, IOException {
 		TestUtil.click(chooseBinder, "Choose binder");
@@ -300,6 +306,88 @@ public class CreateBinderPage extends TestBase {
 		
 	}
 	
+	public void createFirstBinderAndCancel() throws InterruptedException, IOException {
+		TestUtil.click(chooseBinder, "Choose binder");
+		TestUtil.click(binderType, "Binder type");
+		TestUtil.click(typePPP, "PPP type");
+		TestUtil.click(binderSubtype, "Binder subtype");
+		TestUtil.click(subtypeNewDrr, "New dRR");
+		TestUtil.click(binderClassification, "Binder classification");
+		wait.until(ExpectedConditions.visibilityOf((classificationFungicide)));
+		TestUtil.click(classificationFungicide, "Fungicide");
+
+		TestUtil.click(okButton, "OK button");
+		TestUtil.click(chooseBinderTemplate, "Binder template");
+		TestUtil.click(drrTemplate, "dRR template");
+		TestUtil.click(nextButton, "Next button");
+		TestUtil.type(name, "Name", "BAS 750 01 F FR");
+		TestUtil.type(title, "Type", "Draft registration report - BAS 750 01 F - Core S - ZRMS: France");
+		TestUtil.type(subtitle, "Subtype", "BAS 750 01 F - Core S");
+
+		TestUtil.click(author, "Author binoculars");
+		TestUtil.type(searchBar, "Search bar", "Thomas Maurer" + Keys.ENTER);
+		TestUtil.click(addValue, "Thomas Maurer");
+		TestUtil.click(closeButton, "Close button");
+		
+		
+		TestUtil.click(product, "Product binoculars");
+		TestUtil.type(searchBar, "Search bar", "BAS 750 01 F" + Keys.ENTER);
+		TestUtil.click(addValue, "BAS 750 01 F");
+		TestUtil.click(closeButton, "Close button"); 
+		
+		
+		TestUtil.click(ingredient, "Ingredient binoculars");
+		TestUtil.type(searchBar, "Search bar", "BAS 750 F" + Keys.ENTER);
+		TestUtil.click(addValue, "BAS 750 F");
+		TestUtil.click(closeButton, "Close button");
+		
+		TestUtil.click(workPackage, "Work pacage binoculars");
+		TestUtil.type(searchBar, "Search bar", "945" + Keys.ENTER);
+		TestUtil.click(addValue, "945");
+		TestUtil.click(closeButton, "Close button");
+
+		TestUtil.click(binderTemplateType, "Template type binoculars");
+		TestUtil.type(searchBar, "Search bar", "dRR 2016 new" + Keys.ENTER);
+		TestUtil.click(addValue, "dRR 2016 new");
+
+		TestUtil.click(application, "Application binoculars");
+		TestUtil.type(searchBar, "Search bar", "BAS 750 01 F Core S" + Keys.ENTER);
+		TestUtil.click(addValue, "BAS 750 01 F Core S");
+
+		TestUtil.click(submission, "Submission binoculars");
+		TestUtil.click(addValue, "Add value");
+		TestUtil.click(closeButton, "Close button");
+		
+		TestUtil.click(countryOfOrigin, "Coutrny of origin binocular");
+		TestUtil.type(searchBar, "Search Bar", "France" + Keys.ENTER);
+		TestUtil.click(addValue, "France");
+		TestUtil.click(closeButton, "Close button");
+
+		TestUtil.click(performingOrganization, "Performing organization");
+		TestUtil.click(testFacility, "Test fascility binoculars");
+		TestUtil.type(searchBar, "Search bar", "BASF SE" + Keys.ENTER);
+		TestUtil.click(addThirdValue, "BASF SE");
+		
+		TestUtil.click(sponsorOwner, "Sponsor owner binoculars");
+		TestUtil.type(searchBar, "Search bar", "BASF SE" + Keys.ENTER);
+		TestUtil.click(addThirdValue, "BASF SE");
+		
+		TestUtil.click(commentsRemarks, "Comments remarks");
+		wait.until(ExpectedConditions.visibilityOf((remarks)));
+		TestUtil.type(remarks, "Remarks", "nothing");
+
+		
+		jse.executeScript("window.scrollBy(0,-400)", "");
+		Thread.sleep(5000);
+		TestUtil.click(cancel_button, "Cancel Button");
+		TestUtil.click(continue_button, "Continue Button");
+		
+
+		Thread.sleep(5000);
+		
+		
+	}
+	
 	public void verifyFirstBinder() throws IOException, InterruptedException {
 		TestUtil.verifyEquals(verifyName, "BAS 750 01 F FR");
 		TestUtil.verifyEquals(verifyTitle, "Draft registration report - BAS 750 01 F - Core S - ZRMS: France");
@@ -322,6 +410,10 @@ public class CreateBinderPage extends TestBase {
 		TestUtil.verifyEquals(verifyRemarks, "nothing");
 		TestUtil.takeScreenshotAtEndOfTest();
 	}
+	
+	
+
+	
 	
 	public void createSecondBinder() throws InterruptedException, IOException {
 		TestUtil.click(chooseBinder, "Choose binder");
@@ -405,6 +497,91 @@ public class CreateBinderPage extends TestBase {
 		
 	}
 	
+	public void createSecondBinderAndCancel() throws InterruptedException, IOException {
+		TestUtil.click(chooseBinder, "Choose binder");
+		TestUtil.click(binderType, "Binder type");
+		TestUtil.click(typePPP, "PPP type");
+		TestUtil.click(binderSubtype, "Binder subtype");
+		TestUtil.click(subtypeBrazil, "Brazil");
+		TestUtil.click(binderClassification, "Binder classification");
+		wait.until(ExpectedConditions.visibilityOf((classificationMapa)));
+		TestUtil.click(classificationMapa, "MAPA");
+
+		TestUtil.click(okButton, "OK button");
+		TestUtil.click(chooseBinderTemplate, "Binder template");
+		TestUtil.click(formulatedTemplate, "Formulated template");
+		TestUtil.click(nextButton, "Next button");
+		TestUtil.type(name, "Name", "Blavity_MAPA 2");
+		TestUtil.type(title, "Title", "DR713-18");
+		TestUtil.type(subtitle, "Subtitle", "Blavity_MAPA 2");
+
+		TestUtil.click(author, "Author binoculars");
+		TestUtil.type(searchBar, "Search bar", "Adriana Neitzel" + Keys.ENTER);
+		TestUtil.click(addValue, "Adriana Neitzelr");
+		TestUtil.click(closeButton, "Close button");
+		
+		
+		TestUtil.click(product, "Product binoculars");
+		TestUtil.type(searchBar, "Search bar", "BAS 795 00 F" + Keys.ENTER);
+		TestUtil.click(addValue, "BAS 795 00 F");
+		TestUtil.click(closeButton, "Close button"); 
+		
+		
+		//value does not exist so it just closes the window
+		TestUtil.click(ingredient, "Ingredient binoculars");
+		TestUtil.type(searchBar, "Search bar", "BAS 795 F" + Keys.ENTER);
+		TestUtil.click(addValue, "BAS 795 F");
+		TestUtil.click(closeButton, "Close button");
+		
+		TestUtil.click(workPackage, "Work pacage binoculars");
+		TestUtil.type(searchBar, "Search bar", "9" + Keys.ENTER);
+		TestUtil.click(addValue, "9");
+		TestUtil.click(closeButton, "Close button");
+
+		TestUtil.click(binderTemplateType, "Template type binoculars");
+		TestUtil.type(searchBar, "Search bar", "MAPA Formulated Product Dossier" + Keys.ENTER);
+		TestUtil.click(addValue, "MAPA Formulated Product Dossier");
+
+		TestUtil.click(application, "Application binoculars");
+		TestUtil.type(searchBar, "Search bar", "BAS 795 00 F" + Keys.ENTER);
+		TestUtil.click(addValue, "BAS 795 00 F");
+
+		TestUtil.click(submission, "Submission binoculars");
+		TestUtil.click(addValue, "Add value");
+		TestUtil.click(closeButton, "Close button");
+		
+		TestUtil.click(countryOfOrigin, "Coutrny of origin binocular");
+		TestUtil.type(searchBar, "Search Bar", "Brazil" + Keys.ENTER);
+		TestUtil.click(addValue, "Brazil");
+		TestUtil.click(closeButton, "Close button");
+
+		TestUtil.click(usRegulatoryInfo, "US regulatory info");
+		TestUtil.type(rootMRID, "Root MRID", "Nothing");
+		
+		
+		TestUtil.click(performingOrganization, "Performing organization");
+		TestUtil.click(testFacility, "Test fascility binoculars");
+		TestUtil.type(searchBar, "Search bar", "BASF SE" + Keys.ENTER);
+		TestUtil.click(addThirdValue, "BASF SE");
+		
+		TestUtil.click(sponsorOwner, "Sponsor owner binoculars");
+		TestUtil.type(searchBar, "Search bar", "BASF SE" + Keys.ENTER);
+		TestUtil.click(addThirdValue, "BASF SE");
+		
+		TestUtil.click(commentsRemarks, "Comments remarks");
+		wait.until(ExpectedConditions.visibilityOf((remarks)));
+		TestUtil.type(remarks, "Remarks", "nothing");
+		
+		jse.executeScript("window.scrollBy(0,-500)", "");
+//		Thread.sleep(5000);
+		TestUtil.click(cancel_button, "Cancel Button");
+		TestUtil.click(continue_button, "Continue Button");
+		
+
+		Thread.sleep(5000);
+		
+	}
+
 	public void verifySecondBinder() throws IOException, InterruptedException {
 		TestUtil.verifyEquals(verifyName, "Blavity_MAPA 2");
 		TestUtil.verifyEquals(verifyTitle, "DR713-18");
@@ -428,6 +605,8 @@ public class CreateBinderPage extends TestBase {
 		TestUtil.takeScreenshotAtEndOfTest();
 	}
 	
+	
+
 	public void createThirdBinder() throws InterruptedException, IOException {
 		TestUtil.click(chooseBinder, "Choose binder");
 		TestUtil.click(binderType, "Binder type");
@@ -497,6 +676,77 @@ public class CreateBinderPage extends TestBase {
 
 	}
 	
+	public void createThirdBinderAndCancel() throws InterruptedException, IOException {
+		TestUtil.click(chooseBinder, "Choose binder");
+		TestUtil.click(binderType, "Binder type");
+		TestUtil.click(typeActiveIngredient, "Active Ingrediant");
+		TestUtil.click(binderSubtype, "Binder subtype");
+		TestUtil.click(subtypeBrazil, "Brazil");
+		TestUtil.click(binderClassification, "Binder classification");
+//		wait.until(ExpectedConditions.visibilityOf((classificationAnivsa)));
+		TestUtil.click(classificationAnivsa, "ANVISA");
+
+		TestUtil.click(okButton, "OK button");
+		TestUtil.click(chooseBinderTemplate, "Binder template");
+		TestUtil.click(anvisaActiveIngrediantTemplate, "Anvisa active ingrediant");
+		TestUtil.click(nextButton, "Next button");
+		TestUtil.type(name, "Name", "A_Chlorfenapyr Tecnico BASF");
+		TestUtil.type(title, "Title", "DR_131-16");
+		TestUtil.type(subtitle, "Subtitle", "Registro Inicial");
+
+		TestUtil.click(author, "Author binoculars");
+		TestUtil.type(searchBar, "Search bar", "Adriana Neitzel" + Keys.ENTER);
+		TestUtil.click(addValue, "Adriana Neitzelr");
+		TestUtil.click(closeButton, "Close button");
+		
+		
+		
+		
+		TestUtil.click(workPackage, "Work pacage binoculars");
+		TestUtil.type(searchBar, "Search bar", "9" + Keys.ENTER);
+		TestUtil.click(addValue, "9");
+		TestUtil.click(closeButton, "Close button");
+
+		TestUtil.click(binderTemplateType, "Template type binoculars");
+		TestUtil.type(searchBar, "Search bar", "ANVISA Active Ingredient Dossier" + Keys.ENTER);
+		TestUtil.click(addValue, "ANVISA Active Ingredient Dossier");
+
+		TestUtil.click(application, "Application binoculars");
+		TestUtil.type(searchBar, "Search bar", "BAS 306 I" + Keys.ENTER);
+		TestUtil.click(addValue, "BAS 306 I");
+
+		TestUtil.click(submission, "Submission binoculars");
+		TestUtil.click(addValue, "Add value");
+		TestUtil.click(closeButton, "Close button");
+		
+		TestUtil.click(countryOfOrigin, "Coutrny of origin binocular");
+		TestUtil.type(searchBar, "Search Bar", "Brazil" + Keys.ENTER);
+		TestUtil.click(addValue, "Brazil");
+		TestUtil.click(closeButton, "Close button");
+		
+		TestUtil.click(performingOrganization, "Performing organization");
+		TestUtil.click(testFacilityThirdCase, "Test fascility binoculars");
+		TestUtil.type(searchBar, "Search bar", "BASF SE" + Keys.ENTER);
+		TestUtil.click(addThirdValue, "BASF SE");
+		
+		TestUtil.click(sponsorOwnerThirdCase, "Sponsor owner binoculars");
+		TestUtil.type(searchBar, "Search bar", "BASF SE" + Keys.ENTER);
+		TestUtil.click(addThirdValue, "BASF SE");
+		
+		TestUtil.click(commentsRemarks, "Comments remarks");
+		wait.until(ExpectedConditions.visibilityOf((remarks)));
+		TestUtil.type(remarks, "Remarks", "nothing");
+		
+		jse.executeScript("window.scrollBy(0,-500)", "");
+		TestUtil.click(cancel_button, "Cancel Button");
+		TestUtil.click(continue_button, "Continue Button");
+		
+
+		Thread.sleep(5000);
+		
+
+	}
+
 	public void verifyThridBinder() throws IOException, InterruptedException {
 		TestUtil.verifyEquals(verifyName, "A_Chlorfenapyr Tecnico BASF");
 		TestUtil.verifyEquals(verifyTitle, "DR_131-16 ");
@@ -518,6 +768,8 @@ public class CreateBinderPage extends TestBase {
 		TestUtil.takeScreenshotAtEndOfTest();
 	}
 	
+	
+
 	public void createFourthBinder() throws InterruptedException, IOException {
 		TestUtil.click(chooseBinder, "Choose binder");
 		TestUtil.click(binderType, "Binder type");
@@ -596,6 +848,86 @@ public class CreateBinderPage extends TestBase {
 		Thread.sleep(5000);
 	}
 	
+	public void createFourthBinderAndCancel() throws InterruptedException, IOException {
+		TestUtil.click(chooseBinder, "Choose binder");
+		TestUtil.click(binderType, "Binder type");
+		TestUtil.click(typeActiveIngredient, "Active ingredient");
+		TestUtil.click(binderSubtype, "Binder subtype");
+		TestUtil.click(subtypeActiveIngredient, "Active ingredient");
+		TestUtil.click(binderClassification, "Binder classification");
+		wait.until(ExpectedConditions.visibilityOf((classificationFungicide)));
+		TestUtil.click(classificationFungicide, "MAPA");
+
+		TestUtil.click(okButton, "OK button");
+		TestUtil.click(chooseBinderTemplate, "Binder template");
+		TestUtil.click(kcaTemplate, "KCA");
+		TestUtil.click(nextButton, "Next button");
+		TestUtil.type(name, "Name", "BAS 595 Replacement R3V4");
+		TestUtil.type(title, "Title", "Dossier for the evaluation of BAS 595 F");
+		TestUtil.type(subtitle, "Subtitle", "containing Triticonazole");
+
+		TestUtil.click(author, "Author binoculars");
+		TestUtil.type(searchBar, "Search bar", "Cordula Nieslony" + Keys.ENTER);
+		TestUtil.click(addValue, "Cordula Nieslony");
+		TestUtil.click(closeButton, "Close button");
+		
+		
+		TestUtil.click(product, "Product binoculars");
+		TestUtil.type(searchBar, "Search bar", "BAS 595 05 F" + Keys.ENTER);
+		TestUtil.click(addValue, "BAS 595 05 F");
+		TestUtil.click(closeButton, "Close button"); 
+		
+		
+		//value does not exist so it just closes the window
+		TestUtil.click(ingredient, "Ingredient binoculars");
+		TestUtil.type(searchBar, "Search bar", "BAS 595 F" + Keys.ENTER);
+//		TestUtil.click(addValue, "BAS 595 F");
+		TestUtil.click(closeButton, "Close button");
+		
+		TestUtil.click(workPackage, "Work pacage binoculars");
+		TestUtil.type(searchBar, "Search bar", "942" + Keys.ENTER);
+		TestUtil.click(addValue, "942");
+		TestUtil.click(closeButton, "Close button");
+
+		TestUtil.click(binderTemplateType, "Template type binoculars");
+		TestUtil.type(searchBar, "Search bar", "EU" + Keys.ENTER);
+		TestUtil.click(addValue, "EU");
+
+		//the value does not exist but we chose the first value otherwise we can't continue with the test
+		TestUtil.click(application, "Application binoculars");
+		TestUtil.type(searchBar, "Search bar", "BAS 595 F (Triticonazole) AIR 3" + Keys.ENTER);
+		TestUtil.click(addValue, "BAS 595 F (Triticonazole) AIR 3");
+
+		TestUtil.click(submission, "Submission binoculars");
+		TestUtil.click(addValue, "Add value");
+		TestUtil.click(closeButton, "Close button");
+		
+		TestUtil.click(countryOfOrigin, "Coutrny of origin binocular");
+		TestUtil.type(searchBar, "Search Bar", "France" + Keys.ENTER);
+		TestUtil.click(addValue, "France");
+		TestUtil.click(closeButton, "Close button");
+
+		TestUtil.click(performingOrganization, "Performing organization");
+		TestUtil.click(testFacilityFourthCase, "Test fascility binoculars");
+		TestUtil.type(searchBar, "Search bar", "BASF SE" + Keys.ENTER);
+		TestUtil.click(addThirdValue, "BASF SE");
+		
+		TestUtil.click(sponsorOwnerFourthCase, "Sponsor owner binoculars");
+		TestUtil.type(searchBar, "Search bar", "BASF SE" + Keys.ENTER);
+		TestUtil.click(addThirdValue, "BASF SE");
+		
+		TestUtil.click(commentsRemarks, "Comments remarks");
+		wait.until(ExpectedConditions.visibilityOf((remarks)));
+		TestUtil.type(remarks, "Remarks", "BASDE538");
+		
+		jse.executeScript("window.scrollBy(0,-500)", "");
+		TestUtil.click(cancel_button, "Cancel Button");
+		TestUtil.click(continue_button, "Continue Button");
+		
+
+		Thread.sleep(5000);
+	}
+	
 	public void verifyFourthBinder() throws IOException, InterruptedException {
 		TestUtil.verifyEquals(verifyName, "BAS 595 Replacement R3V4");
 		TestUtil.verifyEquals(verifyTitle, "Dossier for the evaluation of BAS 595 F");
@@ -616,6 +948,8 @@ public class CreateBinderPage extends TestBase {
 		TestUtil.verifyEquals(verifyRemarks, "nothing");
 		TestUtil.takeScreenshotAtEndOfTest();
 	}
+
+	
 
 	public void createFifthBinder() throws InterruptedException, IOException {
 		TestUtil.click(chooseBinder, "Choose binder");
@@ -694,6 +1028,90 @@ public class CreateBinderPage extends TestBase {
 		TestUtil.type(remarks, "Remarks", "nothing");
 		
 		TestUtil.click(saveButton, "Save button");
+		
+
+		Thread.sleep(5000);
+	}
+	
+	public void createFifthBinderAndCancel() throws InterruptedException, IOException {
+		TestUtil.click(chooseBinder, "Choose binder");
+		TestUtil.click(binderType, "Binder type");
+		TestUtil.click(typeActiveIngredient, "Active ingredient");
+		TestUtil.click(binderSubtype, "Binder subtype");
+		TestUtil.click(subtypeUS, "US");
+		TestUtil.click(binderClassification, "Binder classification");
+		wait.until(ExpectedConditions.visibilityOf((classificationEPA)));
+		TestUtil.click(classificationEPA, "MAPA");
+
+		TestUtil.click(okButton, "OK button");
+		TestUtil.click(chooseBinderTemplate, "Binder template");
+		TestUtil.click(fdaTemplate, "FDA");
+		TestUtil.click(nextButton, "Next button");
+		TestUtil.type(name, "Name", "BAS 450 04 I Multilateral Submission - Nov 2017");
+		TestUtil.type(title, "Title", "BAS 450 04 I Multilateral Submission");
+		TestUtil.type(subtitle, "Subtitle", "BAS 450 04 I");
+
+		TestUtil.click(author, "Author binoculars");
+		TestUtil.type(searchBar, "Search bar", "Thomas Maurer" + Keys.ENTER);
+		TestUtil.click(addValue, "Thomas Maurer");
+		TestUtil.click(closeButton, "Close button");
+		
+		
+		TestUtil.click(product, "Product binoculars");
+		TestUtil.type(searchBar, "Search bar", "BAS 450 04 I" + Keys.ENTER);
+		TestUtil.click(addValue, "BAS 450 04 I");
+		TestUtil.click(closeButton, "Close button"); 
+		
+		
+		//value does not exist so it just closes the window
+		TestUtil.click(ingredient, "Ingredient binoculars");
+		TestUtil.type(searchBar, "Search bar", "BAS 595 F" + Keys.ENTER);
+		TestUtil.click(closeButton, "Close button");
+		
+		TestUtil.click(workPackage, "Work pacage binoculars");
+		TestUtil.type(searchBar, "Search bar", "941" + Keys.ENTER);
+		TestUtil.click(addValue, "941");
+		TestUtil.click(closeButton, "Close button");
+
+		TestUtil.click(binderTemplateType, "Template type binoculars");
+		TestUtil.type(searchBar, "Search bar", "IBAMA Equivalent Active Ingredient dossier" + Keys.ENTER);
+		TestUtil.click(addValue, "IBAMA Equivalent Active Ingredient dossier");
+
+
+		TestUtil.click(application, "Application binoculars");
+		TestUtil.type(searchBar, "Search bar", "BAS 450 I - Broflanilide (MCI-8007)" + Keys.ENTER);
+		TestUtil.click(addValue, "BAS 450 I - Broflanilide (MCI-8007)");
+
+		//the value does not exist but we chose the first value otherwise we can't continue with the test
+		TestUtil.click(submission, "Submission binoculars");
+		TestUtil.click(addValue, "Add value");
+		TestUtil.click(closeButton, "Close button");
+		
+		TestUtil.click(countryOfOrigin, "Coutrny of origin binocular");
+		TestUtil.type(searchBar, "Search Bar", "France" + Keys.ENTER);
+		TestUtil.click(addValue, "France");
+		TestUtil.click(closeButton, "Close button");
+
+		TestUtil.click(usRegulatoryInfo, "US regulatory info");
+		TestUtil.type(rootMRID, "Root MRID", "no data submitted");
+		
+		
+		TestUtil.click(performingOrganization, "Performing organization");
+		TestUtil.click(testFacility, "Test fascility binoculars");
+		TestUtil.type(searchBar, "Search bar", "BASF SE" + Keys.ENTER);
+		TestUtil.click(addThirdValue, "BASF SE");
+		
+		TestUtil.click(sponsorOwnerFourthCase, "Sponsor owner binoculars");
+		TestUtil.type(searchBar, "Search bar", "BASF SE" + Keys.ENTER);
+		TestUtil.click(addThirdValue, "BASF SE");
+		
+		TestUtil.click(commentsRemarks, "Comments remarks");
+		wait.until(ExpectedConditions.visibilityOf((remarks)));
+		TestUtil.type(remarks, "Remarks", "nothing");
+		
+		jse.executeScript("window.scrollBy(0,-700)", "");
+		TestUtil.click(cancel_button, "Cancel Button");
+		TestUtil.click(continue_button, "Continue Button");
 		
 
 		Thread.sleep(5000);
