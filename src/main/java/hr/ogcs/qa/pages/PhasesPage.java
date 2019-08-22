@@ -5,6 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import hr.ogcs.qa.base.TestBase;
+import hr.ogcs.qa.util.TestUtil;
 
 public class PhasesPage extends TestBase{
 
@@ -38,37 +39,38 @@ public class PhasesPage extends TestBase{
 	
 	
 	public void createInlifePhases() {
-		create_button.click();
-		choose_phase_type.click();
-		inlife.click();
-		continueButton.click();
+		TestUtil.click(create_button, "Create Button");
+		TestUtil.click(choose_phase_type, "Choose Phase Type");
+		TestUtil.click(inlife, "InLife");
+		TestUtil.click(continueButton, "Continue Button");
 	}
 	
 	public void createAnalyticalPhases() {
-		create_button.click();
-		choose_phase_type.click();
-		analytical.click();
-		continueButton.click();
+		TestUtil.click(create_button, "Create Button");
+		TestUtil.click(choose_phase_type, "Choose Phase Type");
+		TestUtil.click(analytical, "Analytical");
+		TestUtil.click(continueButton, "Continue Button");
 	}
 	
 	public void createBiologicalPhases() {
-		create_button.click();
-		choose_phase_type.click();
-		biological.click();
-		continueButton.click();
+		TestUtil.click(create_button, "Create Button");
+		TestUtil.click(choose_phase_type, "Choose Phase Type");
+		TestUtil.click(biological, "Biological");
+		TestUtil.click(continueButton, "Continue Button");
 	}
 	
 	public void createFieldPhases() {
-		create_button.click();
-		choose_phase_type.click();
-		field.click();
-		continueButton.click();
+		TestUtil.click(create_button, "Create Button");
+		TestUtil.click(choose_phase_type, "Choose Phase Type");
+		TestUtil.click(field, "Field");
+		TestUtil.click(continueButton, "Continue Button");
 	}
 	
 	public void createSpecimentManagementPhases() {
-		create_button.click();
-		choose_phase_type.click();
-		speciment_management.click();
-		continueButton.click();
+		TestUtil.click(create_button, "Create Button");
+		TestUtil.click(choose_phase_type, "Choose Phase Type");
+		TestUtil.click(speciment_management, "Speciment Management");
+		TestUtil.click(continueButton, "Continue Button");
+
 	}
 }

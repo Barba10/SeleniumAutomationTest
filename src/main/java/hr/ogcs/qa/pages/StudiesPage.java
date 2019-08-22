@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import hr.ogcs.qa.base.TestBase;
+import hr.ogcs.qa.util.TestUtil;
 
 public class StudiesPage extends TestBase {
 
@@ -38,26 +39,30 @@ public class StudiesPage extends TestBase {
 		WebElement externalGlpStudy;
 	
 	public void createStudies() {
-		createButton.click();
+		TestUtil.click(createButton, "Create button");
+//		createButton.click();
 	}
 	
 	public void createExternalGLPStudy() {
-		createButton.click();
-		selectStudyType.click();
-		externalGlpStudy.click();
-		continueButton.click();
+		TestUtil.click(createButton, "Create Button");
+		TestUtil.click(selectStudyType, "Select Study Type");
+		TestUtil.click(externalGlpStudy, "External Study Type");
+		TestUtil.click(continueButton, "Continue Button");
 	}
 	
 	public void createNonGLPStudyStudiy() {
-		createButton.click();
-		selectStudyType.click();
-		nonGLPStudy.click();
-		continueButton.click();
+		TestUtil.click(createButton, "Create Button");
+		TestUtil.click(selectStudyType, "Select Study Type");
+		TestUtil.click(nonGLPStudy, "Non GLP Study");
+		TestUtil.click(continueButton, "Continue Button");
 	}
 	
 	
 	public void logout() {
-		accountMenu.click();
-		logOut.click();
+		TestUtil.click(accountMenu, "Account menu");
+		TestUtil.click(logOut, "Log Out Button");
+		
+//		accountMenu.click();
+//		logOut.click();
 	}
 }

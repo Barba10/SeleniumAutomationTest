@@ -124,8 +124,11 @@ public class HomePage extends TestBase {
 
 	
 	public void GoToStudyQUA() {
-		studyQAU.click();
-		studiesButton.click();
+		TestUtil.click(studyQAU, "Study QUA");
+		TestUtil.click(studiesButton, "Studies");
+		
+//		studyQAU.click();
+//		studiesButton.click();
 		
 	}
 	
@@ -135,13 +138,13 @@ public class HomePage extends TestBase {
     }
 	
 	public void goToPhases() {
-		studyQAU.click();
-		phases.click();
+		TestUtil.click(studyQAU, "Study QAU");
+		TestUtil.click(phases, "Phases");
 	}
 	
 	public void goToTrials() {
-		study_qau.click();
-		trials.click();
+		TestUtil.click(study_qau, "Study QAU");
+		TestUtil.click(trials, "Trials Button");
 	}
 	
 }

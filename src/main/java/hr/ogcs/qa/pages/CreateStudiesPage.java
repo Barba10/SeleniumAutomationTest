@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.internal.thread.ThreadUtil;
 
 import hr.ogcs.qa.base.TestBase;
 import hr.ogcs.qa.util.TestUtil;
@@ -150,165 +151,160 @@ public class CreateStudiesPage extends TestBase {
 
 	public void fillOuInternaltForm() throws InterruptedException {
 		String suffix_add = TestUtil.RandomName(5);
-		basfStudyId.sendKeys("TestJRZ_01" + suffix_add);
-		studyDirector.sendKeys("Frank Sattler");
+		TestUtil.type(basfStudyId, "BASF Study ID", "TestJRZ_01" + suffix_add);
+		TestUtil.type(studyDirector, "Study Director", "Frank Sattler");
 		Thread.sleep(500);
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
-		title.sendKeys("Test Study Title JRZ 01");
-		studyType.sendKeys("Ecotox_Terrestric");
+		TestUtil.type(title, "Title", "Test Study Title JRZ 01");
+		TestUtil.type(studyType, "Study Type", "Ecotox_Terrestric");
 		Thread.sleep(500);
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
-		glpYes.click();
-		searchSponsor.sendKeys("BASF Crop Protection");
+		TestUtil.click(glpYes, "GLP Yes");
+		TestUtil.type(searchSponsor, "Search Sponsor", "BASF Crop Protection");
 		Thread.sleep(500);
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
-		testFascility.sendKeys("BASF SE");
+		TestUtil.type(testFascility, "Test Fascility", "BASF SE");
 		testFascility.clear();
-		externalStudyId.sendKeys("01JRZTest");
-		performingUnit.sendKeys("RIFcon GmbH");
+		TestUtil.type(externalStudyId, "External Study ID", "01JRZTest");
+		TestUtil.type(performingUnit, "Perofrmin Unit", "RIFcon GmbH");
 		Thread.sleep(500);
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
-		studyStatus.sendKeys("6: Study Completed");
+		TestUtil.type(studyStatus, "Study Status", "6: Study Completed");
 		Thread.sleep(500);
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
-		workPacage.sendKeys("1");
+		TestUtil.type(workPacage, "Work Package", "1");
 		Thread.sleep(500);
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
-		basCore.sendKeys("BAS 004H");
+		TestUtil.type(basCore, "BAS Core", "BAS 004H");
 		Thread.sleep(500);
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
-		locationOfAdditionalData.sendKeys("PISAR");
+		TestUtil.type(locationOfAdditionalData, "Location Of Additional Data", "PISAR");
 		Thread.sleep(500);
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
-		limsStudyType.sendKeys("Test LIMS Study Type");
-		limsStatus.sendKeys("Test LIMS Status");
-		plannedStudyInitiationDate.sendKeys("1/1/2019");
-		plannedStudyCompletionDate.sendKeys("1/31/2019");
-		plannedReportToQa.sendKeys("1/28/2019");
-		plannedExperimentalStartDate.sendKeys("1/2/2019");
-		plannedExperimentalEndDate.sendKeys("1/25/2019");
-		actualStudyInitiationDate.sendKeys("1/1/2019");
-		actualStudyCompletionDate.sendKeys("1/31/2019");
-		actualReportToQa.sendKeys("1/29/2019");
-		actualExperimentalStartDate.sendKeys("1/2/2019");
-		actualExperimentalEndDate.sendKeys("1/25/2019");
-
-		qauRemarks.sendKeys("Test QAU Remarks");
-
-		source.sendKeys("Test Source");
-		buid.sendKeys("Test BUID"+suffix_add);
+		TestUtil.type(limsStudyType, "LIMS Study Type", "Test LIMS Study Type");
+		TestUtil.type(limsStatus, "LIMS Status", "Test LIMS Status");
 		
-		saveButton.click();
-
+		TestUtil.type(plannedStudyInitiationDate, "Planned Study Initiation Date", "1/1/2019");
+		TestUtil.type(plannedStudyCompletionDate, "Planned Study Completion Date", "1/31/2019");
+		TestUtil.type(plannedReportToQa, "Planned Report To QAU", "1/28/2019");
+		TestUtil.type(plannedExperimentalStartDate, "Planned Experimental Start Date", "1/2/2019");
+		TestUtil.type(plannedExperimentalEndDate, "Planned Experimental End Date", "1/25/2019");
+		TestUtil.type(actualStudyInitiationDate, "Actual Study Initiation Date", "1/1/2019");
+		TestUtil.type(actualStudyCompletionDate, "Actual Study Completion Date", "1/31/2019");
+		TestUtil.type(actualReportToQa, "Actual Report To QAU", "1/29/2019");
+		TestUtil.type(actualExperimentalStartDate, "Actual Experimental Start Date", "1/2/2019");
+		TestUtil.type(actualExperimentalEndDate, "Actual Experimental End Date", "1/25/2019");
+		
+		TestUtil.type(qauRemarks, "QAU Remarks", "Test QAU Remarks");
+		TestUtil.type(source, "Source", "Test Source");
+		TestUtil.type(buid, "BUID", "Test BUID"+suffix_add);
+		
+		TestUtil.click(saveButton, "Save button");
+		
+		
 	}
 	
 	public void fillOuInternaltFormAndCancel() throws InterruptedException {
 		String suffix_add = TestUtil.RandomName(5);
-		basfStudyId.sendKeys("TestJRZ_01" + suffix_add);
-		studyDirector.sendKeys("Frank Sattler");
+		TestUtil.type(basfStudyId, "BASF Study ID", "TestJRZ_01" + suffix_add);
+		TestUtil.type(studyDirector, "Study Director", "Frank Sattler");
 		Thread.sleep(500);
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
-		title.sendKeys("Test Study Title JRZ 01");
-		studyType.sendKeys("Ecotox_Terrestric");
+		TestUtil.type(title, "Title", "Test Study Title JRZ 01");
+		TestUtil.type(studyType, "Study Type", "Ecotox_Terrestric");
 		Thread.sleep(500);
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
-		glpYes.click();
-		searchSponsor.sendKeys("BASF Crop Protection");
+		TestUtil.click(glpYes, "GLP Yes");
+		TestUtil.type(searchSponsor, "Search Sponsor", "BASF Crop Protection");
 		Thread.sleep(500);
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
-		testFascility.sendKeys("BASF SE");
+		TestUtil.type(testFascility, "Test Fascility", "BASF SE");
 		testFascility.clear();
-		externalStudyId.sendKeys("01JRZTest");
-		performingUnit.sendKeys("RIFcon GmbH");
+		TestUtil.type(externalStudyId, "External Study ID", "01JRZTest");
+		TestUtil.type(performingUnit, "Perofrmin Unit", "RIFcon GmbH");
 		Thread.sleep(500);
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
-		studyStatus.sendKeys("6: Study Completed");
+		TestUtil.type(studyStatus, "Study Status", "6: Study Completed");
 		Thread.sleep(500);
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
-		workPacage.sendKeys("1");
+		TestUtil.type(workPacage, "Work Package", "1");
 		Thread.sleep(500);
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
-		basCore.sendKeys("BAS 004H");
+		TestUtil.type(basCore, "BAS Core", "BAS 004H");
 		Thread.sleep(500);
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
-		locationOfAdditionalData.sendKeys("PISAR");
+		TestUtil.type(locationOfAdditionalData, "Location Of Additional Data", "PISAR");
 		Thread.sleep(500);
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
-		limsStudyType.sendKeys("Test LIMS Study Type");
-		limsStatus.sendKeys("Test LIMS Status");
-		plannedStudyInitiationDate.sendKeys("1/1/2019");
-		plannedStudyCompletionDate.sendKeys("1/31/2019");
-		plannedReportToQa.sendKeys("1/28/2019");
-		plannedExperimentalStartDate.sendKeys("1/2/2019");
-		plannedExperimentalEndDate.sendKeys("1/25/2019");
-		actualStudyInitiationDate.sendKeys("1/1/2019");
-		actualStudyCompletionDate.sendKeys("1/31/2019");
-		actualReportToQa.sendKeys("1/29/2019");
-		actualExperimentalStartDate.sendKeys("1/2/2019");
-		actualExperimentalEndDate.sendKeys("1/25/2019");
-
-		qauRemarks.sendKeys("Test QAU Remarks");
-
-		source.sendKeys("Test Source");
-		buid.sendKeys("Test BUID"+suffix_add);
+		TestUtil.type(limsStudyType, "LIMS Study Type", "Test LIMS Study Type");
+		TestUtil.type(limsStatus, "LIMS Status", "Test LIMS Status");
 		
-		cancelButton.click();
-		continueButton.click();
+		TestUtil.type(plannedStudyInitiationDate, "Planned Study Initiation Date", "1/1/2019");
+		TestUtil.type(plannedStudyCompletionDate, "Planned Study Completion Date", "1/31/2019");
+		TestUtil.type(plannedReportToQa, "Planned Report To QAU", "1/28/2019");
+		TestUtil.type(plannedExperimentalStartDate, "Planned Experimental Start Date", "1/2/2019");
+		TestUtil.type(plannedExperimentalEndDate, "Planned Experimental End Date", "1/25/2019");
+		TestUtil.type(actualStudyInitiationDate, "Actual Study Initiation Date", "1/1/2019");
+		TestUtil.type(actualStudyCompletionDate, "Actual Study Completion Date", "1/31/2019");
+		TestUtil.type(actualReportToQa, "Actual Report To QAU", "1/29/2019");
+		TestUtil.type(actualExperimentalStartDate, "Actual Experimental Start Date", "1/2/2019");
+		TestUtil.type(actualExperimentalEndDate, "Actual Experimental End Date", "1/25/2019");
+		
+		TestUtil.type(qauRemarks, "QAU Remarks", "Test QAU Remarks");
+		TestUtil.type(source, "Source", "Test Source");
+		TestUtil.type(buid, "BUID", "Test BUID"+suffix_add);
+		
+		TestUtil.click(cancelButton, "Cancel Button");
+		TestUtil.click(continueButton, "Continue Button");
 
 	}
 	
 	public void fillOutExternalGlpStudy() {
 		String suffix_add = TestUtil.RandomName(5);
-		basfStudyId.sendKeys("TestJRZ_01ex" + suffix_add);
-		externalStudyId.sendKeys("01exJRZTest");
-		title.sendKeys("Test Study Title JRZ 01ex");
-		searchSponsor.sendKeys("BASF Crop Protection");
+		TestUtil.type(basfStudyId, "BASD Study ID", "TestJRZ_01ex" + suffix_add);
+		TestUtil.type(externalStudyId, "External Study ID", "01exJRZTest");
+		TestUtil.type(title, "Title", "Test Study Title JRZ 01ex");
+		TestUtil.type(searchSponsor, "Search Sponsor", "BASF Crop Protection");
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
-		glpYes.click();
-		testFascility.sendKeys("Rifcon");
+		TestUtil.click(glpYes, "GLP Yes");
+		TestUtil.type(testFascility, "Test Fascility", "Rifcon");
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
-		actualStudyCompletionDateExternalStudy.sendKeys("01/02/2019");
-		studyDirector.sendKeys("Tina Staedtler");
+		TestUtil.type(actualStudyCompletionDateExternalStudy, "Actual Study Completion Data Study", "01/02/2019");
+		TestUtil.type(studyDirector, "Study Director", "Tina Staedtler");
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
-		rawDataYes.click();
-		otherLocations.sendKeys("Test other location");
-		limsStudyType.sendKeys("Test LIMS Study Type");
-		source.sendKeys("Test Source");
-		buid.sendKeys("BUID" + suffix_add);
-		documentLegacyId.sendKeys("Test Document Legacy ID");
-		limsStatus.sendKeys("Test LIMS Status");
-		saveButton.click();
-		
-		
-		
+		TestUtil.click(rawDataYes, "Raw Data Yes");
+		TestUtil.type(otherLocations, "Other Locations", "Test other location");
+		TestUtil.type(limsStudyType, "LIMS Study Type", "Test LIMS Study Type");
+		TestUtil.type(source, "Source", "Test Source");
+		TestUtil.type(buid, "BUID", "BUID" + suffix_add);
+		TestUtil.type(documentLegacyId, "Document Legacy ID", "Test Document Legacy ID");
+		TestUtil.type(limsStatus, "LIMS Status", "Test LIMS Status");
+		TestUtil.click(saveButton, "Save Button");
 		
 		}
 	
 	public void fillOutExternalGlpStudyAndCancel() {
 		String suffix_add = TestUtil.RandomName(5);
-		basfStudyId.sendKeys("TestJRZ_01ex" + suffix_add);
-		externalStudyId.sendKeys("01exJRZTest");
-		title.sendKeys("Test Study Title JRZ 01ex");
-		searchSponsor.sendKeys("BASF Crop Protection");
+		TestUtil.type(basfStudyId, "BASD Study ID", "TestJRZ_01ex" + suffix_add);
+		TestUtil.type(externalStudyId, "External Study ID", "01exJRZTest");
+		TestUtil.type(title, "Title", "Test Study Title JRZ 01ex");
+		TestUtil.type(searchSponsor, "Search Sponsor", "BASF Crop Protection");
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
-		glpYes.click();
-		testFascility.sendKeys("Rifcon");
+		TestUtil.click(glpYes, "GLP Yes");
+		TestUtil.type(testFascility, "Test Fascility", "Rifcon");
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
-		actualStudyCompletionDateExternalStudy.sendKeys("01/02/2019");
-		studyDirector.sendKeys("Tina Staedtler");
+		TestUtil.type(actualStudyCompletionDateExternalStudy, "Actual Study Completion Data Study", "01/02/2019");
+		TestUtil.type(studyDirector, "Study Director", "Tina Staedtler");
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
-		rawDataYes.click();
-		otherLocations.sendKeys("Test other location");
-		limsStudyType.sendKeys("Test LIMS Study Type");
-		source.sendKeys("Test Source");
-		buid.sendKeys("BUID" + suffix_add);
-		documentLegacyId.sendKeys("Test Document Legacy ID");
-		limsStatus.sendKeys("Test LIMS Status");
-		cancelButton.click();
-		continueButton.click();
-		
-		
-		
+		TestUtil.click(rawDataYes, "Raw Data Yes");
+		TestUtil.type(otherLocations, "Other Locations", "Test other location");
+		TestUtil.type(limsStudyType, "LIMS Study Type", "Test LIMS Study Type");
+		TestUtil.type(source, "Source", "Test Source");
+		TestUtil.type(buid, "BUID", "BUID" + suffix_add);
+		TestUtil.type(documentLegacyId, "Document Legacy ID", "Test Document Legacy ID");
+		TestUtil.type(limsStatus, "LIMS Status", "Test LIMS Status");
+		TestUtil.click(cancelButton, "Cancel Button");
+		TestUtil.click(continueButton, "Continue Button");
 		
 		}
 	
@@ -318,62 +314,57 @@ public class CreateStudiesPage extends TestBase {
 	
 	public void fillOutNonGlpStudy() {
 		String suffix_add = TestUtil.RandomName(5);
-		basfStudyId.sendKeys("TestJRZ_01nonGLP" + suffix_add);
-		externalStudyId.sendKeys("01nonGLPJRZTest");
-		title.sendKeys("Test Study Title JRZ 01nonGLP");
-		searchSponsor.sendKeys("BASF Crop Protection");
+		TestUtil.type(basfStudyId, "BASF Study ID", "TestJRZ_01nonGLP" + suffix_add);
+		TestUtil.type(externalStudyId, "External Study ID", "01nonGLPJRZTest");
+		TestUtil.type(title, "Title", "Test Study Title JRZ 01nonGLP");
+		TestUtil.type(searchSponsor, "Search Sponsor", "BASF Crop Protection");
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
-		glpNo.click();
-		
-		binocularsFascility.click();
+		TestUtil.click(glpNo, "GLP No");
+		TestUtil.click(binocularsFascility, "Fascility Binoculars");
 		wait.until(ExpectedConditions.visibilityOf(searchBar));
-		searchBar.sendKeys("BASF SE"+ Keys.ENTER);
-		addFirstValue.click();
-//		testFascility.sendKeys("BASF");
-//		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
-		actualStudyCompletionDateExternalStudy.sendKeys("01/02/2019");
-		studyDirector.sendKeys("Frank Sattler");
+		TestUtil.type(searchBar, "Search Bar", "BASF SE"+ Keys.ENTER);
+		TestUtil.click(addFirstValue, "BASF SE");
+		TestUtil.type(actualStudyCompletionDateExternalStudy, "Actual Study Completion Date Study", "01/02/2019");
+		TestUtil.type(studyDirector, "Study Director", "Frank Sattler");
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
-		rawDataYes.click();
-		otherLocations.sendKeys("Test other location");
-		limsStudyType.sendKeys("Test LIMS Study Type");
-		source.sendKeys("Test Source");
-		buid.sendKeys("Test BUID 1" + suffix_add);
-		documentLegacyId.sendKeys("Test Document Legacy ID");
-		limsStatus.sendKeys("Test LIMS Status");
-		saveButton.click();
-		
-		
-		
+		TestUtil.click(rawDataYes, "Raw Data Yes");
+		TestUtil.type(otherLocations, "Other Locations", "Test other location");
+		TestUtil.type(limsStudyType, "LIMS Study Type", "Test LIMS Study Type");
+		TestUtil.type(source, "Source", "Test Source");
+		TestUtil.type(buid, "BUID", "Test BUID 1" + suffix_add);
+		TestUtil.type(documentLegacyId, "Document Legacy ID", "Test Document Legacy ID");
+		TestUtil.type(limsStatus, "LIMS Status", "Test LIMS Status");
+		TestUtil.click(saveButton, "Save Button");
 		
 		}
 	
 	public void fillOutNonGlpStudyAndCancle() {
 		String suffix_add = TestUtil.RandomName(5);
-		basfStudyId.sendKeys("TestJRZ_01nonGLP" + suffix_add);
-		externalStudyId.sendKeys("01nonGLPJRZTest");
-		title.sendKeys("Test Study Title JRZ 01nonGLP");
-		searchSponsor.sendKeys("BASF Crop Protection");
+		TestUtil.type(basfStudyId, "BASF Study ID", "TestJRZ_01nonGLP" + suffix_add);
+		TestUtil.type(externalStudyId, "External Study ID", "01nonGLPJRZTest");
+		TestUtil.type(title, "Title", "Test Study Title JRZ 01nonGLP");
+		TestUtil.type(searchSponsor, "Search Sponsor", "BASF Crop Protection");
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
-		glpNo.click();
-		testFascility.sendKeys("BASF");
+		TestUtil.click(glpNo, "GLP No");
+		TestUtil.click(binocularsFascility, "Fascility Binoculars");
+		wait.until(ExpectedConditions.visibilityOf(searchBar));
+		TestUtil.type(searchBar, "Search Bar", "BASF SE"+ Keys.ENTER);
+		TestUtil.click(addFirstValue, "BASF SE");
+		TestUtil.type(actualStudyCompletionDateExternalStudy, "Actual Study Completion Date Study", "01/02/2019");
+		TestUtil.type(studyDirector, "Study Director", "Frank Sattler");
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
-		actualStudyCompletionDateExternalStudy.sendKeys("01/02/2019");
-		studyDirector.sendKeys("Frank Sattler");
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
-		rawDataYes.click();
-		otherLocations.sendKeys("Test other location");
-		limsStudyType.sendKeys("Test LIMS Study Type");
-		source.sendKeys("Test Source");
-		buid.sendKeys("Test BUID 1" + suffix_add);
-		documentLegacyId.sendKeys("Test Document Legacy ID");
-		limsStatus.sendKeys("Test LIMS Status");
-		cancelButton.click();
-		continueButton.click();
+		TestUtil.click(rawDataYes, "Raw Data Yes");
+		TestUtil.type(otherLocations, "Other Locations", "Test other location");
+		TestUtil.type(limsStudyType, "LIMS Study Type", "Test LIMS Study Type");
+		TestUtil.type(source, "Source", "Test Source");
+		TestUtil.type(buid, "BUID", "Test BUID 1" + suffix_add);
+		TestUtil.type(documentLegacyId, "Document Legacy ID", "Test Document Legacy ID");
+		TestUtil.type(limsStatus, "LIMS Status", "Test LIMS Status");
+		TestUtil.click(cancelButton, "Cancel Button");
+		TestUtil.click(continueButton, "Continue Button");
 		
 		
-		
-		
+	
 		}
 
 }

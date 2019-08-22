@@ -283,8 +283,11 @@ public class SavedStudiesPage extends TestBase {
 	
 	
 	public void goToStudiesPage() {
-		studyQAU.click();
-		studiesButton.click();
+		TestUtil.click(studyQAU, "Study QAU");
+		TestUtil.click(studiesButton, "Studies Button");
+		
+//		studyQAU.click();
+//		studiesButton.click();
 	}
 	
 }

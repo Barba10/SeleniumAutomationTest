@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import hr.ogcs.qa.base.TestBase;
+import hr.ogcs.qa.util.TestUtil;
 
 public class LoginPage extends TestBase{
 	
@@ -46,7 +47,8 @@ public class LoginPage extends TestBase{
 	}
 	
 	public void switchUser() {
-		switchUser.click();
+		TestUtil.click(switchUser, "Switch User");
+//		switchUser.click();
 	}
 	
 	

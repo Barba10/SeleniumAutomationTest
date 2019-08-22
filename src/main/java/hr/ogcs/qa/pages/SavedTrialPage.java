@@ -114,8 +114,9 @@ public class SavedTrialPage extends TestBase{
 	}
 	
 	public void goToTrials() {
-		study_qau.click();
-		trials.click();
+		TestUtil.click(study_qau, "Study QAU");
+		TestUtil.click(trials, "Trials");
+		
 	}
 	
 	
