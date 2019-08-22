@@ -1,5 +1,7 @@
 package hr.ogcs.qa.util;
 
+import java.io.IOException;
+
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -33,6 +35,12 @@ public class TestListener extends TestBase implements ITestListener {
     public void onTestFailure(ITestResult arg0) {					
         // TODO Auto-generated method stub				
     	childTest.fail(arg0.getThrowable());
+    	try {
+			TestUtil.takeScreenshotAtEndOfTest();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }		
 
     @Override		

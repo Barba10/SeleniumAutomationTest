@@ -6,6 +6,7 @@ import static org.testng.Assert.assertEquals;
 import java.io.File;
 import java.io.IOException;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
@@ -45,6 +46,7 @@ public class TestUtil extends TestBase {
 		String fileLocation = currentDir + "/screenshots/" + System.currentTimeMillis() + ".png";
 		FileUtils.copyFile(scrFile, new File(fileLocation));
 		childTest.addScreenCaptureFromPath(fileLocation,"Screenshoot");
+		childTest.info("Taking Screenshoot");
 	}
 
 	public static void runTimeInfo(String messageType, String message) throws InterruptedException {
@@ -85,6 +87,7 @@ public class TestUtil extends TestBase {
 	
 	public static void verifyEquals(WebElement element, String text) throws IOException, InterruptedException {
 		Thread.sleep(1000);
+		
 		if(element.getText().isEmpty())
 		{
 		    System.out.println(text + " is blank");	
@@ -95,10 +98,8 @@ public class TestUtil extends TestBase {
 		{
 			try {
 			    assertEquals(element.getText().replaceAll("\n", " "), text);
-			    
 			    System.out.println(text + " is visible");
 		    	childTest.info(text + " is visible");
-
 				//logger.log(Status.PASS, text + " is visible");
 	
 			} catch (Throwable t) {
@@ -107,7 +108,6 @@ public class TestUtil extends TestBase {
 			    System.out.println("Error with verifying " + text);
 			    System.out.println(t.getMessage());
 		    	childTest.info("Error with verifying " + text + t.getMessage());
-
 			}
 		}
 	}
@@ -166,21 +166,32 @@ public class TestUtil extends TestBase {
 	public static void ClickOnFocusedItem(String elementName) throws InterruptedException{
 		Thread.sleep(500);
 		WebElement focusedItem = driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused"));
-		try
-	    {
-			wait.until(ExpectedConditions.visibilityOf(focusedItem));
+		
+		try {
+			wait.until(ExpectedConditions.elementToBeClickable(focusedItem));
 			focusedItem.click();
-	    	System.out.print(elementName + " is clicked");
+			System.out.print(elementName + " is clicked \n");	
 	    	childTest.info(elementName + " is clicked");
-	    }
-	    catch (StaleElementReferenceException e)
-	    {
-	    	System.out.print("CATCHING STALE ELEMENT REFERENCE EXEPTION \n");
-	    	focusedItem.click();
-	    	System.out.print(elementName + " is clicked");
-	    	childTest.info(elementName + " is clicked");
-
-	    }
+		} catch (StaleElementReferenceException e) {
+			for (int i = 0; i <= 30; i++) {
+				try {
+					boolean exists = false;
+					driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+					focusedItem.click();
+					exists = true;
+					if (exists) {
+						System.out.print(elementName + " is clicked \n");	
+				    	childTest.info(elementName + " is clicked");
+						break;
+					}
+					driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+				} catch (StaleElementReferenceException e1) {
+					if (i == 30) {
+						throw e1;
+					}
+				}
+			}
+		}
 	}
 	
 	public static Boolean hasElementAtributeRadio(WebElement element){	
@@ -197,23 +208,35 @@ public class TestUtil extends TestBase {
 	public static void click(WebElement element, String elementName)  {		
 		// wait doesn't work with radio button
 		
+		
+		
+		
 		if(!hasElementAtributeRadio(element)) {	
-			try
-		    {
+			try {
 				wait.until(ExpectedConditions.elementToBeClickable(element));
 				element.click();
 				System.out.print(elementName + " is clicked \n");	
 		    	childTest.info(elementName + " is clicked");
-
-		    }
-		    catch (StaleElementReferenceException e)
-		    {
-		    	System.out.print("CATCHING STALE ELEMENT REFERENCE EXEPTION \n");
-				element.click();
-				System.out.print(elementName + " is clicked \n");	
-				childTest.info(elementName + " is clicked");
-		    }
-		
+			} catch (StaleElementReferenceException e) {
+				for (int i = 0; i <= 30; i++) {
+					try {
+						boolean exists = false;
+						driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+						element.click();
+						exists = true;
+						if (exists) {
+							System.out.print(elementName + " is clicked \n");	
+					    	childTest.info(elementName + " is clicked");
+							break;
+						}
+						driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+					} catch (StaleElementReferenceException e1) {
+						if (i == 30) {
+							throw e1;
+						}
+					}
+				}
+			}
 		}else {
 			element.click();
 			System.out.print(elementName + " is clicked \n");	
