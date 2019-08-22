@@ -153,34 +153,26 @@ public class CreateStudiesPage extends TestBase {
 		String suffix_add = TestUtil.RandomName(5);
 		TestUtil.type(basfStudyId, "BASF Study ID", "TestJRZ_01" + suffix_add);
 		TestUtil.type(studyDirector, "Study Director", "Frank Sattler");
-		Thread.sleep(500);
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("Frank Sattler");
 		TestUtil.type(title, "Title", "Test Study Title JRZ 01");
 		TestUtil.type(studyType, "Study Type", "Ecotox_Terrestric");
-		Thread.sleep(500);
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("Ecotox_Terrestric");
 		TestUtil.click(glpYes, "GLP Yes");
 		TestUtil.type(searchSponsor, "Search Sponsor", "BASF Crop Protection");
-		Thread.sleep(500);
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("BASF Crop Protection");
 		TestUtil.type(testFascility, "Test Fascility", "BASF SE");
 		testFascility.clear();
 		TestUtil.type(externalStudyId, "External Study ID", "01JRZTest");
 		TestUtil.type(performingUnit, "Perofrmin Unit", "RIFcon GmbH");
-		Thread.sleep(500);
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("RIFcon GmbH");
 		TestUtil.type(studyStatus, "Study Status", "6: Study Completed");
-		Thread.sleep(500);
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("6: Study Completed");
 		TestUtil.type(workPacage, "Work Package", "1");
-		Thread.sleep(500);
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("1");
 		TestUtil.type(basCore, "BAS Core", "BAS 004H");
-		Thread.sleep(500);
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("BAS 004H");
 		TestUtil.type(locationOfAdditionalData, "Location Of Additional Data", "PISAR");
-		Thread.sleep(500);
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("PISAR");
 		TestUtil.type(limsStudyType, "LIMS Study Type", "Test LIMS Study Type");
 		TestUtil.type(limsStatus, "LIMS Status", "Test LIMS Status");
 		
@@ -208,34 +200,26 @@ public class CreateStudiesPage extends TestBase {
 		String suffix_add = TestUtil.RandomName(5);
 		TestUtil.type(basfStudyId, "BASF Study ID", "TestJRZ_01" + suffix_add);
 		TestUtil.type(studyDirector, "Study Director", "Frank Sattler");
-		Thread.sleep(500);
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("Frank Sattler");
 		TestUtil.type(title, "Title", "Test Study Title JRZ 01");
 		TestUtil.type(studyType, "Study Type", "Ecotox_Terrestric");
-		Thread.sleep(500);
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("Ecotox_Terrestric");
 		TestUtil.click(glpYes, "GLP Yes");
 		TestUtil.type(searchSponsor, "Search Sponsor", "BASF Crop Protection");
-		Thread.sleep(500);
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("BASF Crop Protection");
 		TestUtil.type(testFascility, "Test Fascility", "BASF SE");
 		testFascility.clear();
 		TestUtil.type(externalStudyId, "External Study ID", "01JRZTest");
 		TestUtil.type(performingUnit, "Perofrmin Unit", "RIFcon GmbH");
-		Thread.sleep(500);
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("RIFcon GmbH");
 		TestUtil.type(studyStatus, "Study Status", "6: Study Completed");
-		Thread.sleep(500);
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("6: Study Completed");
 		TestUtil.type(workPacage, "Work Package", "1");
-		Thread.sleep(500);
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("1");
 		TestUtil.type(basCore, "BAS Core", "BAS 004H");
-		Thread.sleep(500);
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("BAS 004H");
 		TestUtil.type(locationOfAdditionalData, "Location Of Additional Data", "PISAR");
-		Thread.sleep(500);
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("PISAR");
 		TestUtil.type(limsStudyType, "LIMS Study Type", "Test LIMS Study Type");
 		TestUtil.type(limsStatus, "LIMS Status", "Test LIMS Status");
 		
@@ -259,19 +243,19 @@ public class CreateStudiesPage extends TestBase {
 
 	}
 	
-	public void fillOutExternalGlpStudy() {
+	public void fillOutExternalGlpStudy() throws InterruptedException {
 		String suffix_add = TestUtil.RandomName(5);
 		TestUtil.type(basfStudyId, "BASD Study ID", "TestJRZ_01ex" + suffix_add);
 		TestUtil.type(externalStudyId, "External Study ID", "01exJRZTest");
 		TestUtil.type(title, "Title", "Test Study Title JRZ 01ex");
 		TestUtil.type(searchSponsor, "Search Sponsor", "BASF Crop Protection");
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("BASF Crop Protection");
 		TestUtil.click(glpYes, "GLP Yes");
 		TestUtil.type(testFascility, "Test Fascility", "Rifcon");
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("ERifcon");
 		TestUtil.type(actualStudyCompletionDateExternalStudy, "Actual Study Completion Data Study", "01/02/2019");
 		TestUtil.type(studyDirector, "Study Director", "Tina Staedtler");
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("Tina Staedtler");
 		TestUtil.click(rawDataYes, "Raw Data Yes");
 		TestUtil.type(otherLocations, "Other Locations", "Test other location");
 		TestUtil.type(limsStudyType, "LIMS Study Type", "Test LIMS Study Type");
@@ -283,19 +267,19 @@ public class CreateStudiesPage extends TestBase {
 		
 		}
 	
-	public void fillOutExternalGlpStudyAndCancel() {
+	public void fillOutExternalGlpStudyAndCancel() throws InterruptedException {
 		String suffix_add = TestUtil.RandomName(5);
 		TestUtil.type(basfStudyId, "BASD Study ID", "TestJRZ_01ex" + suffix_add);
 		TestUtil.type(externalStudyId, "External Study ID", "01exJRZTest");
 		TestUtil.type(title, "Title", "Test Study Title JRZ 01ex");
 		TestUtil.type(searchSponsor, "Search Sponsor", "BASF Crop Protection");
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("BASF Crop Protection");
 		TestUtil.click(glpYes, "GLP Yes");
 		TestUtil.type(testFascility, "Test Fascility", "Rifcon");
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("ERifcon");
 		TestUtil.type(actualStudyCompletionDateExternalStudy, "Actual Study Completion Data Study", "01/02/2019");
 		TestUtil.type(studyDirector, "Study Director", "Tina Staedtler");
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("Tina Staedtler");
 		TestUtil.click(rawDataYes, "Raw Data Yes");
 		TestUtil.type(otherLocations, "Other Locations", "Test other location");
 		TestUtil.type(limsStudyType, "LIMS Study Type", "Test LIMS Study Type");
@@ -312,13 +296,13 @@ public class CreateStudiesPage extends TestBase {
 	@FindBy(xpath = "//descendant::span[@title='More search options'][2]")
 	WebElement binocularsFascility;
 	
-	public void fillOutNonGlpStudy() {
+	public void fillOutNonGlpStudy() throws InterruptedException {
 		String suffix_add = TestUtil.RandomName(5);
 		TestUtil.type(basfStudyId, "BASF Study ID", "TestJRZ_01nonGLP" + suffix_add);
 		TestUtil.type(externalStudyId, "External Study ID", "01nonGLPJRZTest");
 		TestUtil.type(title, "Title", "Test Study Title JRZ 01nonGLP");
 		TestUtil.type(searchSponsor, "Search Sponsor", "BASF Crop Protection");
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("BASF Crop Protection");
 		TestUtil.click(glpNo, "GLP No");
 		TestUtil.click(binocularsFascility, "Fascility Binoculars");
 		wait.until(ExpectedConditions.visibilityOf(searchBar));
@@ -326,7 +310,7 @@ public class CreateStudiesPage extends TestBase {
 		TestUtil.click(addFirstValue, "BASF SE");
 		TestUtil.type(actualStudyCompletionDateExternalStudy, "Actual Study Completion Date Study", "01/02/2019");
 		TestUtil.type(studyDirector, "Study Director", "Frank Sattler");
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("Frank Sattler");
 		TestUtil.click(rawDataYes, "Raw Data Yes");
 		TestUtil.type(otherLocations, "Other Locations", "Test other location");
 		TestUtil.type(limsStudyType, "LIMS Study Type", "Test LIMS Study Type");
@@ -338,13 +322,13 @@ public class CreateStudiesPage extends TestBase {
 		
 		}
 	
-	public void fillOutNonGlpStudyAndCancle() {
+	public void fillOutNonGlpStudyAndCancle() throws InterruptedException {
 		String suffix_add = TestUtil.RandomName(5);
 		TestUtil.type(basfStudyId, "BASF Study ID", "TestJRZ_01nonGLP" + suffix_add);
 		TestUtil.type(externalStudyId, "External Study ID", "01nonGLPJRZTest");
 		TestUtil.type(title, "Title", "Test Study Title JRZ 01nonGLP");
 		TestUtil.type(searchSponsor, "Search Sponsor", "BASF Crop Protection");
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("BASF Crop Protection");
 		TestUtil.click(glpNo, "GLP No");
 		TestUtil.click(binocularsFascility, "Fascility Binoculars");
 		wait.until(ExpectedConditions.visibilityOf(searchBar));
@@ -352,7 +336,7 @@ public class CreateStudiesPage extends TestBase {
 		TestUtil.click(addFirstValue, "BASF SE");
 		TestUtil.type(actualStudyCompletionDateExternalStudy, "Actual Study Completion Date Study", "01/02/2019");
 		TestUtil.type(studyDirector, "Study Director", "Frank Sattler");
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("Frank Sattler");
 		TestUtil.click(rawDataYes, "Raw Data Yes");
 		TestUtil.type(otherLocations, "Other Locations", "Test other location");
 		TestUtil.type(limsStudyType, "LIMS Study Type", "Test LIMS Study Type");
