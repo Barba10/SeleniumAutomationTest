@@ -31,6 +31,7 @@ public class EAG_TSF_D002 extends TestBase{
 	
 	@BeforeMethod
 	public void setUp() {
+    	parentTest = extent.createTest("EAG_TSF_D002");
 		initialization();
 		loginPage = new LoginPage();
 		homePage = new HomePage();
@@ -47,42 +48,49 @@ public class EAG_TSF_D002 extends TestBase{
 	@Test
 	public void EAG_TSF_D002() throws InterruptedException, IOException{
 		
-		  homePage.GoToArchive(); submissionPage.CreateButtonAI();
-		  submissionPageCreate.Fill(); submissionPageSave.SaveBtn();
-		  submissionPageCreate.VerifyEquals(); submissionPage.SubmissionCountriesAI();
-		  submissionPageCreate.PublishingAI(); submissionPageSave.SaveBtn();
-		  submissionPage.Verify_Details_Tab_Active_Ingredient();
-		  TestUtil.takeScreenshotAtEndOfTest();
-		  
-		
-		  homePage.GoToArchive(); submissionPage.CreateButtonEU();
-		  submissionPageCreate.PPP_EU_Submission_Main(); submissionPageSave.SaveBtn();
-		  submissionPageCreate.VerifyEquals(); submissionPage.SubmissionCountriesEU();
-		  submissionPageCreate.PublishingEU(); submissionPage.CancelAndContinue();
-		  submissionPage.Verify_Details_Tab_Active_IngredientEU();
-		  TestUtil.takeScreenshotAtEndOfTest();
-		 
-		  homePage.GoToArchive(); submissionPage.CreateButtonNA();
-		  submissionPageCreate.PPP_NA_Submission_Main(); submissionPageSave.SaveBtn();
-		  submissionPageCreate.VerifyEquals(); submissionPage.SubmissionCountriesNA();
-		  submissionPageCreate.PublishingTabNA(); submissionPage.CancelAndContinue();
-		  TestUtil.takeScreenshotAtEndOfTest();
-
+	  	  childTest = parentTest.createNode("Submission Active Ingredient - Submission Creation");
 		  homePage.GoToArchive(); 
 		  submissionPage.CreateButtonAI();
-		  submissionPageCreate.PPP_SA_Submission_Main(); 
+	  	  childTest = parentTest.createNode("Submission Active Ingredient - Filling Editable Fields");
+		  submissionPageCreate.Fill(); 
 		  submissionPageSave.SaveBtn();
-		  submissionPageCreate.VerifyEquals(); 
-		  submissionPage.SubmissionCountriesSA();
-		  submissionPageCreate.PublishingTabSA(); 
-		  submissionPage.CancelAndContinue();
-		  TestUtil.takeScreenshotAtEndOfTest(); 
+	  	  childTest = parentTest.createNode("Submission Active Ingredient - Define Submission Countries and Dossier");
+	  	  submissionPage.SubmissionCountriesAI();
+		  submissionPageCreate.PublishingAI(); 
+		  submissionPageSave.SaveBtn();
+	  	  childTest = parentTest.createNode("Submission Active Ingredient - Verifying Text Present");
+		  submissionPage.Verify_Details_Tab_Active_Ingredient();
+
+		  //submissionPageCreate.VerifyEquals(); 
+		 
+		  TestUtil.takeScreenshotAtEndOfTest();
+		  
+		/*
+		 * homePage.GoToArchive(); submissionPage.CreateButtonEU();
+		 * submissionPageCreate.PPP_EU_Submission_Main(); submissionPageSave.SaveBtn();
+		 * submissionPageCreate.VerifyEquals(); submissionPage.SubmissionCountriesEU();
+		 * submissionPageCreate.PublishingEU(); submissionPage.CancelAndContinue();
+		 * submissionPage.Verify_Details_Tab_Active_IngredientEU();
+		 * TestUtil.takeScreenshotAtEndOfTest();
+		 * 
+		 * homePage.GoToArchive(); submissionPage.CreateButtonNA();
+		 * submissionPageCreate.PPP_NA_Submission_Main(); submissionPageSave.SaveBtn();
+		 * submissionPageCreate.VerifyEquals(); submissionPage.SubmissionCountriesNA();
+		 * submissionPageCreate.PublishingTabNA(); submissionPage.CancelAndContinue();
+		 * TestUtil.takeScreenshotAtEndOfTest();
+		 * 
+		 * homePage.GoToArchive(); submissionPage.CreateButtonAI();
+		 * submissionPageCreate.PPP_SA_Submission_Main(); submissionPageSave.SaveBtn();
+		 * submissionPageCreate.VerifyEquals(); submissionPage.SubmissionCountriesSA();
+		 * submissionPageCreate.PublishingTabSA(); submissionPage.CancelAndContinue();
+		 * TestUtil.takeScreenshotAtEndOfTest();
+		 */
 	}
 	
 	
 	@AfterMethod
 	public void tearDown(){
-		driver.quit();
+		//driver.quit();
 	}
 
 }
