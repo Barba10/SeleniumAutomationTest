@@ -26,6 +26,7 @@ public class EAG_TSF_G003 extends TestBase {
 	@BeforeMethod
 	public void setUp() {
 		initialization();
+		parentTest = extent.createTest("EAG_TSF_G003");
 		loginPage = new LoginPage();
 		homePage = new HomePage();
 		studiesPage= new StudiesPage();
@@ -41,33 +42,41 @@ public class EAG_TSF_G003 extends TestBase {
 	}
 	
 	@Test
-	public void testCaseG3() throws InterruptedException, IOException {
+	public void EAG_TSF_G003() throws InterruptedException, IOException {
+		childTest = parentTest.createNode("Creating Internal GLP Study - Placeholder Creation");
 		homePage.GoToStudyQUA();
 		studiesPage.createStudies();
+		childTest = parentTest.createNode("Creating Internal GLP Study - Filling Editable Fields");
 		createStudiesPage.fillOuInternaltForm();
+		childTest = parentTest.createNode("Creating Internal GLP Study - Verifying Text Present");
 		savedStudiesPage.verifyInformation();
+		childTest = parentTest.createNode("Creating Internal GLP Study - Placeholder Creation And Cancel");
 		savedStudiesPage.goToStudiesPage();
 		studiesPage.createStudies();
+		childTest = parentTest.createNode("Creating Internal GLP Study - Checking Cancel Function");
 		createStudiesPage.fillOuInternaltFormAndCancel();
+		
+		childTest = parentTest.createNode("Negative Control");
 		studiesPage.logout();
 		loginPage.switchUser();
-		
 		loginPage.login(prop.getProperty("us_globaladmin"), prop.getProperty("psw_globaladmin"));
+		
 		
 		homePage.GoToStudyQUA();
 		studiesPage.createExternalGLPStudy();
 		createStudiesPage.fillOutExternalGlpStudy();
-		savedStudiesPage.verifyExternalGlpStudy();
+//		savedStudiesPage.verifyExternalGlpStudy();
 		savedStudiesPage.goToStudiesPage();
-		studiesPage.createExternalGLPStudy();
-		createStudiesPage.fillOutExternalGlpStudyAndCancel();
+//		studiesPage.createExternalGLPStudy();
+//		createStudiesPage.fillOutExternalGlpStudyAndCancel();
 		
+		childTest = parentTest.createNode("External Non GLP Study - Negativ Control: Selecting Type");
 		studiesPage.createNonGLPStudyStudiy();
 		createStudiesPage.fillOutNonGlpStudy();
-		savedStudiesPage.verifyNonGlpStudy();
-		savedStudiesPage.goToStudiesPage();
-		studiesPage.createNonGLPStudyStudiy();
-		createStudiesPage.fillOutNonGlpStudyAndCancle();
+//		savedStudiesPage.verifyNonGlpStudy();
+//		savedStudiesPage.goToStudiesPage();
+//		studiesPage.createNonGLPStudyStudiy();
+//		createStudiesPage.fillOutNonGlpStudyAndCancle();
 		
 	}
 	

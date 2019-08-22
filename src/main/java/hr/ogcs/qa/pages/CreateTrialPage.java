@@ -72,72 +72,71 @@ public class CreateTrialPage extends TestBase {
 	public void fillOutTrialForm() {
 		String suffix_add = TestUtil.RandomName(5);
 
-		trial_number.sendKeys("L04022019" + suffix_add);
-		trial_status.sendKeys("Trial Status A");
+		TestUtil.type(trial_number, "Trial Number", "L04022019" + suffix_add);
+		TestUtil.type(trial_status, "Trial Status", "Trial Status A");
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
-
-		principal_investigator.sendKeys("Anja Friedemann");
+		
+		TestUtil.type(principal_investigator, "Principal Investigator", "Anja Friedemann");
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
-
-		test_site_binoculars.click();
-		search_bar.sendKeys("Urania Agrochem GmbH" + Keys.ENTER);
-		add_first_value.click();
-
-		phase_binoculars.click();
-		search_bar.sendKeys("Test Name Inlife" + Keys.ENTER);
-		add_first_value.click();
-
-		initiation_date.sendKeys("1/1/2019");
-
-		external_trial_number.sendKeys("ExL04022019");
-
-		lims_principal_investigator.sendKeys("na");
-
-		end_date.sendKeys("1/25/2019");
-
-		buid.sendKeys("Test BUID Inlife" + suffix_add);
-
-		document_legacy_id.sendKeys("Test Document Legacy ID");
-
-		source.sendKeys("Test Source");
-
-		save_button.click();
+		
+		TestUtil.click(test_site_binoculars, "Test Site Binoculars");
+		TestUtil.type(search_bar, "Search Bar", "Urania Agrochem GmbH" + Keys.ENTER);
+		TestUtil.click(add_first_value, "Urania Agrochem GmbH");
+		
+		TestUtil.click(phase_binoculars, "Phase Binoculars");
+		TestUtil.type(search_bar, "Search Bar", "Test Name Inlife" + Keys.ENTER);
+		TestUtil.click(add_first_value, "Add First Value");
+		
+		TestUtil.type(initiation_date, "Initiation Date", "1/1/2019");
+		
+		TestUtil.type(external_trial_number, "External Trial Number", "ExL04022019");
+		
+		TestUtil.type(lims_principal_investigator, "LIMS Principal Investigator", "na");
+		
+		TestUtil.type(end_date, "End Date", "1/25/2019");
+		
+		TestUtil.type(buid, "BUID", "Test BUID Inlife" + suffix_add);
+		
+		TestUtil.type(document_legacy_id, "Document Legacy ID", "Test Document Legacy ID");
+		
+		TestUtil.type(source, "Source", "Test Source");
+		
+		TestUtil.click(save_button, "Save Button");
 	}
 
 	public void fillOutTrialFormAndCancel() {
 		String suffix_add = TestUtil.RandomName(5);
 
-		trial_number.sendKeys("L04022019" + suffix_add);
-		trial_status.sendKeys("Trial Status A");
+		TestUtil.type(trial_number, "Trial Number", "L04022019" + suffix_add);
+		TestUtil.type(trial_status, "Trial Status", "Trial Status A");
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
-
-		principal_investigator.sendKeys("Anja Friedemann");
+		
+		TestUtil.type(principal_investigator, "Principal Investigator", "Anja Friedemann");
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
-
-		test_site_binoculars.click();
-		search_bar.sendKeys("Urania Agrochem GmbH" + Keys.ENTER);
-		add_first_value.click();
-
-		phase_binoculars.click();
-		search_bar.sendKeys("Test Name Inlife" + Keys.ENTER);
-		add_first_value.click();
-
-		initiation_date.sendKeys("1/1/2019");
-
-		external_trial_number.sendKeys("ExL04022019");
-
-		lims_principal_investigator.sendKeys("na");
-
-		end_date.sendKeys("1/25/2019");
-
-		buid.sendKeys("Test BUID Inlife");
-
-		document_legacy_id.sendKeys("Test Document Legacy ID");
-
-		source.sendKeys("Test Source");
-
-		cancel_button.click();
-
-		continue_button.click();
+		
+		TestUtil.click(test_site_binoculars, "Test Site Binoculars");
+		TestUtil.type(search_bar, "Search Bar", "Urania Agrochem GmbH" + Keys.ENTER);
+		TestUtil.click(add_first_value, "Urania Agrochem GmbH");
+		
+		TestUtil.click(phase_binoculars, "Phase Binoculars");
+		TestUtil.type(search_bar, "Search Bar", "Test Name Inlife" + Keys.ENTER);
+		TestUtil.click(add_first_value, "Add First Value");
+		
+		TestUtil.type(initiation_date, "Initiation Date", "1/1/2019");
+		
+		TestUtil.type(external_trial_number, "External Trial Number", "ExL04022019");
+		
+		TestUtil.type(lims_principal_investigator, "LIMS Principal Investigator", "na");
+		
+		TestUtil.type(end_date, "End Date", "1/25/2019");
+		
+		TestUtil.type(buid, "BUID", "Test BUID Inlife" + suffix_add);
+		
+		TestUtil.type(document_legacy_id, "Document Legacy ID", "Test Document Legacy ID");
+		
+		TestUtil.type(source, "Source", "Test Source");
+		
+		TestUtil.click(cancel_button, "Cancel Button");
+		TestUtil.click(continue_button, "Continue Button");
 	}
 }

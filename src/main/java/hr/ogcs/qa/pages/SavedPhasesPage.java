@@ -247,8 +247,9 @@ public class SavedPhasesPage extends TestBase {
 	}
 	
 	public void goToPhases() {
-		study_qau.click();
-		phases.click();
+		TestUtil.click(study_qau, "Study QAU");
+		TestUtil.click(phases, "Phases");
+
 	}
 	
 }

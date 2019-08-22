@@ -1,51 +1,51 @@
 package hr.ogcs.qa.pages;
 
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.TestInstance;
 
 import hr.ogcs.qa.base.TestBase;
 import hr.ogcs.qa.util.TestUtil;
 
-public class CreatePhasesPage extends TestBase{
-	
+public class CreatePhasesPage extends TestBase {
+
 	public CreatePhasesPage() {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(xpath="//input[@name='name__v']")
+	@FindBy(xpath = "//input[@name='name__v']")
 	WebElement name;
-	
+
 	@FindBy(xpath = "//span[@selenium-name='principal_investigator__c']//parent::label//parent::div//following-sibling::div[1]//input[@type='search']")
 	WebElement principal_investigator;
-	
+
 	@FindBy(xpath = "//span[@selenium-name='study__c']//parent::label//parent::div//following-sibling::div[1]//input[@type='search']")
 	WebElement study;
-	
+
 	@FindBy(xpath = "//descendant::span[@title='More search options'][3]")
 	WebElement test_site_binoculars;
-	
+
 	@FindBy(xpath = "//descendant::span[@title='More search options'][2]")
 	WebElement test_site_binoculars_second;
-	
+
 	@FindBy(xpath = "//input[contains(@class,'veevaSearch_searchInput vv_searchbar_input')]")
 	WebElement search_bar;
-	
+
 	@FindBy(xpath = "//div[@class='grid-canvas']//div[1]//div[1]//div[2]//span[1]//a[1]")
 	WebElement add_first_value;
-	
+
 	@FindBy(xpath = "//label[1]//input[1]")
 	WebElement glp_yes;
 
 	@FindBy(xpath = "//label[2]//input[1]")
 	WebElement glp_no;
-	
+
 	@FindBy(xpath = "//input[@name='external_phase_code__c']")
 	WebElement external_phase_code;
-	
+
 	@FindBy(xpath = "//span[@selenium-name='report_to_qau__c']//parent::label//parent::div//following-sibling::div[1]//input[@type='text']")
 	WebElement report_to_qau;
 
@@ -54,349 +54,339 @@ public class CreatePhasesPage extends TestBase{
 
 	@FindBy(xpath = "//span[@selenium-name='experimental_end_date__c']//parent::label//parent::div//following-sibling::div[1]//input[@type='text']")
 	WebElement planned_experimental_end_date;
-	
+
 	@FindBy(xpath = "//span[@selenium-name='actual_experimental_starting_date__c']//parent::label//parent::div//following-sibling::div[1]//input[@type='text']")
 	WebElement actual_experimental_start_date;
 
 	@FindBy(xpath = "//span[@selenium-name='actual_experimental_end_date__c']//parent::label//parent::div//following-sibling::div[1]//input[@type='text']")
 	WebElement actual_experimental_end_date;
-	
+
 	@FindBy(name = "buid__c")
 	WebElement buid;
-	
+
 	@FindBy(name = "source__c")
 	WebElement source;
-	
+
 	@FindBy(xpath = "//button[@class='vv-btn vv-btn-primary vv-vof-detail-header-button']")
 	WebElement save_button;
 
 	@FindBy(xpath = "//button[@class='vv-btn vv-btn-ghost vv-vof-detail-header-button vv-vof-detail-header-ghost-button']")
 	WebElement cancel_button;
-	
-	@FindBy(xpath="//a[@class='ok vv_button vv_primary vv_ellipsis']")
+
+	@FindBy(xpath = "//a[@class='ok vv_button vv_primary vv_ellipsis']")
 	WebElement continue_button;
-	
-	//add random element to buid
-	
+
+	// add random element to buid
+
 	public void createSpecimenManagement() throws InterruptedException {
 		String suffix_add = TestUtil.RandomName(5);
-		
-		name.sendKeys("Test Name SMP");
-		
-		principal_investigator.sendKeys("Andreas Altschuck");
+		TestUtil.type(name, "Name", "Test Name SMP");
+
+		TestUtil.type(principal_investigator, "Principal Investigator", "Andreas Altschuck");
 		Thread.sleep(700);
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
-		
-		study.sendKeys("TestJRZ_01");
+
+		TestUtil.type(study, "Study", "TestJRZ_01");
 		Thread.sleep(700);
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+
+		TestUtil.click(test_site_binoculars, "Test Site Binoculars");
+		TestUtil.type(search_bar, "Search Bar", "BASF SE" + Keys.ENTER);
+		TestUtil.click(add_first_value, "BASF SE");
+		TestUtil.click(glp_yes, "GLP Yes");
+		TestUtil.type(external_phase_code, "External Phase Code", "TestJRZ_01SMP");
 		
-		test_site_binoculars.click();
-		search_bar.sendKeys("BASF SE"+Keys.ENTER);
-		add_first_value.click();
-		glp_yes.click();
-		external_phase_code.sendKeys("TestJRZ_01SMP");
+		TestUtil.type(planned_experimental_start_date, "Planned Experimantal Start Date", "1/1/2019");
+		TestUtil.type(planned_experimental_end_date, "Planned Experimantal End Date", "1/25/2019");
+		TestUtil.type(report_to_qau, "Report To QAU", "1/28/2019");
+		TestUtil.type(actual_experimental_start_date, "Actual Experimental Start Date", "1/1/2019");
+		TestUtil.type(actual_experimental_end_date, "Actual Experimental End Date", "1/25/2019");
 		
+		TestUtil.type(buid, "BUID", "Test BUID" + suffix_add);
+		TestUtil.type(source, "Source", "Test Source");
 		
-		planned_experimental_start_date.sendKeys("1/1/2019");
-		planned_experimental_end_date.sendKeys("1/25/2019");
-		report_to_qau.sendKeys("1/28/2019");
-		actual_experimental_start_date.sendKeys("1/1/2019");
-		actual_experimental_end_date.sendKeys("1/25/2019");
-		
-		buid.sendKeys("Test BUID" + suffix_add);
-		source.sendKeys("Test Source");
-		
-		save_button.click();
+		TestUtil.click(save_button, "Save Button");
+
 	}
 
 	public void createSpecimenManagementAndCancel() throws InterruptedException {
 		String suffix_add = TestUtil.RandomName(5);
-		
-		name.sendKeys("Test Name SMP");
-		
-		principal_investigator.sendKeys("Andreas Altschuck");
+
+		TestUtil.type(name, "Name", "Test Name SMP");
+
+		TestUtil.type(principal_investigator, "Principal Investigator", "Andreas Altschuck");
 		Thread.sleep(700);
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
-		
-		study.sendKeys("TestJRZ_01");
+
+		TestUtil.type(study, "Study", "TestJRZ_01");
 		Thread.sleep(700);
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+
+		TestUtil.click(test_site_binoculars, "Test Site Binoculars");
+		TestUtil.type(search_bar, "Search Bar", "BASF SE" + Keys.ENTER);
+		TestUtil.click(add_first_value, "BASF SE");
+		TestUtil.click(glp_yes, "GLP Yes");
+		TestUtil.type(external_phase_code, "External Phase Code", "TestJRZ_01SMP");
 		
-		test_site_binoculars.click();
-		search_bar.sendKeys("BASF SE"+Keys.ENTER);
-		add_first_value.click();
-		glp_yes.click();
-		external_phase_code.sendKeys("TestJRZ_01SMP");
+		TestUtil.type(planned_experimental_start_date, "Planned Experimantal Start Date", "1/1/2019");
+		TestUtil.type(planned_experimental_end_date, "Planned Experimantal End Date", "1/25/2019");
+		TestUtil.type(report_to_qau, "Report To QAU", "1/28/2019");
+		TestUtil.type(actual_experimental_start_date, "Actual Experimental Start Date", "1/1/2019");
+		TestUtil.type(actual_experimental_end_date, "Actual Experimental End Date", "1/25/2019");
 		
+		TestUtil.type(buid, "BUID", "Test BUID" + suffix_add);
+		TestUtil.type(source, "Source", "Test Source");
 		
-		planned_experimental_start_date.sendKeys("1/1/2019");
-		planned_experimental_end_date.sendKeys("1/25/2019");
-		report_to_qau.sendKeys("1/28/2019");
-		actual_experimental_start_date.sendKeys("1/1/2019");
-		actual_experimental_end_date.sendKeys("1/25/2019");
-		
-		buid.sendKeys("Test BUID" + suffix_add);
-		source.sendKeys("Test Source");
-		
-		cancel_button.click();
-		continue_button.click();
+		TestUtil.click(cancel_button, "Cancel Button");
+		TestUtil.click(continue_button, "Continue Button");
 	}
-	
+
 	public void createAnalyticalPhase() throws InterruptedException {
 		String suffix_add = TestUtil.RandomName(5);
+
+		TestUtil.type(name, "Name", "Test Name AP");
 		
-		name.sendKeys("Test Name AP");
-		
-		study.sendKeys("TestJRZ_01");
+		TestUtil.type(study, "Study", "TestJRZ_01");
 		Thread.sleep(700);
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
 		
-		principal_investigator.sendKeys("Angelika Lehmann");
+		TestUtil.type(principal_investigator, "Principal Investigator", "Angelika Lehmann");
 		Thread.sleep(700);
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
 		
-		test_site_binoculars.click();
-		search_bar.sendKeys("BASF SE"+Keys.ENTER);
-		add_first_value.click();
-		glp_yes.click();
-		external_phase_code.sendKeys("TestJRZ_01AP");
+		TestUtil.click(test_site_binoculars, "Test Site Binoculars");
+		TestUtil.type(search_bar, "Search Bar", "BASF SE" + Keys.ENTER);
+		TestUtil.click(add_first_value, "BASF SE");
+		TestUtil.click(glp_yes, "GLP YES");
+		TestUtil.type(external_phase_code, "External Phase Code", "TestJRZ_01AP");
 		
+		TestUtil.type(planned_experimental_start_date, "Planned Experimental Start Date", "1/1/2019");
+		TestUtil.type(planned_experimental_end_date, "Planned Experimental End Date", "1/25/2019");
+		TestUtil.type(report_to_qau, "Report To QAU", "1/28/2019");
+		TestUtil.type(actual_experimental_start_date, "Actual Experimental Start Date", "1/1/2019");
+		TestUtil.type(actual_experimental_end_date, "Actual Experimental End Date", "1/25/2019");
 		
-		planned_experimental_start_date.sendKeys("1/1/2019");
-		planned_experimental_end_date.sendKeys("1/25/2019");
-		report_to_qau.sendKeys("1/28/2019");
-		actual_experimental_start_date.sendKeys("1/1/2019");
-		actual_experimental_end_date.sendKeys("1/25/2019");
+		TestUtil.type(buid, "BUID", "Test BUID AP" + suffix_add);
+		TestUtil.type(source, "Source", "Test Source");
 		
-		buid.sendKeys("Test BUID AP" + suffix_add);
-		source.sendKeys("Test Source");
+		TestUtil.click(save_button, "Save Button");
 		
-		save_button.click();
 	}
-	
+
 	public void createAnalyticalPhaseAndCancel() throws InterruptedException {
 		String suffix_add = TestUtil.RandomName(5);
+
+		TestUtil.type(name, "Name", "Test Name AP");
 		
-		name.sendKeys("Test Name AP");
-		
-		study.sendKeys("TestJRZ_01");
+		TestUtil.type(study, "Study", "TestJRZ_01");
 		Thread.sleep(700);
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
 		
-		principal_investigator.sendKeys("Angelika Lehmann");
+		TestUtil.type(principal_investigator, "Principal Investigator", "Angelika Lehmann");
 		Thread.sleep(700);
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
 		
-		test_site_binoculars.click();
-		search_bar.sendKeys("BASF SE"+Keys.ENTER);
-		add_first_value.click();
-		glp_yes.click();
-		external_phase_code.sendKeys("TestJRZ_01AP");
+		TestUtil.click(test_site_binoculars, "Test Site Binoculars");
+		TestUtil.type(search_bar, "Search Bar", "BASF SE" + Keys.ENTER);
+		TestUtil.click(add_first_value, "BASF SE");
+		TestUtil.click(glp_yes, "GLP YES");
+		TestUtil.type(external_phase_code, "External Phase Code", "TestJRZ_01AP");
 		
+		TestUtil.type(planned_experimental_start_date, "Planned Experimental Start Date", "1/1/2019");
+		TestUtil.type(planned_experimental_end_date, "Planned Experimental End Date", "1/25/2019");
+		TestUtil.type(report_to_qau, "Report To QAU", "1/28/2019");
+		TestUtil.type(actual_experimental_start_date, "Actual Experimental Start Date", "1/1/2019");
+		TestUtil.type(actual_experimental_end_date, "Actual Experimental End Date", "1/25/2019");
 		
-		planned_experimental_start_date.sendKeys("1/1/2019");
-		planned_experimental_end_date.sendKeys("1/25/2019");
-		report_to_qau.sendKeys("1/28/2019");
-		actual_experimental_start_date.sendKeys("1/1/2019");
-		actual_experimental_end_date.sendKeys("1/25/2019");
+		TestUtil.type(buid, "BUID", "Test BUID AP" + suffix_add);
+		TestUtil.type(source, "Source", "Test Source");
 		
-		buid.sendKeys("Test BUID AP" + suffix_add);
-		source.sendKeys("Test Source");
-		
-		cancel_button.click();
-		continue_button.click();
+		TestUtil.click(cancel_button, "Cancel Button");
+		TestUtil.click(continue_button, "Continue button");
 	}
-	
+
 	public void createBiologicalPhase() throws InterruptedException {
 		String suffix_add = TestUtil.RandomName(5);
+
+		TestUtil.type(name, "Name", "Test Name BP");
 		
-		name.sendKeys("Test Name BP");
-		
-		study.sendKeys("TestJRZ_01");
+		TestUtil.type(study, "Study", "TestJRZ_01");
 		Thread.sleep(700);
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
 		
-		test_site_binoculars_second.click();
-		search_bar.sendKeys("BASF SE"+Keys.ENTER);
-		add_first_value.click();
+		TestUtil.click(test_site_binoculars_second, "Test Site Binoculars Second");
+		TestUtil.type(search_bar, "Search Bar", "BASF SE" + Keys.ENTER);
+		TestUtil.click(add_first_value, "BASF SE");
 		
-		principal_investigator.sendKeys("Stefanie Royer");
+		TestUtil.type(principal_investigator, "Principal Investigator", "Stefanie Royer");
 		Thread.sleep(700);
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
 		
-		external_phase_code.sendKeys("TestJRZ_01BP");
+		TestUtil.type(external_phase_code, "External Phase Code", "TestJRZ_01BP");
 		
-		planned_experimental_start_date.sendKeys("1/1/2019");
-		planned_experimental_end_date.sendKeys("1/25/2019");
-		report_to_qau.sendKeys("1/28/2019");
+		TestUtil.type(planned_experimental_start_date, "Planned Experimental Start Date", "1/1/2019");
+		TestUtil.type(planned_experimental_end_date, "Planned Experimental End Date", "1/25/2019");
+		TestUtil.type(report_to_qau, "Report To QAU", "1/28/2019");
 		
-		glp_yes.click();
+		TestUtil.click(glp_yes, "GLP Yes");
 		
-		actual_experimental_start_date.sendKeys("1/1/2019");
-		actual_experimental_end_date.sendKeys("1/25/2019");
+		TestUtil.type(actual_experimental_start_date, "Actual Experimental Start Date", "1/1/2019");
+		TestUtil.type(actual_experimental_end_date, "Actual Experimental End Date", "1/25/2019");
 		
-		buid.sendKeys("Test BUID BP" + suffix_add);
-		source.sendKeys("Test Source");
+		TestUtil.type(buid, "BUID", "Test BUID BP" + suffix_add);
+		TestUtil.type(source, "Source", "Test Source");
 		
-		save_button.click();
+		TestUtil.click(save_button, "Save Button");
 	}
-	
+
 	public void createBiologicalPhaseAndCancel() throws InterruptedException {
 		String suffix_add = TestUtil.RandomName(5);
+
+		TestUtil.type(name, "Name", "Test Name BP");
 		
-		name.sendKeys("Test Name BP");
-		
-		study.sendKeys("TestJRZ_01");
+		TestUtil.type(study, "Study", "TestJRZ_01");
 		Thread.sleep(700);
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
 		
-		test_site_binoculars_second.click();
-		search_bar.sendKeys("BASF SE"+Keys.ENTER);
-		add_first_value.click();
+		TestUtil.click(test_site_binoculars_second, "Test Site Binoculars Second");
+		TestUtil.type(search_bar, "Search Bar", "BASF SE" + Keys.ENTER);
+		TestUtil.click(add_first_value, "BASF SE");
 		
-		principal_investigator.sendKeys("Stefanie Royer");
+		TestUtil.type(principal_investigator, "Principal Investigator", "Stefanie Royer");
 		Thread.sleep(700);
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
 		
-		external_phase_code.sendKeys("TestJRZ_01BP");
+		TestUtil.type(external_phase_code, "External Phase Code", "TestJRZ_01BP");
 		
-		planned_experimental_start_date.sendKeys("1/1/2019");
-		planned_experimental_end_date.sendKeys("1/25/2019");
-		report_to_qau.sendKeys("1/28/2019");
+		TestUtil.type(planned_experimental_start_date, "Planned Experimental Start Date", "1/1/2019");
+		TestUtil.type(planned_experimental_end_date, "Planned Experimental End Date", "1/25/2019");
+		TestUtil.type(report_to_qau, "Report To QAU", "1/28/2019");
 		
-		glp_yes.click();
+		TestUtil.click(glp_yes, "GLP Yes");
 		
-		actual_experimental_start_date.sendKeys("1/1/2019");
-		actual_experimental_end_date.sendKeys("1/25/2019");
+		TestUtil.type(actual_experimental_start_date, "Actual Experimental Start Date", "1/1/2019");
+		TestUtil.type(actual_experimental_end_date, "Actual Experimental End Date", "1/25/2019");
 		
-		buid.sendKeys("Test BUID BP" + suffix_add);
-		source.sendKeys("Test Source");
+		TestUtil.type(buid, "BUID", "Test BUID BP" + suffix_add);
+		TestUtil.type(source, "Source", "Test Source");
 		
-		cancel_button.click();
-		continue_button.click();
+		TestUtil.click(cancel_button, "Cancel button");
+		TestUtil.click(continue_button, "Continue button");
 	}
-	
+
 	public void createFieldPhase() throws InterruptedException {
 		String suffix_add = TestUtil.RandomName(5);
 		
-		name.sendKeys("Test Name FP");
+		TestUtil.type(name, "Name", "Test Name FP");
 		
-		
-		
-		study.sendKeys("TestJRZ_01");
+		TestUtil.type(study, "Study", "TestJRZ_01");
 		Thread.sleep(700);
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
 		
-		glp_yes.click();
+		TestUtil.click(glp_yes, "GLP Yes");
 		
-		planned_experimental_start_date.sendKeys("1/1/2019");
-		planned_experimental_end_date.sendKeys("1/25/2019");
-		report_to_qau.sendKeys("1/28/2019");
-		actual_experimental_start_date.sendKeys("1/1/2019");
-		actual_experimental_end_date.sendKeys("1/25/2019");
+		TestUtil.type(planned_experimental_start_date, "Planned Experimental Start Date", "1/1/2019");
+		TestUtil.type(planned_experimental_end_date, "Planned Experimental End Date", "1/25/2019");
+		TestUtil.type(report_to_qau, "Report To QAU", "1/28/2019");
+		TestUtil.type(actual_experimental_start_date, "Actual Experimental Start Date", "1/1/2019");
+		TestUtil.type(actual_experimental_end_date, "Actual Experimental End Date", "1/25/2019");
 		
-		buid.sendKeys("Test BUID FP" + suffix_add);
-		source.sendKeys("Test Source");
+		TestUtil.type(buid, "BUID", "Test BUID FP" + suffix_add);
+		TestUtil.type(source, "Source", "Test Source");
 		
-		save_button.click();
+		TestUtil.click(save_button, "Save Button");
+		
 	}
-	
+
 	public void createFieldPhaseAndCancel() throws InterruptedException {
 		String suffix_add = TestUtil.RandomName(5);
+
+		TestUtil.type(name, "Name", "Test Name FP");
 		
-		name.sendKeys("Test Name FP");
-		
-		
-		
-		study.sendKeys("TestJRZ_01");
+		TestUtil.type(study, "Study", "TestJRZ_01");
 		Thread.sleep(700);
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
 		
-		glp_yes.click();
+		TestUtil.click(glp_yes, "GLP Yes");
 		
-		planned_experimental_start_date.sendKeys("1/1/2019");
-		planned_experimental_end_date.sendKeys("1/25/2019");
-		report_to_qau.sendKeys("1/28/2019");
-		actual_experimental_start_date.sendKeys("1/1/2019");
-		actual_experimental_end_date.sendKeys("1/25/2019");
+		TestUtil.type(planned_experimental_start_date, "Planned Experimental Start Date", "1/1/2019");
+		TestUtil.type(planned_experimental_end_date, "Planned Experimental End Date", "1/25/2019");
+		TestUtil.type(report_to_qau, "Report To QAU", "1/28/2019");
+		TestUtil.type(actual_experimental_start_date, "Actual Experimental Start Date", "1/1/2019");
+		TestUtil.type(actual_experimental_end_date, "Actual Experimental End Date", "1/25/2019");
 		
-		buid.sendKeys("Test BUID FP" + suffix_add);
-		source.sendKeys("Test Source");
+		TestUtil.type(buid, "BUID", "Test BUID FP" + suffix_add);
+		TestUtil.type(source, "Source", "Test Source");
 		
-		cancel_button.click();
-		continue_button.click();
+		TestUtil.click(cancel_button, "Cancel Button");
+		TestUtil.click(continue_button, "Continue button");
 	}
 
 	public void createInlifePhase() throws InterruptedException {
 		String suffix_add = TestUtil.RandomName(5);
+
+		TestUtil.type(name, "Name", "Test Name Inlife");
 		
-		name.sendKeys("Test Name Inlife");
-		
-		study.sendKeys("TestJRZ_01");
+		TestUtil.type(study, "Study", "TestJRZ_01");
 		Thread.sleep(700);
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
 		
+		TestUtil.click(test_site_binoculars_second, "Test Site Binoculars Second");
+		TestUtil.type(search_bar, "Search Bar", "Urania Agrochem GmbH" + Keys.ENTER);
+		TestUtil.click(add_first_value, "BASF SE");
 		
-		test_site_binoculars_second.click();
-		search_bar.sendKeys("Urania Agrochem GmbH"+Keys.ENTER);
-		add_first_value.click();
-		
-		principal_investigator.sendKeys("Anja Friedemann");
-		Thread.sleep(1000);
+		TestUtil.type(principal_investigator, "Principal Investigator", "Anja Friedemann");
+		Thread.sleep(700);
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
 		
-		planned_experimental_start_date.sendKeys("1/1/2019");
-		planned_experimental_end_date.sendKeys("1/25/2019");
-		report_to_qau.sendKeys("1/28/2019");
+		TestUtil.type(planned_experimental_start_date, "Planned Experimental Start Date", "1/1/2019");
+		TestUtil.type(planned_experimental_end_date, "Planned Experimental End Date", "1/25/2019");
+		TestUtil.type(report_to_qau, "Report To QAU", "1/28/2019");
 		
-		glp_yes.click();
-		external_phase_code.sendKeys("TestJRZ_01BP");
+		TestUtil.click(glp_yes, "GLP Yes");
+		TestUtil.type(external_phase_code, "External Phase Code", "TestJRZ_01Inlife");
 		
-		actual_experimental_start_date.sendKeys("1/1/2019");
-		actual_experimental_end_date.sendKeys("1/25/2019");
+		TestUtil.type(actual_experimental_start_date, "Actual Experimental Start Date", "1/1/2019");
+		TestUtil.type(actual_experimental_end_date, "Actual Experimental End Date", "1/25/2019");
 		
-		buid.sendKeys("Test BUID BP" + suffix_add);
-		source.sendKeys("Test Source");
+		TestUtil.type(buid, "BUID", "Test BUID BP" + suffix_add);
+		TestUtil.type(source, "Source", "Test Source");
 		
-		save_button.click();
+		TestUtil.click(save_button, "Save Button");
 	}
-	
+
 	public void createInlifePhaseAndCancel() throws InterruptedException {
 		String suffix_add = TestUtil.RandomName(5);
+
+		TestUtil.type(name, "Name", "Test Name Inlife");
 		
-		name.sendKeys("Test Name Inlife");
-		
-		study.sendKeys("TestJRZ_01");
+		TestUtil.type(study, "Study", "TestJRZ_01");
 		Thread.sleep(700);
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
 		
+		TestUtil.click(test_site_binoculars_second, "Test Site Binoculars Second");
+		TestUtil.type(search_bar, "Search Bar", "Urania Agrochem GmbH" + Keys.ENTER);
+		TestUtil.click(add_first_value, "BASF SE");
 		
-		test_site_binoculars_second.click();
-		search_bar.sendKeys("Urania Agrochem GmbH"+Keys.ENTER);
-		add_first_value.click();
-		
-		principal_investigator.sendKeys("Anja Friedemann");
-		Thread.sleep(1000);
+		TestUtil.type(principal_investigator, "Principal Investigator", "Anja Friedemann");
+		Thread.sleep(700);
 		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
 		
-		planned_experimental_start_date.sendKeys("1/1/2019");
-		planned_experimental_end_date.sendKeys("1/25/2019");
-		report_to_qau.sendKeys("1/28/2019");
+		TestUtil.type(planned_experimental_start_date, "Planned Experimental Start Date", "1/1/2019");
+		TestUtil.type(planned_experimental_end_date, "Planned Experimental End Date", "1/25/2019");
+		TestUtil.type(report_to_qau, "Report To QAU", "1/28/2019");
 		
-		glp_yes.click();
-		external_phase_code.sendKeys("TestJRZ_01BP");
+		TestUtil.click(glp_yes, "GLP Yes");
+		TestUtil.type(external_phase_code, "External Phase Code", "TestJRZ_01Inlife");
 		
-		actual_experimental_start_date.sendKeys("1/1/2019");
-		actual_experimental_end_date.sendKeys("1/25/2019");
+		TestUtil.type(actual_experimental_start_date, "Actual Experimental Start Date", "1/1/2019");
+		TestUtil.type(actual_experimental_end_date, "Actual Experimental End Date", "1/25/2019");
 		
-		buid.sendKeys("Test BUID BP" + suffix_add);
-		source.sendKeys("Test Source");
+		TestUtil.type(buid, "BUID", "Test BUID BP" + suffix_add);
+		TestUtil.type(source, "Source", "Test Source");
 		
-		cancel_button.click();
-		continue_button.click();
+		TestUtil.click(cancel_button, "Cancel Button");
+		TestUtil.click(continue_button, "Continue button");
 	}
-	
-	
-	
+
 }

@@ -44,7 +44,8 @@ public class LoginPage extends TestBase{
 	}
 	
 	public void switchUser() {
-		switchUser.click();
+		TestUtil.click(switchUser, "Switch User");
+//		switchUser.click();
 	}
 	
 	

@@ -5,6 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import hr.ogcs.qa.base.TestBase;
+import hr.ogcs.qa.util.TestUtil;
 
 public class TrialsPage extends TestBase{
 	
@@ -16,7 +17,8 @@ public class TrialsPage extends TestBase{
 	WebElement createButton;
 	
 	public void createTrial() {
-		createButton.click();
+		TestUtil.click(createButton, "Create Button");
+
 	}
 	
 }
