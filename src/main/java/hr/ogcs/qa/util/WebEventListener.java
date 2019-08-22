@@ -41,6 +41,7 @@ public class WebEventListener extends TestBase implements WebDriverEventListener
 		//System.out.println("Element get text: " + element.getText());
 		try {
 			Thread.sleep(1000);
+			System.out.print("Thread sleep 1000 \n");;
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

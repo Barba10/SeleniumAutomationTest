@@ -165,7 +165,8 @@ public class TestUtil extends TestBase {
 	
 	public static void ClickOnFocusedItem(String elementName) throws InterruptedException{
 		Thread.sleep(500);
-		WebElement focusedItem = driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused"));
+		WebElement focusedItem;
+		focusedItem = driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused"));
 		
 		try {
 			wait.until(ExpectedConditions.elementToBeClickable(focusedItem));
@@ -177,7 +178,9 @@ public class TestUtil extends TestBase {
 				try {
 					boolean exists = false;
 					driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+					focusedItem = driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused"));
 					focusedItem.click();
+
 					exists = true;
 					if (exists) {
 						System.out.print(elementName + " is clicked \n");	
