@@ -24,7 +24,6 @@ public class LoginPage extends TestBase{
 	@FindBy(xpath="//a[contains(text(),'Switch user')]")
 	WebElement switchUser;
 	
-	
 	//Initializing the Page Objects:
 	public LoginPage(){
 		PageFactory.initElements(driver, this);

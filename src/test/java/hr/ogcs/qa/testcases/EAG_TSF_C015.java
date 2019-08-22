@@ -28,6 +28,7 @@ public class EAG_TSF_C015 extends TestBase {
 
 	@BeforeMethod
 	public void setUp() {
+    	parentTest = extent.createTest("EAG_TSF_C015");
 		initialization();
 		loginPage = new LoginPage();
 		homePage = new HomePage();
@@ -47,48 +48,53 @@ public class EAG_TSF_C015 extends TestBase {
 	 * @throws IOException
 	 */
 	@Test
-	public void VaultGeneralInformations() throws InterruptedException, IOException {
-		
+	public void EAG_TSF_C015() throws InterruptedException, IOException {  	  	  
+  	  	  childTest = parentTest.createNode("TEST Item - Placeholder Creation");
 		  homePage.GoToTestControlReferance(); 
 		  testControlItemsPage.ChooseTestType();
+		  childTest = parentTest.createNode("TEST Item - Filling Editable Fields");
 		  createNewProduct.FillOutTypeForm(); 
 		  createNewProduct.Save();
+		  childTest = parentTest.createNode("TEST Item - Verifying Text Present");
 		  testControlSavePage.verifyTestData(); 
 		  TestUtil.takeScreenshotAtEndOfTest();
 		  
-		
+  	  	  childTest = parentTest.createNode("CONTROL Item - Placeholder Creation");
 		  homePage.GoToTestControlReferance();
 		  testControlItemsPage.ChooseControlType();
+  	  	  childTest = parentTest.createNode("CONTROL Item - Filling Editable Fields");
 		  createNewProduct.FillOutControlForm(); 
 		  createNewProduct.Save();
+  	  	  childTest = parentTest.createNode("CONTROL Item - Verifying Text Present");
 		  testControlSavePage.verifyControlData();
 		  TestUtil.takeScreenshotAtEndOfTest();
 		  
-		  
+  	  	  childTest = parentTest.createNode("REFERENCE Item - Placeholder Creation");
 		  homePage.GoToTestControlReferance();
 		  testControlItemsPage.ChooseReferenceType();
+  	  	  childTest = parentTest.createNode("REFERENCE Item - Filling Editable Fields");
 		  createNewProduct.FillOutReferenceForm(); 
 		  createNewProduct.Save();
+  	  	  childTest = parentTest.createNode("REFERENCE Item - Verifying Text Present");
 		  testControlSavePage.verifyReferenceData();
 		  TestUtil.takeScreenshotAtEndOfTest();
 		  
-		  
+  	  	  childTest = parentTest.createNode("TEST Item - Checking Cancel Function");
 		  homePage.GoToTestControlReferance(); 
 		  testControlItemsPage.ChooseTestType();
 		  createNewProduct.FillOutTypeForm(); 
 		  createNewProduct.Cancel();
 		  
+		  childTest = parentTest.createNode("CONTROL Item - Checking Cancel Function");
 		  homePage.GoToTestControlReferance();
 		  testControlItemsPage.ChooseControlType();
 		  createNewProduct.FillOutControlForm(); 
 		  createNewProduct.Cancel();
-		  
+
+		  childTest = parentTest.createNode("REFERENCE Item - Checking Cancel Function");
 		  homePage.GoToTestControlReferance();
 		  testControlItemsPage.ChooseReferenceType();
 		  createNewProduct.FillOutReferenceForm();
 		  createNewProduct.Cancel();
-		 
-		 
-		
 	}
 }
