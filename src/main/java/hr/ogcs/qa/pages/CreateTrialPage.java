@@ -69,15 +69,16 @@ public class CreateTrialPage extends TestBase {
 	@FindBy(xpath = "//a[@class='ok vv_button vv_primary vv_ellipsis']")
 	WebElement continue_button;
 
-	public void fillOutTrialForm() {
+	public void fillOutTrialForm() throws InterruptedException {
 		String suffix_add = TestUtil.RandomName(5);
 
 		TestUtil.type(trial_number, "Trial Number", "L04022019" + suffix_add);
 		TestUtil.type(trial_status, "Trial Status", "Trial Status A");
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("Trial Status A");
 		
 		TestUtil.type(principal_investigator, "Principal Investigator", "Anja Friedemann");
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("Anja Friedmann");
+		
 		
 		TestUtil.click(test_site_binoculars, "Test Site Binoculars");
 		TestUtil.type(search_bar, "Search Bar", "Urania Agrochem GmbH" + Keys.ENTER);
@@ -104,15 +105,15 @@ public class CreateTrialPage extends TestBase {
 		TestUtil.click(save_button, "Save Button");
 	}
 
-	public void fillOutTrialFormAndCancel() {
+	public void fillOutTrialFormAndCancel() throws InterruptedException {
 		String suffix_add = TestUtil.RandomName(5);
 
 		TestUtil.type(trial_number, "Trial Number", "L04022019" + suffix_add);
 		TestUtil.type(trial_status, "Trial Status", "Trial Status A");
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("Trial Status A");
 		
 		TestUtil.type(principal_investigator, "Principal Investigator", "Anja Friedemann");
-		driver.findElement(By.cssSelector("li.vv-menu-item.vv-menu-item-focused")).click();
+		TestUtil.ClickOnFocusedItem("Anja Friedmann");
 		
 		TestUtil.click(test_site_binoculars, "Test Site Binoculars");
 		TestUtil.type(search_bar, "Search Bar", "Urania Agrochem GmbH" + Keys.ENTER);

@@ -32,6 +32,7 @@ public class EAG_TSF_G005 extends TestBase{
 		createTrialPage = new CreateTrialPage();
 		savedTrialPage = new SavedTrialPage();
 		homePage = loginPage.login(prop.getProperty("us_lgpw"), prop.getProperty("psw_lgpw"));
+		parentTest = extent.createTest("EAG_TSF_G005");
 		
 	}
 	
@@ -42,12 +43,15 @@ public class EAG_TSF_G005 extends TestBase{
 
 	@Test
 	public void testG5() throws IOException, InterruptedException {
+		childTest = parentTest.createNode("Selecting Type");
 		homePage.goToTrials();
 		trialsPage.createTrial();
+		childTest = parentTest.createNode("Filling Editable Fields");
 		createTrialPage.fillOutTrialForm();
+		childTest = parentTest.createNode("Verifying Text Present");
 		savedTrialPage.verifyTrialData();
+		childTest = parentTest.createNode("Checking Cancel Function");
 		savedTrialPage.goToTrials();
-		
 		trialsPage.createTrial();
 		createTrialPage.fillOutTrialFormAndCancel();
 	}
