@@ -15,6 +15,7 @@ import hr.ogcs.qa.pages.HomePage;
 import hr.ogcs.qa.pages.LoginPage;
 import hr.ogcs.qa.pages.SavedStudiesPage;
 import hr.ogcs.qa.pages.StudiesPage;
+import hr.ogcs.qa.util.TestUtil;
 
 public class EAG_TSF_G003 extends TestBase {
 
@@ -51,6 +52,7 @@ public class EAG_TSF_G003 extends TestBase {
 		createStudiesPage.fillOuInternaltForm();
 		childTest = parentTest.createNode("Creating Internal GLP Study - Verifying Text Present");
 		savedStudiesPage.verifyInformation();
+		TestUtil.takeScreenshotAtEndOfTest();
 		childTest = parentTest.createNode("Creating Internal GLP Study - Placeholder Creation And Cancel");
 		savedStudiesPage.goToStudiesPage();
 		studiesPage.createStudies();
@@ -62,22 +64,24 @@ public class EAG_TSF_G003 extends TestBase {
 		loginPage.switchUser();
 		loginPage.login(prop.getProperty("us_globaladmin"), prop.getProperty("psw_globaladmin"));
 		
-		
+		childTest = parentTest.createNode("External GLP Study - Negativ Control: Selecting Type");
 		homePage.GoToStudyQUA();
 		studiesPage.createExternalGLPStudy();
 		createStudiesPage.fillOutExternalGlpStudy();
-//		savedStudiesPage.verifyExternalGlpStudy();
+		savedStudiesPage.verifyExternalGlpStudy();
+		TestUtil.takeScreenshotAtEndOfTest();
 		savedStudiesPage.goToStudiesPage();
-//		studiesPage.createExternalGLPStudy();
-//		createStudiesPage.fillOutExternalGlpStudyAndCancel();
+		studiesPage.createExternalGLPStudy();
+		createStudiesPage.fillOutExternalGlpStudyAndCancel();
 		
 		childTest = parentTest.createNode("External Non GLP Study - Negativ Control: Selecting Type");
 		studiesPage.createNonGLPStudyStudiy();
 		createStudiesPage.fillOutNonGlpStudy();
-//		savedStudiesPage.verifyNonGlpStudy();
-//		savedStudiesPage.goToStudiesPage();
-//		studiesPage.createNonGLPStudyStudiy();
-//		createStudiesPage.fillOutNonGlpStudyAndCancle();
+		savedStudiesPage.verifyNonGlpStudy();
+		TestUtil.takeScreenshotAtEndOfTest();
+		savedStudiesPage.goToStudiesPage();
+		studiesPage.createNonGLPStudyStudiy();
+		createStudiesPage.fillOutNonGlpStudyAndCancle();
 		
 	}
 	
