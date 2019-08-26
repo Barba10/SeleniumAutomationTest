@@ -220,7 +220,7 @@ public class SavedStudiesPage extends TestBase {
 		TestUtil.verifyEquals(lastModifiedDate, "2/1/2019 10:46 AM CET");
 		TestUtil.verifyEquals(id, "OOV000000001E01");
 		
-		
+		jse.executeScript("window.scrollBy(0,-700)", "");
 	}
 	
 	public void verifyExternalGlpStudy() throws IOException, InterruptedException {
@@ -250,6 +250,8 @@ public class SavedStudiesPage extends TestBase {
 		TestUtil.verifyEquals(lifecycle,"Study Lifecycle");
 		TestUtil.verifyEquals(documentLegacyId,"Test Document Legacy ID");
 		TestUtil.verifyEquals(limsStatus,"Test LIMS Status");
+		
+		jse.executeScript("window.scrollBy(0,-700)", "");
 	}
 	
 	public void verifyNonGlpStudy() throws IOException, InterruptedException {
@@ -279,6 +281,8 @@ public class SavedStudiesPage extends TestBase {
 		TestUtil.verifyEquals(lifecycle,"Study Lifecycle");
 		TestUtil.verifyEquals(documentLegacyId,"Test Document Legacy ID");
 		TestUtil.verifyEquals(limsStatus,"Test LIMS Status");
+		
+		jse.executeScript("window.scrollBy(0,-700)", "");
 	}
 	
 	

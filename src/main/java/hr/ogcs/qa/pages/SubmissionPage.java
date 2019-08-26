@@ -135,16 +135,86 @@ public class SubmissionPage extends TestBase{
 	WebElement verify_internal_transfer_date;
 	
 	@FindBy(xpath = "//a[@class='vv_ellipsis vv_crumb crumbLink'][contains(text(),'BAS 595 F (Triticonazole) AIR 3 / 01 Original Subm')]")
-	WebElement go_to_submission;
+	WebElement go_to_submission_active;
+	
 	
 	@FindBy(xpath = "//a[@class='vv_ellipsis vv_crumb crumbLink'][contains(text(),'BAS 750 01 F Core S > BAS 750 01 S / FR')]")
 	WebElement go_to_eu_regulations;
+	
+	@FindBy(xpath = "//a[@class='vv_ellipsis vv_crumb crumbLink'][contains(text(),'2018-01 7969-326 Reg Rev Label')]")
+	WebElement go_to_na_regulations;
+	
+	@FindBy(xpath = "//a[@class='vv_ellipsis vv_crumb crumbLink'][contains(text(),'BAS 222 28 F (Metiram 70 DF) - PH')]")
+	WebElement go_to_sa_regulations;
 	
 	@FindBy(css = "input.veevaSearch_searchInput.vv_searchbar_input")
 	WebElement searchBar;
 	
 	@FindBy(css = "a.addItem.vv_rd_link")
 	WebElement addElement;
+	
+	
+	//Caddy Submission verify data
+	@FindBy(xpath="//span[@selenium-value-name = 'name__v']")
+	WebElement name_in_caddy;
+	
+	@FindBy(xpath="//span[@selenium-value-name = 'state__v']")
+	WebElement caddy_lifecycle_state;
+	
+	@FindBy(xpath="//span[@selenium-value-name = 'submission_date__c']")
+	WebElement caddy_submission_date;
+	
+	@FindBy(xpath="//span[@selenium-value-name = 'caddy_name__c']")
+	WebElement caddy_name;
+	
+	@FindBy(xpath="//span[@selenium-value-name = 'caddy_version__c']")
+	WebElement caddy_version;
+	
+	@FindBy(xpath="//span[@selenium-value-name = 'internal_transfer_date__c']")
+	WebElement caddy_internal_transfer_date;
+
+	@FindBy(xpath="//span[@selenium-value-name = 'incremental_update__c']")
+	WebElement caddy_incremental_update;
+	
+	@FindBy(xpath="//span[@selenium-value-name = 'medium__c']")
+	WebElement caddy_medium;
+	
+	@FindBy(xpath="//div[contains(text(),'Additional Details')]")
+	WebElement caddy_additional_details;
+	
+	@FindBy(xpath="//span[@selenium-value-name = 'created_date__v']")
+	WebElement caddy_created_date;
+	
+	@FindBy(xpath="//div[@class='vv_split_column vv_float_left']//span[@class='userCell']")
+	WebElement caddy_created_by;
+	
+	@FindBy(xpath="//span[@selenium-value-name = 'lifecycle__v']")
+	WebElement caddy_lifecycle;
+	
+	@FindBy(xpath="//span[@selenium-value-name = 'modified_date__v']")
+	WebElement caddy_modified_date;
+	
+	@FindBy(xpath="//div[@class='vv_split_column vv_float_right']//span[@class='userCell']")
+	WebElement caddy_last_modified_by;
+	
+	@FindBy(xpath="//span[@selenium-value-name = 'status__v']")
+	WebElement caddy_status;
+	
+	@FindBy(xpath="//span[3]//div[1]//div[2]//div[1]//a[1]")
+	WebElement caddy_current_dossier;
+	
+	@FindBy(xpath="//span[@selenium-value-name = 'submission__c']")
+	WebElement caddy_submussion;
+	
+	@FindBy(xpath="//span[5]//div[1]//div[2]//div[1]//a[1]")
+	WebElement caddy_previous_dossier;
+	
+	@FindBy(xpath="//span[@selenium-value-name = 'submission_country__c']")
+	WebElement caddy_submission_country;
+	
+	
+	
+	
 	
 	public SubmissionPage(){
 		PageFactory.initElements(driver, this);
@@ -196,7 +266,7 @@ public class SubmissionPage extends TestBase{
 	
 	
 	public void Verify_Details_Tab_Active_Ingredient() throws IOException, InterruptedException {
-		TestUtil.click(go_to_submission, "Go To Submission");
+		TestUtil.click(go_to_submission_active, "Go To Submission");
 		TestUtil.verifyEquals(verify_sub_name, "BAS 595 F (Triticonazole) AIR 3 / 01 Original Submission");
 		TestUtil.verifyEquals(verify_trade_name, "Triticonazole");
 		TestUtil.verifyEquals(verify_regulation, "1107/2009");
@@ -209,7 +279,7 @@ public class SubmissionPage extends TestBase{
 	}
 	
 	public void Verify_Details_Tab_Active_IngredientEU() throws IOException, InterruptedException {
-//		go_to_eu_regulations.click();
+		go_to_eu_regulations.click();
 		TestUtil.verifyEquals(verify_sub_name, "BAS 750 01 F Core S > BAS 750 01 S / FR");
 		TestUtil.verifyEquals(verify_trade_name, "REVYSTAR");
 		TestUtil.verifyEquals(verify_regulation, "1107/2009");
@@ -220,6 +290,34 @@ public class SubmissionPage extends TestBase{
 		TestUtil.verifyEquals(verify_lifecycle_state_sub, "In Progress");
 		TestUtil.verifyEquals(verify_status_sub, "Active");
 		TestUtil.verifyEquals(verify_internal_transfer_date, "31/01/2019");
+	}
+	
+	public void Verify_Details_Tab_Plant_protection_NA() throws IOException, InterruptedException {
+		go_to_na_regulations.click();
+		TestUtil.verifyEquals(verify_sub_name, "2018-01 7969-326 Reg Rev Label");
+		TestUtil.verifyEquals(verify_trade_name, "Bentazon");
+		TestUtil.verifyEquals(verify_regulation, "1107/2009");
+//		TestUtil.verifyEquals(verify_requirement, "");
+		TestUtil.verifyEquals(verify_planned_date, "31/01/2019");
+		TestUtil.verifyEquals(verify_business_segment, "PSS");
+		TestUtil.verifyEquals(verify_lifecycle, "Submission Lifecycle");
+		TestUtil.verifyEquals(verify_lifecycle_state_sub, "In Progress");
+		TestUtil.verifyEquals(verify_status_sub, "Active");
+//		TestUtil.verifyEquals(verify_internal_transfer_date, "31/01/2019");
+	}
+	
+	public void Verify_Details_Tab_Plant_protection_SA() throws IOException, InterruptedException {
+		go_to_sa_regulations.click();
+		TestUtil.verifyEquals(verify_sub_name, "BAS 222 28 F (Metiram 70 DF) - PH");
+		TestUtil.verifyEquals(verify_trade_name, "Metiram");
+		TestUtil.verifyEquals(verify_regulation, "1107/2009");
+		TestUtil.verifyEquals(verify_requirement, "");
+		TestUtil.verifyEquals(verify_planned_date, "31/01/2019");
+		
+		TestUtil.verifyEquals(verify_lifecycle, "Submission Lifecycle");
+		TestUtil.verifyEquals(verify_lifecycle_state_sub, "In Progress");
+		TestUtil.verifyEquals(verify_status_sub, "Active");
+//		TestUtil.verifyEquals(verify_internal_transfer_date, "31/01/2019");
 	}
 	
 	public void SubmissionCountriesEU() throws InterruptedException {
@@ -254,6 +352,99 @@ public class SubmissionPage extends TestBase{
 	public void CancelAndContinue() {
 		TestUtil.click(cancel, "Cancel");
 		TestUtil.click(cancel_continue, "Cancel Continue");
+	}
+	
+	
+	public void VerifyCaddySubmissionActive () throws IOException, InterruptedException {
+		TestUtil.verifyEquals(name_in_caddy, "BAS 595 F (Triticonazole) AIR 3 / 01 Original Submission");
+		TestUtil.verifyEquals(caddy_submussion, "BAS 595 F (Triticonazole) AIR 3 / 01 Original Submission");
+		TestUtil.verifyEquals(caddy_current_dossier, "EU Dossier Triticonazole 2009");
+		TestUtil.verifyEquals(caddy_previous_dossier, "EU Dossier Triticonazole History VDN (original + confimatory data 2009)");
+		TestUtil.verifyEquals(caddy_lifecycle_state, "Active");
+		TestUtil.verifyEquals(caddy_submission_country, "France");
+		TestUtil.verifyEquals(caddy_submission_date, "01/31/2019");
+		TestUtil.verifyEquals(caddy_name, "Triticonazole_Jan2019");
+		TestUtil.verifyEquals(caddy_version, "1.1");
+		TestUtil.verifyEquals(caddy_incremental_update, "Yes");
+		TestUtil.verifyEquals(caddy_internal_transfer_date, "01/31/2019");
+		TestUtil.verifyEquals(caddy_medium, "Electronic Transfer");
+		
+		TestUtil.click(caddy_additional_details, "Additional Details");
+		TestUtil.verifyEquals(caddy_created_date, "31/01/2019 11:21 CET");
+		TestUtil.verifyEquals(caddy_created_by, "Nadja Schnetzer");
+		TestUtil.verifyEquals(caddy_lifecycle, "Submission Dossier");
+		TestUtil.verifyEquals(caddy_last_modified_by, "31/01/2019 11:21 CET");
+		TestUtil.verifyEquals(caddy_last_modified_by, "Nadja Schnetzer");
+		TestUtil.verifyEquals(caddy_status, "Active");
+	}
+	
+	public void VerifyCaddySubmissionEU () throws IOException, InterruptedException {
+		TestUtil.verifyEquals(name_in_caddy, "BAS 750 01 F Core S > BAS 750 01 S / FR");
+		TestUtil.verifyEquals(caddy_submussion, "BAS 750 01 F Core S > BAS 750 01 S / FR");
+		TestUtil.verifyEquals(caddy_current_dossier, "BAS 750 F - Mefentrifluconazole");
+		TestUtil.verifyEquals(caddy_previous_dossier, "BAS 750 01 F FR");
+		TestUtil.verifyEquals(caddy_lifecycle_state, "Active");
+		TestUtil.verifyEquals(caddy_submission_country, "France");
+		TestUtil.verifyEquals(caddy_submission_date, "31/01/2019");
+		TestUtil.verifyEquals(caddy_name, "Mefentrifluconazole_Jan2019");
+		TestUtil.verifyEquals(caddy_version, "1.1");
+		TestUtil.verifyEquals(caddy_incremental_update, "Yes");
+		TestUtil.verifyEquals(caddy_internal_transfer_date, "01/31/2019");
+		TestUtil.verifyEquals(caddy_medium, "Caddy");
+		
+		TestUtil.click(caddy_additional_details, "Additional Details");
+		TestUtil.verifyEquals(caddy_created_date, "31/01/2019 11:21 CET");
+		TestUtil.verifyEquals(caddy_created_by, "Nadja Schnetzer");
+		TestUtil.verifyEquals(caddy_lifecycle, "Submission Dossier");
+		TestUtil.verifyEquals(caddy_last_modified_by, "31/01/2019 11:21 CET");
+		TestUtil.verifyEquals(caddy_last_modified_by, "Nadja Schnetzer");
+		TestUtil.verifyEquals(caddy_status, "Active");
+	}
+	
+	public void VerifyCaddySubmissionNA () throws IOException, InterruptedException {
+		TestUtil.verifyEquals(name_in_caddy, "2018-01 7969-326 Reg Rev Label");
+		TestUtil.verifyEquals(caddy_submussion, "2018-01 7969-326 Reg Rev Label");
+		TestUtil.verifyEquals(caddy_current_dossier, "BAS 351 H (Bentazon) JMPR");
+		TestUtil.verifyEquals(caddy_previous_dossier, "BAS 351 H (Bentazon) JMPR 2017");
+		TestUtil.verifyEquals(caddy_lifecycle_state, "Active");
+		TestUtil.verifyEquals(caddy_submission_country, "United States of America");
+		TestUtil.verifyEquals(caddy_submission_date, "01/31/2019");
+		TestUtil.verifyEquals(caddy_name, "Bentazon_Jan2019");
+		TestUtil.verifyEquals(caddy_version, "1.1");
+		TestUtil.verifyEquals(caddy_incremental_update, "Yes");
+		TestUtil.verifyEquals(caddy_internal_transfer_date, "1/31/2019");
+		TestUtil.verifyEquals(caddy_medium, "Caddy");
+		
+		TestUtil.click(caddy_additional_details, "Additional Details");
+		TestUtil.verifyEquals(caddy_created_date, "31/01/2019 11:21 CET");
+		TestUtil.verifyEquals(caddy_created_by, "Nadja Schnetzer");
+		TestUtil.verifyEquals(caddy_lifecycle, "Submission Dossier");
+		TestUtil.verifyEquals(caddy_last_modified_by, "31/01/2019 11:21 CET");
+		TestUtil.verifyEquals(caddy_last_modified_by, "Nadja Schnetzer");
+		TestUtil.verifyEquals(caddy_status, "Active");
+	}
+	
+	public void VerifyCaddySubmissionSA () throws IOException, InterruptedException {
+		TestUtil.verifyEquals(name_in_caddy, "BAS 222 28 F (Metiram 70 DF) - PH");
+		TestUtil.verifyEquals(caddy_submussion, "BAS 222 28 F (Metiram 70 DF) - PH");
+		TestUtil.verifyEquals(caddy_current_dossier, "BAS 222 F (Metiram)");
+		TestUtil.verifyEquals(caddy_previous_dossier, "BAS 222 F (Metiram) Replacement");
+		TestUtil.verifyEquals(caddy_lifecycle_state, "Active");
+		TestUtil.verifyEquals(caddy_submission_country, "Chile");
+		TestUtil.verifyEquals(caddy_submission_date, "01/31/2019");
+		TestUtil.verifyEquals(caddy_name, "Metiram_Jan2019");
+		TestUtil.verifyEquals(caddy_version, "1.1");
+		TestUtil.verifyEquals(caddy_incremental_update, "Yes");
+		TestUtil.verifyEquals(caddy_internal_transfer_date, "01/31/2019");
+		TestUtil.verifyEquals(caddy_medium, "Electronic Transfer");
+		
+		TestUtil.click(caddy_additional_details, "Additional Details");
+		TestUtil.verifyEquals(caddy_created_date, "31/01/2019 11:21 CET");
+		TestUtil.verifyEquals(caddy_created_by, "Nadja Schnetzer");
+		TestUtil.verifyEquals(caddy_lifecycle, "Submission Dossier");
+		TestUtil.verifyEquals(caddy_last_modified_by, "31/01/2019 11:21 CET");
+		TestUtil.verifyEquals(caddy_last_modified_by, "Nadja Schnetzer");
+		TestUtil.verifyEquals(caddy_status, "Active");
 	}
 	
 }

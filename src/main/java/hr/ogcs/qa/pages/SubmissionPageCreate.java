@@ -386,7 +386,7 @@ public class SubmissionPageCreate extends TestBase {
 	
 	public void PPP_SA_Submission_Main() throws IOException, InterruptedException {
 		
-		TestUtil.type(name, "Name", "2AS 222 28 F (Metiram 70 DF) - PH");
+		TestUtil.type(name, "Name", "BAS 222 28 F (Metiram 70 DF) - PH");
 		TestUtil.type(trade_name, "Trade Name", "Metiram");
 
 		actions.doubleClick(app_name_binocular).perform();

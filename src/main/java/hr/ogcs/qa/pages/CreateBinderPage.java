@@ -377,7 +377,7 @@ public class CreateBinderPage extends TestBase {
 		TestUtil.type(remarks, "Remarks", "nothing");
 
 		
-		jse.executeScript("window.scrollBy(0,-400)", "");
+		jse.executeScript("window.scrollBy(0,-700)", "");
 		Thread.sleep(5000);
 		TestUtil.click(cancel_button, "Cancel Button");
 		TestUtil.click(continue_button, "Continue Button");

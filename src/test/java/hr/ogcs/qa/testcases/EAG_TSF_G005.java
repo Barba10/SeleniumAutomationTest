@@ -12,6 +12,7 @@ import hr.ogcs.qa.pages.HomePage;
 import hr.ogcs.qa.pages.LoginPage;
 import hr.ogcs.qa.pages.SavedTrialPage;
 import hr.ogcs.qa.pages.TrialsPage;
+import hr.ogcs.qa.util.TestUtil;
 
 
 public class EAG_TSF_G005 extends TestBase{
@@ -31,8 +32,9 @@ public class EAG_TSF_G005 extends TestBase{
 		trialsPage = new TrialsPage();
 		createTrialPage = new CreateTrialPage();
 		savedTrialPage = new SavedTrialPage();
-		homePage = loginPage.login(prop.getProperty("us_lgpw"), prop.getProperty("psw_lgpw"));
 		parentTest = extent.createTest("EAG_TSF_G005");
+		homePage = loginPage.login(prop.getProperty("us_lgpw"), prop.getProperty("psw_lgpw"));
+		
 		
 	}
 	
@@ -48,6 +50,7 @@ public class EAG_TSF_G005 extends TestBase{
 		trialsPage.createTrial();
 		childTest = parentTest.createNode("Filling Editable Fields");
 		createTrialPage.fillOutTrialForm();
+		TestUtil.takeScreenshotAtEndOfTest();
 		childTest = parentTest.createNode("Verifying Text Present");
 		savedTrialPage.verifyTrialData();
 		childTest = parentTest.createNode("Checking Cancel Function");
