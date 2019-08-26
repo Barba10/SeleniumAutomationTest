@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -121,65 +122,21 @@ public class ApplicationsPage extends TestBase {
 	
 	public void FillFormPPP() throws InterruptedException {
 		TestUtil.type(form_name, "Name", "BAS 750 01 F Core C" + " " + TestUtil.RandomName(5));
-		
-		Actions actions = new Actions(driver);
-		actions.doubleClick(form_app_subtype_binocular).perform();
-		System.out.print("APP Subtype Binocular clicked");
-		TestUtil.type(form_search_label, "Search Label", "Fungicide" + Keys.ENTER);
-
-		TestUtil.click(form_fungicide_value, "Add Button");
-				
-		//Dossier Admin
-		TestUtil.click(form_dossier_admin_binocular, " Dossier Admin Binocular");
-		TestUtil.type(form_search_label, "Search Label", "Stephanie Walburg" + Keys.ENTER);
-		TestUtil.click(form_binocular_value, "Add Button");
-		
-		//Region 
-		TestUtil.click(form_region_binocular, "Region Binocular");
-		TestUtil.type(form_search_label, "Search Label", "Europe" + Keys.ENTER);
-		TestUtil.click(form_binocular_value, "Add Button");
-		
-		//Rapporteur
-		TestUtil.click(form_rapporteur_binocular, "Rapporteur Binocular");
-		TestUtil.type(form_search_label, "Search Label", "Austria Rep. of" + Keys.ENTER);
-		TestUtil.click(form_binocular_value, "Add Button");
-		
-		//Product code
-		TestUtil.click(form_product_code_binocular, "Product Code Binocular");
-		TestUtil.type(form_search_label, "Search Label", "BAS 750 01 F" + Keys.ENTER);
-		TestUtil.click(form_binocular_value, "Add Button");
+		TestUtil.clickBinocular(form_app_subtype_binocular, "APP Subtype Binocular", "Fungicide", form_fungicide_value);
+		TestUtil.clickBinocular(form_dossier_admin_binocular, "Dossier Admin Binocular", "Stephanie Walburg", form_binocular_value);
+		TestUtil.clickBinocular(form_region_binocular, "Region Binocular", "Europe", form_binocular_value);
+		TestUtil.clickBinocular(form_rapporteur_binocular, "Rapporteur Binocular", "Austria", form_binocular_value);
+		TestUtil.clickBinocular(form_product_code_binocular, "Product Code Binocular", "BAS 750 01 F", form_binocular_value);
 	}
 	
 	
 	public void FillFormActiveIngredient() {
 		TestUtil.type(form_name, "Name", "BAS 750 F (Mefentrifluconazole) JMPR" + " " + TestUtil.RandomName(5));
-		
-		//Application Subtype
-		Actions actions = new Actions(driver);
-		actions.doubleClick(form_app_subtype_binocular).perform();
-		System.out.print("APP Subtype Binocular clicked");
-		TestUtil.type(form_search_label, "Search Label", "JMPR" + Keys.ENTER);
-		TestUtil.click(form_binocular_value, "Add Button");
-	
-		//Dossier Admin
-		TestUtil.click(form_dossier_admin_binocular, " Dossier Admin Binocular");
-		TestUtil.type(form_search_label, "Search Label", "Stephanie Walburg" + Keys.ENTER);
-		TestUtil.click(form_binocular_value, "Add Button");
-		
-		//Region 
-		TestUtil.click(form_region_binocular, "Region Binocular");
-		TestUtil.type(form_search_label, "Search Label", "Europe" + Keys.ENTER);
-		TestUtil.click(form_binocular_value, "Add Button");
-		
-		//Rapporteur
-		TestUtil.click(form_rapporteur_binocular, "Rapporteur Binocular");
-		TestUtil.type(form_search_label, "Search Label", "Austria Rep. of" + Keys.ENTER);
-		TestUtil.click(form_binocular_value, "Add Button");
-		
-		//Ingredient Code
-		TestUtil.click(form_ingredient_code_binocular, "Ingredient Code Binocular");
-		TestUtil.type(form_search_label, "Search Label", "BAS 750 F" + Keys.ENTER);
-		TestUtil.click(form_binocular_value, "Add Button");
+		TestUtil.clickBinocular(form_app_subtype_binocular, "APP Subtype Binocular", "JMPR", form_binocular_value);
+		TestUtil.clickBinocular(form_dossier_admin_binocular, "Dossier Admin Binocular", "Stephanie Walburg", form_binocular_value);
+		TestUtil.clickBinocular(form_region_binocular, "Region Binocular", "Europe", form_binocular_value);
+		TestUtil.clickBinocular(form_rapporteur_binocular, "Rapporteur Binocular", "Austria", form_binocular_value);
+		TestUtil.clickBinocular(form_ingredient_code_binocular, "Ingredient Code Binocular", "BAS 750 F", form_binocular_value);
 	}
 	
 	
@@ -248,7 +205,7 @@ public class ApplicationsPage extends TestBase {
 		TestUtil.verifyEquals(value_dossier_admin, "Stephanie Walburg");
 		TestUtil.verifyEquals(value_region, "Europe");
 		TestUtil.verifyEquals(value_rapporteur, "Austria Rep. of");
-		TestUtil.verifyEquals(value_ingredient_code, "BAS 750 01 F");
+		TestUtil.verifyEquals(value_ingredient_code, "BAS 750 F");
 		TestUtil.verifyEquals(value_status, "Active");
 	}
 	

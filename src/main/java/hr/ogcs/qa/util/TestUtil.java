@@ -12,24 +12,24 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import com.aventstack.extentreports.MediaEntityBuilder;
 
 import hr.ogcs.qa.base.TestBase;
 
 public class TestUtil extends TestBase {
 
+	
 	public static long PAGE_LOAD_TIMEOUT = 20;
-	public static long IMPLICIT_WAIT = 20;
+	public static long IMPLICIT_WAIT = 10;
 
 	static JavascriptExecutor js;
 	
@@ -43,7 +43,7 @@ public class TestUtil extends TestBase {
 	public static void takeScreenshotAtEndOfTest() throws IOException {
 		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		String currentDir = System.getProperty("user.dir");
-		String fileLocation = currentDir + "/screenshots/" + System.currentTimeMillis() + ".png";
+		String fileLocation = currentDir + "extents/screenshots/" + System.currentTimeMillis() + ".png";
 		FileUtils.copyFile(scrFile, new File(fileLocation));
 		childTest.addScreenCaptureFromPath(fileLocation,"Screenshoot");
 		childTest.info("Taking Screenshoot");
@@ -107,7 +107,7 @@ public class TestUtil extends TestBase {
 				//logger.log(Status.FAIL, t.getMessage());
 			    System.out.println("Error with verifying " + text);
 			    System.out.println(t.getMessage());
-		    	childTest.info("Error with verifying " + text + t.getMessage());
+		    	childTest.info("Error with verifying " + text + " " +  t.getMessage());
 			}
 		}
 	}
@@ -210,10 +210,6 @@ public class TestUtil extends TestBase {
 	
 	public static void click(WebElement element, String elementName)  {		
 		// wait doesn't work with radio button
-		
-		
-		
-		
 		if(!hasElementAtributeRadio(element)) {	
 			try {
 				wait.until(ExpectedConditions.elementToBeClickable(element));
@@ -247,9 +243,43 @@ public class TestUtil extends TestBase {
 		}
 	}
 	
+	public static void doubleClick(WebElement element, String elementName)  {		
+		// wait doesn't work with radio button
+		if(!hasElementAtributeRadio(element)) {	
+			try {
+				wait.until(ExpectedConditions.elementToBeClickable(element));
+				Actions actions = new Actions(driver);
+				actions.doubleClick(element).perform();
+				System.out.print(elementName + " is clicked \n");	
+		    	childTest.info(elementName + " is clicked");
+			} catch (StaleElementReferenceException e) {
+				for (int i = 0; i <= 30; i++) {
+					try {
+						boolean exists = false;
+						driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+						Actions actions = new Actions(driver);
+						actions.doubleClick(element).perform();
+						exists = true;
+						if (exists) {
+							System.out.print(elementName + " is clicked \n");	
+					    	childTest.info(elementName + " is clicked");
+							break;
+						}
+						driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+					} catch (StaleElementReferenceException e1) {
+						if (i == 30) {
+							throw e1;
+						}
+					}
+				}
+			}
+		}else {
+			element.click();
+			System.out.print(elementName + " is clicked \n");	
+			childTest.info(elementName + " is clicked");
+		}
+	}
 	
-
-		
 	//Type function
 	public static void type(WebElement element, String elementName, String typedText) {
 		//clearing field before entering text
@@ -262,20 +292,38 @@ public class TestUtil extends TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 		element.sendKeys(Keys.chord(Keys.CONTROL, "a"),typedText);
 		System.out.println("Typed in " + elementName + ": " + typedText);
-		
 		childTest.info("Typed in " + elementName + ": " + typedText);
 	}
 	
 	//Type function
-		public static void select(WebElement element, String elementName, String elementToSelect) {
-			//clearing field before entering text
-		
-			wait.until(ExpectedConditions.visibilityOf(element));
-			Select Select = new Select(element);
-			Select.selectByVisibleText(elementToSelect);
-			System.out.println(elementToSelect + " is selected from " + elementName);
-			childTest.info(elementToSelect + " is selected from " + elementName);
+	public static void select(WebElement element, String elementName, String elementToSelect) {
+		//clearing field before entering text
+	
+		wait.until(ExpectedConditions.visibilityOf(element));
+		Select Select = new Select(element);
+		Select.selectByVisibleText(elementToSelect);
+		System.out.println(elementToSelect + " is selected from " + elementName);
+		childTest.info(elementToSelect + " is selected from " + elementName);
 
+	}
+
+	
+	public static void clickBinocular(WebElement element, String elementName, String toSearch, WebElement addButton){
+		Boolean visible = false;
+		WebElement form_search_label = null;
+		do {
+			  click(element, elementName);
+			  try{
+				  form_search_label = driver.findElement(By.cssSelector("input.veevaSearch_searchInput.vv_searchbar_input"));
+				  visible = true;
+		      }
+		      catch(NoSuchElementException e){
+		    	  System.out.print("EXECPTION");
+				  visible = false;
+		       }
 		}
-
+		while (!visible);
+		type(form_search_label, "Search Label", toSearch + Keys.ENTER);
+		click(addButton, "Add Button");
+	}
 }

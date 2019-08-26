@@ -1,20 +1,18 @@
 package hr.ogcs.qa.testcases;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import hr.ogcs.qa.base.TestBase;
-import hr.ogcs.qa.pages.DocumentPage;
 import hr.ogcs.qa.pages.HomePage;
-import hr.ogcs.qa.pages.LibraryPage;
 import hr.ogcs.qa.pages.LoginPage;
 import hr.ogcs.qa.pages.SubmissionPage;
 import hr.ogcs.qa.pages.SubmissionPageCreate;
 import hr.ogcs.qa.pages.SubmissionPageSave;
-import hr.ogcs.qa.pages.WhereUsedPage;
 import hr.ogcs.qa.util.TestUtil;
 
 public class EAG_TSF_D002 extends TestBase{
@@ -30,7 +28,7 @@ public class EAG_TSF_D002 extends TestBase{
 	}
 	
 	@BeforeMethod
-	public void setUp() {
+	public void setUp() throws MalformedURLException {
     	parentTest = extent.createTest("EAG_TSF_D002");
 		initialization();
 		loginPage = new LoginPage();

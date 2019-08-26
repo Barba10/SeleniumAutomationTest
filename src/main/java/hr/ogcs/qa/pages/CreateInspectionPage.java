@@ -230,7 +230,7 @@ public class CreateInspectionPage extends TestBase {
 		TestUtil.type(form_request_item, "Request Item", "Others");
 		TestUtil.ClickOnFocusedItem("Others");
 		
-		TestUtil.type(form_request_item_others, "Request Item (Others)", "Validation - Description Inspection 001");
+		TestUtil.type(form_request_item_others, "Request Item (Others)", "Validation Request Other");
 		TestUtil.type(form_planned_start_date, "Planned Start Date", "10/29/2018");
 		TestUtil.type(form_planned_end_date, "Planned End Date", "10/29/2018");
 		TestUtil.type( form_actual_start_date, "Actual Start Date", "10/29/2018");
@@ -242,7 +242,6 @@ public class CreateInspectionPage extends TestBase {
 	}
 	
 	public void FillDocumentInspection() throws InterruptedException {
-
 		form_glp_inspector.sendKeys("QAU Writer1, Lihof");
 		TestUtil.type(form_glp_inspector, "GLP Inspector", "QAU Writer1, Lihof");
 		TestUtil.ClickOnFocusedItem("QAU Writer1, Lihof");

@@ -1,6 +1,7 @@
 package hr.ogcs.qa.testcases;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -23,7 +24,7 @@ public class EAG_TSF_D003 extends TestBase {
 	}
 	
 	@BeforeMethod
-	public void setUp() {
+	public void setUp() throws MalformedURLException {
 		initialization();
 		parentTest = extent.createTest("EAG_TSF_D003");
 		loginPage = new LoginPage();

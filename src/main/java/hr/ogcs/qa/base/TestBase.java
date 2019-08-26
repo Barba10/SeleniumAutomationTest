@@ -3,16 +3,25 @@ package hr.ogcs.qa.base;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 import static org.testng.Assert.assertEquals;
 
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Platform;
+import org.openqa.selenium.UnexpectedAlertBehaviour;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterSuite;
@@ -39,8 +48,8 @@ public class TestBase {
 	public static ExtentTest parentTest;
 	public static ExtentTest childTest;
 	public static ExtentTest grandChildTest;
-
-
+	private static Boolean remoteWeb = true;
+	
 	
 	public TestBase(){
 		try {
@@ -64,34 +73,48 @@ public class TestBase {
 	
 	@AfterSuite
 	public void afterSuite() {
+    	System.out.print("After suite");
 		extent.flush();
 	}
 
 	
-	public static void initialization(){
-		String browserName = prop.getProperty("browser");
-		
-		if(browserName.equals("chrome")){
-			System.setProperty("webdriver.chrome.driver", "chromedriver.exe");	
-			driver = new ChromeDriver(); 
-		}
+	public static void initialization() throws MalformedURLException{
 
+		if(remoteWeb) {
+			DesiredCapabilities caps = DesiredCapabilities.chrome();
+			ChromeOptions  chrome_options = new ChromeOptions();
+			chrome_options.addArguments("--no-sandbox", "--disable-setuid-sandbox");		
+			caps.setBrowserName("chrome");
+			caps.setPlatform(Platform.LINUX);
+			caps.setCapability(ChromeOptions.CAPABILITY, chrome_options);
+			caps.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.IGNORE);
+
+			driver = new RemoteWebDriver(new URL(prop.getProperty("seleniumadress")), caps);
+			jse = (JavascriptExecutor) driver; 
+			//setting local file detector that server recognize place from whome to load files
+			//without it, it can't load files in test
+		}
+		else {
+			String browserName = prop.getProperty("browser");
+			if(browserName.equals("chrome")){
+				System.setProperty("webdriver.chrome.driver", "chromedriver.exe");	
+				driver = new ChromeDriver(); 
+			}
+		}
+		
 		e_driver = new EventFiringWebDriver(driver);
 		// Now create object of EventListerHandler to register it with EventFiringWebDriver
 		eventListener = new WebEventListener();
 		e_driver.register(eventListener);
-		
-		wait = new WebDriverWait(driver, 20);
+		wait = new WebDriverWait(driver, 10);
 		jse = (JavascriptExecutor) driver; 
 		driver = e_driver;
-		
-		driver.manage().window().maximize();
+	    driver.manage().window().setSize(new Dimension(1536,864));
+
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
 		driver.get("https://login.veevavault.com/");
-		
-		
 	}
 	
 

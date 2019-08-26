@@ -1,6 +1,7 @@
 package hr.ogcs.qa.testcases;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 
 import javax.swing.Box.Filler;
 
@@ -24,7 +25,7 @@ public class EAG_TSF_G003 extends TestBase {
 	SavedStudiesPage savedStudiesPage;
 	
 	@BeforeMethod
-	public void setUp() {
+	public void setUp() throws MalformedURLException {
 		initialization();
 		parentTest = extent.createTest("EAG_TSF_G003");
 		loginPage = new LoginPage();

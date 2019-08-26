@@ -94,7 +94,7 @@ public class LibraryPage extends TestBase {
 	
 	public void OpenUploadedDocument() {
 		wait.until(ExpectedConditions.visibilityOf(doc_inbox));
-		TestUtil.click(uploaded_document, "Uploaded document");
+		TestUtil.click(uploaded_document, "Library - Uploaded document");
 	}
 	
 	

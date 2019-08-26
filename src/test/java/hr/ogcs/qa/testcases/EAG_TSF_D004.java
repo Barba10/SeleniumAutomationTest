@@ -1,6 +1,7 @@
 package hr.ogcs.qa.testcases;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -12,6 +13,7 @@ import hr.ogcs.qa.pages.HomePage;
 import hr.ogcs.qa.pages.LibraryPage;
 import hr.ogcs.qa.pages.LoginPage;
 import hr.ogcs.qa.pages.UploadPage;
+import hr.ogcs.qa.util.TestUtil;
 
 public class EAG_TSF_D004 extends TestBase{
 
@@ -26,7 +28,7 @@ public class EAG_TSF_D004 extends TestBase{
 	}
 	
 	@BeforeMethod
-	public void setUp() {
+	public void setUp() throws MalformedURLException {
     	parentTest = extent.createTest("EAG_TSF_D004");
 		initialization();
 		loginPage = new LoginPage();
@@ -58,6 +60,7 @@ public class EAG_TSF_D004 extends TestBase{
 		//d004.05
 	  	childTest = parentTest.createNode("Verifying Text Present");
 		documentPage.TextVerifycation();
+		TestUtil.takeScreenshotAtEndOfTest();
 		
 		//d004.06
 	  	childTest = parentTest.createNode("Checking Cancel Function");

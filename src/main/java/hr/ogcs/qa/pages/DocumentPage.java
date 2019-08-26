@@ -278,6 +278,7 @@ public class DocumentPage extends TestBase{
 	public void ClassificationOfUploadedDocument() throws InterruptedException {
 		TestUtil.click(actionWheel, "Action Wheel");
 	    jse.executeScript("arguments[0].click();", classify_link);
+    	childTest.info("Classify "+ " is clicked (jse.executeScript)");
 	    System.out.print("Classify is clicked \n");
 		//classify_link.click();
 		TestUtil.click(advanced_link, "Advanced");

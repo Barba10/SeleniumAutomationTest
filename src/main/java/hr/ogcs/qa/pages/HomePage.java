@@ -91,9 +91,8 @@ public class HomePage extends TestBase {
 	
 	//C15
 	public void GoToTestControlReferance() {
-		//wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[@name='products1__c']//span[contains(text(),'Products')]")));
 		TestUtil.click(products, "Product");
-		TestUtil.click(testControlReferance, "Test Control Reference");
+		TestUtil.click(testControlReferance, "Test/Control/Reference Items");
 	}
 	
 	//A1	

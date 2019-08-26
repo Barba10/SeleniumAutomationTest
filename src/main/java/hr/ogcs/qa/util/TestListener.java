@@ -32,7 +32,8 @@ public class TestListener extends TestBase implements ITestListener {
     }		
 
     @Override		
-    public void onTestFailure(ITestResult arg0) {					
+    public void onTestFailure(ITestResult arg0) {	
+    	System.out.print("On test failure");
         // TODO Auto-generated method stub				
     	childTest.fail(arg0.getThrowable());
     	try {

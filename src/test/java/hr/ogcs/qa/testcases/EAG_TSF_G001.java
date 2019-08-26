@@ -1,6 +1,7 @@
 package hr.ogcs.qa.testcases;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -24,7 +25,7 @@ public class EAG_TSF_G001 extends TestBase{
 	}
 	
 	@BeforeMethod
-	public void setUp() {
+	public void setUp() throws MalformedURLException {
     	parentTest = extent.createTest("EAG_TSF_G001");
 		initialization();
 		loginPage = new LoginPage();
@@ -38,8 +39,8 @@ public class EAG_TSF_G001 extends TestBase{
 	public void EAG_TSF_G001() throws InterruptedException, IOException{
 	  	  childTest = parentTest.createNode("Computerized System Inspection - Selecting Type");
 		  homePage.GoToInspections();
-	  	  childTest = parentTest.createNode("Computerized System Inspection - Filling Editable Fields");
 		  inspectionsPage.SelectComputerizedSystemInspection();
+	  	  childTest = parentTest.createNode("Computerized System Inspection - Filling Editable Fields");
 		  createInspectionPage.FillComputerizedSystemInspection();
 	  	  childTest = parentTest.createNode("Computerized System Inspection - Verifying Text Present");
 		  createInspectionPage.ComputerizedSystemInspectionVerifycation();
@@ -47,8 +48,9 @@ public class EAG_TSF_G001 extends TestBase{
 		
 	  	  childTest = parentTest.createNode("Document Inspection - Selecting Type");
 		  homePage.GoToInspections(); 
-	  	  childTest = parentTest.createNode("Document Inspection - Filling Editable Fields");
 		  inspectionsPage.SelectDocumentInspection();
+
+	  	  childTest = parentTest.createNode("Document Inspection - Filling Editable Fields");
 		  createInspectionPage.FillDocumentInspection();
 	  	  childTest = parentTest.createNode("Document Inspection - Verifying Text Present");
 		  createInspectionPage.DocumentInspectionVerifycation();
@@ -56,8 +58,8 @@ public class EAG_TSF_G001 extends TestBase{
 		  
 	  	  childTest = parentTest.createNode("Facility Inspection - Selecting Type");
 		  homePage.GoToInspections(); 
-	  	  childTest = parentTest.createNode("Facility Inspection - Filling Editable Fields");
 		  inspectionsPage.SelectFacilityInspection();
+	  	  childTest = parentTest.createNode("Facility Inspection - Filling Editable Fields");
 		  createInspectionPage.FillFacilityInspection();
 	  	  childTest = parentTest.createNode("Facility Inspection - Verifying Text Present");
 		  createInspectionPage.FacilityInspectionVerifycation();
@@ -65,8 +67,8 @@ public class EAG_TSF_G001 extends TestBase{
 		  
 	  	  childTest = parentTest.createNode("Instrument Inspection - Selecting Type");
 		  homePage.GoToInspections(); 
-	  	  childTest = parentTest.createNode("Instrument Inspection - Filling Editable Fields");
 		  inspectionsPage.SelectInstrumentInspection();
+	  	  childTest = parentTest.createNode("Instrument Inspection - Filling Editable Fields");
 		  createInspectionPage.FillInstrumentInspection();
 	  	  childTest = parentTest.createNode("Instrument Inspection - Verifying Text Present");
 		  createInspectionPage.InstrumentInspectionVerifycation();
@@ -74,8 +76,8 @@ public class EAG_TSF_G001 extends TestBase{
 		  
 	  	  childTest = parentTest.createNode("Study based Inspection - Selecting Type");
 		  homePage.GoToInspections(); 
-	  	  childTest = parentTest.createNode("Study based Inspection - Filling Editable Fields");
 		  inspectionsPage.SelectStudyBasedInspection();
+	  	  childTest = parentTest.createNode("Study based Inspection - Filling Editable Fields");
 		  createInspectionPage.FillStudyBasedInspection();
 	  	  childTest = parentTest.createNode("Study based Inspection - Verifying Text Present");
 		  createInspectionPage.StudyBasedVerifycation();
