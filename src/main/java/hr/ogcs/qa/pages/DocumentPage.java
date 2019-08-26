@@ -1,7 +1,9 @@
 package hr.ogcs.qa.pages;
 
 import java.io.IOException;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import org.openqa.selenium.By;
@@ -177,8 +179,8 @@ public class DocumentPage extends TestBase{
 	
 	@FindBy(xpath="//*[contains(text(), 'Regulatory Information')]")
 	WebElement regulatory_information_tab;
-	
-	
+	 
+
 	// Initializing the Page Objects:
 	public DocumentPage() {
 		PageFactory.initElements(driver, this);
@@ -206,32 +208,17 @@ public class DocumentPage extends TestBase{
 	}
 	
 	public void FillForm(){
-		//wait.until(ExpectedConditions.elementToBeClickable(generalTab));
 		TestUtil.click(generalTab, "General Tab (Closing tab)");
-		//wait.until(ExpectedConditions.invisibilityOf(name));
 		jse.executeScript("window.scrollBy(0,250)", "");
-		//wait.until(ExpectedConditions.elementToBeClickable(archival_information_tab));
 		TestUtil.click(archival_information_tab, "Archival information tab");
-
-		//wait.until(ExpectedConditions.elementToBeClickable(archival_information_tab));
 		TestUtil.click(electronicallyArchivedYes, "Electronically Archived Yes");
-
-		//wait.until(ExpectedConditions.elementToBeClickable(electronicallyArchivedYes));
 		TestUtil.type(internalStorage, "Internal Storage" ,"Li445");
 		TestUtil.type(boxNumber, "Box Number", "7A");
 		TestUtil.type(externalStorage, "External Storage", "NA");
-
-		TestUtil.click(commentsTab, "Comments Tab");
-		TestUtil.click(name_remarks, "Name remarks");
-		
-		//wait.until(ExpectedConditions.elementToBeClickable(name_remarks));
-		
+		TestUtil.click(commentsTab, "Comments Tab");		
 		TestUtil.type(name_remarks, "Name Remarks",  "EAGLES Validation of: Document archiving of internal GLP study documents");
-
 		jse.executeScript("window.scrollBy(0,-1000)", "");
-		
 		TestUtil.click(saveBtn, "Save Button");
-
 	}
 	
 	public void ArchiveNegative() {
@@ -264,28 +251,22 @@ public class DocumentPage extends TestBase{
 		Thread.sleep(2000);
 		//wait.until(ExpectedConditions.elementToBeClickable(waitForArchiveInformationTabVerifycation));
 		jse.executeScript("window.scrollBy(0,250)", "");
-
 		TestUtil.click(archiveInformationTab, "Archive Information Tab");
-
-		/* TestUtil.verifyEquals(verifyArchivedDate ); */
+		TestUtil.verifyEquals(verifyArchivedDate, d.format(now)); 
 		TestUtil.verifyEquals(verifyElectorinallyArchivedYes, "Yes");
 		TestUtil.verifyEquals(verifyInternalStorage, "Li445");
 		TestUtil.verifyEquals(verifyBoxNumber, "7A");
 		TestUtil.verifyEquals(verifyExternalStorage, "NA");		
 		TestUtil.verifyEquals(verifyDivestedDocumentsReceipt, "Divested Documents Receipt");
 		TestUtil.verifyEquals(verifyDivestedto, "Divested to");
-		TestUtil.verifyEquals(verifyDivestedon, "Divested on");			
+		TestUtil.verifyEquals(verifyDivestedon, "Divested on");	
+		TestUtil.click(commentsTab, "Comments Tab - Open Tab");
+		TestUtil.verifyEquals(verifyremarks, "EAGLES Validation of: Document archiving of internal GLP study documents");
 	}
 	
 	public void FillAfterDocumentStatusIsChanged() throws IOException, InterruptedException {
-		
-		TestUtil.click(commentsTab, "Comments Tab");
-		//wait.until(ExpectedConditions.elementToBeClickable(waitForRemarksVerification));
-		TestUtil.verifyEquals(verifyremarks, "EAGLES Validation of: Document archiving of internal GLP study documents");
 		jse.executeScript("window.scrollBy(0,-250)", "");
-		
 		TestUtil.click(editButton, "Edit Button");
-
 		TestUtil.type(name, "Name", "Test Script Descriptions");
 	}
 	
@@ -300,11 +281,9 @@ public class DocumentPage extends TestBase{
 	    System.out.print("Classify is clicked \n");
 		//classify_link.click();
 		TestUtil.click(advanced_link, "Advanced");
-		
 		TestUtil.select(type, "Type" , "Dossier Document");
 		TestUtil.select(subtype, "Subtype" , "Section Document");
 		TestUtil.select(classification, "Classification" ,"dRR Core");
-	    
 		TestUtil.click(ok_btn, "OK Button");
 		TestUtil.click(ok_btn, "OK Button");
 	}
@@ -312,19 +291,14 @@ public class DocumentPage extends TestBase{
 	public void FillEditableFields() {
 		wait.until(ExpectedConditions.visibilityOf(name));
 		TestUtil.type(name, "Name", "BAS 750 01 F Core S Part B Section 00");
-
 		TestUtil.click(form_application_binocular, "Application Binocular");
 		TestUtil.type(form_search_label, "Search Label", "BAS 750 01 F Core S" + Keys.ENTER);
 		TestUtil.click(form_binocular_value, "Add Button");
-		
 		TestUtil.click(form_submission_binocular, "Submission Binocular");
 		TestUtil.type(form_search_label, "Search Label", "BAS 750 01 S / FR" + Keys.ENTER);
 		TestUtil.click(form_binocular_value, "Add Button");
-				
 		TestUtil.click(close_btn, "Close Button");
-
 		jse.executeScript("window.scrollBy(0,-500)", "");
-		
 		TestUtil.click(saveBtn, "Save Button");
 		
 		try {
