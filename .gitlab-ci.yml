@@ -3,17 +3,35 @@ image: openjdk:8-jdk
 stages:
   - build
 
+.quality-check:
+  stage: build
+  tags:
+    - oc
+    - voyager
+  script:
+    - code_check
+  when: manual  
+
+
 variables:
   MAVEN_CLI_OPTS: "-s .mvn/settings.xml --batch-mode"
   MAVEN_OPTS: "-Dmaven.repo.local=.mvn/repository"
 
-build:
+test:
   stage: build
   script:
     - run_test
   tags:
     - oc
     - voyager
+  artifacts:
+    when: always
+    paths:
+      - target/surefire-reports/*
+      - reports/
+    reports:
+      junit: target/surefire-reports/TEST-*.xml
+
 
 
 #--------------------------------------------------------------------------
@@ -24,6 +42,11 @@ build:
   run_test(){
     mvn install $MAVEN_CLI_OPTS
   }
+
+    code_check(){
+    mvn sonar:sonar $MAVEN_CLI_OPTS
+  }
+
 
 
 before_script:
