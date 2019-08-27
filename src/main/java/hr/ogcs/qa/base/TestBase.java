@@ -45,6 +45,7 @@ public class TestBase {
 	public static ExtentTest childTest;
 	public static ExtentTest grandChildTest;
 	private static Boolean remoteWeb = true;
+	public static String root;
 	
 	
 	public TestBase(){
@@ -62,7 +63,15 @@ public class TestBase {
 	
 	@BeforeSuite
 	public void beforeSuite() {
-		reporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "\\extents\\extent.html");
+		
+	    if(TestUtil.isWindows()) {
+	    	root = System.getProperty("user.dir");
+	    }
+	    else {
+	    	root = "/builds/qa/pageobjectmodel/";
+	    }
+	   
+		reporter = new ExtentHtmlReporter( root + "/extents/extent.html");
 		extent = new ExtentReports();
 		extent.attachReporter(reporter);
 	}
@@ -71,7 +80,7 @@ public class TestBase {
 	public void afterSuite() throws IOException {
     	System.out.print("After suite");
 		extent.flush();
-		TestUtil.pack(System.getProperty("user.dir") + "\\extents\\", System.getProperty("user.dir") + "\\zipped_report\\report_" + System.currentTimeMillis() + ".zip");
+		TestUtil.pack(root + "/extents/", root + "/zipped_report/report_" + System.currentTimeMillis() + ".zip");
 	}
 	
 	public static void initialization() throws MalformedURLException{

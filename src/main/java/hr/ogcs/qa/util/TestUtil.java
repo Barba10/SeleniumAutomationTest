@@ -23,10 +23,8 @@ import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 import hr.ogcs.qa.base.TestBase;
@@ -41,6 +39,13 @@ public class TestUtil extends TestBase {
 	
 	static String chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
+	public static boolean isWindows() {
+		if(System.getProperty("os.name").toLowerCase().contains("windows")){ 
+			return true;
+	    }
+		return false;
+	}
+	
 	public void switchToFrame() {
 		driver.switchTo().frame("mainpanel");
 	}
@@ -66,8 +71,7 @@ public class TestUtil extends TestBase {
 
 	public static void takeScreenshotAtEndOfTest() throws IOException {
 		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-		String currentDir = System.getProperty("user.dir");
-		String fileLocation = currentDir + "/extents/screenshoots/" + System.currentTimeMillis() + ".png";
+		String fileLocation = root + "/extents/screenshoots/" + System.currentTimeMillis() + ".png";
 		System.out.print(fileLocation + "\n");
 		FileUtils.copyFile(scrFile, new File(fileLocation));
 		childTest.addScreenCaptureFromPath(fileLocation,"Screenshoot");
