@@ -1,4 +1,4 @@
-image: registry.og-cs.hr/infra/docker-base-images/stretch-jdk11:latest
+image: maven:3-jdk-7
 
 stages:
   - build
