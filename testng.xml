@@ -3,6 +3,15 @@
 <suite name="Suite">
 	<test thread-count="5" name="Test">
 		<classes>
-			<class name="hr.ogcs.qa.testcases.EAG_TSF_G005" /> 		</classes>
+			<class name="hr.ogcs.qa.testcases.EAG_TSF_A001" /> 		
+			<class name="hr.ogcs.qa.testcases.EAG_TSF_C015" /> 		
+			<class name="hr.ogcs.qa.testcases.EAG_TSF_D001" /> 		
+			<class name="hr.ogcs.qa.testcases.EAG_TSF_D005" /> 	
+			<class name="hr.ogcs.qa.testcases.EAG_TSF_D007" /> 		
+			<class name="hr.ogcs.qa.testcases.EAG_TSF_G001" /> 		
+			<class name="hr.ogcs.qa.testcases.EAG_TSF_G003" /> 		
+			<class name="hr.ogcs.qa.testcases.EAG_TSF_G004" /> 		
+			<class name="hr.ogcs.qa.testcases.EAG_TSF_G005" /> 	
+		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->
