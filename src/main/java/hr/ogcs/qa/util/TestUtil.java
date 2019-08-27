@@ -181,15 +181,18 @@ public class TestUtil extends TestBase {
 	}
 	
 	public static void UploadFile() {
-		
-	    if(System.getProperty("os.name").toLowerCase().contains("windows")){ 
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.id("inboxFileChooserHTML5")));
+
+	    if(isWindows()){ 
 	    	//for local upload
-		    driver.findElement(By.id("inboxFileChooserHTML5")).sendKeys(System.getProperty("user.dir")+ ".\\upload\\pdf1.pdf");
+		    System.out.print(root + "\\upload\\pdf1.pdf" + "\n");
+		    driver.findElement(By.xpath("//input[@name='inbox_uploaded_files']")).sendKeys(System.getProperty("user.dir")+ "\\upload\\pdf1.pdf");
 	    }
 	    else{
 		    //FOR LINUX RUNING FROM GIT
-	    	driver.findElement(By.id("inboxFileChooserHTML5")).sendKeys("/builds/qa/eaglesAutomation/upload/pdf1.pdf");
+	    	driver.findElement(By.id("inboxFileChooserHTML5")).sendKeys(root + "/upload/pdf1.pdf");
 	    }
+	    
 	}
 	
 	public static void ClickOnFocusedItem(String elementName) throws InterruptedException{
