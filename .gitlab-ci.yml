@@ -1,19 +1,4 @@
-image: selenium/base
-
-stages:
-  - quality-check
-
-quality-check:
-  stage: quality-check
-  image: repo.djdev.org/docker-public/buildbox:jdk8
-  tags:
-    - voyager
-  script:
-    - code_check
-
-variables:
-  MAVEN_CLI_OPTS: "-s .mvn/settings.xml --batch-mode"
-  MAVEN_OPTS: "-Dmaven.repo.local=.mvn/repository"
+image: registry.og-cs.hr/cm-infa/docker-base-images/openjdk:latest
 
 #--------------------------------------------------------------------------
 
