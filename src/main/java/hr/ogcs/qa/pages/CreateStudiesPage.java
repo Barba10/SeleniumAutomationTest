@@ -304,10 +304,7 @@ public class CreateStudiesPage extends TestBase {
 		TestUtil.type(searchSponsor, "Search Sponsor", "BASF Crop Protection");
 		TestUtil.ClickOnFocusedItem("BASF Crop Protection");
 		TestUtil.click(glpNo, "GLP No");
-		TestUtil.click(binocularsFascility, "Fascility Binoculars");
-		wait.until(ExpectedConditions.visibilityOf(searchBar));
-		TestUtil.type(searchBar, "Search Bar", "BASF SE"+ Keys.ENTER);
-		TestUtil.click(addFirstValue, "BASF SE");
+		TestUtil.clickBinocular(binocularsFascility, "Fascility Binoculars", "BASF SE", addFirstValue);
 		TestUtil.type(actualStudyCompletionDateExternalStudy, "Actual Study Completion Date Study", "01/02/2019");
 		TestUtil.type(studyDirector, "Study Director", "Frank Sattler");
 		TestUtil.ClickOnFocusedItem("Frank Sattler");
@@ -330,10 +327,7 @@ public class CreateStudiesPage extends TestBase {
 		TestUtil.type(searchSponsor, "Search Sponsor", "BASF Crop Protection");
 		TestUtil.ClickOnFocusedItem("BASF Crop Protection");
 		TestUtil.click(glpNo, "GLP No");
-		TestUtil.click(binocularsFascility, "Fascility Binoculars");
-		wait.until(ExpectedConditions.visibilityOf(searchBar));
-		TestUtil.type(searchBar, "Search Bar", "BASF SE"+ Keys.ENTER);
-		TestUtil.click(addFirstValue, "BASF SE");
+		TestUtil.clickBinocular(binocularsFascility, "Fascility Binoculars", "BASF SE", addFirstValue);
 		TestUtil.type(actualStudyCompletionDateExternalStudy, "Actual Study Completion Date Study", "01/02/2019");
 		TestUtil.type(studyDirector, "Study Director", "Frank Sattler");
 		TestUtil.ClickOnFocusedItem("Frank Sattler");

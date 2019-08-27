@@ -1,4 +1,4 @@
-package hr.ogcs.qa.testcases;
+ package hr.ogcs.qa.testcases;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -36,7 +36,6 @@ public class EAG_TSF_D005 extends TestBase {
 		allDossiers = new AllDossiersPage();
 		binderPage=new BinderPage();
 		homePage = loginPage.login(prop.getProperty("user_dos"), prop.getProperty("psw_dos"));
-		
 	}
 
 	@AfterMethod
@@ -46,6 +45,7 @@ public class EAG_TSF_D005 extends TestBase {
 	
 	@Test
 	public void EAG_TSF_D005() throws IOException, InterruptedException {
+		//D005.02 Adding existing documents to binder
 		childTest = parentTest.createNode("Adding existing documents to binder");
 		homePage.GoToLibrary();
 		libraryPage.goToAllDossiers();

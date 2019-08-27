@@ -88,9 +88,8 @@ public class CreatePhasesPage extends TestBase {
 		TestUtil.type(study, "Study", "TestJRZ_01");
 		TestUtil.ClickOnFocusedItem("TestJRZ_01");
 
-		TestUtil.click(test_site_binoculars, "Test Site Binoculars");
-		TestUtil.type(search_bar, "Search Bar", "BASF SE" + Keys.ENTER);
-		TestUtil.click(add_first_value, "BASF SE");
+		TestUtil.clickBinocular(test_site_binoculars, "Test Site Binoculars", "BASF SE", add_first_value);
+
 		TestUtil.click(glp_yes, "GLP Yes");
 		TestUtil.type(external_phase_code, "External Phase Code", "TestJRZ_01SMP");
 		
@@ -114,16 +113,11 @@ public class CreatePhasesPage extends TestBase {
 
 		TestUtil.type(principal_investigator, "Principal Investigator", "Andreas Altschuck");
 		TestUtil.ClickOnFocusedItem("Andreas Altschuck");
-
 		TestUtil.type(study, "Study", "TestJRZ_01");
 		TestUtil.ClickOnFocusedItem("TestJRZ_01");
-
-		TestUtil.click(test_site_binoculars, "Test Site Binoculars");
-		TestUtil.type(search_bar, "Search Bar", "BASF SE" + Keys.ENTER);
-		TestUtil.click(add_first_value, "BASF SE");
+		TestUtil.clickBinocular(test_site_binoculars, "Test Site Binoculars", "BASF SE", add_first_value);
 		TestUtil.click(glp_yes, "GLP Yes");
 		TestUtil.type(external_phase_code, "External Phase Code", "TestJRZ_01SMP");
-		
 		TestUtil.type(planned_experimental_start_date, "Planned Experimantal Start Date", "1/1/2019");
 		TestUtil.type(planned_experimental_end_date, "Planned Experimantal End Date", "1/25/2019");
 		TestUtil.type(report_to_qau, "Report To QAU", "1/28/2019");
@@ -148,9 +142,8 @@ public class CreatePhasesPage extends TestBase {
 		TestUtil.type(principal_investigator, "Principal Investigator", "Angelika Lehmann");
 		TestUtil.ClickOnFocusedItem("Angelika Lehmann");
 		
-		TestUtil.click(test_site_binoculars, "Test Site Binoculars");
-		TestUtil.type(search_bar, "Search Bar", "BASF SE" + Keys.ENTER);
-		TestUtil.click(add_first_value, "BASF SE");
+		TestUtil.clickBinocular(test_site_binoculars, "Test Site Binoculars", "BASF SE", add_first_value);
+
 		TestUtil.click(glp_yes, "GLP YES");
 		TestUtil.type(external_phase_code, "External Phase Code", "TestJRZ_01AP");
 		
@@ -178,9 +171,8 @@ public class CreatePhasesPage extends TestBase {
 		TestUtil.type(principal_investigator, "Principal Investigator", "Angelika Lehmann");
 		TestUtil.ClickOnFocusedItem("Angelika Lehmann");
 		
-		TestUtil.click(test_site_binoculars, "Test Site Binoculars");
-		TestUtil.type(search_bar, "Search Bar", "BASF SE" + Keys.ENTER);
-		TestUtil.click(add_first_value, "BASF SE");
+		TestUtil.clickBinocular(test_site_binoculars, "Test Site Binoculars", "BASF SE", add_first_value);
+
 		TestUtil.click(glp_yes, "GLP YES");
 		TestUtil.type(external_phase_code, "External Phase Code", "TestJRZ_01AP");
 		
@@ -199,33 +191,21 @@ public class CreatePhasesPage extends TestBase {
 
 	public void createBiologicalPhase() throws InterruptedException {
 		String suffix_add = TestUtil.RandomName(5);
-
 		TestUtil.type(name, "Name", "Test Name BP");
-		
 		TestUtil.type(study, "Study", "TestJRZ_01");
 		TestUtil.ClickOnFocusedItem("TestJRZ_01");
-		
-		TestUtil.click(test_site_binoculars_second, "Test Site Binoculars Second");
-		TestUtil.type(search_bar, "Search Bar", "BASF SE" + Keys.ENTER);
-		TestUtil.click(add_first_value, "BASF SE");
-		
+		TestUtil.clickBinocular(test_site_binoculars, "Test Site Binoculars", "BASF SE", add_first_value);
 		TestUtil.type(principal_investigator, "Principal Investigator", "Stefanie Royer");
 		TestUtil.ClickOnFocusedItem("Stefanie Royer");
-		
 		TestUtil.type(external_phase_code, "External Phase Code", "TestJRZ_01BP");
-		
 		TestUtil.type(planned_experimental_start_date, "Planned Experimental Start Date", "1/1/2019");
 		TestUtil.type(planned_experimental_end_date, "Planned Experimental End Date", "1/25/2019");
 		TestUtil.type(report_to_qau, "Report To QAU", "1/28/2019");
-		
 		TestUtil.click(glp_yes, "GLP Yes");
-		
 		TestUtil.type(actual_experimental_start_date, "Actual Experimental Start Date", "1/1/2019");
 		TestUtil.type(actual_experimental_end_date, "Actual Experimental End Date", "1/25/2019");
-		
 		TestUtil.type(buid, "BUID", "Test BUID BP" + suffix_add);
 		TestUtil.type(source, "Source", "Test Source");
-		
 		TestUtil.click(save_button, "Save Button");
 	}
 
@@ -233,31 +213,20 @@ public class CreatePhasesPage extends TestBase {
 		String suffix_add = TestUtil.RandomName(5);
 
 		TestUtil.type(name, "Name", "Test Name BP");
-		
 		TestUtil.type(study, "Study", "TestJRZ_01");
 		TestUtil.ClickOnFocusedItem("TestJRZ_01");
-		
-		TestUtil.click(test_site_binoculars_second, "Test Site Binoculars Second");
-		TestUtil.type(search_bar, "Search Bar", "BASF SE" + Keys.ENTER);
-		TestUtil.click(add_first_value, "BASF SE");
-		
+		TestUtil.clickBinocular(test_site_binoculars, "Test Site Binoculars", "BASF SE", add_first_value);
 		TestUtil.type(principal_investigator, "Principal Investigator", "Stefanie Royer");
 		TestUtil.ClickOnFocusedItem("Stefanie Royer");
-		
 		TestUtil.type(external_phase_code, "External Phase Code", "TestJRZ_01BP");
-		
 		TestUtil.type(planned_experimental_start_date, "Planned Experimental Start Date", "1/1/2019");
 		TestUtil.type(planned_experimental_end_date, "Planned Experimental End Date", "1/25/2019");
 		TestUtil.type(report_to_qau, "Report To QAU", "1/28/2019");
-		
 		TestUtil.click(glp_yes, "GLP Yes");
-		
 		TestUtil.type(actual_experimental_start_date, "Actual Experimental Start Date", "1/1/2019");
 		TestUtil.type(actual_experimental_end_date, "Actual Experimental End Date", "1/25/2019");
-		
 		TestUtil.type(buid, "BUID", "Test BUID BP" + suffix_add);
 		TestUtil.type(source, "Source", "Test Source");
-		
 		TestUtil.click(cancel_button, "Cancel button");
 		TestUtil.click(continue_button, "Continue button");
 	}
@@ -316,10 +285,9 @@ public class CreatePhasesPage extends TestBase {
 		TestUtil.type(study, "Study", "TestJRZ_01");
 		TestUtil.ClickOnFocusedItem("TestJRZ_01");
 		
-		TestUtil.click(test_site_binoculars_second, "Test Site Binoculars Second");
-		TestUtil.type(search_bar, "Search Bar", "Urania Agrochem GmbH" + Keys.ENTER);
-		TestUtil.click(add_first_value, "BASF SE");
-		
+		TestUtil.clickBinocular(test_site_binoculars_second, "Test Site Binoculars Second", "BASF SE", add_first_value);
+
+				
 		TestUtil.type(principal_investigator, "Principal Investigator", "Anja Friedemann");
 		TestUtil.ClickOnFocusedItem("Anja Friedemann");
 		
@@ -347,9 +315,9 @@ public class CreatePhasesPage extends TestBase {
 		TestUtil.type(study, "Study", "TestJRZ_01");
 		TestUtil.ClickOnFocusedItem("TestJRZ_01");
 		
-		TestUtil.click(test_site_binoculars_second, "Test Site Binoculars Second");
-		TestUtil.type(search_bar, "Search Bar", "Urania Agrochem GmbH" + Keys.ENTER);
-		TestUtil.click(add_first_value, "BASF SE");
+		TestUtil.clickBinocular(test_site_binoculars_second, "Test Site Binoculars Second", "Urania Agrochem GmbH", add_first_value);
+
+	
 		
 		TestUtil.type(principal_investigator, "Principal Investigator", "Anja Friedemann");
 		TestUtil.ClickOnFocusedItem("Anja Friedemann");
