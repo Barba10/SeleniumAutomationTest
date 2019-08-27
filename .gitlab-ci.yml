@@ -10,10 +10,18 @@ variables:
 build:
   stage: build
   script:
-    - run_test
+    - mvn_build
   tags:
     - oc
     - voyager
+    artifacts:
+    when: always
+    paths:
+      - target/surefire-reports/*
+      - reports/
+    reports:
+      junit: target/surefire-reports/TEST-*.xml
+
 
 #--------------------------------------------------------------------------
 
