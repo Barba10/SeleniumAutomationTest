@@ -1,5 +1,20 @@
 image: registry.og-cs.hr/cm-infa/docker-base-images/openjdk:latest
 
+stages:
+  - build
+
+variables:
+  MAVEN_CLI_OPTS: "-s .mvn/settings.xml --batch-mode"
+  MAVEN_OPTS: "-Dmaven.repo.local=.mvn/repository"
+
+build:
+  stage: build
+  script:
+    - mvn_build
+  tags:
+    - oc
+    - voyager
+
 #--------------------------------------------------------------------------
 
 .ci_functions: &ci_functions |
