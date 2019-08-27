@@ -3,6 +3,6 @@
 <suite name="Suite">
 	<test thread-count="5" name="Test">
 		<classes>
-			<class name="hr.ogcs.qa.testcases.EAG_TSF_G005" /> 		</classes>
+			<class name="hr.ogcs.qa.testcases.EAG_TSF_A001" /> 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->
