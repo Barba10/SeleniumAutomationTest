@@ -10,7 +10,7 @@ variables:
 build:
   stage: build
   script:
-    - mvn_build
+    - run_test
   tags:
     - oc
     - voyager
