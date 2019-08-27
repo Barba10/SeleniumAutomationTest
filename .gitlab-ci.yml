@@ -24,14 +24,6 @@ test:
   tags:
     - oc
     - voyager
-  artifacts:
-    when: always
-    paths:
-      - target/surefire-reports/*
-      - reports/
-    reports:
-      junit: target/surefire-reports/TEST-*.xml
-
 
 
 #--------------------------------------------------------------------------
