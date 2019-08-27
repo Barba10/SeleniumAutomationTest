@@ -10,7 +10,7 @@ variables:
 build:
   stage: build
   script:
-    - mvn_build
+    - run_test
   tags:
     - oc
     - voyager
@@ -20,10 +20,10 @@ build:
 .ci_functions: &ci_functions |
   set +x
 
-  mvn_build() {
-    chmod +x mvnw
-    ./mvnw $MAVEN_CLI_OPTS deploy
+  run_test(){
+    mvn install $MAVEN_CLI_OPTS
   }
+
 
 before_script:
   - *ci_functions
