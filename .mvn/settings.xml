@@ -41,6 +41,16 @@
       <password>${env.MAVEN_REPO_PASS}</password>
     </server>
     <server>
+      <id>ogcs-maven-dev-local</id>
+      <username>${env.MAVEN_REPO_USER}</username>
+      <password>${env.MAVEN_REPO_PASS}</password>
+    </server>
+    <server>
+      <id>ogcs-maven-prod-local</id>
+      <username>${env.MAVEN_REPO_USER}</username>
+      <password>${env.MAVEN_REPO_PASS}</password>
+    </server>
+    <server>
       <id>ogcs-3rdparty</id>
       <username>${env.MAVEN_REPO_USER}</username>
       <password>${env.MAVEN_REPO_PASS}</password>
