@@ -1,4 +1,4 @@
-image: registry.og-cs.hr/cm-infa/docker-base-images/openjdk:latest
+image: registry.og-cs.hr/infra/docker-base-images/stretch-jdk11:latest
 
 stages:
   - build
