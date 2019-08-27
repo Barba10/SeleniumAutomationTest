@@ -68,14 +68,13 @@ public class TestBase {
 	}
 	
 	@AfterSuite
-	public void afterSuite() {
+	public void afterSuite() throws IOException {
     	System.out.print("After suite");
 		extent.flush();
+		TestUtil.pack(System.getProperty("user.dir") + "\\extents\\", System.getProperty("user.dir") + "\\zipped_report\\report_" + System.currentTimeMillis() + ".zip");
 	}
-
 	
 	public static void initialization() throws MalformedURLException{
-
 		if(remoteWeb) {
 			DesiredCapabilities caps = DesiredCapabilities.chrome();
 			ChromeOptions  chrome_options = new ChromeOptions();
@@ -112,6 +111,4 @@ public class TestBase {
 		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
 		driver.get("https://login.veevavault.com/");
 	}
-	
-
 }
