@@ -79,10 +79,11 @@ public class TestBase {
 	
 	@AfterSuite
 	public void afterSuite() throws IOException {
-    	System.out.print("After suite");
+    	System.out.print("After suite \n");
 		extent.flush();
-		TestUtil.viewZippedFiles();
+		TestUtil.viewFiles(root + "/extents/");
 		TestUtil.pack(root + "/extents/", root + "/zipped_report/report_" + System.currentTimeMillis() + ".zip");
+		TestUtil.viewFiles(root + "/zipped_report/");
 	}
 	
 	public static void initialization() throws MalformedURLException{

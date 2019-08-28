@@ -50,7 +50,6 @@ public class TestUtil extends TestBase {
 		driver.switchTo().frame("mainpanel");
 	}
 	
-	
 	public static void deleteZippedReportDirectory(){
 		 try {
 	         File f = new File(root + "/zipped_report/");
@@ -81,16 +80,16 @@ public class TestUtil extends TestBase {
 	    }
 	}
 	
-	public static void viewZippedFiles() {
-	
-		File folder = new File(root + "/zipped_report/");
+	public static void viewFiles(String directory) {
+		System.out.print("View files enter \n");
+		File folder = new File(directory);
 		File[] listOfFiles = folder.listFiles();
 	
 		for (int i = 0; i < listOfFiles.length; i++) {
 		  if (listOfFiles[i].isFile()) {
-		    System.out.println("File " + listOfFiles[i].getName() + "/n");
+		    System.out.println("File " + listOfFiles[i].getName() + "\n");
 		  } else if (listOfFiles[i].isDirectory()) {
-		    System.out.println("Directory " + listOfFiles[i].getName()  + "/n");
+		    System.out.println("Directory " + listOfFiles[i].getName()  + "\n");
 		  }
 		}
 		
@@ -99,7 +98,6 @@ public class TestUtil extends TestBase {
 	public static void takeScreenshotAtEndOfTest() throws IOException {
 		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		String fileLocation = root + "/extents/screenshoots/" + System.currentTimeMillis() + ".png";
-		System.out.print(fileLocation + "\n");
 		FileUtils.copyFile(scrFile, new File(fileLocation));
 		childTest.addScreenCaptureFromPath(fileLocation,"Screenshoot");
 		childTest.info("Taking Screenshoot");
