@@ -3,8 +3,6 @@ package hr.ogcs.qa.testcases;
 import java.io.IOException;
 import java.net.MalformedURLException;
 
-import javax.swing.Box.Filler;
-
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -45,17 +43,22 @@ public class EAG_TSF_G003 extends TestBase {
 	
 	@Test
 	public void EAG_TSF_G003() throws InterruptedException, IOException {
+		//G003.02 Creating Internal GLP Study - Placeholder Creation
 		childTest = parentTest.createNode("Creating Internal GLP Study - Placeholder Creation");
 		homePage.GoToStudyQUA();
 		studiesPage.createStudies();
+		//G003.03 Creating Internal GLP Study - Filling Editable Fields
 		childTest = parentTest.createNode("Creating Internal GLP Study - Filling Editable Fields");
 		createStudiesPage.fillOuInternaltForm();
+		//G003.04 Creating Internal GLP Study - Verifying Text Present
 		childTest = parentTest.createNode("Creating Internal GLP Study - Verifying Text Present");
 		savedStudiesPage.verifyInformation();
 		TestUtil.takeScreenshotAtEndOfTest();
+		//G003.05 Creating Internal GLP Study - Placeholder Creation And Cancel
 		childTest = parentTest.createNode("Creating Internal GLP Study - Placeholder Creation And Cancel");
 		savedStudiesPage.goToStudiesPage();
 		studiesPage.createStudies();
+
 		childTest = parentTest.createNode("Creating Internal GLP Study - Checking Cancel Function");
 		createStudiesPage.fillOuInternaltFormAndCancel();
 		

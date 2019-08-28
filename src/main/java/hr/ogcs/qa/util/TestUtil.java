@@ -5,8 +5,13 @@ import static org.testng.Assert.assertEquals;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
@@ -18,10 +23,9 @@ import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 import hr.ogcs.qa.base.TestBase;
 
@@ -35,15 +39,40 @@ public class TestUtil extends TestBase {
 	
 	static String chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
+	public static boolean isWindows() {
+		if(System.getProperty("os.name").toLowerCase().contains("windows")){ 
+			return true;
+	    }
+		return false;
+	}
+	
 	public void switchToFrame() {
 		driver.switchTo().frame("mainpanel");
 	}
 
-	
+	public static void pack(String sourceDirPath, String zipFilePath) throws IOException {
+	    Path p = Files.createFile(Paths.get(zipFilePath));
+	    try (ZipOutputStream zs = new ZipOutputStream(Files.newOutputStream(p))) {
+	        Path pp = Paths.get(sourceDirPath);
+	        Files.walk(pp)
+	          .filter(path -> !Files.isDirectory(path))
+	          .forEach(path -> {
+	              ZipEntry zipEntry = new ZipEntry(pp.relativize(path).toString());
+	              try {
+	                  zs.putNextEntry(zipEntry);
+	                  Files.copy(path, zs);
+	                  zs.closeEntry();
+	            } catch (IOException e) {
+	                System.err.println(e);
+	            }
+	          });
+	    }
+	}
+
 	public static void takeScreenshotAtEndOfTest() throws IOException {
 		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-		String currentDir = System.getProperty("user.dir");
-		String fileLocation = currentDir + "extents/screenshots/" + System.currentTimeMillis() + ".png";
+		String fileLocation = root + "/extents/screenshoots/" + System.currentTimeMillis() + ".png";
+		System.out.print(fileLocation + "\n");
 		FileUtils.copyFile(scrFile, new File(fileLocation));
 		childTest.addScreenCaptureFromPath(fileLocation,"Screenshoot");
 		childTest.info("Taking Screenshoot");
@@ -152,15 +181,18 @@ public class TestUtil extends TestBase {
 	}
 	
 	public static void UploadFile() {
-		
-	    if(System.getProperty("os.name").toLowerCase().contains("windows")){ 
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.id("inboxFileChooserHTML5")));
+
+	    if(isWindows()){ 
 	    	//for local upload
-		    driver.findElement(By.id("inboxFileChooserHTML5")).sendKeys(System.getProperty("user.dir")+ ".\\upload\\pdf1.pdf");
+		    System.out.print(root + "\\upload\\pdf1.pdf" + "\n");
+		    driver.findElement(By.xpath("//input[@name='inbox_uploaded_files']")).sendKeys(System.getProperty("user.dir")+ "\\upload\\pdf1.pdf");
 	    }
 	    else{
 		    //FOR LINUX RUNING FROM GIT
-	    	driver.findElement(By.id("inboxFileChooserHTML5")).sendKeys("/builds/qa/eaglesAutomation/upload/pdf1.pdf");
+	    	driver.findElement(By.id("inboxFileChooserHTML5")).sendKeys(root + "/upload/pdf1.pdf");
 	    }
+	    
 	}
 	
 	public static void ClickOnFocusedItem(String elementName) throws InterruptedException{

@@ -90,15 +90,9 @@ public class CreateNewProduct extends TestBase {
 	public void FillOutTypeForm() throws InterruptedException {
 		String suffix_add = TestUtil.RandomName(5);
 		Thread.sleep(2000);
-		TestUtil.click(basfStudyId, "BASF Study ID Binocular");
-		TestUtil.type(searchBar, "Search Bar", "134503" + Keys.ENTER);		
-		TestUtil.click(addElement, "Add button");
-		TestUtil.click(basNumber, "BAS Number Binocular");
-		TestUtil.type(searchBar, "Search Bar", "BAS 060 03 H" + Keys.ENTER);		
-		TestUtil.click(addElement, "Add button");		
-		TestUtil.click(ingrediantCode, "Ingrediant Code Binocular");		
-		TestUtil.type(searchBar, "Search Bar", "LS 6059083" + Keys.ENTER);		
-		TestUtil.click(addElement, "Add button");		
+		TestUtil.clickBinocular(basfStudyId, "BASF Study ID Binocular", "134503", addElement);
+		TestUtil.clickBinocular(basNumber, "BAS Number Binocular", "BAS 060 03 H", addElement);
+		TestUtil.clickBinocular(ingrediantCode, "Ingrediant Code Binocular", "LS 6059083", addElement);	
 		TestUtil.type(misc, "Miscellaneous", "Metabolite");		
 		TestUtil.click(isotopicallyLabelledNo, "Isotopically Labelled - No (Radio Button)");		
 		TestUtil.type(addLabel,"Label",  "C13" + Keys.ENTER);		
@@ -123,28 +117,15 @@ public class CreateNewProduct extends TestBase {
 	public void FillOutControlForm() throws InterruptedException {
 		String suffix_add = TestUtil.RandomName(5);
 		Thread.sleep(2000);
-		TestUtil.click(basfStudyId, "BASF Study ID Binocular");
-		TestUtil.type(searchBar, "Search Bar", "UK/FR/01/95" + Keys.ENTER);		
-		TestUtil.click(addElement, "Add button");
-		
-		TestUtil.click(basNumber, "BAS Number Binocular");
-		TestUtil.type(searchBar, "Search Bar", "BAS 562 05 H" + Keys.ENTER);		
-		TestUtil.click(addElement, "Add button");		
-
-		TestUtil.click(ingrediantCode, "Ingrediant Code Binocular");		
-		TestUtil.type(searchBar, "Search Bar", "BAS 562 H" + Keys.ENTER);		
-		TestUtil.click(addElement, "Add button");		
-
+		TestUtil.clickBinocular(basfStudyId, "BASF Study ID Binocular", "UK/FR/01/95", addElement);
+		TestUtil.clickBinocular(basNumber, "BAS Number Binocular", "BAS 562 05 H", addElement);
+		TestUtil.clickBinocular(ingrediantCode, "Ingrediant Code Binocular", "BAS 562 H", addElement);	
 		TestUtil.type(misc, "Miscellaneous", "Formulation");		
 		TestUtil.click(isotopicallyLabelledYes, "Isotopically Labelled - Yes (Radio Button)");		
-
 		TestUtil.type(addLabel, "Label",  "C14" + Keys.ENTER);		
-
 		TestUtil.type(metaboliteCode,"Metabolite Code", "B23");		
 		TestUtil.type(addBatchNumber, "Batch Number", "8451");		
-
 		TestUtil.click(glpYes, "GLP Yes");		
-		
 		TestUtil.type(expiryDate,"Expiry Date",  "2/6/2020");
 		TestUtil.type(addPurity,"Purity", "67");
 		TestUtil.type(addRadioPurity,"Radiochemical Purity",  "90.1");
@@ -156,22 +137,12 @@ public class CreateNewProduct extends TestBase {
 	public void FillOutReferenceForm() throws InterruptedException {
 		String suffix_add = TestUtil.RandomName(5);
 		Thread.sleep(2000);
-		TestUtil.click(basfStudyId, "BASF Study ID Binocular");
-		TestUtil.type(searchBar, "Search Bar", "834740" + Keys.ENTER);		
-		TestUtil.click(addElement, "Add button");
-		
-		TestUtil.click(basNumber, "BAS Number Binocular");
-		TestUtil.type(searchBar, "Search Bar", "BAS 405 49 I" + Keys.ENTER);		
-		TestUtil.click(addElement, "Add button");		
-		
-		TestUtil.click(ingrediantCode, "Ingrediant Code Binocular");		
-		TestUtil.type(searchBar, "Search Bar", "BAS 310 I" + Keys.ENTER);		
-		TestUtil.click(addElement, "Add button");
-	
+		TestUtil.clickBinocular(basfStudyId, "BASF Study ID Binocular", "834740", addElement);
+		TestUtil.clickBinocular(basNumber, "BAS Number Binocular", "BAS 405 49 I", addElement);
+
+		TestUtil.clickBinocular(ingrediantCode, "Ingrediant Code Binocular", "BAS 310 I", addElement);
 		TestUtil.type(misc, "Miscellaneous", "Formulation");	
-		
 		TestUtil.click(isotopicallyLabelledNo, "Isotopically Labelled - No (Radio Button)");		
-		
 		TestUtil.type(metaboliteCode,"Metabolite Code", "M40549B");		
 		TestUtil.type(addBatchNumber, "Batch Number", "56484132121");	
 

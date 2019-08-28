@@ -42,27 +42,27 @@ public class EAG_TSF_D004 extends TestBase{
 	@Test
 	public void EAG_TSF_D004() throws InterruptedException, IOException{
 		
-		//d004.02
+		//d004.02 Uploading Document(s)
 	  	childTest = parentTest.createNode("Uploading Document(s)");
 		homePage.GoToUpload();
 		uploadPage.UploadFile();
 		uploadPage.ClickUpload();
 		
-		//d004.03
+		//d004.03 Classification of Uploaded Document(s)
 	  	childTest = parentTest.createNode("Classification of Uploaded Document(s)");
 		libraryPage.OpenUploadedDocument();
 		documentPage.ClassificationOfUploadedDocument();
 		
-		//d004.04
+		//d004.04 Filling Editable Fields
 	  	childTest = parentTest.createNode("Filling Editable Fields");
 		documentPage.FillEditableFields();
 		
-		//d004.05
+		//d004.05 Verifying Text Present
 	  	childTest = parentTest.createNode("Verifying Text Present");
 		documentPage.TextVerifycation();
 		TestUtil.takeScreenshotAtEndOfTest();
 		
-		//d004.06
+		//d004.06 Checking Cancel Function
 	  	childTest = parentTest.createNode("Checking Cancel Function");
 		homePage.GoToUpload();
 		uploadPage.UploadFile();

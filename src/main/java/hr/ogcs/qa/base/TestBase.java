@@ -5,18 +5,14 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
-import static org.testng.Assert.assertEquals;
 
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.UnexpectedAlertBehaviour;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.CapabilityType;
@@ -49,6 +45,7 @@ public class TestBase {
 	public static ExtentTest childTest;
 	public static ExtentTest grandChildTest;
 	private static Boolean remoteWeb = true;
+	public static String root;
 	
 	
 	public TestBase(){
@@ -66,20 +63,27 @@ public class TestBase {
 	
 	@BeforeSuite
 	public void beforeSuite() {
-		reporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "\\extents\\extent.html");
+		
+	    if(TestUtil.isWindows()) {
+	    	root = System.getProperty("user.dir");
+	    }
+	    else {
+	    	root = "/builds/qa/pageobjectmodel/";
+	    }
+	   
+		reporter = new ExtentHtmlReporter( root + "/extents/extent.html");
 		extent = new ExtentReports();
 		extent.attachReporter(reporter);
 	}
 	
 	@AfterSuite
-	public void afterSuite() {
+	public void afterSuite() throws IOException {
     	System.out.print("After suite");
 		extent.flush();
+		TestUtil.pack(root + "/extents/", root + "/zipped_report/report_" + System.currentTimeMillis() + ".zip");
 	}
-
 	
 	public static void initialization() throws MalformedURLException{
-
 		if(remoteWeb) {
 			DesiredCapabilities caps = DesiredCapabilities.chrome();
 			ChromeOptions  chrome_options = new ChromeOptions();
@@ -116,6 +120,4 @@ public class TestBase {
 		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
 		driver.get("https://login.veevavault.com/");
 	}
-	
-
 }

@@ -5,6 +5,7 @@ import java.net.MalformedURLException;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import hr.ogcs.qa.base.TestBase;
@@ -13,8 +14,8 @@ import hr.ogcs.qa.pages.HomePage;
 import hr.ogcs.qa.pages.LibraryPage;
 import hr.ogcs.qa.pages.LoginPage;
 import hr.ogcs.qa.pages.WhereUsedPage;
-import hr.ogcs.qa.util.TestUtil;
 
+@Listeners(hr.ogcs.qa.util.TestListener.class)
 public class EAG_TSF_D007 extends TestBase {
 	
 	LoginPage loginPage;
@@ -41,10 +42,12 @@ public class EAG_TSF_D007 extends TestBase {
 	
 	@Test
 	public void EAG_TSF_D007() throws InterruptedException, IOException{
+		//D007.02 Selecting “Where used”
 	  	childTest = parentTest.createNode("Selection 'Where Used' ");
 		homePage.SearchDocument();
 		libraryPage.goToDocId();
 		documentPage.WhereUsed();
+		//D007.03 Verifying Text Present - Making a Screenshot
 	  	childTest = parentTest.createNode("Verifying Text Present - Making a Screenshot");
 		whereUsedPage.TakingScreenShoot();
 	}

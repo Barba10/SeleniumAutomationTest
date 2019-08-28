@@ -64,7 +64,8 @@ public class LibraryPage extends TestBase {
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void goToDocId() {
+	public void goToDocId() throws InterruptedException {
+		Thread.sleep(2000);
 		TestUtil.click(basf_doc_id, "Document ID");
 	}
 	

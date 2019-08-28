@@ -129,7 +129,6 @@ public class ApplicationsPage extends TestBase {
 		TestUtil.clickBinocular(form_product_code_binocular, "Product Code Binocular", "BAS 750 01 F", form_binocular_value);
 	}
 	
-	
 	public void FillFormActiveIngredient() {
 		TestUtil.type(form_name, "Name", "BAS 750 F (Mefentrifluconazole) JMPR" + " " + TestUtil.RandomName(5));
 		TestUtil.clickBinocular(form_app_subtype_binocular, "APP Subtype Binocular", "JMPR", form_binocular_value);
@@ -138,7 +137,6 @@ public class ApplicationsPage extends TestBase {
 		TestUtil.clickBinocular(form_rapporteur_binocular, "Rapporteur Binocular", "Austria", form_binocular_value);
 		TestUtil.clickBinocular(form_ingredient_code_binocular, "Ingredient Code Binocular", "BAS 750 F", form_binocular_value);
 	}
-	
 	
 	public void CheckIsEditablePPP() {
 		TestUtil.editableField(form_name, "Application Name");

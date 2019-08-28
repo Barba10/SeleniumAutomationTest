@@ -71,72 +71,39 @@ public class CreateTrialPage extends TestBase {
 
 	public void fillOutTrialForm() throws InterruptedException {
 		String suffix_add = TestUtil.RandomName(5);
-
 		TestUtil.type(trial_number, "Trial Number", "L04022019" + suffix_add);
 		TestUtil.type(trial_status, "Trial Status", "Trial Status A");
 		TestUtil.ClickOnFocusedItem("Trial Status A");
-		
 		TestUtil.type(principal_investigator, "Principal Investigator", "Anja Friedemann");
 		TestUtil.ClickOnFocusedItem("Anja Friedmann");
-		
-		
-		TestUtil.click(test_site_binoculars, "Test Site Binoculars");
-		TestUtil.type(search_bar, "Search Bar", "Urania Agrochem GmbH" + Keys.ENTER);
-		TestUtil.click(add_first_value, "Urania Agrochem GmbH");
-		
-		TestUtil.click(phase_binoculars, "Phase Binoculars");
-		TestUtil.type(search_bar, "Search Bar", "Test Name Inlife" + Keys.ENTER);
-		TestUtil.click(add_first_value, "Add First Value");
-		
+		TestUtil.clickBinocular(test_site_binoculars, "Test Site Binoculars", "Urania Agrochem GmbH", add_first_value);
+		TestUtil.clickBinocular(phase_binoculars, "Phase Binoculars", "Test Name Inlife", add_first_value);
 		TestUtil.type(initiation_date, "Initiation Date", "1/1/2019");
-		
 		TestUtil.type(external_trial_number, "External Trial Number", "ExL04022019");
-		
 		TestUtil.type(lims_principal_investigator, "LIMS Principal Investigator", "na");
-		
 		TestUtil.type(end_date, "End Date", "1/25/2019");
-		
 		TestUtil.type(buid, "BUID", "Test BUID Inlife" + suffix_add);
-		
 		TestUtil.type(document_legacy_id, "Document Legacy ID", "Test Document Legacy ID");
-		
 		TestUtil.type(source, "Source", "Test Source");
-		
 		TestUtil.click(save_button, "Save Button");
 	}
 
 	public void fillOutTrialFormAndCancel() throws InterruptedException {
 		String suffix_add = TestUtil.RandomName(5);
-
 		TestUtil.type(trial_number, "Trial Number", "L04022019" + suffix_add);
 		TestUtil.type(trial_status, "Trial Status", "Trial Status A");
 		TestUtil.ClickOnFocusedItem("Trial Status A");
-		
 		TestUtil.type(principal_investigator, "Principal Investigator", "Anja Friedemann");
 		TestUtil.ClickOnFocusedItem("Anja Friedmann");
-		
-		TestUtil.click(test_site_binoculars, "Test Site Binoculars");
-		TestUtil.type(search_bar, "Search Bar", "Urania Agrochem GmbH" + Keys.ENTER);
-		TestUtil.click(add_first_value, "Urania Agrochem GmbH");
-		
-		TestUtil.click(phase_binoculars, "Phase Binoculars");
-		TestUtil.type(search_bar, "Search Bar", "Test Name Inlife" + Keys.ENTER);
-		TestUtil.click(add_first_value, "Add First Value");
-		
+		TestUtil.clickBinocular(test_site_binoculars, "Test Site Binoculars", "Urania Agrochem GmbH", add_first_value);
+		TestUtil.clickBinocular(phase_binoculars, "Phase Binoculars", "Test Name Inlife", add_first_value);
 		TestUtil.type(initiation_date, "Initiation Date", "1/1/2019");
-		
 		TestUtil.type(external_trial_number, "External Trial Number", "ExL04022019");
-		
 		TestUtil.type(lims_principal_investigator, "LIMS Principal Investigator", "na");
-		
 		TestUtil.type(end_date, "End Date", "1/25/2019");
-		
 		TestUtil.type(buid, "BUID", "Test BUID Inlife" + suffix_add);
-		
 		TestUtil.type(document_legacy_id, "Document Legacy ID", "Test Document Legacy ID");
-		
 		TestUtil.type(source, "Source", "Test Source");
-		
 		TestUtil.click(cancel_button, "Cancel Button");
 		TestUtil.click(continue_button, "Continue Button");
 	}
