@@ -71,7 +71,7 @@ public class TestBase {
 	    	root = "/builds/qa/pageobjectmodel/";
 	    }
 	    
-	    TestUtil.deleteDirectory();
+	    TestUtil.deleteZippedReportDirectory();
 		reporter = new ExtentHtmlReporter( root + "/extents/extent.html");
 		extent = new ExtentReports();
 		extent.attachReporter(reporter);
