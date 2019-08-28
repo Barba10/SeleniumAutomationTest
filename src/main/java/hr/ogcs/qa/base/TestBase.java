@@ -80,6 +80,7 @@ public class TestBase {
 	public void afterSuite() throws IOException {
     	System.out.print("After suite");
 		extent.flush();
+		TestUtil.viewZippedFiles();
 		TestUtil.pack(root + "/extents/", root + "/zipped_report/report_" + System.currentTimeMillis() + ".zip");
 	}
 	

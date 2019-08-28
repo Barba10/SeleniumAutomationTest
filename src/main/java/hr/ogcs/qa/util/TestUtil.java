@@ -68,6 +68,21 @@ public class TestUtil extends TestBase {
 	          });
 	    }
 	}
+	
+	public static void viewZippedFiles() {
+	
+		File folder = new File(root + "/zipped_report/");
+		File[] listOfFiles = folder.listFiles();
+	
+		for (int i = 0; i < listOfFiles.length; i++) {
+		  if (listOfFiles[i].isFile()) {
+		    System.out.println("File " + listOfFiles[i].getName() + "/n");
+		  } else if (listOfFiles[i].isDirectory()) {
+		    System.out.println("Directory " + listOfFiles[i].getName()  + "/n");
+		  }
+		}
+		
+	}
 
 	public static void takeScreenshotAtEndOfTest() throws IOException {
 		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);

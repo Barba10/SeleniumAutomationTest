@@ -149,9 +149,7 @@
                      <mailpassword>Rreport6532</mailpassword>
                      <receivers>
                         <!-- To Email address -->
-                        <receiver>davor.vajda@og-cs.hr</receiver>
-                        <receiver>tomislav.sapina@og-cs.hr</receiver>
-                        <receiver>luka.barberic@og-cs.hr</receiver>
+                        <receiver>vault.reports@og-cs.hr</receiver>
                      </receivers>
                      <fileSets>
                         <fileSet>
