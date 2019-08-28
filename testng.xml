@@ -15,9 +15,9 @@
 			<class name="hr.ogcs.qa.testcases.EAG_TSF_D007" /> 	
 
 			<class name="hr.ogcs.qa.testcases.EAG_TSF_G001" /> 	
-			<class name="hr.ogcs.qa.testcases.EAG_TSF_G002" /> 	
 			<class name="hr.ogcs.qa.testcases.EAG_TSF_G003" /> 	
 			<class name="hr.ogcs.qa.testcases.EAG_TSF_G004" /> 	
+			<class name="hr.ogcs.qa.testcases.EAG_TSF_G005" /> 	
 
 		</classes>
 	</test> <!-- Test -->
