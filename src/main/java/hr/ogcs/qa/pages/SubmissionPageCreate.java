@@ -176,14 +176,17 @@ public class SubmissionPageCreate extends TestBase {
 		TestUtil.type(name, "Name", "BAS 595 F (Triticonazole) AIR 3 / 01 Original Submission");
 		TestUtil.type(trade_name, "Trade Name", "Triticonazole");
 
-		actions.doubleClick(app_name_binocular).perform();
-		System.out.print("App name clicked \n");
-		TestUtil.type(searchBar, "Search Label", "BAS 750 01 F Core C" + Keys.ENTER);
-		TestUtil.click(addElement, "Add Button");
+		TestUtil.clickBinocular(app_name_binocular, "App Name Binocular", "BAS 750 01 F Core C", addElement);
+//		actions.doubleClick(app_name_binocular).perform();
+//		System.out.print("App name clicked \n");
+//		TestUtil.type(searchBar, "Search Label", "BAS 750 01 F Core C" + Keys.ENTER);
+//		TestUtil.click(addElement, "Add Button");
 		
-		TestUtil.click(applicant_binocular, "Applicant Binocular");
-		TestUtil.type(searchBar, "Search Label", "BASF SE" + Keys.ENTER);
-		TestUtil.click(addElement, "Add Button");
+		
+		TestUtil.clickBinocular(applicant_binocular, "Applicant Binocular", "BASF SE", addElement);
+//		TestUtil.click(applicant_binocular, "Applicant Binocular");
+//		TestUtil.type(searchBar, "Search Label", "BASF SE" + Keys.ENTER);
+//		TestUtil.click(addElement, "Add Button");
 	
 		TestUtil.type(regulation_label, "Regulation Label", "1107/2009" + Keys.ENTER);
 		TestUtil.type(requirement_label, "Requirement Label", "284/2013" + Keys.ENTER);
@@ -205,17 +208,14 @@ public class SubmissionPageCreate extends TestBase {
 		TestUtil.click(add_button_caddy, "Add Button");
 		TestUtil.type(name, "Name", "BAS 595 F (Triticonazole) AIR 3 / 01 Original Submission" + TestUtil.RandomName(5));
 
-		actions.doubleClick(current_dossier_binocular).perform();
-		System.out.print(current_dossier_binocular + " is clicked");
-		TestUtil.type(search_label3, "Search Label", "EU Dossier Triticonazole 2009" + Keys.ENTER);
-		TestUtil.click(binocular_value2, "Add Button");
-		TestUtil.click(previous_dossier, "Previous Dossier Binocular");
-		TestUtil.type(search_label3, "Search Label", "EU Dossier Triticonazole History VDN (original + confimatory data 2009" + Keys.ENTER);
-		TestUtil.click(binocular_value2, "Add Button");
+		TestUtil.clickBinocular2(current_dossier_binocular, "Current Dossies Binocular", "EU Dossier Triticonazole 2009", binocular_value2);
 
-		TestUtil.click(sub_country_caddy, "Submission Country Binocular");
-		TestUtil.type(search_label_caddy, "Search Label", "FR" + Keys.ENTER);
-		TestUtil.click(sub_country_FR, "Add Button");
+		
+		TestUtil.clickBinocular2(previous_dossier, "Previous Dossies Binocular", "EU Dossier Triticonazole History VDN (original + confimatory data 2009", binocular_value2);
+
+
+		TestUtil.clickBinocular(sub_country_caddy, "Submission Country Binocular", "FR", sub_country_FR);
+
 
 		TestUtil.type(submission_date_caddy, "Submission Date", "31012019");
 		TestUtil.type(caddy_name, "CADDY Name", "Triticonazole_Jan19");
@@ -227,20 +227,20 @@ public class SubmissionPageCreate extends TestBase {
 
 	}
 	
-	public void SubmissionMain() throws IOException, InterruptedException {
-		app_name_binocular.click();
-		search_label.sendKeys("BAS 222 28 F (Metiram 70 DF) " + Keys.ENTER);
-		binocular_value_1.click();
-		applicant_binocular.click();
-		search_label.sendKeys("BASF SE" + Keys.ENTER);
-		binocular_value_1.click();
-		regulation_label.click();
-		regulation_label_value.click();
-		requirement_label.click();
-		requirement_label_value.click();
-		planned_date.sendKeys("31012019");
-		submission_date.sendKeys("31012019");
-	}
+//	public void SubmissionMain() throws IOException, InterruptedException {
+//		app_name_binocular.click();
+//		search_label.sendKeys("BAS 222 28 F (Metiram 70 DF) " + Keys.ENTER);
+//		binocular_value_1.click();
+//		applicant_binocular.click();
+//		search_label.sendKeys("BASF SE" + Keys.ENTER);
+//		binocular_value_1.click();
+//		regulation_label.click();
+//		regulation_label_value.click();
+//		requirement_label.click();
+//		requirement_label_value.click();
+//		planned_date.sendKeys("31012019");
+//		submission_date.sendKeys("31012019");
+//	}
 	
 	public void VerifyEqualsMain() throws IOException, InterruptedException {
 		TestUtil.verifyEquals(verify_lifecycle_state, "Lifecycle State");
@@ -255,18 +255,12 @@ public class SubmissionPageCreate extends TestBase {
 		TestUtil.click(add_button_caddy, "Add Button");
 		TestUtil.type(name, "Name", "BAS 750 01 F Core S > BAS 750 01 S / FR" + TestUtil.RandomName(5));
 
-		actions.doubleClick(current_dossier_binocular).perform();
-		System.out.print(current_dossier_binocular + " is clicked");
-		TestUtil.type(search_label3, "Search Label", "BAS 750 F - Mefentrifluconazole" + Keys.ENTER);
-		TestUtil.click(binocular_value2, "Add Button");
+		TestUtil.clickBinocular2(current_dossier_binocular, "Current Dossier Binocular", "BAS 750 F - Mefentrifluconazole", binocular_value2);
 		
-		TestUtil.click(previous_dossier, "Previous Dossier Binocular");
-		TestUtil.type(search_label3, "Search Label", "BAS 750 01 F FR" + Keys.ENTER);
-		TestUtil.click(binocular_value2, "Add Button");
+		TestUtil.clickBinocular2(previous_dossier, "Previous Dossier Binocular", "BAS 750 01 F FR", binocular_value2);
 
-		TestUtil.click(sub_country_caddy, "Submission Country Binocular");
-		TestUtil.type(search_label_caddy, "Search Label", "FR" + Keys.ENTER);
-		TestUtil.click(sub_country_FR, "Add Button");
+		TestUtil.clickBinocular(sub_country_caddy, "Submission Country Binocular", "FR", sub_country_FR);
+
 
 		TestUtil.type(submission_date_caddy, "Submission Date", "31012019");
 		TestUtil.type(caddy_name, "CADDY Name", "Mefentrifluconazole");
@@ -283,19 +277,14 @@ public class SubmissionPageCreate extends TestBase {
 		TestUtil.click(add_button_caddy, "Add Button");
 		TestUtil.type(name, "Name", "2018-01 7969-326 Reg Rev Label" + TestUtil.RandomName(5));
 
-		actions.doubleClick(current_dossier_binocular).perform();
-		System.out.print(current_dossier_binocular + " is clicked");
-		TestUtil.type(search_label3, "Search Label", "BAS 351 H (Bentazon) JMPR" + Keys.ENTER);
-		TestUtil.click(binocular_value2, "Add Button");
+		TestUtil.clickBinocular2(current_dossier_binocular, "Current Dossier Binocular", "BAS 351 H (Bentazon) JMPR", binocular_value2);
+
+		TestUtil.clickBinocular2(previous_dossier, "Current Dossier Binocular", "BAS 351 H (Bentazon) JMPR", binocular_value2);
+
+
+		TestUtil.clickBinocular(sub_country_caddy, "Submission Country Binocular", "US", sub_country_US);
+
 		
-		TestUtil.click(previous_dossier, "Previous Dossier Binocular");
-		TestUtil.type(search_label3, "Search Label", "BAS 351 H (Bentazon) JMPR 2017" + Keys.ENTER);
-		TestUtil.click(binocular_value2, "Add Button");
-
-		TestUtil.click(sub_country_caddy, "Submission Country Binocular");
-		TestUtil.type(search_label_caddy, "Search Label", "US" + Keys.ENTER);
-		TestUtil.click(sub_country_US, "Add Button");
-
 		TestUtil.type(submission_date_caddy, "Submission Date", "31012019");
 		TestUtil.type(caddy_name, "CADDY Name", "Bentazon_Jan2019");
 		TestUtil.type(caddy_version,  "CADDY Version", "1.1");
@@ -312,18 +301,14 @@ public class SubmissionPageCreate extends TestBase {
 		TestUtil.click(add_button_caddy, "Add Button");
 		TestUtil.type(name, "Name", "BAS 222 28 F (Metiram 70 DF) - PH" + TestUtil.RandomName(5));
 
-		actions.doubleClick(current_dossier_binocular).perform();
-		System.out.print(current_dossier_binocular + " is clicked");
-		TestUtil.type(search_label3, "Search Label", "BAS 222 F (Metiram)" + Keys.ENTER);
-		TestUtil.click(binocular_value2, "Add Button");
-		
-		TestUtil.click(previous_dossier, "Previous Dossier Binocular");
-		TestUtil.type(search_label3, "Search Label", "BAS 222 F (Metiram) Replacement" + Keys.ENTER);
-		TestUtil.click(binocular_value2, "Add Button");
+		TestUtil.clickBinocular2(current_dossier_binocular, "Current Dossier Binocular", "BAS 222 F (Metiram)", binocular_value2);
 
-		TestUtil.click(sub_country_caddy, "Submission Country Binocular");
-		TestUtil.type(search_label_caddy, "Search Label", "CL" + Keys.ENTER);
-		TestUtil.click(sub_country_CL, "Add Button");
+		
+		TestUtil.clickBinocular2(previous_dossier, "Previous Dossier Binocular", "BAS 222 F (Metiram) Replacement", binocular_value2);
+
+
+		TestUtil.clickBinocular(sub_country_caddy, "Submission Country Binocular", "CL", sub_country_CL);
+
 
 		TestUtil.type(submission_date_caddy, "Submission Date", "31012019");
 		TestUtil.type(caddy_name, "CADDY Name", "Metiram_Jan2019");
@@ -342,14 +327,10 @@ public class SubmissionPageCreate extends TestBase {
 		TestUtil.type(name, "Name", "BAS 750 01 F Core S > BAS 750 01 S / FR");
 		TestUtil.type(trade_name, "Trade Name", "REVYSTAR");
 
-		actions.doubleClick(app_name_binocular).perform();
-		System.out.print("App name clicked \n");
-		TestUtil.type(searchBar, "Search Label", "BAS 455 H (Pendimethalin) AIR 3C" + Keys.ENTER);
-		TestUtil.click(addElement, "Add Button");
 		
-		TestUtil.click(applicant_binocular, "Applicant Binocular");
-		TestUtil.type(searchBar, "Search Label", "BASF SE" + Keys.ENTER);
-		TestUtil.click(addElement, "Add Button");
+		TestUtil.clickBinocular(app_name_binocular, "App name clicked", "BAS 455 H (Pendimethalin) AIR 3C", addElement);
+
+		TestUtil.clickBinocular(applicant_binocular, "Applicant Binocular", "BASF SE", addElement);
 	
 		TestUtil.type(regulation_label, "Regulation Label", "1107/2009" + Keys.ENTER);
 		TestUtil.type(requirement_label, "Requirement Label", "284/2013" + Keys.ENTER);
@@ -364,14 +345,10 @@ public class SubmissionPageCreate extends TestBase {
 		TestUtil.type(name, "Name", "2018-01 7969-326 Reg Rev Label");
 		TestUtil.type(trade_name, "Trade Name", "Bentazon");
 
-		actions.doubleClick(app_name_binocular).perform();
-		System.out.print("App name clicked \n");
-		TestUtil.type(searchBar, "Search Label", "BAS 351 H - Bentazon" + Keys.ENTER);
-		TestUtil.click(addElement, "Add Button");
 		
-		TestUtil.click(applicant_binocular, "Applicant Binocular");
-		TestUtil.type(searchBar, "Search Label", "BASF SE" + Keys.ENTER);
-		TestUtil.click(addElement, "Add Button");
+		TestUtil.clickBinocular(app_name_binocular, "App name clicked", "BAS 351 H - Bentazon", addElement);
+
+		TestUtil.clickBinocular(applicant_binocular, "Applicant Binocular", "BASF SE", addElement);
 	
 		TestUtil.type(regulation_label, "Regulation Label", "1107/2009" + Keys.ENTER);
 		TestUtil.type(planned_date, "Planned Date", "31012019");
@@ -389,14 +366,11 @@ public class SubmissionPageCreate extends TestBase {
 		TestUtil.type(name, "Name", "BAS 222 28 F (Metiram 70 DF) - PH");
 		TestUtil.type(trade_name, "Trade Name", "Metiram");
 
-		actions.doubleClick(app_name_binocular).perform();
-		System.out.print("App name clicked \n");
-		TestUtil.type(searchBar, "Search Label", "BAS 222 28 F (Metiram 70 DF)" + Keys.ENTER);
-		TestUtil.click(addElement, "Add Button");
 		
-		TestUtil.click(applicant_binocular, "Applicant Binocular");
-		TestUtil.type(searchBar, "Search Label", "BASF SE" + Keys.ENTER);
-		TestUtil.click(addElement, "Add Button");
+		TestUtil.clickBinocular(app_name_binocular, "App name clicked", "BAS 222 28 F (Metiram 70 DF)", addElement);
+
+		TestUtil.clickBinocular(applicant_binocular, "Applicant Binocular", "BASF SE", addElement);
+
 	
 		TestUtil.type(regulation_label, "Regulation Label", "1107/2009" + Keys.ENTER);
 		TestUtil.type(requirement_label, "Requiment Label", "284/2013" + Keys.ENTER);
