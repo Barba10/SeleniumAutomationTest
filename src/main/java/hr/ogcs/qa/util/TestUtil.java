@@ -49,7 +49,19 @@ public class TestUtil extends TestBase {
 	public void switchToFrame() {
 		driver.switchTo().frame("mainpanel");
 	}
-
+	
+	
+	public static void deleteZippedReportDirectory(){
+		 try {
+	         File f = new File(root + "/zipped_report/");
+	         FileUtils.cleanDirectory(f); //clean out directory (this is optional -- but good know)
+	         FileUtils.forceDelete(f); //delete directory
+	         FileUtils.forceMkdir(f); //create directory
+	     } catch (IOException e) {
+	         e.printStackTrace();
+	     } 
+	}
+	
 	public static void pack(String sourceDirPath, String zipFilePath) throws IOException {
 	    Path p = Files.createFile(Paths.get(zipFilePath));
 	    try (ZipOutputStream zs = new ZipOutputStream(Files.newOutputStream(p))) {

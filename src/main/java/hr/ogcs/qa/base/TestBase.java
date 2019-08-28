@@ -70,7 +70,8 @@ public class TestBase {
 	    else {
 	    	root = "/builds/qa/pageobjectmodel/";
 	    }
-	   
+	    
+	    TestUtil.deleteDirectory();
 		reporter = new ExtentHtmlReporter( root + "/extents/extent.html");
 		extent = new ExtentReports();
 		extent.attachReporter(reporter);
