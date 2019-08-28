@@ -23,10 +23,10 @@ test:
     - run_test
   artifacts:
     when: always
-    paths:
-      - zipped_report/*
-    reports:
-      junit: zipped_report/*.zip
+    #paths:
+    # - zipped_report/*
+    #reports:
+    #  junit: zipped_report/*.zip
 
       
 #--------------------------------------------------------------------------
