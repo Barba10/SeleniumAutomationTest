@@ -5,6 +5,7 @@ import java.net.MalformedURLException;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import hr.ogcs.qa.base.TestBase;
@@ -12,7 +13,7 @@ import hr.ogcs.qa.pages.CreateBinderPage;
 import hr.ogcs.qa.pages.HomePage;
 import hr.ogcs.qa.pages.LoginPage;
 
-
+@Listeners(hr.ogcs.qa.util.TestListener.class)
 public class EAG_TSF_D003 extends TestBase {
 	
 	LoginPage loginPage;
@@ -44,6 +45,7 @@ public class EAG_TSF_D003 extends TestBase {
 		homePage.GoToBinder();
 		childTest = parentTest.createNode("Plant Protection Product Fungicide - Filling Editable Fields");
 		createBinderPage.createFirstBinder();
+		createBinderPage.saveBinder();
 		childTest = parentTest.createNode("Plant Protection Product Fungicide - Verifying Text Present");
 		createBinderPage.verifyFirstBinder();
 		
@@ -51,6 +53,7 @@ public class EAG_TSF_D003 extends TestBase {
 		homePage.GoToBinder();
 		childTest = parentTest.createNode("Plant Protection Product MAPA - Filling Editable Fields");
 		createBinderPage.createSecondBinder();
+		createBinderPage.saveBinder();
 		childTest = parentTest.createNode("Plant Protection Product MAPA - Verifying Text Present");
 		createBinderPage.verifySecondBinder();
 		
@@ -58,6 +61,7 @@ public class EAG_TSF_D003 extends TestBase {
 		homePage.GoToBinder();
 		childTest = parentTest.createNode("Active Ingredient ANVISA - Filling Editable Fields");
 		createBinderPage.createThirdBinder();
+		createBinderPage.saveBinder();
 		childTest = parentTest.createNode("Active Ingredient ANVISA - Verifying Text Present");
 		createBinderPage.verifyThridBinder();
 		
@@ -65,36 +69,44 @@ public class EAG_TSF_D003 extends TestBase {
 		homePage.GoToBinder();
 		childTest = parentTest.createNode("Active Ingredient Active EU - Filling Editable Fields");
 		createBinderPage.createFourthBinder();
+		createBinderPage.saveBinder();
 		childTest = parentTest.createNode("Active Ingredient Active EU - Verifying Text Present");
+		Thread.sleep(5000);
 		createBinderPage.verifyFourthBinder();
 		
 		childTest = parentTest.createNode("Active Ingredient EPA - Binder Creation");
 		homePage.GoToBinder();
 		childTest = parentTest.createNode("Active Ingredient EPA - Filling Editable Fields");
 		createBinderPage.createFifthBinder();
+		createBinderPage.saveBinder();
 		childTest = parentTest.createNode("Active Ingredient EPA - Verifying Text Present");
 		createBinderPage.verifyFifthBinder();
 		
 		childTest = parentTest.createNode("Plant Protection Product Fungicide - Binder Creation");
 		homePage.GoToBinder();
 		childTest = parentTest.createNode("Plant Protection Product Fungicide - Checking Cancel Function");
-		createBinderPage.createFirstBinderAndCancel();
+		createBinderPage.createFirstBinder();
+		createBinderPage.cancelAndContinueBinder();
 		
 		homePage.GoToBinder();
 		childTest = parentTest.createNode("Plant Protection Product MAPA - Checking Cancel Function");
-		createBinderPage.createSecondBinderAndCancel();
+		createBinderPage.createSecondBinder();
+		createBinderPage.cancelAndContinueBinder();
 		
 		homePage.GoToBinder();
 		childTest = parentTest.createNode("Active Ingredient ANVISA - Checking Cancel Function");
-		createBinderPage.createThirdBinderAndCancel();
+		createBinderPage.createThirdBinder();
+		createBinderPage.cancelAndContinueBinder();
 		
 		homePage.GoToBinder();
 		childTest = parentTest.createNode("Active Ingredient Active EU - Checking Cancel Function");
-		createBinderPage.createFourthBinderAndCancel();
+		createBinderPage.createFourthBinder();
+		createBinderPage.cancelAndContinueBinder();
 		
 		homePage.GoToBinder();
 		childTest = parentTest.createNode("Active Ingredient EPA - Checking Cancel Function");
-		createBinderPage.createFifthBinderAndCancel();
+		createBinderPage.createFifthBinder();
+		createBinderPage.cancelAndContinueBinder();
 //		
 		
 		

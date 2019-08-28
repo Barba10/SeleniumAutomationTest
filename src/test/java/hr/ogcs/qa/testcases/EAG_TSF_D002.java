@@ -5,6 +5,7 @@ import java.net.MalformedURLException;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import hr.ogcs.qa.base.TestBase;
@@ -15,6 +16,7 @@ import hr.ogcs.qa.pages.SubmissionPageCreate;
 import hr.ogcs.qa.pages.SubmissionPageSave;
 import hr.ogcs.qa.util.TestUtil;
 
+@Listeners(hr.ogcs.qa.util.TestListener.class)
 public class EAG_TSF_D002 extends TestBase {
 
 	LoginPage loginPage;
@@ -54,6 +56,7 @@ public class EAG_TSF_D002 extends TestBase {
 		submissionPageSave.SaveBtn();
 		childTest = parentTest.createNode("Submission Active Ingredient - Define Submission Countries and Dossier");
 		submissionPage.SubmissionCountriesAI();
+		jse.executeScript("window.scrollBy(0,300)", "");
 		submissionPageCreate.PublishingAI();
 		submissionPageSave.SaveBtn();
 		childTest = parentTest.createNode("Submission Active Ingredient - Verifying Text Present");
@@ -62,6 +65,7 @@ public class EAG_TSF_D002 extends TestBase {
 		submissionPageCreate.VerifyEquals();
 		TestUtil.takeScreenshotAtEndOfTest();
 
+		
 		childTest = parentTest.createNode("Submission EU - Submission Creation");
 		homePage.GoToArchive();
 		submissionPage.CreateButtonEU();

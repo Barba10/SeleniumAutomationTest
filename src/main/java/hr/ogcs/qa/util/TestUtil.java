@@ -314,7 +314,28 @@ public class TestUtil extends TestBase {
 		do {
 			  click(element, elementName);
 			  try{
+				  
 				  form_search_label = driver.findElement(By.cssSelector("input.veevaSearch_searchInput.vv_searchbar_input"));
+				  visible = true;
+		      }
+		      catch(NoSuchElementException e){
+		    	  System.out.print("EXECPTION");
+				  visible = false;
+		       }
+		}
+		while (!visible);
+		type(form_search_label, "Search Label", toSearch + Keys.ENTER);
+		click(addButton, "Add Button");
+	}
+	
+	public static void clickBinocular2(WebElement element, String elementName, String toSearch, WebElement addButton){
+		Boolean visible = false;
+		WebElement form_search_label = null;
+		do {
+			  click(element, elementName);
+			  try{
+				  
+				  form_search_label = driver.findElement(By.xpath("//input[@class='searchInput vv_rd_search_input']"));
 				  visible = true;
 		      }
 		      catch(NoSuchElementException e){
