@@ -154,10 +154,10 @@
                      <fileSets>
                         <fileSet>
                            <!-- Report directory Path -->
-                           <directory>${project.basedir}/extents</directory>
+                           <directory>${project.basedir}/zipped_report</directory>
                            <includes>
                               <!-- Report file name -->
-                              <include>**/*.html</include>
+                              <include>**/*.zip</include>
                            </includes>
                            <!-- Use Regular Expressions like **/*.html if you want all the html files to send-->
                         </fileSet>
