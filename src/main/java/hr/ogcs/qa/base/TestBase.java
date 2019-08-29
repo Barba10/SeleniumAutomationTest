@@ -68,7 +68,7 @@ public class TestBase {
 	    	root = System.getProperty("user.dir");
 	    }
 	    else {
-	    	root = "/builds/qa/pageobjectmodel/";
+	    	root = "/builds/qa/eaglesAutomationPOM";
 	    }
 	    
 	    TestUtil.deleteZippedReportDirectory();
