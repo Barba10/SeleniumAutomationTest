@@ -44,7 +44,7 @@ public class TestBase {
 	public static ExtentTest parentTest;
 	public static ExtentTest childTest;
 	public static ExtentTest grandChildTest;
-	private static Boolean remoteWeb = true;
+	private static Boolean remoteWeb = false;
 	public static String root;
 	
 	

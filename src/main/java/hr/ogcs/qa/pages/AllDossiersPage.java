@@ -13,7 +13,7 @@ public class AllDossiersPage extends TestBase {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(xpath = "//div[@id='doc_6304']//span[contains(@class,'docName vv_doc_title_name vv_keep_whitespace')][contains(text(),'BAS 750 01 F FR (v0.1)')]")
+	@FindBy(xpath = "//div[@id='doc_6508']//span[@class='docName vv_doc_title_name vv_keep_whitespace'][contains(text(),'BAS 750 01 F FR (v0.1)')]")
 	WebElement binder;
 	
 	public void goToBinder() {

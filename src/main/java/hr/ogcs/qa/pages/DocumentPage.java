@@ -251,7 +251,7 @@ public class DocumentPage extends TestBase{
 		Thread.sleep(2000);
 		//wait.until(ExpectedConditions.elementToBeClickable(waitForArchiveInformationTabVerifycation));
 		jse.executeScript("window.scrollBy(0,250)", "");
-		TestUtil.click(archiveInformationTab, "Archive Information Tab");
+//		TestUtil.click(archiveInformationTab, "Archive Information Tab");
 		TestUtil.verifyEquals(verifyArchivedDate, d.format(now)); 
 		TestUtil.verifyEquals(verifyElectorinallyArchivedYes, "Yes");
 		TestUtil.verifyEquals(verifyInternalStorage, "Li445");
